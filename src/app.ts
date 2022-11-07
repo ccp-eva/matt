@@ -40,6 +40,7 @@ document.getElementById('si-next')!.addEventListener('click', () => {
 const mcChild = document.getElementById('mc-child')! as SvgInHtml;
 
 gsap.set(mcChild, { transformOrigin: '50% 50%' });
+gsap.set(mcChild, { scale: 2 });
 
 Draggable.create(mcChild);
 
