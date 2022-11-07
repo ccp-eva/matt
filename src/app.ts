@@ -1,3 +1,6 @@
+import { gsap } from 'gsap';
+import { Draggable } from 'gsap/Draggable';
+gsap.registerPlugin(Draggable);
 import './css/app.css';
 import './css/style.css';
 import expSvg from './assets/experiment.svg';
@@ -27,11 +30,18 @@ document.querySelectorAll('svg #svg [id]').forEach((e) => {
 });
 
 hideAllSlides('svg');
-swapSlides(['slide-introduction'], []);
+swapSlides(['slide-moral-circle'], []);
 
-document.getElementById('si-next')!.addEventListener('click', () => {
-	swapSlides(['slide-moral-circle'], ['slide-introduction']);
-});
+// document.getElementById('si-next')!.addEventListener('click', () => {
+// 	swapSlides(['slide-moral-circle'], ['slide-introduction']);
+// });
+
+// get child
+const mcChild = document.getElementById('mc-child')! as SvgInHtml;
+
+gsap.set(mcChild, { transformOrigin: '50% 50%' });
+
+Draggable.create(mcChild);
 
 // for development only:
 const global = globalThis as any;
