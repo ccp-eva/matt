@@ -1,4 +1,3 @@
 # matt
-Moral Attitudes Study
 
-# WIP
+> Moral Attitudes Study
