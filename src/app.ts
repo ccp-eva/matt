@@ -26,6 +26,13 @@ document.querySelectorAll('svg #svg [id]').forEach((e) => {
 	svgChilds[e.id] = e;
 });
 
+hideAllSlides('svg');
+swapSlides(['slide-introduction'], []);
+
+document.getElementById('si-next')!.addEventListener('click', () => {
+	swapSlides(['slide-moral-circle'], ['slide-introduction']);
+});
+
 // for development only:
 const global = globalThis as any;
 global.showSingleSlide = showSingleSlide;
