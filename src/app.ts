@@ -30,11 +30,11 @@ document.querySelectorAll('svg #svg [id]').forEach((e) => {
 });
 
 hideAllSlides('svg');
-swapSlides(['slide-moral-circle'], []);
+swapSlides(['slide-introduction'], []);
 
-// document.getElementById('si-next')!.addEventListener('click', () => {
-// 	swapSlides(['slide-moral-circle'], ['slide-introduction']);
-// });
+document.getElementById('si-next')!.addEventListener('click', () => {
+	swapSlides(['slide-moral-circle'], ['slide-introduction']);
+});
 
 // get child
 const mcChild = document.getElementById('mc-child')! as SvgInHtml;
