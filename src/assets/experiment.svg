@@ -5379,8 +5379,8 @@
 		</g>
 		<circle id="si-next_00000048486470570407132640000014145956792177396390_" fill="#990000" cx="1074.27" cy="988.98" r="40.08"/>
 	</g>
-	<g id="s-introduction" display="none">
-		<g display="inline">
+	<g id="s-introduction">
+		<g>
 			<path fill="#006C66" d="M280.59,89.7l-3.23,13.85c-0.1,0.66-0.65,1.16-1.32,1.2h-0.45c-0.67-0.04-1.22-0.54-1.31-1.2l-3.23-13.85
 				c0-0.05,0-0.12,0-0.16c0.02-0.33,0.27-0.6,0.59-0.66l0.31-0.1c0.36-0.11,0.74,0.09,0.85,0.45c0.01,0.02,0.01,0.05,0.02,0.07
 				l2.4,10.7c0.24,1.06,0.59,3.15,0.59,3.15h0.07c0,0,0.36-2.09,0.59-3.15l2.4-10.7c0.08-0.37,0.44-0.61,0.81-0.54
@@ -5710,10 +5710,10 @@
 				 M69.19,127.9c-0.06-0.07-0.17-0.08-0.24-0.02c-0.02,0.02-0.04,0.05-0.05,0.08l-1.18,4.86c-0.02,0.05-0.02,0.1,0,0.15l0.37,0.42
 				c0.06,0.07,0.16,0.08,0.23,0.02c0.03-0.02,0.05-0.06,0.05-0.09l1.16-4.8c0.02-0.04,0.02-0.1,0-0.14L69.19,127.9z"/>
 		</g>
-		<text transform="matrix(1 0 0 1 572.9352 526.1346)" display="inline"><tspan x="0" y="0" font-family="'ChollaSansOT-Bold'" font-size="72px">Willkommen und schön, dass  </tspan><tspan x="208.51" y="86.4" font-family="'ChollaSansOT-Bold'" font-size="72px">Du dabei bist!</tspan></text>
-		<circle id="si-next" display="inline" fill="#990000" cx="960" cy="820" r="40.08"/>
+		<text transform="matrix(1 0 0 1 572.9352 526.1346)"><tspan x="0" y="0" font-family="'ChollaSansOT-Bold'" font-size="72px">Willkommen und schön, dass  </tspan><tspan x="208.51" y="86.4" font-family="'ChollaSansOT-Bold'" font-size="72px">Du dabei bist!</tspan></text>
+		<circle id="si-next" fill="#990000" cx="960" cy="820" r="40.08"/>
 	</g>
 </g>
-<g id="guides">
+<g id="guides" display="none">
 </g>
 </svg>
