@@ -30,19 +30,19 @@ document.querySelectorAll('svg #svg [id]').forEach((e) => {
 });
 
 hideAllSlides('svg');
-swapSlides(['slide-introduction'], []);
+swapSlides(['s-introduction'], []);
 
 document.getElementById('si-next')!.addEventListener('click', () => {
-	swapSlides(['slide-moral-circle'], ['slide-introduction']);
+	swapSlides(['s-moral-circle'], ['s-introduction']);
 });
 
 // get child
-const mcChild = document.getElementById('mc-child')! as SvgInHtml;
+const smcChild = document.getElementById('smc-child')! as SvgInHtml;
 
-gsap.set(mcChild, { transformOrigin: '50% 50%' });
-gsap.set(mcChild, { scale: 2 });
+gsap.set(smcChild, { transformOrigin: '50% 50%' });
+// gsap.set(smcChild, { scale: 2 });
 
-Draggable.create(mcChild);
+Draggable.create(smcChild);
 
 // for development only:
 const global = globalThis as any;
