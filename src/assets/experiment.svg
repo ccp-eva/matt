@@ -426,7 +426,7 @@
 				c0.06,0.07,0.16,0.08,0.23,0.02c0.03-0.02,0.05-0.06,0.05-0.09l1.16-4.8c0.02-0.04,0.02-0.1,0-0.14L69.19,127.9z"/>
 		</g>
 		<text transform="matrix(1 0 0 1 565.0505 539.9999)"><tspan x="0" y="0" font-family="'ChollaSansOT-Bold'" font-size="72px">Willkommen und schön, dass  </tspan><tspan x="208.51" y="86.4" font-family="'ChollaSansOT-Bold'" font-size="72px">Du dabei bist!</tspan></text>
-		<circle fill="#FF0000" cx="960" cy="820" r="40.08"/>
+		<circle id="si-next" fill="#FF0000" cx="960" cy="820" r="40.08"/>
 	</g>
 </g>
 <g id="guides" display="none">
