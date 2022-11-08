@@ -1,7 +1,7 @@
 {
-	"name": "multipurpose-webpack-config-typescript",
+	"name": "matt",
 	"version": "0.0.1",
-	"description": "Multipurpose webpack config for TypeScript projects",
+	"description": "Moral Attitudes Study",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -10,18 +10,23 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@github.com/kalaschnik/multipurpose-webpack-config-typescript.git"
+		"url": "git@github.com:ccp-eva/matt.git"
 	},
 	"keywords": [
-		"webpack",
-		"typescript"
+		"online experiment",
+		"typescript",
+		"gsap",
+		"animation"
 	],
-	"author": "Steven Kalinke",
+	"author": "Steven Kalinke <steven@kalinke.io> (https://github.com/kalaschnik)",
+	"contributors": [
+		"Noemi Thiede <noemi_thiede@eva.mpg.de> (https://www.eva.mpg.de/de/comparative-cultural-psychology/staff/noemi-thiede/)"
+	],
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/kalaschnik/multipurpose-webpack-config-typescript/issues"
+		"url": "https://github.com/ccp-eva/matt/issues"
 	},
-	"homepage": "https://github.com/kalaschnik/multipurpose-webpack-config-typescript#readme",
+	"homepage": "https://github.com/ccp-eva/matt",
 	"devDependencies": {
 		"@types/lodash": "^4.14.186",
 		"autoprefixer": "^10.4.12",
