@@ -6,10 +6,11 @@ import './css/style.css';
 import config from './config.yaml';
 import expSvg from './assets/experiment.svg';
 import {
+	getChildrenFromParent,
+	hideFirstChildSlides,
+	hideAllChildSlides,
 	showSingleSlide,
 	swapSlides,
-	getChildrenFromParent,
-	hideAllSlides,
 } from './util/slideVisibility';
 
 // type definitions
@@ -30,7 +31,7 @@ document.querySelectorAll('svg #svg [id]').forEach((e) => {
 	svgChilds[e.id] = e;
 });
 
-hideAllSlides('svg');
+hideFirstChildSlides('svg');
 swapSlides(['s-introduction'], []);
 
 document.getElementById('si-next')!.addEventListener('click', () => {
@@ -46,11 +47,12 @@ gsap.set(smcChild, { transformOrigin: '50% 50%' });
 Draggable.create(smcChild);
 
 if (config.devMode.enabled && config.devMode.exposeGlobalVariables) {
-const global = globalThis as any;
-global.showSingleSlide = showSingleSlide;
-global.swapSlides = swapSlides;
-global.hideAllSlides = hideAllSlides;
-global.getChildrenFromParent = getChildrenFromParent;
-global.svgChilds = svgChilds;
+	const global = globalThis as any;
+	global.getChildrenFromParent = getChildrenFromParent;
+	global.hideFirstChildSlides = hideFirstChildSlides;
+	global.hideAllChildSlides = hideAllChildSlides;
+	global.showSingleSlide = showSingleSlide;
+	global.swapSlides = swapSlides;
+	global.svgChilds = svgChilds;
 	global.config = config;
 }
