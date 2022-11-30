@@ -23,17 +23,25 @@ export default {
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.css$/i,
-				use: ['style-loader', 'css-loader', 'postcss-loader'],
+				test: /\.css$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: 'style-loader',
+					},
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+						},
+					},
+					{
+						loader: 'postcss-loader',
+					},
+				],
 			},
-			{
-				test: /\.(png|gif|jpg|jpeg)$/i,
-				type: 'asset/resource',
-			},
-			{
-				test: /\.svg$/i,
-				type: 'asset/source',
-			},
+			{ test: /\.(png|gif|jpg|jpeg)$/i, type: 'asset/resource' },
+			{ test: /\.svg$/i, type: 'asset/source' },
 			{ test: /\.ya?ml$/, use: 'yaml-loader' },
 			{
 				test: /\.md$/,
@@ -59,6 +67,7 @@ export default {
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'dist'),
+		clean: true, // todo: https://github.com/webpack/webpack-dev-middleware/issues/861 clean the dist folder before building
 	},
 	plugins: [
 		new CopyPlugin({
