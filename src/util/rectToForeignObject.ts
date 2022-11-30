@@ -1,5 +1,13 @@
+/**
+ * Iterates over DOM for elements that start with an id of "test-".
+ * Those elements get replace replaced with a foreignObject element while
+ * keeping their original properties.
+ *
+ * @param parentId - The parent element id as string (defaults to 'svg')
+ * @returns All direct children of the parent element
+ */
 export const rectToForeignObject = () => {
-	// get all rect nodes that start with id "text-""
+	// get all rect nodes that start with id "text-"
 	const foreignObjects = Array.from(document.querySelectorAll('[id^="text-"]'));
 	foreignObjects.forEach((e) => {
 		const obj = document.createElementNS(
@@ -10,7 +18,7 @@ export const rectToForeignObject = () => {
 		[...e.attributes].map(({ name, value }) => obj.setAttribute(name, value));
 		e.replaceWith(obj);
 
-		// add default child p element
+		// add default child div element
 		obj.appendChild(document.createElement('div'));
 	});
 };
