@@ -65,7 +65,7 @@ export default {
 			patterns: [{ from: 'public/', to: './' }],
 		}),
 		new HtmlWebpackPlugin({
-			title: 'Webpack 5 Boilerplate TypeScript',
+			title: 'Moral Attitudes Study',
 			filename: 'index.html', // default: index.html
 			template: './src/index.html',
 		}),
