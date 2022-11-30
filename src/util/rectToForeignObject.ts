@@ -11,6 +11,6 @@ export const rectToForeignObject = () => {
 		e.replaceWith(obj);
 
 		// add default child p element
-		obj.appendChild(document.createElement('p'));
+		obj.appendChild(document.createElement('div'));
 	});
 };
