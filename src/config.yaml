@@ -9,3 +9,4 @@ svgBg: 'white'
 globals:
   initialSlideColor: '#3F3F3F' # css color for initial slide
   finalSlideColor: 'black' # css color for ending slide
+  defaultPopulation: de-de
