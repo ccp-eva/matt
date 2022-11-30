@@ -1,3 +1,8 @@
+declare module '*.yaml' {
+	const data: any;
+	export default data;
+}
+
 // if you plan to use md/svg files for js-only projects you dont need this file
 
 // allow md files to be imported as modules

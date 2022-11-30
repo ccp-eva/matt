@@ -34,6 +34,7 @@ export default {
 				test: /\.svg$/i,
 				type: 'asset/source',
 			},
+			{ test: /\.ya?ml$/, use: 'yaml-loader' },
 			{
 				test: /\.md$/,
 				use: [

@@ -3,6 +3,7 @@ import { Draggable } from 'gsap/Draggable';
 gsap.registerPlugin(Draggable);
 import './css/app.css';
 import './css/style.css';
+import config from './config.yaml';
 import expSvg from './assets/experiment.svg';
 import {
 	showSingleSlide,
@@ -44,10 +45,12 @@ gsap.set(smcChild, { transformOrigin: '50% 50%' });
 
 Draggable.create(smcChild);
 
-// for development only:
+if (config.devMode.enabled && config.devMode.exposeGlobalVariables) {
 const global = globalThis as any;
 global.showSingleSlide = showSingleSlide;
 global.swapSlides = swapSlides;
 global.hideAllSlides = hideAllSlides;
 global.getChildrenFromParent = getChildrenFromParent;
 global.svgChilds = svgChilds;
+	global.config = config;
+}
