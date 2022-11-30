@@ -21,7 +21,7 @@ export const init = () => {
 	const svgChilds: {
 		[key: string]: SVGImageElement | SVGGElement | Element;
 	} = {};
-	document.querySelectorAll('svg #svg [id]').forEach((e) => {
+	document.querySelectorAll('svg [id]').forEach((e) => {
 		svgChilds[e.id] = e;
 	});
 
