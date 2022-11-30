@@ -1,6 +1,7 @@
 import { SvgInHtml } from '../types';
 import svgPath from '../assets/experiment.svg';
 import config from '../config.yaml';
+import { rectToForeignObject } from './rectToForeignObject';
 import {
 	showSingleSlide,
 	swapSlides,
@@ -23,6 +24,9 @@ export const init = () => {
 	document.querySelectorAll('svg #svg [id]').forEach((e) => {
 		svgChilds[e.id] = e;
 	});
+
+	// transform all rect nodes to foreignObject nodes
+	rectToForeignObject();
 
 	// apply initial SVG settings and style
 	svg.style.backgroundColor = config.svgBg;

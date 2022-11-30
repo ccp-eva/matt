@@ -15,3 +15,20 @@ svg {
 	width: min(100vw, (100vh * var(--aspectRatio)));
 	height: min(100vh, (100vw / var(--aspectRatio)));
 }
+
+.heading {
+	font-size: 4rem;
+	font-family: cholla-sans, sans-serif;
+	font-weight: 700;
+	letter-spacing: calc(20rem / 1000);
+	color: hsl(177deg 100% 21%);
+	text-align: center;
+}
+
+.heading-em {
+	font-family: cholla-sans, sans-serif;
+	font-weight: 700;
+	font-style: italic;
+	letter-spacing: calc(20rem / 1000);
+	color: hsl(177deg 100% 21%);
+}

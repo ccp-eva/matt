@@ -6,6 +6,7 @@ import './css/style.css';
 import { SvgInHtml } from './types';
 import { init } from './util/init';
 import { hideFirstChildSlides, swapSlides } from './util/slideVisibility';
+import { translation } from './populations/de-de/translation';
 
 // import SVG & apply initial settings
 init();
@@ -24,3 +25,7 @@ gsap.set(smcChild, { transformOrigin: '50% 50%' });
 // gsap.set(smcChild, { scale: 2 });
 
 Draggable.create(smcChild);
+
+const replace = document.getElementById('text-welcome')!
+	.children[0] as HTMLElement;
+replace.innerHTML = translation.welcome;
