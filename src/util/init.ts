@@ -8,6 +8,7 @@ import {
 	hideFirstChildSlides,
 	hideAllChildSlides,
 	getChildrenFromParent,
+	removeDisplayNone,
 } from './slideVisibility';
 
 export const init = () => {
@@ -25,6 +26,14 @@ export const init = () => {
 		svgChilds[e.id] = e;
 	});
 
+	// check if display="none" elements exist in DOM)
+	if (document.querySelectorAll('[display="none"]').length > 0) {
+		console.error(
+			'Found elements with \'display="none"\' attribute. Make sure all objects are visible when exporting the SVG.',
+			'Use removeDisplayNone(); to bypass this temporarily.'
+		);
+	}
+
 	// transform all rect nodes to foreignObject nodes
 	rectToForeignObject();
 
@@ -39,6 +48,7 @@ export const init = () => {
 		global.hideFirstChildSlides = hideFirstChildSlides;
 		global.hideAllChildSlides = hideAllChildSlides;
 		global.getChildrenFromParent = getChildrenFromParent;
+		global.removeDisplayNone = removeDisplayNone;
 		global.svgChilds = svgChilds;
 		global.config = config;
 	}

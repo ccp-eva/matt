@@ -1,6 +1,15 @@
 import { SvgInHtml } from '../types';
 
 /**
+ * Removes display="none" from all DOM elements
+ */
+export const removeDisplayNone = () => {
+	document.querySelectorAll('[display="none"]').forEach((e) => {
+		e.removeAttribute('display');
+	});
+};
+
+/**
  * Receives a parent id as string and returns all child ids as string[]
  *
  * @param parentId - The parent element id as string (defaults to 'svg')
