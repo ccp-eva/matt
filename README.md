@@ -27,3 +27,5 @@ export const translation = {
 	objectChoiceMultiple: '<p>Select multiple objects!</p>',
 };
 ```
+
+3. The text will automatically appear at the defined location of your rectangle.
