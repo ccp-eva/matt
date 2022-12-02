@@ -44,9 +44,7 @@ export const init = () => {
 	const textKeys = widowedKeyChecker();
 
 	// iterate over all text keys and add text into foreign objects
-	console.log(textKeys);
 	textKeys.forEach((e) => {
-		console.log(e);
 		const foNode = document.getElementById(`text-${e}`)!;
 		foNode.innerHTML = translation[e as keyof typeof translation];
 	});
