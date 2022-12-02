@@ -2,6 +2,7 @@ import { SvgInHtml } from '../types';
 import svgPath from '../assets/experiment.svg';
 import config from '../config.yaml';
 import { rectToForeignObject } from './rectToForeignObject';
+import { widowedKeyChecker } from './widowedKeyChecker';
 import {
 	showSingleSlide,
 	swapSlides,
@@ -10,6 +11,7 @@ import {
 	getChildrenFromParent,
 	removeDisplayNone,
 } from './slideVisibility';
+import { translation } from '../populations/de-de/translation';
 
 export const init = () => {
 	const wrapper = document.getElementById('wrapper')! as HTMLDivElement;
@@ -32,10 +34,25 @@ export const init = () => {
 			'Found elements with \'display="none"\' attribute. Make sure all objects are visible when exporting the SVG.',
 			'Use removeDisplayNone(); to bypass this temporarily.'
 		);
+		removeDisplayNone();
 	}
 
 	// transform all rect nodes to foreignObject nodes
 	rectToForeignObject();
+
+	// check if all translation keys have a matching foreignObject and vice versa
+	const textKeys = widowedKeyChecker();
+
+	// iterate over all text keys and add text into foreign objects
+	console.log(textKeys);
+	textKeys.forEach((e) => {
+		console.log(e);
+		const foNode = document.getElementById(`text-${e}`)!;
+		foNode.innerHTML = translation[e as keyof typeof translation];
+	});
+
+	// hide all group slides
+	hideFirstChildSlides();
 
 	// apply initial SVG settings and style
 	svg.style.backgroundColor = config.svgBg;
