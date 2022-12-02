@@ -1,8 +1,14 @@
+<img align="right" width="170" src="src/assets/matt-logo.svg">
+
 # matt
 
 > Moral Attitudes Study
 
+---
+
 ## Development
+
+todo
 
 ### URL Parameters
 
