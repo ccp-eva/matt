@@ -1,4 +1,4 @@
-<img align="right" width="170" src="src/assets/matt-logo.svg">
+<img align="right" width="300" src="src/assets/matt-logo.svg">
 
 # matt
 
