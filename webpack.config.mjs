@@ -41,7 +41,15 @@ export default {
 				],
 			},
 			{ test: /\.(png|gif|jpg|jpeg)$/i, type: 'asset/resource' },
-			{ test: /\.svg$/i, type: 'asset/source' },
+			{
+				test: /\.svg$/i,
+				type: 'asset/source',
+				use: [
+					{
+						loader: 'svgo-loader',
+					},
+				],
+			},
 			{ test: /\.ya?ml$/, use: 'yaml-loader' },
 			{
 				test: /\.md$/,
