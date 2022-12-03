@@ -86,7 +86,7 @@ export default {
 			directory: path.join(__dirname, './'), // that should point where you index.html is
 		},
 		// port: 3000,
-		open: true, // open browser window automatically
+		open: { app: { name: 'firefox' } },
 		hot: true, // enable hot reload
 		compress: true, // enable gzip compression
 		historyApiFallback: true, // enable HTML5 history API
