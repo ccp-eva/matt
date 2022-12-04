@@ -12,6 +12,7 @@ import {
 	removeDisplayNone,
 } from './slideVisibility';
 import { translation } from '../populations/de-de/translation';
+import { setCurorPointer } from './setCursorPointer';
 
 export const init = () => {
 	const wrapper = document.getElementById('wrapper')! as HTMLDivElement;
@@ -55,6 +56,8 @@ export const init = () => {
 	// apply initial SVG settings and style
 	svg.style.backgroundColor = config.svgBg;
 	document.body.style.backgroundColor = config.htmlBg;
+
+	setCurorPointer();
 
 	if (config.devMode.enabled && config.devMode.exposeGlobalVariables) {
 		const global = globalThis as any;
