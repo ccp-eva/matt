@@ -1,17 +1,13 @@
 declare module '*.yaml' {
-	const data: any;
-	export default data;
+	const content: any;
+	export default content;
 }
 
-// if you plan to use md/svg files for js-only projects you dont need this file
-
-// allow md files to be imported as modules
 declare module '*.md' {
 	const content: string;
 	export default content;
 }
 
-// allow svg files to be imported as modules
 declare module '*.svg' {
 	const content: any;
 	export default content;
@@ -23,6 +19,11 @@ declare module '*.png' {
 }
 
 declare module '*.gif' {
+	const content: any;
+	export default content;
+}
+
+declare module '*.mp3' {
 	const content: any;
 	export default content;
 }
