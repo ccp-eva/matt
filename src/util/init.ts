@@ -13,6 +13,8 @@ import {
 } from './slideVisibility';
 import { translation } from '../populations/de-de/translation';
 import { setCurorPointer } from './setCursorPointer';
+import Toastify from 'toastify-js';
+import 'toastify-js/src/toastify.css';
 
 export const init = () => {
 	const wrapper = document.getElementById('wrapper')! as HTMLDivElement;
@@ -57,7 +59,28 @@ export const init = () => {
 	svg.style.backgroundColor = config.svgBg;
 	document.body.style.backgroundColor = config.htmlBg;
 
+	// set cursor pointer for all elements defined in config
 	setCurorPointer();
+
+	if (config.devMode.enabled) {
+		Toastify({
+			escapeMarkup: false,
+			text: `⚙️ <strong>DEVMODE ON</strong>. <small>Verbose outputs.</small>`,
+			duration: 5000,
+			// destination: 'https://github.com/apvarun/toastify-js',
+			// newWindow: true,
+			// close: true,
+			gravity: 'top', // `top` or `bottom`
+			position: 'right', // `left`, `center` or `right`
+			stopOnFocus: true, // Prevents dismissing of toast on hover
+			className: 'toast-error',
+			// style: {
+			// 	background:
+			// 		'linear-gradient(to bottom, hsl(335deg 86% 46%) 0%, hsl(347deg 90% 42%) 50%, hsl(347deg 90% 42%) 50%)',
+			// },
+			// onClick: function () {}, // Callback after click
+		}).showToast();
+	}
 
 	if (config.devMode.enabled && config.devMode.exposeGlobalVariables) {
 		const global = globalThis as any;

@@ -1,5 +1,7 @@
 import _ from 'lodash';
 import { translation } from '../populations/de-de/translation';
+import config from '../config.yaml';
+import Toastify from 'toastify-js';
 
 export const widowedKeyChecker = () => {
 	// get all foreignObjects whose ids starts with 'text-'
@@ -24,8 +26,15 @@ export const widowedKeyChecker = () => {
 	);
 	const widowedKeys = [...widowedTranslationKeys, ...widowedForeignObjectKeys];
 
-	if (widowedKeys.length > 0) {
-		console.error('Found widowed keys: ', widowedKeys, 'Details below:');
+	if (widowedKeys.length > 0 && config.devMode.enabled) {
+		Toastify({
+			text: `⚮ Found widowed keys: ${widowedKeys.length}. Check console!`,
+			duration: 5000,
+			gravity: 'top', // `top` or `bottom`
+			position: 'right', // `left`, `center` or `right`
+			stopOnFocus: true, // Prevents dismissing of toast on hover
+			className: 'toast-info',
+		}).showToast();
 	}
 
 	if (widowedTranslationKeys.length > 0) {

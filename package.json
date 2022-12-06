@@ -29,6 +29,7 @@
 	"homepage": "https://github.com/ccp-eva/matt",
 	"devDependencies": {
 		"@types/lodash": "^4.14.190",
+		"@types/toastify-js": "^1.11.1",
 		"autoprefixer": "^10.4.13",
 		"copy-webpack-plugin": "^11.0.0",
 		"css-loader": "^6.7.2",
@@ -51,6 +52,7 @@
 	},
 	"dependencies": {
 		"gsap": "^3.11.3",
-		"lodash": "^4.17.21"
+		"lodash": "^4.17.21",
+		"toastify-js": "^1.12.0"
 	}
 }
