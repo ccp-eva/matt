@@ -1,6 +1,9 @@
-export const getResponse = (id?: string) => {
+export const getResponse = (id?: string, hide = false) => {
 	return new Promise<MouseEvent | TouchEvent>((resolve) => {
 		const handleResponse = (event: MouseEvent | TouchEvent) => {
+			if (id && hide) {
+				document.getElementById(id)!.setAttribute('visibility', 'hidden');
+			}
 			return resolve(event);
 		};
 
