@@ -1,4 +1,4 @@
-export const audioPromise = (url: string, endDelay = 0) => {
+export const playPromise = (url: string) => {
 	return new Promise(function (resolve, reject) {
 		const audio = new Audio(); // create audio w/o src
 		audio.preload = 'auto'; // intend to play through
@@ -6,5 +6,15 @@ export const audioPromise = (url: string, endDelay = 0) => {
 		audio.onerror = reject; // on error, reject
 		audio.onended = resolve; // when done, resolve
 		audio.src = url;
+	});
+};
+
+export const play = (url: string, elementId: string) => {
+	const audio = new Audio(url);
+
+	document.getElementById(elementId)!.addEventListener('click', () => {
+		// Restart the audio by setting the current time to 0
+		audio.currentTime = 0;
+		audio.play();
 	});
 };
