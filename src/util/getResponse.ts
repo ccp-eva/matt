@@ -3,6 +3,8 @@ export const getResponse = (id?: string, hide = false) => {
 		const handleResponse = (event: MouseEvent | TouchEvent) => {
 			if (id && hide) {
 				document.getElementById(id)!.setAttribute('visibility', 'hidden');
+				// following line is required since gsap is setting inline styles
+				document.getElementById(id)!.style.visibility = 'hidden';
 			}
 			return resolve(event);
 		};
