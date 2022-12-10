@@ -93,4 +93,6 @@ export const init = () => {
 		global.svgChilds = svgChilds;
 		global.config = config;
 	}
+
+	return { svgChilds };
 };
