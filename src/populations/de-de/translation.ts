@@ -28,7 +28,7 @@ export const translation = {
 	difference: '<p>Sind Menschen anders als Tiere?</p>',
 
 	intelligence: '<p>Wie schlau sind sie?</p>',
-	pain: '<p>Wieviel können sie Schmerzen fühlen?</p>',
+	pain: '<p>Wie sehr können sie Schmerzen fühlen?</p>',
 	feelingsRating: '<p>Wie sehr können sie sich glücklich,<br>traurig oder ängstlich fühlen?</p>',
 	similarity: '<p>Wie ähnlich sind sie Menschen?</p>',
 
@@ -36,7 +36,6 @@ export const translation = {
 	aLittle: '<p>Ein bisschen</p>',
 	aMediumAmount: '<p>Mittel</p>',
 	aLotSmart: '<p>Sehr schlau</p>',
-	aLotPain: '<p>Sehr viel</p>',
 	aLot: '<p>Sehr</p>',
 	aLotSimilar: '<p>Sehr ähnlich</p>',
 
