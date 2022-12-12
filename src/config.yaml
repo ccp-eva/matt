@@ -4,10 +4,98 @@ devMode: # if devMode is true, it will override individual settings for developm
   # if enabled the following properties will be set
   exposeGlobalVariables: true
 
-htmlBg: 'black' # background color for letter boxing edges if aspect ratio is not 16:9
-svgBg: 'white'
-pointerObjects: [si-next] # will be used within the init process to to add style="cursor: pointer" to the given objects
+htmlBg: black # background color for letter boxing edges if aspect ratio is not 16:9
+svgBg: white
+pointerObjects: [si-next, si-headphones] # will be used within the init process to to add style="cursor: pointer" to the given objects
 globals:
-  initialSlideColor: '#3F3F3F' # css color for initial slide
-  finalSlideColor: 'black' # css color for ending slide
   defaultPopulation: de-de
+audio:
+  type: mp3
+  customAnimationTimes: # this will override the german default
+    namibia:
+      s-introduction: [4] # time in seeconds for appear animation
+      s-human: [4, 2]
+  cues:
+    si-introduction: [0]
+
+cultureSlideLUT:
+  DE_urban:
+    [
+      s-introduction,
+      s-moral-circle,
+      s-humans,
+      s-transition,
+      s-food1,
+      s-food2,
+      s-food3,
+      s-food4,
+      s-comp1,
+      s-comp2,
+      s-comp3,
+      s-comp4,
+    ]
+  NA_urban:
+    [
+      s-introduction,
+      s-moral-circle,
+      s-humans,
+      s-transition,
+      s-food1,
+      s-food2,
+      s-food3,
+      s-food4,
+      s-comp1,
+      s-comp2,
+      s-comp3,
+      s-comp4,
+    ]
+  NA_rural:
+    [
+      s-introduction,
+      s-moral-circle,
+      s-humans,
+      s-transition,
+      s-food1,
+      s-food2,
+      s-food3,
+      s-food4,
+      s-comp1,
+      s-comp2,
+      s-comp3,
+      s-comp4,
+    ]
+
+procedure:
+  [
+    s-introduction,
+    s-moral-circle,
+    s-humans,
+    s-transition,
+    s-food1,
+    s-food2,
+    s-food3,
+    s-food4,
+    s-comp1,
+    s-comp2,
+    s-comp3,
+    s-comp4,
+  ]
+dilemma:
+  random: true
+  # procedure: [
+  #   - cat:
+  #       random: false
+  #       procedure: [asdf-adsf-, c-a-3 ]
+  #   - cow:
+  #       random: true
+  #       procedure: [c-a-3, asdf-adsf-]
+  #   - control:
+  #       random: true
+  #       procedure: [c-a-3, asdf-adsf-]
+  # ]
+interview:
+  random: false
+  order: [asdf-adsf-, c-a-3]
+capacity:
+  random: true
+  order: [asdf-asdf, asfdsaf-asdasfd]
