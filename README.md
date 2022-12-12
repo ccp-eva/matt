@@ -34,8 +34,7 @@ export const translation = {
 
 If you use an SVG object more than once, and your object is a more complex shape (involving `path`), you may opt-in to use object recycling following this steps:
 
-1. Identify the object(s) you want to reuse in your composition
-   following specific conventions.
+1. Identify the object(s) you want to reuse in your composition, and follow the next steps:
 2. Configure Asset Export Settings:
 
 |  ![](docs/asset-export-settings.png)   |
