@@ -12,8 +12,15 @@ todo
 
 ### URL Parameters
 
-- `population`
--
+You can modify the experiment by attaching various URL parameters, for example:  
+https://ccp-odc.eva.mpg.de/matt/?id=12345&culture=DE_urban&webcam=true&adult=true
+
+Culture parameters are composed of a country Code (i.e, ISO 3166-1 alpha-2 (e.g., DE)) and a suffix (i.e., rural or urban)
+
+- `id` (subject id)
+- `culture` (e.g., this loads slides, sounds, and texts)
+- `webcam` (record entire experiment with user webcam)
+- `adult` (if true, there is no audio input required, but text must be written)
 
 ### ❡ Adding Text
 
@@ -35,7 +42,7 @@ export const translation = {
 If you use an SVG object more than once, and your object is a more complex shape (involving `path`), you may opt-in to use object recycling following this steps:
 
 1. Identify the object(s) you want to reuse in your composition, and follow the next steps:
-2. Configure Asset Export Settings:
+2. **(Optional)** Configure Asset Export Settings:
 
 |  ![](docs/asset-export-settings.png)   |
 | :------------------------------------: |
