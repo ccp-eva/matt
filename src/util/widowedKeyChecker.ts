@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import { translation } from '../populations/de-de/translation';
-import config from '../config.yaml';
 import Toastify from 'toastify-js';
 
 export const widowedKeyChecker = () => {
@@ -26,9 +25,9 @@ export const widowedKeyChecker = () => {
 	);
 	const widowedKeys = [...widowedTranslationKeys, ...widowedForeignObjectKeys];
 
-	if (widowedKeys.length > 0 && config.devMode.enabled) {
+	if (widowedKeys.length > 0) {
 		Toastify({
-			text: `⚮ Found widowed keys: ${widowedKeys.length}. Check console!`,
+			text: `⚮ Found widowed translation/fo keys: ${widowedKeys.length}. Check console!`,
 			duration: 5000,
 			gravity: 'top', // `top` or `bottom`
 			position: 'right', // `left`, `center` or `right`
