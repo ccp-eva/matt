@@ -40,7 +40,7 @@ button.addEventListener('mouseleave', () => {
 play(sIntroductionAudioPath, 'link-si-headphones');
 
 const tl = gsap.timeline();
-const nextButton = document.getElementById('si-next')!;
+const nextButton = document.getElementById('link-si-next')!;
 gsap.set(nextButton, {
 	transformOrigin: '50% 50%',
 	opacity: 0,
@@ -63,7 +63,7 @@ tl.to(nextButton, {
 
 await playPromise(sIntroductionAudioPath);
 
-const resp = await getResponse('si-next', true);
+const resp = await getResponse('link-si-next', true);
 
 swapSlides(['s-moral-circle'], ['s-introduction']);
 
