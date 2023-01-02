@@ -18,9 +18,9 @@ const setup = init();
 // show first slide
 swapSlides(['s-introduction']);
 
-let button = document.querySelector('#si-headphones')!;
+let button = document.querySelector('#link-si-headphones')!;
 gsap.set(button, { transformOrigin: '50% 50%' });
-let tween = gsap.to('#si-headphones', {
+let tween = gsap.to('#link-si-headphones', {
 	scale: 1.2,
 	ease: 'none',
 	paused: true,
@@ -37,7 +37,7 @@ button.addEventListener('mouseleave', () => {
 	gsap.to(tween, { duration: 0.1, time: 0, ease: 'none', overwrite: true });
 });
 
-play(sIntroductionAudioPath, 'si-headphones');
+play(sIntroductionAudioPath, 'link-si-headphones');
 
 const tl = gsap.timeline();
 const nextButton = document.getElementById('si-next')!;

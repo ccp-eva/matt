@@ -78,7 +78,10 @@ export default {
 	},
 	plugins: [
 		new CopyPlugin({
-			patterns: [{ from: 'public/', to: './' }],
+			patterns: [
+				{ from: 'public/', to: './' },
+				{ from: 'src/assets/', to: './assets/' },
+			],
 		}),
 		new HtmlWebpackPlugin({
 			title: 'Moral Attitudes Study',

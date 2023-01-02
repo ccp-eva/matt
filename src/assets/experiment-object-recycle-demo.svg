@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1920 1080" enable-background="new 0 0 1920 1080" xml:space="preserve">
+<g id="s-transition-1_00000003102448253772895190000010701482891028502918_">
+</g>
+<g id="s-goldfish">
+	<rect id="ph-s-goldfish-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-goldfish-goldfish" x="853" y="328" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
+	<rect id="ph-s-goldfish-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	<rect id="ph-s-goldfish-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-s-goldfish-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<image overflow="visible" width="80" height="56" id="link-s-goldfish-goldfish" xlink:href="goldfish.png"  transform="matrix(1 0 0 1 938 347)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-goldfish-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-goldfish-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+</g>
+<g id="s-rabbit">
+	<rect id="ph-s-rabbit-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-rabbit-rabbit" x="868.5" y="344" opacity="0.6" fill="#4AE5D9" width="183" height="183"/>
+	<rect id="ph-s-rabbit-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	<rect id="ph-s-rabbit-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-s-rabbit-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<image overflow="visible" width="70" height="61" id="link-s-rabbit-rabbit" xlink:href="rabbit.png"  transform="matrix(1 0 0 1 882 373)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-rabbit-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-rabbit-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+</g>
+<g id="s-dog">
+	<rect id="ph-s-dog-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-dog-dog" x="810" y="232" opacity="0.6" fill="#4AE5D9" width="300" height="300"/>
+	<rect id="ph-s-dog-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	<rect id="ph-s-dog-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-s-dog-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	<image overflow="visible" width="99" height="78" id="link-s-dog-dog" xlink:href="dog.png"  transform="matrix(1 0 0 1 843 301)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-dog-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-dog-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+</g>
+<g id="s-cat">
+	<rect id="ph-s-cat-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-cat-cat" x="833.5" y="293" opacity="0.6" fill="#4AE5D9" width="253" height="253"/>
+	<rect id="ph-s-cat-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	<rect id="ph-s-cat-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-s-cat-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	<image overflow="visible" width="89" height="67" id="link-s-cat-cat" xlink:href="cat.png"  transform="matrix(1 0 0 1 925 314)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-cat-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-cat-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+</g>
+<g id="s-chicken">
+	<rect id="ph-s-chicken-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-chicken-chicken" x="855.5" y="325" opacity="0.6" fill="#4AE5D9" width="209" height="209"/>
+	<rect id="ph-s-chicken-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	<rect id="ph-s-chicken-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-s-chicken-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<image overflow="visible" width="62" height="73" id="link-s-chicken-chicken" xlink:href="chicken.png"  transform="matrix(1 0 0 1 913 341)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-chicken-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-chicken-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+</g>
+<g id="s-sheep">
+	<rect id="ph-s-sheep-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-sheep-sheep" x="864" y="351" opacity="0.6" fill="#4AE5D9" width="192" height="192"/>
+	<rect id="ph-s-sheep-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	<rect id="ph-s-sheep-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-s-sheep-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<image overflow="visible" width="80" height="76" id="link-s-sheep-sheep" xlink:href="sheep.png"  transform="matrix(1 0 0 1 920 365)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-sheep-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-sheep-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+</g>
+<g id="s-pig">
+	<rect id="ph-s-pig-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-pig-pig" x="855.5" y="329" opacity="0.6" fill="#4AE5D9" width="209" height="209"/>
+	<rect id="ph-s-pig-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	<rect id="ph-s-pig-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-s-pig-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	<image overflow="visible" width="94" height="67" id="link-s-pig-pig" xlink:href="pig.png"  transform="matrix(1 0 0 1 903 344)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-pig-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-pig-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+</g>
+<g id="s-cow">
+	<rect id="ph-s-cow-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-cow-cow" x="828" y="258" opacity="0.6" fill="#4AE5D9" width="274" height="274"/>
+	<rect id="ph-s-cow-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	<rect id="ph-s-cow-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-s-cow-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<image overflow="visible" width="116" height="76" id="link-s-cow-cow" xlink:href="cow.png"  transform="matrix(1 0 0 1 907 292)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-cow-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-cow-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+</g>
+<g id="s-transition">
+</g>
+<g id="s-humans">
+	<rect id="ph-sh-elderly" x="1012" y="373" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
+	<rect id="ph-sh-child" x="675" y="429" opacity="0.6" fill="#4AE5D9" width="160" height="160"/>
+	<rect id="ph-sh-man" x="1358" y="374" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
+	<rect id="ph-sh-woman" x="341" y="374" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
+	
+		<image overflow="visible" width="48" height="92" id="link-sh-child" xlink:href="child.png"  transform="matrix(1 0 0 1 733 483)">
+	</image>
+	
+		<image overflow="visible" width="55" height="119" id="link-sh-elderly" xlink:href="elderly.png"  transform="matrix(1 0 0 1 1134 412)">
+	</image>
+	<image overflow="visible" width="65" height="118" id="link-sh-man" xlink:href="man.png"  transform="matrix(1 0 0 1 1500 442)">
+	</image>
+	
+		<image overflow="visible" width="63" height="118" id="link-sh-woman" xlink:href="woman.png"  transform="matrix(1 0 0 1 490 454)">
+	</image>
+</g>
+<g id="s-moral-circle">
+	<g id="smc-circle_00000039826791657613040810000016762695607415809424_">
+		<path id="outer_00000050621063397823661510000009713129045474698384_" fill="#C6D325" stroke="#000000" stroke-width="0.75" d="
+			M716,423.48C716,575.09,593.09,698,441.48,698c-151.61,0-274.52-122.91-274.52-274.52c0-151.61,122.91-274.52,274.52-274.52
+			C593.09,148.95,716,271.86,716,423.48z"/>
+		
+			<circle id="medium_00000160885094085235085820000013196872483116287901_" fill="#00B1EA" stroke="#000000" stroke-width="0.75" cx="441.48" cy="423.48" r="215.82"/>
+		
+			<circle id="inner_00000150080187779234584940000017815137686812151457_" fill="#006C66" stroke="#000000" stroke-width="0.75" cx="442.14" cy="422.81" r="148.44"/>
+	</g>
+	<rect id="ph-smc-elderly" x="1348" y="134" opacity="0.6" fill="#4AE5D9" width="118" height="118"/>
+	<rect id="ph-smc-chicken" x="1520" y="81" opacity="0.6" fill="#4AE5D9" width="71" height="71"/>
+	<rect id="ph-smc-pig" x="1705" y="125" opacity="0.6" fill="#4AE5D9" width="93" height="93"/>
+	<rect id="ph-smc-dog" x="1543" y="233" opacity="0.6" fill="#4AE5D9" width="98" height="98"/>
+	<rect id="ph-smc-sheep" x="1395" y="361" opacity="0.6" fill="#4AE5D9" width="79" height="79"/>
+	<rect id="ph-smc-child" x="1548" y="440" opacity="0.6" fill="#4AE5D9" width="91" height="91"/>
+	<rect id="ph-smc-man" x="1699" y="309" opacity="0.6" fill="#4AE5D9" width="117" height="117"/>
+	<rect id="ph-smc-rabbit" x="1376" y="532" opacity="0.6" fill="#4AE5D9" width="66" height="66"/>
+	<rect id="ph-smc-goldfish" x="1729" y="521" opacity="0.6" fill="#4AE5D9" width="65" height="65"/>
+	<rect id="ph-smc-cow" x="1451" y="621" opacity="0.6" fill="#4AE5D9" width="136" height="136"/>
+	<rect id="ph-smc-cat" x="1736" y="642" opacity="0.6" fill="#4AE5D9" width="88" height="88"/>
+	<rect id="ph-smc-woman" x="1602" y="751" opacity="0.6" fill="#4AE5D9" width="117" height="117"/>
+	<image overflow="visible" width="89" height="67" id="link-smc-cat" xlink:href="cat.png"  transform="matrix(1 0 0 1 1735 657)">
+	</image>
+	
+		<image overflow="visible" width="62" height="73" id="link-smc-chicken" xlink:href="chicken.png"  transform="matrix(1 0 0 1 1532 80)">
+	</image>
+	
+		<image overflow="visible" width="48" height="92" id="link-smc-child" xlink:href="child.png"  transform="matrix(1 0 0 1 1580 438)">
+	</image>
+	<image overflow="visible" width="116" height="76" id="link-smc-cow" xlink:href="cow.png"  transform="matrix(1 0 0 1 1461 661)">
+	</image>
+	<image overflow="visible" width="99" height="78" id="link-smc-dog" xlink:href="dog.png"  transform="matrix(1 0 0 1 1540 249)">
+	</image>
+	
+		<image overflow="visible" width="55" height="119" id="link-smc-elderly" xlink:href="elderly.png"  transform="matrix(1 0 0 1 1388 124)">
+	</image>
+	
+		<image overflow="visible" width="80" height="56" id="link-smc-goldfish" xlink:href="goldfish.png"  transform="matrix(1 0 0 1 1719 530)">
+	</image>
+	<image overflow="visible" width="65" height="118" id="link-smc-man" xlink:href="man.png"  transform="matrix(1 0 0 1 1721 306)">
+	</image>
+	<image overflow="visible" width="94" height="67" id="link-smc-pig" xlink:href="pig.png"  transform="matrix(1 0 0 1 1711 138)">
+	</image>
+	
+		<image overflow="visible" width="70" height="61" id="link-smc-rabbit" xlink:href="rabbit.png"  transform="matrix(1 0 0 1 1370 533)">
+	</image>
+	
+		<image overflow="visible" width="80" height="76" id="link-smc-sheep" xlink:href="sheep.png"  transform="matrix(1 0 0 1 1393 366)">
+	</image>
+	
+		<image overflow="visible" width="63" height="118" id="link-smc-woman" xlink:href="woman.png"  transform="matrix(1 0 0 1 1632 748)">
+	</image>
+</g>
+<g id="s-introduction">
+	
+		<rect id="text-welcome" x="645.5" y="316" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="629" height="136"/>
+	<rect id="ph-si-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-si-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	<rect id="ph-si-next" x="920" y="683" fill="#B8846E" width="80" height="80"/>
+	
+		<image overflow="visible" width="80" height="81" id="link-si-next" xlink:href="next.png"  transform="matrix(1 0 0 0.9877 920 682.5)">
+	</image>
+</g>
+</svg>

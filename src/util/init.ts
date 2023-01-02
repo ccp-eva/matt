@@ -1,7 +1,9 @@
 import { SvgInHtml } from '../types';
-import svgPath from '../assets/experiment.svg';
+import svgPath from '../assets/experiment-object-recycle-demo.svg';
 import config from '../config.yaml';
 import { rectToForeignObject } from './rectToForeignObject';
+import { recycleObjects } from './recycleObjects';
+import { copyAttributes } from './copyAttributes';
 import { widowedKeyChecker } from './widowedKeyChecker';
 import {
 	showSingleSlide,
@@ -43,6 +45,9 @@ export const init = () => {
 	// transform all rect nodes to foreignObject nodes
 	rectToForeignObject();
 
+	// transform all rect nodes to foreignObject nodes
+	recycleObjects();
+
 	// check if all translation keys have a matching foreignObject and vice versa
 	const textKeys = widowedKeyChecker();
 
@@ -60,7 +65,7 @@ export const init = () => {
 	document.body.style.backgroundColor = config.htmlBg;
 
 	// set cursor pointer for all elements defined in config
-	setCurorPointer();
+	// setCurorPointer();
 
 	if (config.devMode.enabled) {
 		Toastify({
@@ -92,6 +97,8 @@ export const init = () => {
 		global.removeDisplayNone = removeDisplayNone;
 		global.svgChilds = svgChilds;
 		global.config = config;
+		global.recycleObjects = recycleObjects;
+		global.copyAttributes = copyAttributes;
 	}
 
 	return { svgChilds };
