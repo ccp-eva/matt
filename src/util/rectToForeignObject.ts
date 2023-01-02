@@ -1,5 +1,5 @@
 /**
- * Iterates over DOM for elements that start with an id of "test-".
+ * Iterates over DOM for elements that start with an id of "text-".
  * Those elements get replace replaced with a foreignObject element while
  * keeping their original properties.
  *
