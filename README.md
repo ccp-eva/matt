@@ -66,3 +66,9 @@ If you use an SVG object more than once, and your object is a more complex shape
 11. Profit
 
 For further (implementation) details, see this issue: [#53](https://github.com/ccp-eva/matt/issues/53).
+
+## Contributions
+
+### Voice-over
+
+`de-de`: Wilma Weigelt
