@@ -12,15 +12,17 @@ import siWelcome from './cultures/de-urban/audio/si-welcome_1.mp3';
 import siHeadphones from './cultures/de-urban/audio/si-headphones_1.mp3';
 import siNextRed from './cultures/de-urban/audio/si-next-red_1.mp3';
 import { playPromise, play } from './util/audio';
+import { procedure } from './procedure/procedure';
 
 // import SVG & apply initial settings
-const setup = init();
+init();
+
+// run culture-specific procedure
+procedure();
 
 // --------------------- slides ---------------------
 // show first slide
 swapSlides(['s-introduction']);
-
-play(siWelcome, 'link-si-headphones');
 
 const tl = gsap.timeline();
 const nextButton = document.getElementById('link-si-next')!;
@@ -47,6 +49,8 @@ tl.to(nextButton, {
 await playPromise(siWelcome);
 await playPromise(siHeadphones);
 await playPromise(siNextRed);
+
+play(siNextRed, 'link-si-headphones');
 
 const resp = await getResponse('link-si-next', true);
 

@@ -4,6 +4,7 @@ import config from '../config.yaml';
 import { rectToForeignObject } from './rectToForeignObject';
 import { recycleObjects } from './recycleObjects';
 import { copyAttributes } from './copyAttributes';
+import { getUrlParameters } from './helpers';
 import { widowedKeyChecker } from './widowedKeyChecker';
 import {
 	showSingleSlide,
@@ -41,6 +42,8 @@ export const init = () => {
 		);
 		removeDisplayNone();
 	}
+
+	const urlParameters = getUrlParameters();
 
 	// transform all rect nodes to foreignObject nodes
 	rectToForeignObject();
@@ -88,8 +91,8 @@ export const init = () => {
 		}).showToast();
 	}
 
+	const global = globalThis as any;
 	if (config.devMode.enabled && config.devMode.exposeGlobalVariables) {
-		const global = globalThis as any;
 		global.showSingleSlide = showSingleSlide;
 		global.swapSlides = swapSlides;
 		global.hideFirstChildSlides = hideFirstChildSlides;
@@ -102,5 +105,6 @@ export const init = () => {
 		global.copyAttributes = copyAttributes;
 	}
 
-	return { svgChilds };
+	// initialzie global data object (see custom.d.ts)
+	global.data = { urlParameters, initialTimestamp: new Date().toISOString() };
 };

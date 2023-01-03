@@ -6,13 +6,14 @@ devMode: # if devMode is true, it will override individual settings for developm
 
 htmlBg: black # background color for letter boxing edges if aspect ratio is not 16:9
 svgBg: white
+hideUrlParameters: false
 css:
   # will be used within the init process to to add style="cursor: pointer" to the given ids
   mousePointerObjects: [link-si-next, link-si-headphones]
   # will be used within the init process to to add a zoom animation on hover
   scaleOnHoverObjects: [link-si-next, link-si-headphones]
 globals:
-  defaultCulture: de-de
+  defaultCulture: deUrban
 audio:
   type: mp3
   customAnimationTimes: # this will override the german default
@@ -22,68 +23,24 @@ audio:
   cues:
     si-introduction: [0]
 
-cultureSlideLUT:
-  DE_urban:
-    [
-      s-introduction,
-      s-moral-circle,
-      s-humans,
-      s-transition,
-      s-food1,
-      s-food2,
-      s-food3,
-      s-food4,
-      s-comp1,
-      s-comp2,
-      s-comp3,
-      s-comp4,
-    ]
-  NA_urban:
-    [
-      s-introduction,
-      s-moral-circle,
-      s-humans,
-      s-transition,
-      s-food1,
-      s-food2,
-      s-food3,
-      s-food4,
-      s-comp1,
-      s-comp2,
-      s-comp3,
-      s-comp4,
-    ]
-  NA_rural:
-    [
-      s-introduction,
-      s-moral-circle,
-      s-humans,
-      s-transition,
-      s-food1,
-      s-food2,
-      s-food3,
-      s-food4,
-      s-comp1,
-      s-comp2,
-      s-comp3,
-      s-comp4,
-    ]
-
 procedure:
-  [
-    s-introduction,
-    s-moral-circle,
-    s-humans,
-    s-transition,
-    s-food1,
-    s-food2,
-    s-food3,
-    s-food4,
-    s-comp1,
-    s-comp2,
-    s-comp3,
-    s-comp4,
-  ]
+  deUrban:
+    [
+      s-introduction,
+      s-moral-circle,
+      s-humans,
+      s-transition,
+      s-food1,
+      s-food2,
+      s-food3,
+      s-food4,
+      s-comp1,
+      s-comp2,
+      s-comp3,
+      s-comp4,
+    ]
+  naUrban: [s-introduction, s-moral-circle, s-humans, s-transition]
+
 dilemma:
   random: true
   # procedure: [
