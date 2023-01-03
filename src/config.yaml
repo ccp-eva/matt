@@ -6,7 +6,7 @@ devMode: # if devMode is true, it will override individual settings for developm
 
 htmlBg: black # background color for letter boxing edges if aspect ratio is not 16:9
 svgBg: white
-pointerObjects: [si-next, si-headphones] # will be used within the init process to to add style="cursor: pointer" to the given objects
+pointerObjects: [link-si-next, link-si-headphones] # will be used within the init process to to add style="cursor: pointer" to the given ids
 globals:
   defaultPopulation: de-de
 audio:

@@ -65,7 +65,7 @@ export const init = () => {
 	document.body.style.backgroundColor = config.htmlBg;
 
 	// set cursor pointer for all elements defined in config
-	// setCurorPointer();
+	setCurorPointer();
 
 	if (config.devMode.enabled) {
 		Toastify({
