@@ -28,4 +28,7 @@ declare module '*.mp3' {
 	export default content;
 }
 
-declare var data: any;
+declare var data: {
+	urlParameters: { culture?: string; id?: string };
+	initialTimestamp: string;
+};
