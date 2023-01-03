@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { translation } from '../cultures/de-de/translation';
+import { translation } from '../cultures/de-urban/translation';
 import Toastify from 'toastify-js';
 
 export const widowedKeyChecker = () => {

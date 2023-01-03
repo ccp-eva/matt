@@ -8,7 +8,7 @@ import { init } from './util/init';
 import { swapSlides } from './util/slideVisibility';
 import _ from 'lodash';
 import { getResponse } from './util/getResponse';
-import sIntroductionAudioPath from './cultures/de-de/audio/s-introduction.mp3';
+import sIntroductionAudioPath from './cultures/de-urban/audio/s-introduction.mp3';
 import { playPromise, play } from './util/audio';
 
 // import SVG & apply initial settings
