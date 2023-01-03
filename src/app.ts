@@ -8,7 +8,9 @@ import { init } from './util/init';
 import { swapSlides } from './util/slideVisibility';
 import _ from 'lodash';
 import { getResponse } from './util/getResponse';
-import sIntroductionAudioPath from './cultures/de-urban/audio/s-introduction.mp3';
+import siWelcome from './cultures/de-urban/audio/si-welcome_1.mp3';
+import siHeadphones from './cultures/de-urban/audio/si-headphones_1.mp3';
+import siNextRed from './cultures/de-urban/audio/si-next-red_1.mp3';
 import { playPromise, play } from './util/audio';
 
 // import SVG & apply initial settings
@@ -37,7 +39,7 @@ button.addEventListener('mouseleave', () => {
 	gsap.to(tween, { duration: 0.1, time: 0, ease: 'none', overwrite: true });
 });
 
-play(sIntroductionAudioPath, 'link-si-headphones');
+play(siWelcome, 'link-si-headphones');
 
 const tl = gsap.timeline();
 const nextButton = document.getElementById('link-si-next')!;
@@ -61,13 +63,15 @@ tl.to(nextButton, {
 	reversed: true,
 });
 
-await playPromise(sIntroductionAudioPath);
+await playPromise(siWelcome);
+await playPromise(siHeadphones);
+await playPromise(siNextRed);
 
 const resp = await getResponse('link-si-next', true);
 
 swapSlides(['s-moral-circle'], ['s-introduction']);
 
-await playPromise(sIntroductionAudioPath);
+await playPromise(siWelcome);
 
 // document.getElementById('si-next')!.addEventListener('click', () => {
 // 	swapSlides(['s-moral-circle'], ['s-introduction']);
