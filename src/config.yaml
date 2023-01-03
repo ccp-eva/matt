@@ -6,7 +6,11 @@ devMode: # if devMode is true, it will override individual settings for developm
 
 htmlBg: black # background color for letter boxing edges if aspect ratio is not 16:9
 svgBg: white
-pointerObjects: [link-si-next, link-si-headphones] # will be used within the init process to to add style="cursor: pointer" to the given ids
+css:
+  # will be used within the init process to to add style="cursor: pointer" to the given ids
+  mousePointerObjects: [link-si-next, link-si-headphones]
+  # will be used within the init process to to add a zoom animation on hover
+  scaleOnHoverObjects: [link-si-next, link-si-headphones]
 globals:
   defaultCulture: de-de
 audio:

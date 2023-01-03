@@ -14,7 +14,7 @@ import {
 	removeDisplayNone,
 } from './slideVisibility';
 import { translation } from '../cultures/de-urban/translation';
-import { setCurorPointer } from './setCursorPointer';
+import { setMousePointer, setScaleOnHover } from './styleDefaults';
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
 
@@ -65,7 +65,8 @@ export const init = () => {
 	document.body.style.backgroundColor = config.htmlBg;
 
 	// set cursor pointer for all elements defined in config
-	setCurorPointer();
+	setMousePointer();
+	setScaleOnHover();
 
 	if (config.devMode.enabled) {
 		Toastify({

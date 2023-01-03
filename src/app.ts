@@ -20,25 +20,6 @@ const setup = init();
 // show first slide
 swapSlides(['s-introduction']);
 
-let button = document.querySelector('#link-si-headphones')!;
-gsap.set(button, { transformOrigin: '50% 50%' });
-let tween = gsap.to('#link-si-headphones', {
-	scale: 1.2,
-	ease: 'none',
-	paused: true,
-});
-
-button.addEventListener('mouseenter', () => {
-	gsap.to(tween, {
-		duration: 1.3,
-		time: tween.duration(),
-		ease: 'elastic.out(0.8, 0.3)',
-	});
-});
-button.addEventListener('mouseleave', () => {
-	gsap.to(tween, { duration: 0.1, time: 0, ease: 'none', overwrite: true });
-});
-
 play(siWelcome, 'link-si-headphones');
 
 const tl = gsap.timeline();
