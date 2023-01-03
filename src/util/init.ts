@@ -13,7 +13,7 @@ import {
 	getChildrenFromParent,
 	removeDisplayNone,
 } from './slideVisibility';
-import { translation } from '../populations/de-de/translation';
+import { translation } from '../cultures/de-de/translation';
 import { setCurorPointer } from './setCursorPointer';
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
