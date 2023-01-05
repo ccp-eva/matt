@@ -1,4 +1,6 @@
 import { SvgInHtml } from '../types';
+import { gsap } from 'gsap';
+import config from '../config.yaml';
 
 /**
  * Removes display="none" from all DOM elements
@@ -80,24 +82,76 @@ export const showSingleSlide = (slideId: string) => {
 /**
  * Shows the all slideIds[] from first parameter and hides all slideIds[] from second
  *
- * @param visibleSlides - id[] of slides you want to be displayed
- * @param hiddenSlides - id[] of slides you want to be hidden
+ * @param visibleSlides - single slide id or an array of slides you want to display
+ * @param hiddenSlides - single slide id or an array of slides you want to hide
+ * @param fadeDurations - an array of two numbers, which define the fade out/in duration in seconds
+ *
+ * @remarks
+ * If you use fadeDurations, provide a single parameter for visible/hiddenSlides. If you provide an array, only the first element will be used.
+ *
  * @returns void
  */
 export const swapSlides = (
-	visibleSlides?: string[],
-	hiddenSlides?: string[]
+	visibleSlides?: string | string[],
+	hiddenSlides?: string | string[],
+	fadeDurations?: [number, number]
 ) => {
-	visibleSlides = visibleSlides ?? undefined;
-	hiddenSlides = hiddenSlides ?? undefined;
-	if (visibleSlides) {
-		const visibleSlideElements = visibleSlides.forEach((e) => {
+	// if fadeDurations is missing and if in config slideTransition has override set to true
+	// ... apply the fadeOut/fadeIn from config
+	if (
+		!fadeDurations &&
+		config.slideTransition.override &&
+		visibleSlides &&
+		hiddenSlides
+	) {
+		fadeDurations = [
+			config.slideTransition.fadeOut,
+			config.slideTransition.fadeIn,
+		];
+	}
+
+	// if fadeDurations is undefined, we use the visibility attribute to hide and show slides
+	if (visibleSlides && !fadeDurations) {
+		if (typeof visibleSlides === 'string') {
+			visibleSlides = [visibleSlides];
+		}
+		visibleSlides.forEach((e) => {
 			document.getElementById(e)!.setAttribute('visibility', 'visible');
 		});
 	}
-	if (hiddenSlides) {
-		const hiddenSlideElements = hiddenSlides.forEach((e) => {
+	if (hiddenSlides && !fadeDurations) {
+		if (typeof hiddenSlides === 'string') {
+			hiddenSlides = [hiddenSlides];
+		}
+		hiddenSlides.forEach((e) => {
 			document.getElementById(e)!.setAttribute('visibility', 'hidden');
+		});
+	}
+	// if fadeDurations is defined, we use GSAP to fade in and out between slides (using opacity)
+	// fadeDurations requires visibleSlides and hiddenSlides
+	if (fadeDurations && (!visibleSlides || !hiddenSlides)) {
+		console.error('fade requires visibleSlides and hiddenSlides');
+	}
+	if (fadeDurations && visibleSlides && hiddenSlides) {
+		// make sure to have a single string
+		const slideToShow =
+			typeof visibleSlides === 'string' ? visibleSlides : visibleSlides[0];
+		const slideToHide =
+			typeof hiddenSlides === 'string' ? hiddenSlides : hiddenSlides[0];
+
+		// visibility hidden needs to be set always
+		gsap.set(`#${slideToShow}`, { visibility: 'visible', opacity: 0 });
+		const tl = gsap.timeline();
+		tl.to(`#${slideToHide}`, {
+			opacity: 0,
+			duration: fadeDurations[0],
+		});
+		tl.to(`#${slideToHide}`, {
+			visibility: 'hidden',
+		});
+		tl.to(`#${slideToShow}`, {
+			opacity: 1,
+			duration: fadeDurations[1],
 		});
 	}
 };

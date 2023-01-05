@@ -7,6 +7,10 @@ devMode: # if devMode is true, it will override individual settings for developm
 htmlBg: black # background color for letter boxing edges if aspect ratio is not 16:9
 svgBg: white
 hideUrlParameters: false
+slideTransition:
+  override: true # force slide transitions, regardless of implementation in illustrator
+  fadeOut: 0.25
+  fadeIn: 0.25
 css:
   # will be used within the init process to to add style="cursor: pointer" to the given ids
   mousePointerObjects: [link-si-next, link-si-headphones]

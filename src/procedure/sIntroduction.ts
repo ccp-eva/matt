@@ -8,7 +8,7 @@ import { getResponse } from '../util/getResponse';
 
 export default async () => {
 	// show first slide
-	swapSlides(['s-introduction']);
+	swapSlides('s-introduction');
 
 	const tl = gsap.timeline();
 	const nextButton = document.getElementById('link-si-next')!;

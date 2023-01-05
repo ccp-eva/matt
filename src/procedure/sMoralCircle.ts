@@ -7,7 +7,7 @@ import siNextRed from '../cultures/deUrban/audio/si-next-red_1.mp3';
 import { getResponse } from '../util/getResponse';
 import { SvgInHtml } from '../types';
 
-swapSlides(['s-moral-circle'], ['s-introduction']);
+swapSlides('s-moral-circle', 's-introduction');
 
 // get child
 const smcChild = document.getElementById('smc-child')! as SvgInHtml;
