@@ -6,7 +6,7 @@ import siHeadphones from '../cultures/deUrban/audio/si-headphones_1.mp3';
 import siNextRed from '../cultures/deUrban/audio/si-next-red_1.mp3';
 import { getResponse } from '../util/getResponse';
 
-export const sIntroduction = async () => {
+export default async () => {
 	// show first slide
 	swapSlides(['s-introduction']);
 
@@ -37,8 +37,4 @@ export const sIntroduction = async () => {
 	await playPromise(siNextRed);
 
 	play(siNextRed, 'link-si-headphones');
-
-	await getResponse('link-si-next', true);
-
-	swapSlides(['s-moral-circle'], ['s-introduction']);
 };
