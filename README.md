@@ -19,7 +19,6 @@ Culture parameters are composed of a country code (i.e, [ISO 3166-1 alpha-2](htt
 
 - `id` (subject id)
 - `culture` (e.g., this loads slides, sounds, and texts, `de-urban`)
-- `webcam` (record entire experiment with user webcam)
 
 ### ❡ Adding Text
 
@@ -68,6 +67,6 @@ For further (implementation) details, see this issue: [#53](https://github.com/c
 
 ## Contributions
 
-### Voice-over
+### Voice-over speakers
 
-`de-de`: Wilma Weigelt
+`de-urban`: _Wilma Weigelt_ (wiweit@googlemail.com)
