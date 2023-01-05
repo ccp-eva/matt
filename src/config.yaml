@@ -13,7 +13,8 @@ css:
   # will be used within the init process to to add a zoom animation on hover
   scaleOnHoverObjects: [link-si-next, link-si-headphones]
 globals:
-  defaultCulture: deUrban
+  defaultCulture: deUrban # use camelCase (de-urban → deUrban)
+  defaultSubjectId: demo
 audio:
   type: mp3
   customAnimationTimes: # this will override the german default
@@ -24,7 +25,9 @@ audio:
     si-introduction: [0]
 
 procedure:
+  # use camelCase (de-urban → deUrban)
   deUrban:
+    # these must be the exact slide ids from Illustrator
     [
       s-introduction,
       s-moral-circle,
