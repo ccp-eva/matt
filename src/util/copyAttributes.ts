@@ -8,7 +8,6 @@ import Toastify from 'toastify-js';
  * @param target - The HTML/SVG DOM element you want to copy the attributes to
  * @param skip - A string array of attributes you want to skip from the source, which should not be copied to the target
  * @param drop - A string array of attributes you want to drop/delete from the target
- * @returns The arithmetic mean of `x` and `y`
  *
  * @remarks
  * This is a TypeScript version of this: https://bobbyhadz.com/blog/javascript-copy-all-attributes-from-one-element-to-another
