@@ -32,9 +32,14 @@ export default async () => {
 		reversed: true,
 	});
 
+	console.log('before audio');
 	await playPromise(siWelcome);
 	await playPromise(siHeadphones);
 	await playPromise(siNextRed);
+	console.log('after audio');
 
-	play(siNextRed, 'link-si-headphones');
+	await playPromise(siNextRed, 'link-si-headphones');
+
+	await getResponse('link-si-next', true);
+	console.log('Done module 1');
 };
