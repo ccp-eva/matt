@@ -29,6 +29,7 @@ declare module '*.mp3' {
 }
 
 declare var data: {
-	urlParameters: { culture: 'deUrban'; id: string };
+	id: string;
+	culture: 'deUrban';
 	initialTimestamp: string;
 };

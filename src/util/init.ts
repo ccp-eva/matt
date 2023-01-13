@@ -106,5 +106,9 @@ export const init = () => {
 	}
 
 	// initialzie global data object (see custom.d.ts)
-	global.data = { urlParameters, initialTimestamp: new Date().toISOString() };
+	global.data = {
+		id: urlParameters.id,
+		culture: urlParameters.culture,
+		initialTimestamp: new Date().toISOString(),
+	};
 };

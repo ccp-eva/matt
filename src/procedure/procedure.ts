@@ -3,7 +3,7 @@ import Toastify from 'toastify-js';
 import config from '../config.yaml';
 
 export const procedure = async () => {
-	const currentCulture = data.urlParameters.culture;
+	const currentCulture = data.culture;
 
 	if (!config.procedure[currentCulture]) {
 		Toastify({
