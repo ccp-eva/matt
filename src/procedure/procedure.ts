@@ -24,20 +24,13 @@ export const procedure = async () => {
 
 	console.log(currentProcedure);
 
-	console.log('before 1');
-
 	// use dynamic imports to load the slides
-	await import(`./${currentProcedure[0]}`).then((module) => {
-		module.default();
-	});
-
-	await getResponse('link-si-next', true);
+	console.log('before 1');
+	await (await import(`./${currentProcedure[0]}`)).default();
 
 	console.log('after 1');
-	console.log('before 2');
-	await import(`./${currentProcedure[1]}`).then((module) => {
-		module.default();
-	});
+
+	await (await import(`./${currentProcedure[1]}`)).default();
 
 	console.log('after 2');
 
