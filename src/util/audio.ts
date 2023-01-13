@@ -1,12 +1,25 @@
-export const playPromise = (url: string) => {
-	return new Promise(function (resolve, reject) {
-		const audio = new Audio(); // create audio w/o src
-		audio.preload = 'auto'; // intend to play through
-		audio.autoplay = true; // autoplay when loaded
-		audio.onerror = reject; // on error, reject
-		audio.onended = resolve; // when done, resolve
-		audio.src = url;
-	});
+export const playPromise = (url: string, elementId?: string) => {
+	if (elementId) {
+		document.getElementById(elementId)!.addEventListener('click', () => {
+			return new Promise(function (resolve, reject) {
+				const audio = new Audio(); // create audio w/o src
+				audio.preload = 'auto'; // intend to play through
+				audio.autoplay = true; // autoplay when loaded
+				audio.onerror = reject; // on error, reject
+				audio.onended = resolve; // when done, resolve
+				audio.src = url;
+			});
+		});
+	} else {
+		return new Promise(function (resolve, reject) {
+			const audio = new Audio(); // create audio w/o src
+			audio.preload = 'auto'; // intend to play through
+			audio.autoplay = true; // autoplay when loaded
+			audio.onerror = reject; // on error, reject
+			audio.onended = resolve; // when done, resolve
+			audio.src = url;
+		});
+	}
 };
 
 export const play = (url: string, elementId: string) => {
