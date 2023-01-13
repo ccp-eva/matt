@@ -1,5 +1,7 @@
 export const translation = {
 	welcome: '<h1 class="heading">Willkommen und schön,<br>dass Du dabei bist!</h1>',
+
+	meaning: '<p>Was heißt es für dich, wenn etwas sehr wichtig ist?</p>',
 	
 	saving: '<p>Rettest Du ...</p>',
 	tenPencils: '<p>10 Stifte</p>',
