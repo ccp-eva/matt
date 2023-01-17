@@ -32,4 +32,8 @@ declare var data: {
 	id: string;
 	culture: 'deUrban';
 	initialTimestamp: string;
+	slideCount: number;
+	gender: 'female' | 'male' | 'other';
+	birthday: 'string';
+	procedure: {};
 };
