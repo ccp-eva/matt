@@ -1,7 +1,7 @@
 export const playPromise = (url: string, elementId?: string) => {
 	if (elementId) {
-		document.getElementById(elementId)!.addEventListener('click', () => {
-			return new Promise(function (resolve, reject) {
+		return new Promise(function (resolve, reject) {
+			document.getElementById(elementId)!.addEventListener('click', () => {
 				const audio = new Audio(); // create audio w/o src
 				audio.preload = 'auto'; // intend to play through
 				audio.autoplay = true; // autoplay when loaded

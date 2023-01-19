@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { play, playPromise } from '../util/audio';
+import { playPromise } from '../util/audio';
 import { swapSlides } from '../util/slideVisibility';
 import siWelcome from '../cultures/deUrban/audio/si-welcome_1.mp3';
 import siHeadphones from '../cultures/deUrban/audio/si-headphones_1.mp3';
