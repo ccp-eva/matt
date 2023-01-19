@@ -80,6 +80,20 @@ export const showSingleSlide = (slideId: string) => {
 };
 
 /**
+ * Removes attribute and style propery `visibility` from a children of a given parent id
+ *
+ * @param parentSlide - The parent id
+ * @returns void
+ */
+export const removeChildVisibiltyStyleAttribs = (parentSlide: string) => {
+	const children = getChildrenFromParent(parentSlide);
+	children.forEach((child) => {
+		document.getElementById(child)!.removeAttribute('visibility');
+		document.getElementById(child)!.removeAttribute('style');
+	});
+};
+
+/**
  * Shows the all slideIds[] from first parameter and hides all slideIds[] from second
  *
  * @param visibleSlides - single slide id or an array of slides you want to display
@@ -152,6 +166,14 @@ export const swapSlides = (
 		tl.to(`#${slideToShow}`, {
 			opacity: 1,
 			duration: fadeDurations[1],
+			// clean-up DOM after animation
+			onComplete: () => {
+				removeChildVisibiltyStyleAttribs(slideToHide);
+				document
+					.getElementById(slideToHide)!
+					.setAttribute('visibility', 'hidden');
+				document.getElementById(slideToHide)!.removeAttribute('style');
+			},
 		});
 	}
 };
