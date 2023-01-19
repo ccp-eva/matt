@@ -62,4 +62,6 @@ export default async () => {
 	await playPromise(siNextRed, 'link-si-headphones');
 
 	await getResponse('link-si-next', true);
+	// kill timeline animations
+	tl.kill();
 };
