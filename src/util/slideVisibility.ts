@@ -112,16 +112,8 @@ export const swapSlides = (
 ) => {
 	// if fadeDurations is missing and if in config slideTransition has override set to true
 	// ... apply the fadeOut/fadeIn from config
-	if (
-		!fadeDurations &&
-		config.slideTransition.override &&
-		visibleSlides &&
-		hiddenSlides
-	) {
-		fadeDurations = [
-			config.slideTransition.fadeOut,
-			config.slideTransition.fadeIn,
-		];
+	if (!fadeDurations && config.slideTransition.override && visibleSlides && hiddenSlides) {
+		fadeDurations = [config.slideTransition.fadeOut, config.slideTransition.fadeIn];
 	}
 
 	// if fadeDurations is undefined, we use the visibility attribute to hide and show slides
@@ -140,6 +132,11 @@ export const swapSlides = (
 		hiddenSlides.forEach((e) => {
 			document.getElementById(e)!.setAttribute('visibility', 'hidden');
 		});
+
+		const slideToHide = typeof hiddenSlides === 'string' ? hiddenSlides : hiddenSlides[0];
+		removeChildVisibiltyStyleAttribs(slideToHide);
+		document.getElementById(slideToHide)!.setAttribute('visibility', 'hidden');
+		document.getElementById(slideToHide)!.removeAttribute('style');
 	}
 	// if fadeDurations is defined, we use GSAP to fade in and out between slides (using opacity)
 	// fadeDurations requires visibleSlides and hiddenSlides
@@ -148,10 +145,8 @@ export const swapSlides = (
 	}
 	if (fadeDurations && visibleSlides && hiddenSlides) {
 		// make sure to have a single string
-		const slideToShow =
-			typeof visibleSlides === 'string' ? visibleSlides : visibleSlides[0];
-		const slideToHide =
-			typeof hiddenSlides === 'string' ? hiddenSlides : hiddenSlides[0];
+		const slideToShow = typeof visibleSlides === 'string' ? visibleSlides : visibleSlides[0];
+		const slideToHide = typeof hiddenSlides === 'string' ? hiddenSlides : hiddenSlides[0];
 
 		// visibility hidden needs to be set always
 		gsap.set(`#${slideToShow}`, { visibility: 'visible', opacity: 0 });
@@ -168,10 +163,9 @@ export const swapSlides = (
 			duration: fadeDurations[1],
 			// clean-up DOM after animation
 			onComplete: () => {
+				console.log('done?');
 				removeChildVisibiltyStyleAttribs(slideToHide);
-				document
-					.getElementById(slideToHide)!
-					.setAttribute('visibility', 'hidden');
+				document.getElementById(slideToHide)!.setAttribute('visibility', 'hidden');
 				document.getElementById(slideToHide)!.removeAttribute('style');
 			},
 		});
