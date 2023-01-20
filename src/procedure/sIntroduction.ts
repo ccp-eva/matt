@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { playPromise } from '../util/audio';
+import { play, playPromise } from '../util/audio';
 import { swapSlides } from '../util/slideVisibility';
 import siWelcome from '../cultures/deUrban/audio/si-welcome_1.mp3';
 import siHeadphones from '../cultures/deUrban/audio/si-headphones_1.mp3';
@@ -59,7 +59,7 @@ export default async () => {
 	await playPromise(siHeadphones);
 	await playPromise(siNextRed);
 
-	await playPromise(siNextRed, 'link-si-headphones');
+	play(siNextRed, 'link-si-headphones');
 
 	await getResponse('link-si-next', true);
 	// kill timeline animations
