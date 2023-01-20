@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { SvgInHtml } from '../types';
 import svgPath from '../assets/experiment-object-recycle-demo.svg';
 import config from '../config.yaml';
@@ -14,7 +15,7 @@ import {
 	getChildrenFromParent,
 	removeDisplayNone,
 } from './slideVisibility';
-import { translation } from '../cultures/deUrban/translation';
+import { translations } from '../cultures/translations';
 import { setMousePointer, setScaleOnHover } from './styleDefaults';
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
@@ -51,9 +52,21 @@ export const init = () => {
 	// transform all rect nodes to foreignObject nodes
 	recycleObjects();
 
+	// initialzie global data object (see custom.d.ts)
+	const global = globalThis as any;
+	global.data = {
+		id: urlParameters.id,
+		culture: urlParameters.culture,
+		initialTimestamp: new Date().toISOString(),
+		slideCount: 0,
+	};
+
 	// check if all translation keys have a matching foreignObject and vice versa
 	const textKeys = widowedKeyChecker();
-
+	const translation = _.zipObject(
+		Object.keys(translations),
+		Object.values(translations).map((e) => e[data.culture])
+	);
 	// iterate over all text keys and add text into foreign objects
 	textKeys.forEach((e) => {
 		const foNode = document.getElementById(`text-${e}`)!;
@@ -91,8 +104,8 @@ export const init = () => {
 		}).showToast();
 	}
 
-	const global = globalThis as any;
 	if (config.devMode.enabled && config.devMode.exposeGlobalVariables) {
+		global.translations = translations;
 		global.showSingleSlide = showSingleSlide;
 		global.swapSlides = swapSlides;
 		global.hideFirstChildSlides = hideFirstChildSlides;
@@ -104,12 +117,4 @@ export const init = () => {
 		global.recycleObjects = recycleObjects;
 		global.copyAttributes = copyAttributes;
 	}
-
-	// initialzie global data object (see custom.d.ts)
-	global.data = {
-		id: urlParameters.id,
-		culture: urlParameters.culture,
-		initialTimestamp: new Date().toISOString(),
-		slideCount: 0,
-	};
 };

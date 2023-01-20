@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { translation } from '../cultures/deUrban/translation';
+import { translations } from '../cultures/translations';
 import Toastify from 'toastify-js';
 
 export const widowedKeyChecker = () => {
@@ -9,20 +9,12 @@ export const widowedKeyChecker = () => {
 	) as NodeListOf<SVGForeignObjectElement>;
 
 	// remove prefix
-	const foreignObjectKeys = [...foreignObjectNodeList].map((e) =>
-		e.id.replace('text-', '')
-	);
+	const foreignObjectKeys = [...foreignObjectNodeList].map((e) => e.id.replace('text-', ''));
 
-	const translationKeys = Object.keys(translation);
+	const translationKeys = Object.keys(translations);
 
-	const widowedTranslationKeys = _.difference(
-		translationKeys,
-		foreignObjectKeys
-	);
-	const widowedForeignObjectKeys = _.difference(
-		foreignObjectKeys,
-		translationKeys
-	);
+	const widowedTranslationKeys = _.difference(translationKeys, foreignObjectKeys);
+	const widowedForeignObjectKeys = _.difference(foreignObjectKeys, translationKeys);
 	const widowedKeys = [...widowedTranslationKeys, ...widowedForeignObjectKeys];
 
 	if (widowedKeys.length > 0) {
