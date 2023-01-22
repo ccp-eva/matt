@@ -15,7 +15,7 @@ import {
 	getChildrenFromParent,
 	removeDisplayNone,
 } from './slideVisibility';
-import { translations } from '../cultures/translations';
+import { translations } from '../translations';
 import { setMousePointer, setScaleOnHover } from './styleDefaults';
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
