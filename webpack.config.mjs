@@ -81,6 +81,7 @@ export default {
 			patterns: [
 				{ from: 'public/', to: './' },
 				{ from: 'src/assets/', to: './assets/' },
+				{ from: 'src/cultures/', to: './cultures/' },
 			],
 		}),
 		new HtmlWebpackPlugin({

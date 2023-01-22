@@ -1,9 +1,6 @@
 import { gsap } from 'gsap';
 import { play, playPromise } from '../util/audio';
 import { swapSlides } from '../util/slideVisibility';
-import siWelcome from '../cultures/deUrban/audio/si-welcome_1.mp3';
-import siHeadphones from '../cultures/deUrban/audio/si-headphones_1.mp3';
-import siNextRed from '../cultures/deUrban/audio/si-next-red_1.mp3';
 import { getResponse } from '../util/getResponse';
 
 export default async () => {
@@ -55,11 +52,11 @@ export default async () => {
 		reversed: true,
 	});
 
-	await playPromise(siWelcome);
-	await playPromise(siHeadphones);
-	await playPromise(siNextRed);
+	await playPromise(`./cultures/${data.culture}/audio/si-welcome_1.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/si-headphones_1.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/si-next-red_1.mp3`);
 
-	play(siNextRed, 'link-si-headphones');
+	play(`./cultures/${data.culture}/audio/si-next-red_1.mp3`, 'link-si-headphones');
 
 	await getResponse('link-si-next', true);
 	// kill timeline animations
