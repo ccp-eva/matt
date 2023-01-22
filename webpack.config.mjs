@@ -100,7 +100,7 @@ export default {
 		hot: true, // enable hot reload
 		compress: true, // enable gzip compression
 		historyApiFallback: true, // enable HTML5 history API
-		devMiddleware: { writeToDisk: true },
+		// devMiddleware: { writeToDisk: true }, // todo why was it in here?
 	},
 	experiments: {
 		topLevelAwait: true,
