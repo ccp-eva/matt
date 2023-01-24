@@ -22,12 +22,18 @@ export const playPromise = (url: string, elementId?: string) => {
 	}
 };
 
-export const play = (url: string, elementId: string) => {
+export const play = (url: string, elementId?: string) => {
 	const audio = new Audio(url);
 
-	document.getElementById(elementId)!.addEventListener('click', () => {
-		// Restart the audio by setting the current time to 0
-		audio.currentTime = 0;
-		audio.play();
-	});
+	if (elementId) {
+		document.getElementById(elementId)!.addEventListener('click', () => {
+			// Restart the audio by setting the current time to 0
+			audio.currentTime = 0;
+			audio.play();
+		});
+	} else {
+		audio.preload = 'auto'; // intend to play through
+		audio.autoplay = true; // autoplay when loaded
+		audio.src = url;
+	}
 };
