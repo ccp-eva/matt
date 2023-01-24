@@ -163,7 +163,6 @@ export const swapSlides = (
 			duration: fadeDurations[1],
 			// clean-up DOM after animation
 			onComplete: () => {
-				console.log('done?');
 				removeChildVisibiltyStyleAttribs(slideToHide);
 				document.getElementById(slideToHide)!.setAttribute('visibility', 'hidden');
 				document.getElementById(slideToHide)!.removeAttribute('style');

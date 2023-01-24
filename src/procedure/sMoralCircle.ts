@@ -1,21 +1,43 @@
 import { gsap } from 'gsap';
-import { play, playPromise } from '../util/audio';
+import { playPromise } from '../util/audio';
 import { swapSlides } from '../util/slideVisibility';
-import siWelcome from '../cultures/deUrban/audio/si-welcome_1.mp3';
-import siHeadphones from '../cultures/deUrban/audio/si-headphones_1.mp3';
-import siNextRed from '../cultures/deUrban/audio/si-next-red_1.mp3';
-import { getResponse } from '../util/getResponse';
-import { SvgInHtml } from '../types';
+import { sleep } from '../util/helpers';
 
-swapSlides('s-moral-circle', 's-introduction');
+export default async () => {
+	data.slideCount++;
 
-// get child
-const smcChild = document.getElementById('smc-child')! as SvgInHtml;
+	swapSlides('s-moral-circle', 's-introduction');
 
-gsap.set(smcChild, { transformOrigin: '50% 50%' });
-// gsap.set(smcChild, { scale: 2 });
+	const tl = gsap.timeline();
 
-Draggable.create(smcChild);
+	tl.fromTo('#smc-circle', { opacity: 0 }, { opacity: 1, delay: 2 });
+
+	tl.fromTo('#link-smc-elderly', { opacity: 0 }, { opacity: 1 });
+	tl.fromTo('#link-smc-sheep', { opacity: 0 }, { opacity: 1 }, '<');
+	tl.fromTo('#link-smc-rabbit', { opacity: 0 }, { opacity: 1 }, '<');
+
+	tl.fromTo('#link-smc-chicken', { opacity: 0 }, { opacity: 1 });
+	tl.fromTo('#link-smc-dog', { opacity: 0 }, { opacity: 1 }, '<');
+	tl.fromTo('#link-smc-child', { opacity: 0 }, { opacity: 1 }, '<');
+	tl.fromTo('#link-smc-cow', { opacity: 0 }, { opacity: 1 }, '<');
+
+	tl.fromTo('#link-smc-pig', { opacity: 0 }, { opacity: 1 });
+	tl.fromTo('#link-smc-man', { opacity: 0 }, { opacity: 1 }, '<');
+	tl.fromTo('#link-smc-goldfish', { opacity: 0 }, { opacity: 1 }, '<');
+	tl.fromTo('#link-smc-cat', { opacity: 0 }, { opacity: 1 }, '<');
+	tl.fromTo('#link-smc-woman', { opacity: 0 }, { opacity: 1 }, '<');
+
+	await playPromise(`./cultures/${data.culture}/audio/s-moral-circle_1.mp3`);
+	await sleep(1000);
+};
+
+// // get child
+// const smcChild = document.getElementById('smc-child')! as SvgInHtml;
+
+// gsap.set(smcChild, { transformOrigin: '50% 50%' });
+// // gsap.set(smcChild, { scale: 2 });
+
+// Draggable.create(smcChild);
 // // --------------------- humans ---------------------
 
 // swapSlides(['s-humans'], ['s-moral-circle']);
