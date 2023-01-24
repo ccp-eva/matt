@@ -1,22 +1,22 @@
-export const getResponse = (id?: string, hide = false) => {
-	return new Promise<MouseEvent | TouchEvent>((resolve) => {
-		const handleResponse = (event: MouseEvent | TouchEvent) => {
-			if (id && hide) {
-				document.getElementById(id)!.setAttribute('visibility', 'hidden');
-				// following line is required since gsap is setting inline styles
-				document.getElementById(id)!.style.visibility = 'hidden';
-			}
-			return resolve(event);
+export const getResponse = (id?: string | string[]) => {
+	return new Promise<Element>((resolve) => {
+		const handleResponse = (event: Event) => {
+			const target = event.target as Element;
+			return resolve(target);
 		};
 
-		if (id) {
-			document
-				.getElementById(id)!
-				.addEventListener('click', handleResponse, { once: true });
-		} else {
-			document
-				.getElementById('wrapper')!
-				.addEventListener('click', handleResponse, { once: true });
+		if (typeof id === 'string') {
+			document.getElementById(id)!.addEventListener('click', handleResponse, { once: true });
+		}
+
+		if (Array.isArray(id)) {
+			id.forEach((id) => {
+				document.getElementById(id)!.addEventListener('click', handleResponse, { once: true });
+			});
+		}
+
+		if (id === undefined) {
+			document.getElementById('wrapper')!.addEventListener('click', handleResponse, { once: true });
 		}
 	});
 };
