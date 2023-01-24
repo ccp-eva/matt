@@ -30,22 +30,22 @@ audio:
 
 procedure:
   # use camelCase (de-urban → deUrban)
-  deUrban:
-    # these must be the exact slide ids from Illustrator
-    [
+  # these must be the exact slide ids from Illustrator
+  deUrban: [
       s-introduction,
       s-moral-circle,
       s-humans,
       s-transition,
-      s-food1,
-      s-food2,
-      s-food3,
-      s-food4,
-      s-comp1,
-      s-comp2,
-      s-comp3,
-      s-comp4,
+      # s-food1,
+      # s-food2,
+      # s-food3,
+      # s-food4,
+      # s-comp1,
+      # s-comp2,
+      # s-comp3,
+      # s-comp4,
     ]
+  enUrban: [s-introduction, s-moral-circle, s-humans, s-transition]
   naUrban: [s-introduction, s-moral-circle, s-humans, s-transition]
 
 dilemma:
