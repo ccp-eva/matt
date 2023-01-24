@@ -35,5 +35,13 @@ declare var data: {
 	slideCount: number;
 	gender: 'female' | 'male' | 'other';
 	birthday: 'string';
-	procedure: {};
+	procedure: {
+		introduction: {
+			duration: number;
+		};
+		cow?: {
+			duration: number;
+			response: string;
+		};
+	};
 };

@@ -13,9 +13,11 @@ slideTransition:
   fadeIn: 0.25
 css:
   # will be used within the init process to to add style="cursor: pointer" to the given ids
-  mousePointerObjects: [link-si-next, link-si-headphones]
+  mousePointerObjects:
+    [link-si-next, link-si-headphones, link-s-cow-headphones, link-s-cow-yes, link-s-cow-no]
   # will be used within the init process to to add a zoom animation on hover
-  scaleOnHoverObjects: [link-si-next, link-si-headphones]
+  scaleOnHoverObjects:
+    [link-si-next, link-si-headphones, link-s-cow-headphones, link-s-cow-yes, link-s-cow-no]
 globals:
   defaultCulture: deUrban # use camelCase (de-urban → deUrban)
   defaultSubjectId: demo
@@ -36,7 +38,7 @@ procedure:
       s-moral-circle,
       s-humans,
       s-transition,
-      # s-food1,
+      s-cow,
       # s-food2,
       # s-food3,
       # s-food4,

@@ -59,6 +59,7 @@ export const init = () => {
 		culture: urlParameters.culture,
 		initialTimestamp: new Date().toISOString(),
 		slideCount: 0,
+		procedure: {},
 	};
 
 	// check if all translation keys have a matching foreignObject and vice versa

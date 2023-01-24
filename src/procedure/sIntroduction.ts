@@ -9,6 +9,8 @@ export default async () => {
 	// show first slide
 	swapSlides('s-introduction');
 
+	const startTime = new Date().getTime();
+
 	const tl = gsap.timeline();
 	const headphones = document.getElementById('link-si-headphones')!;
 	const nextButton = document.getElementById('link-si-next')!;
@@ -58,7 +60,12 @@ export default async () => {
 
 	play(`./cultures/${data.culture}/audio/si-next_2.mp3`, 'link-si-headphones');
 
-	await getResponse('link-si-next', true);
+	await getResponse('link-si-next');
+
+	data.procedure.introduction = {
+		duration: new Date().getTime() - startTime,
+	};
+
 	// kill timeline animations
 	tl.kill();
 };
