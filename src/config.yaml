@@ -41,7 +41,7 @@ procedure:
       # s-cow,
       s-pig,
       s-sheep,
-      # s-food4,
+      s-chicken,
       # s-comp1,
       # s-comp2,
       # s-comp3,

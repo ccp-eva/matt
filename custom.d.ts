@@ -51,5 +51,9 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
+		chicken?: {
+			duration: number;
+			response: string;
+		};
 	};
 };
