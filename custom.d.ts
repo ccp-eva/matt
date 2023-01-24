@@ -43,5 +43,9 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
+		pig?: {
+			duration: number;
+			response: string;
+		};
 	};
 };
