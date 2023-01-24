@@ -47,5 +47,9 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
+		sheep?: {
+			duration: number;
+			response: string;
+		};
 	};
 };
