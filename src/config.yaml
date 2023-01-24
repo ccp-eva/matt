@@ -34,12 +34,12 @@ procedure:
   # use camelCase (de-urban → deUrban)
   # these must be the exact slide ids from Illustrator
   deUrban: [
-      s-introduction,
-      s-moral-circle,
-      s-humans,
-      s-transition,
+      # s-introduction,
+      # s-moral-circle,
+      # s-humans,
+      # s-transition,
       s-cow,
-      # s-food2,
+      s-pig,
       # s-food3,
       # s-food4,
       # s-comp1,
