@@ -86,15 +86,15 @@ audio:
     si-introduction: [0]
 
 procedure:
-  # use camelCase (de-urban → deUrban)
-  # these must be the exact slide ids from Illustrator
-  deUrban:
-    [
-      s-introduction,
-      s-moral-circle,
-      s-humans,
-      s-transition,
-      s-cow,
+  # use camelCase for culture key names (de-urban → deUrban) and use exact
+  # slide ids from Illustrator for values
+  # todo use array if you want to shuffle the slides
+  deUrban: [
+      # s-introduction,
+      # s-moral-circle, # todo transition slide
+      # s-humans,
+      # s-transition,
+      # s-cow,
       s-pig,
       s-sheep,
       s-chicken,
