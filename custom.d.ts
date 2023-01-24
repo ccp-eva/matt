@@ -59,5 +59,17 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
+		dog?: {
+			duration: number;
+			response: string;
+		};
+		rabbit?: {
+			duration: number;
+			response: string;
+		};
+		goldfish?: {
+			duration: number;
+			response: string;
+		};
 	};
 };
