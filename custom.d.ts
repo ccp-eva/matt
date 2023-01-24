@@ -55,5 +55,9 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
+		cat?: {
+			duration: number;
+			response: string;
+		};
 	};
 };

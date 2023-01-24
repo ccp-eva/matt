@@ -42,7 +42,7 @@ procedure:
       s-pig,
       s-sheep,
       s-chicken,
-      # s-comp1,
+      s-cat,
       # s-comp2,
       # s-comp3,
       # s-comp4,
