@@ -13,11 +13,66 @@ slideTransition:
   fadeIn: 0.25
 css:
   # will be used within the init process to to add style="cursor: pointer" to the given ids
+  # todo make this regexable
   mousePointerObjects:
-    [link-si-next, link-si-headphones, link-s-cow-headphones, link-s-cow-yes, link-s-cow-no]
+    [
+      link-si-next,
+      link-si-headphones,
+      link-s-cow-headphones,
+      link-s-cow-yes,
+      link-s-cow-no,
+      link-s-pig-headphones,
+      link-s-pig-yes,
+      link-s-pig-no,
+      link-s-sheep-headphones,
+      link-s-sheep-yes,
+      link-s-sheep-no,
+      link-s-chicken-headphones,
+      link-s-chicken-yes,
+      link-s-chicken-no,
+      link-s-cat-headphones,
+      link-s-cat-yes,
+      link-s-cat-no,
+      link-s-dog-headphones,
+      link-s-dog-yes,
+      link-s-dog-no,
+      link-s-rabbit-headphones,
+      link-s-rabbit-yes,
+      link-s-rabbit-no,
+      link-s-goldfish-headphones,
+      link-s-goldfish-yes,
+      link-s-goldfish-no,
+    ]
   # will be used within the init process to to add a zoom animation on hover
   scaleOnHoverObjects:
-    [link-si-next, link-si-headphones, link-s-cow-headphones, link-s-cow-yes, link-s-cow-no]
+    [
+      link-si-next,
+      link-si-headphones,
+      link-s-cow-headphones,
+      link-s-cow-yes,
+      link-s-cow-no,
+      link-s-pig-headphones,
+      link-s-pig-yes,
+      link-s-pig-no,
+      link-s-sheep-headphones,
+      link-s-sheep-yes,
+      link-s-sheep-no,
+      link-s-chicken-headphones,
+      link-s-chicken-yes,
+      link-s-chicken-no,
+      link-s-cat-headphones,
+      link-s-cat-yes,
+      link-s-cat-no,
+      link-s-dog-headphones,
+      link-s-dog-yes,
+      link-s-dog-no,
+      link-s-rabbit-headphones,
+      link-s-rabbit-yes,
+      link-s-rabbit-no,
+      link-s-goldfish-headphones,
+      link-s-goldfish-yes,
+      link-s-goldfish-no,
+    ]
 globals:
   defaultCulture: deUrban # use camelCase (de-urban → deUrban)
   defaultSubjectId: demo
