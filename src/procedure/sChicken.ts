@@ -9,9 +9,9 @@ export default async () => {
 
 	const startTime = new Date().getTime();
 
-	await playPromise(`./cultures/${data.culture}/audio/s-food4_1.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/s-food4_3.mp3`);
 
-	play(`./cultures/${data.culture}/audio/s-food4_1.mp3`, 'link-s-chicken-headphones');
+	play(`./cultures/${data.culture}/audio/s-food4_3.mp3`, 'link-s-chicken-headphones');
 
 	const response = await getResponse(['link-s-chicken-yes', 'link-s-chicken-no']);
 	console.log(response.id);
