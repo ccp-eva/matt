@@ -88,15 +88,14 @@ audio:
 procedure:
   # use camelCase (de-urban → deUrban)
   # these must be the exact slide ids from Illustrator
-  deUrban:
-    [
-      s-introduction,
-      s-moral-circle,
-      s-humans,
-      s-transition,
-      s-cow,
-      s-pig,
-      s-sheep,
+  deUrban: [
+      # s-introduction,
+      # s-moral-circle,
+      # s-humans,
+      # s-transition,
+      # s-cow,
+      # s-pig,
+      # s-sheep,
       s-chicken,
       s-cat,
       s-dog,
