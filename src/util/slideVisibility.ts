@@ -22,7 +22,7 @@ export const getChildrenFromParent = (parentId = 'svg') => {
 	const childrenArray = [...parent.children];
 	let childIds = childrenArray.map((e) => e.id);
 	if (childIds.filter((e) => e === '').length > 0) {
-		console.error(
+		console.warn(
 			'IDs are missing in the First Level of the SVG. Make sure those objects have an ID.'
 		);
 		childIds = childIds.filter(Boolean);
@@ -141,7 +141,7 @@ export const swapSlides = (
 	// if fadeDurations is defined, we use GSAP to fade in and out between slides (using opacity)
 	// fadeDurations requires visibleSlides and hiddenSlides
 	if (fadeDurations && (!visibleSlides || !hiddenSlides)) {
-		console.error('fade requires visibleSlides and hiddenSlides');
+		console.warn('fade requires visibleSlides and hiddenSlides');
 	}
 	if (fadeDurations && visibleSlides && hiddenSlides) {
 		// make sure to have a single string

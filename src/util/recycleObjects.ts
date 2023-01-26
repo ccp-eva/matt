@@ -17,14 +17,8 @@ export const recycleObjects = () => {
 		.sort();
 
 	// check for missmatching/widowed placeholder and link ids
-	const widowedPlaceholderIds = _.difference(
-		placeholderObjectIds,
-		linkedObjectIds
-	);
-	const widowedlinkedObjectIds = _.difference(
-		linkedObjectIds,
-		placeholderObjectIds
-	);
+	const widowedPlaceholderIds = _.difference(placeholderObjectIds, linkedObjectIds);
+	const widowedlinkedObjectIds = _.difference(linkedObjectIds, placeholderObjectIds);
 
 	const widowedIds = [...widowedPlaceholderIds, ...widowedlinkedObjectIds];
 
@@ -40,7 +34,7 @@ export const recycleObjects = () => {
 	}
 
 	if (widowedPlaceholderIds.length > 0) {
-		console.error(
+		console.warn(
 			"You are using placeholder ids that don't have a matching link counterpart in the SVG!",
 			'Placeholder ids without matching link id:',
 			widowedPlaceholderIds
@@ -48,7 +42,7 @@ export const recycleObjects = () => {
 	}
 
 	if (widowedlinkedObjectIds.length > 0) {
-		console.error(
+		console.warn(
 			"You are using link ids that don't have a matching placeholder counterpart in the SVG!",
 			'Link ids without matching link id:',
 			widowedlinkedObjectIds
@@ -57,7 +51,7 @@ export const recycleObjects = () => {
 
 	// this should never fire, because of the previous checks, if it fires, I don't know ...
 	if (!_.isEqual([...placeholderObjectIds], [...linkedObjectIds])) {
-		console.error('Placeholder and link ids do not match! 🤷');
+		console.warn('Placeholder and link ids do not match! 🤷');
 	}
 
 	// replace linked assets with asset path and change file extension from png to svg

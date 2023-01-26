@@ -29,7 +29,7 @@ export const widowedKeyChecker = () => {
 	}
 
 	if (widowedTranslationKeys.length > 0) {
-		console.error(
+		console.warn(
 			"You are using translation ids (keys) that don't have a matching counterpart in the SVG!",
 			'Present translation ids without matching SVG ids:',
 			widowedTranslationKeys
@@ -37,7 +37,7 @@ export const widowedKeyChecker = () => {
 	}
 
 	if (widowedForeignObjectKeys.length > 0) {
-		console.error(
+		console.warn(
 			"You are using SVG ids that don't have a matching translation id!",
 			'Present SVG ids without matching translation ids:',
 			widowedForeignObjectKeys

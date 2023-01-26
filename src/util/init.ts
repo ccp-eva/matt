@@ -37,7 +37,7 @@ export const init = () => {
 
 	// check if display="none" elements exist in DOM)
 	if (document.querySelectorAll('[display="none"]').length > 0) {
-		console.error(
+		console.warn(
 			'Found elements with \'display="none"\' attribute. Make sure all objects are visible when exporting the SVG.',
 			'Use removeDisplayNone(); to bypass this temporarily.'
 		);
