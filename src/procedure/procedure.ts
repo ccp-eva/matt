@@ -17,9 +17,7 @@ export const procedure = async () => {
 		}).showToast();
 	}
 
-	const currentProcedure = config.procedure[currentCulture].map((e: string) =>
-		_.camelCase(e)
-	);
+	const currentProcedure = config.procedure[currentCulture].map((e: string) => _.camelCase(e));
 
 	console.log(currentProcedure);
 
@@ -27,7 +25,7 @@ export const procedure = async () => {
 	for (const slide of currentProcedure) {
 		await (await import(`./${slide}`)).default();
 	}
-	console.log('done');
 	// await (await import(`./${currentProcedure[0]}`)).default();
 	// await (await import(`./${currentProcedure[1]}`)).default();
+	console.log('Procedure loop done');
 };
