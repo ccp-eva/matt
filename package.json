@@ -5,6 +5,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
+		"voxify": "node src/voxify/",
 		"start": "webpack serve",
 		"clean": "rimraf dist",
 		"build": "npm run clean && NODE_ENV=production webpack"
