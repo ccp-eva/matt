@@ -28,6 +28,11 @@ declare module '*.mp3' {
 	export default content;
 }
 
+declare module '*.webm' {
+	const content: any;
+	export default content;
+}
+
 declare var data: {
 	id: string;
 	culture: 'deUrban';

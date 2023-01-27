@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 import { play, playPromise } from '../util/audio';
 import { swapSlides } from '../util/slideVisibility';
 import { getResponse } from '../util/getResponse';
+import videoPath from '../cultures/deUrban/video/pinda-small-compressed.webm';
 
 export default async () => {
 	data.slideCount++;
@@ -10,6 +11,9 @@ export default async () => {
 	swapSlides('s-introduction');
 
 	const startTime = new Date().getTime();
+
+	const player = document.getElementById('player') as HTMLVideoElement;
+	player.src = videoPath;
 
 	const tl = gsap.timeline();
 	const headphones = document.getElementById('link-si-headphones')!;
@@ -54,9 +58,9 @@ export default async () => {
 		reversed: true,
 	});
 
-	await playPromise(`./cultures/${data.culture}/audio/si-welcome_1.mp3`);
-	await playPromise(`./cultures/${data.culture}/audio/si-headphones_1.mp3`);
-	await playPromise(`./cultures/${data.culture}/audio/si-next-red_1.mp3`);
+	// await playPromise(`./cultures/${data.culture}/audio/si-welcome_1.mp3`);
+	// await playPromise(`./cultures/${data.culture}/audio/si-headphones_1.mp3`);
+	// await playPromise(`./cultures/${data.culture}/audio/si-next-red_1.mp3`);
 
 	play(`./cultures/${data.culture}/audio/si-next_2.mp3`, 'link-si-headphones');
 
@@ -68,4 +72,6 @@ export default async () => {
 
 	// kill timeline animations
 	tl.kill();
+
+	player.style.display = 'none';
 };
