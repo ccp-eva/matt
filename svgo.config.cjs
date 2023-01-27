@@ -17,7 +17,7 @@ module.exports = {
 		'removeEmptyAttrs',
 		// 'removeHiddenElems', // can be dangerous,
 		'removeEmptyText',
-		'removeEmptyContainers',
+		// 'removeEmptyContainers', // required for transition slides which are empty groups
 		// 'removeViewBox', // can be dangerous
 		'cleanupEnableBackground',
 		'minifyStyles',
