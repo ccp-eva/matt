@@ -16,6 +16,6 @@ let voxSvg = svg
 	.replace(/xlink:href="/g, 'xlink:href="assets/') // prepend path
 	.replace('-->', '-->\n<!-- voxified -->'); // add postprocess flag
 
-fs.writeFile(path.resolve(__dirname, '../assets/experimento.svg'), voxSvg);
+fs.writeFile(path.resolve(__dirname, '../assets/experiment-voxified.svg'), voxSvg);
 
 // todo use jsdom to parse within nodejs like in JS https://github.com/jsdom/jsdom
