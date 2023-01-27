@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { SvgInHtml } from '../types';
-import svgPath from '../assets/experiment.svg';
+import svgPath from '../assets/experiment-voxified.svg';
 import config from '../config.yaml';
 import { rectToForeignObject } from './rectToForeignObject';
 import { recycleObjects } from './recycleObjects';

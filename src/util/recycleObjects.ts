@@ -54,12 +54,6 @@ export const recycleObjects = () => {
 		console.warn('Placeholder and link ids do not match! 🤷');
 	}
 
-	// replace linked assets with asset path and change file extension from png to svg
-	linkedObjects.forEach((e) => {
-		const currentAttribute = e.getAttribute('xlink:href')!.replace('.png', '');
-		e.setAttribute('xlink:href', `assets/${currentAttribute}.svg`);
-	});
-
 	// copy attributes from placeholder to link
 	placeholderObjectIds.forEach((id) => {
 		copyAttributes(
