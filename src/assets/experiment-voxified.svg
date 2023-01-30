@@ -2470,45 +2470,6 @@
 		<image overflow="visible" width="80" height="80" id="link-sm-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
-<g id="s-comp-check-outer">
-	<g id="scco-circle">
-		<path id="scco-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M1055,540c0,270.62-219.38,490-490,490
-			c-270.62,0-490-219.38-490-490C75,269.38,294.38,50,565,50C835.62,50,1055,269.38,1055,540z"/>
-		<circle id="scco-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" cx="565" cy="540" r="385.21"/>
-		<circle id="scco-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="566.19" cy="538.81" r="264.95"/>
-	</g>
-	<rect x="1223.27" y="50.75" fill="#EAEAEA" width="631.45" height="978.5"/>
-	<rect id="ph-scco-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
-	
-		<image overflow="visible" width="80" height="80" id="link-scco-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
-	</image>
-</g>
-<g id="s-comp-check-middle">
-	<g id="sccm-circle">
-		<path id="sccm-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M1055,540c0,270.62-219.38,490-490,490
-			c-270.62,0-490-219.38-490-490C75,269.38,294.38,50,565,50C835.62,50,1055,269.38,1055,540z"/>
-		<circle id="sccm-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" cx="565" cy="540" r="385.21"/>
-		<circle id="sccm-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="566.19" cy="538.81" r="264.95"/>
-	</g>
-	<rect x="1223.27" y="50.75" fill="#EAEAEA" width="631.45" height="978.5"/>
-	<rect id="ph-sccm-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
-	
-		<image overflow="visible" width="80" height="80" id="link-sccm-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
-	</image>
-</g>
-<g id="s-comp-check-inner">
-	<g id="scci-circle">
-		<path id="scci-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M1055,540c0,270.62-219.38,490-490,490
-			c-270.62,0-490-219.38-490-490C75,269.38,294.38,50,565,50C835.62,50,1055,269.38,1055,540z"/>
-		<circle id="scci-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" cx="565" cy="540" r="385.21"/>
-		<circle id="scci-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="566.19" cy="538.81" r="264.95"/>
-	</g>
-	<rect x="1223.27" y="50.75" fill="#EAEAEA" width="631.45" height="978.5"/>
-	<rect id="ph-scci-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
-	
-		<image overflow="visible" width="80" height="80" id="link-scci-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
-	</image>
-</g>
 <g id="s-task">
 	<g id="st-circle">
 		<path id="st-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M1055,540c0,270.62-219.38,490-490,490
@@ -2567,6 +2528,45 @@
 	</image>
 	
 		<image overflow="visible" width="80" height="81" id="link-st-next" xlink:href="assets/next.svg"  transform="matrix(0.575 0 0 0.5679 1077 945)">
+	</image>
+</g>
+<g id="s-comp-check-outer">
+	<g id="scco-circle">
+		<path id="scco-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M1055,540c0,270.62-219.38,490-490,490
+			c-270.62,0-490-219.38-490-490C75,269.38,294.38,50,565,50C835.62,50,1055,269.38,1055,540z"/>
+		<circle id="scco-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" cx="565" cy="540" r="385.21"/>
+		<circle id="scco-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="566.19" cy="538.81" r="264.95"/>
+	</g>
+	<rect x="1223.27" y="50.75" fill="#EAEAEA" width="631.45" height="978.5"/>
+	<rect id="ph-scco-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-scco-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+</g>
+<g id="s-comp-check-middle">
+	<g id="sccm-circle">
+		<path id="sccm-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M1055,540c0,270.62-219.38,490-490,490
+			c-270.62,0-490-219.38-490-490C75,269.38,294.38,50,565,50C835.62,50,1055,269.38,1055,540z"/>
+		<circle id="sccm-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" cx="565" cy="540" r="385.21"/>
+		<circle id="sccm-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="566.19" cy="538.81" r="264.95"/>
+	</g>
+	<rect x="1223.27" y="50.75" fill="#EAEAEA" width="631.45" height="978.5"/>
+	<rect id="ph-sccm-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-sccm-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+</g>
+<g id="s-comp-check-inner">
+	<g id="scci-circle">
+		<path id="scci-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M1055,540c0,270.62-219.38,490-490,490
+			c-270.62,0-490-219.38-490-490C75,269.38,294.38,50,565,50C835.62,50,1055,269.38,1055,540z"/>
+		<circle id="scci-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" cx="565" cy="540" r="385.21"/>
+		<circle id="scci-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="566.19" cy="538.81" r="264.95"/>
+	</g>
+	<rect x="1223.27" y="50.75" fill="#EAEAEA" width="631.45" height="978.5"/>
+	<rect id="ph-scci-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-scci-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
 <g id="s-ball-practice">
