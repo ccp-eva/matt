@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 import { play, playPromise } from '../util/audio';
 import { swapSlides } from '../util/slideVisibility';
 import { getResponse } from '../util/getResponse';
+// todo make this a dynamic import
 import videoPath from '../cultures/deUrban/video/pinda-small-compressed.webm';
 
 export default async () => {
