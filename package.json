@@ -5,6 +5,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
+		"alphaPinda": "cd src/character-animator && for i in *.mov; do ffmpeg -i \"$i\" -f webm -c:v libvpx -b:v 1M -acodec libvorbis -auto-alt-ref 0 \"${i%.*}.webm\"; done",
 		"voxify": "node src/voxify/",
 		"start": "webpack serve",
 		"clean": "rimraf dist",
