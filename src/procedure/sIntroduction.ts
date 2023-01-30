@@ -3,7 +3,8 @@ import { play, playPromise } from '../util/audio';
 import { swapSlides } from '../util/slideVisibility';
 import { getResponse } from '../util/getResponse';
 // todo make this a dynamic import
-import videoPath from '../cultures/deUrban/video/pinda-small-compressed.webm';
+import pindaStart from '../cultures/deUrban/video/si_welcome_headphones.webm';
+import pindaNext from '../cultures/deUrban/video/si_next.webm';
 
 export default async () => {
 	data.slideCount++;
@@ -14,7 +15,7 @@ export default async () => {
 	const startTime = new Date().getTime();
 
 	const player = document.getElementById('player') as HTMLVideoElement;
-	player.src = videoPath;
+	player.src = pindaStart;
 
 	const tl = gsap.timeline();
 	const headphones = document.getElementById('link-si-headphones')!;
@@ -32,7 +33,7 @@ export default async () => {
 	});
 
 	tl.to(headphones, {
-		delay: 13,
+		delay: 17,
 		duration: 0.5,
 		opacity: 1,
 		visibility: 'visible',
@@ -46,7 +47,10 @@ export default async () => {
 	});
 
 	tl.to(nextButton, {
-		delay: 3,
+		onStart: () => {
+			player.src = pindaNext;
+		},
+		delay: 4,
 		duration: 0.5,
 		opacity: 1,
 		visibility: 'visible',
@@ -58,6 +62,8 @@ export default async () => {
 		yoyo: true,
 		reversed: true,
 	});
+
+	const pindaRepeat = gsap.timeline();
 
 	// await playPromise(`./cultures/${data.culture}/audio/si-welcome_1.mp3`);
 	// await playPromise(`./cultures/${data.culture}/audio/si-headphones_1.mp3`);
