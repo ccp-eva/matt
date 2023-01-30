@@ -15,7 +15,7 @@ export default async () => {
 
 	const response = await getResponse(['link-s-sheep-yes', 'link-s-sheep-no']);
 	console.log(response.id);
-	data.procedure.cow = {
+	data.procedure.sheep = {
 		duration: new Date().getTime() - startTime,
 		response: response.id,
 	};
