@@ -42,9 +42,18 @@ export default async () => {
 	play(`./cultures/${data.culture}/audio/s-food1_1.mp3`, 'link-s-cow-headphones');
 
 	const response = await getResponse(['link-s-cow-yes', 'link-s-cow-no']);
+
 	console.log(response.id);
 	data.procedure.cow = {
 		duration: new Date().getTime() - startTime,
 		response: response.id,
 	};
+
+	if (data.procedure.cow.response === 'link-s-cow-yes') {
+		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-ok_1.mp3`);
+	}
+
+	if (data.procedure.cow.response === 'link-s-cow-no') {
+		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no_1.mp3`);
+	}
 };

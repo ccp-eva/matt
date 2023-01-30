@@ -48,4 +48,12 @@ export default async () => {
 		duration: new Date().getTime() - startTime,
 		response: response.id,
 	};
+
+	if (data.procedure.pig.response === 'link-s-pig-yes') {
+		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-alright_1.mp3`);
+	}
+
+	if (data.procedure.pig.response === 'link-s-pig-no') {
+		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no_1.mp3`);
+	}
 };
