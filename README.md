@@ -17,8 +17,10 @@ https://ccp-odc.eva.mpg.de/matt/?id=12345&culture=DE_urban&webcam=true&adult=tru
 
 Culture parameters are composed of a country code (i.e, [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) (e.g., DE)) and a suffix (i.e., rural or urban). For example: `de-urban`
 
-- `id` (subject id)
-- `culture` (e.g., this loads slides, sounds, and texts, `de-urban`)
+- `id`: subject id, defaults to _demo_
+- `culture`: this loads slides, sounds, and texts; defaults to `de-urban`
+- `agegroup`: changes audio and text, defaults to `child` (`child` | `adult`)
+- TODO: `input`: `audio` | `text` | `both` (default)
 
 ### ❡ Adding Text
 
