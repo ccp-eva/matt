@@ -14,8 +14,7 @@ export default async () => {
 
 	const startTime = new Date().getTime();
 
-	const player = document.getElementById('player') as HTMLVideoElement;
-	player.src = pindaStart;
+	const pinda = document.getElementById('player') as HTMLVideoElement;
 
 	const tl = gsap.timeline();
 	const headphones = document.getElementById('link-si-headphones')!;
@@ -32,36 +31,57 @@ export default async () => {
 		visibility: 'hidden',
 	});
 
-	tl.to(headphones, {
-		delay: 17,
-		duration: 0.5,
-		opacity: 1,
-		visibility: 'visible',
-	});
-	tl.to(headphones, {
-		filter: 'drop-shadow(0px 0px 14px #c4c4c4)',
-		delay: 1,
-		repeat: 2,
-		yoyo: true,
-		reversed: true,
-	});
-
-	tl.to(nextButton, {
+	// timeline start
+	tl.to(pinda, {
 		onStart: () => {
-			player.src = pindaNext;
+			pinda.src = pindaStart;
 		},
-		delay: 4,
-		duration: 0.5,
-		opacity: 1,
-		visibility: 'visible',
-	});
-	tl.to(nextButton, {
-		filter: 'drop-shadow(0px 0px 14px #a90707)',
-		delay: 1,
-		repeat: -1,
-		yoyo: true,
-		reversed: true,
-	});
+	})
+		.to(
+			headphones,
+			{
+				delay: 17,
+				duration: 0.5,
+				opacity: 1,
+				visibility: 'visible',
+			},
+			'<'
+		)
+		.to(headphones, {
+			filter: 'drop-shadow(0px 0px 14px #c4c4c4)',
+			delay: 1,
+			repeat: 2,
+			yoyo: true,
+			reversed: true,
+		})
+		.to(pinda, {
+			delay: 4,
+			autoAlpha: 0,
+			duration: 0.1,
+			onComplete: () => {
+				pinda.src = pindaNext;
+			},
+		})
+		.to(pinda, {
+			autoAlpha: 1,
+			duration: 0.1,
+		})
+		.to(nextButton, {
+			delay: 0.5,
+			opacity: 1,
+			visibility: 'visible',
+		})
+		.to(nextButton, {
+			filter: 'drop-shadow(0px 0px 14px #a90707)',
+			delay: 1,
+			repeat: -1,
+			yoyo: true,
+			reversed: true,
+		})
+		.to(pinda, {
+			delay: 3,
+			autoAlpha: 0,
+		});
 
 	const pindaRepeat = gsap.timeline();
 
@@ -80,5 +100,5 @@ export default async () => {
 	// kill timeline animations
 	tl.kill();
 
-	player.style.display = 'none';
+	pinda.style.display = 'none';
 };
