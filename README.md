@@ -6,7 +6,11 @@
 
 ---
 
-## Development
+## In Active Developlment
+
+This repo is on active development and changes on a daily basis. Things will break and other things are no yet documented. Check back at a later time when things are more robust (March 2022).
+
+## Development & Customization
 
 todo
 
