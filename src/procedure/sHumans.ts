@@ -37,7 +37,6 @@ export default async () => {
 		});
 
 	while (!data.procedure.humans.completed) {
-		console.log(data.procedure.humans.completed);
 		await sleep(500);
 	}
 };
