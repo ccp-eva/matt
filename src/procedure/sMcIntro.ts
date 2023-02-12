@@ -1,35 +1,60 @@
 import { gsap } from 'gsap';
-import { playPromise } from '../util/audio';
+import { SvgInHtml } from '../types';
+import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
 	data.slideCount++;
-	swapSlides('s-mc-intro', 's-transition-3');
 
-	const tl = gsap.timeline();
+	data.procedure.mcIntro = { completed: false };
+
+	// circles
+	const inner = document.getElementById('smci-inner')! as SvgInHtml;
+	const middle = document.getElementById('smci-middle')! as SvgInHtml;
+	const outer = document.getElementById('smci-outer')! as SvgInHtml;
+	gsap.set([inner, middle, outer], { autoAlpha: 0.35 });
+
+	const pinda = document.getElementById('player') as HTMLVideoElement;
+	gsap.set(pinda, { autoAlpha: 0 });
+	const timeline = gsap.timeline();
+	timeline.to(pinda, {
+		autoAlpha: 1,
+		duration: 1,
+		onStart: () => {
+			pinda.src = `./cultures/${data.culture}/video/s-transition-3-mc-intro.webm`;
+		},
+	});
+
+	await sleep(1500);
+
+	swapSlides('s-mc-intro', 's-goldfish', [3, 1]);
 
 	// gsap flash animation for smci-inner id
-	tl.to('#smci-inner', {
-		delay: 11,
-		fill: '#c4c4c4',
-		repeat: 4,
-		yoyo: true,
-		reversed: true,
-	});
-	tl.to('#smci-middle', {
-		delay: 1.5,
-		fill: '#c4c4c4',
-		repeat: 4,
-		yoyo: true,
-		reversed: true,
-	});
-	tl.to('#smci-outer', {
-		delay: 1.5,
-		fill: '#c4c4c4',
-		repeat: 4,
-		yoyo: true,
-		reversed: true,
-	});
+	timeline
+		.to(inner, {
+			delay: 14,
+			autoAlpha: 1,
+		})
+		.to(middle, {
+			delay: 4,
+			autoAlpha: 1,
+		})
+		.to(outer, {
+			delay: 3.5,
+			autoAlpha: 1,
+		})
+		.to(pinda, {
+			delay: 2,
+			autoAlpha: 0,
+			duration: 2,
+			onComplete: () => {
+				data.procedure.mcIntro.completed = true;
+			},
+		});
 
-	await playPromise(`./cultures/${data.culture}/audio/s-mc-intro_1.mp3`);
+	while (!data.procedure.mcIntro.completed) {
+		await sleep(500);
+	}
+
+	await sleep(2000);
 };
