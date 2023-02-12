@@ -82,5 +82,8 @@ declare var data: {
 		mcIntro: {
 			completed: boolean;
 		};
+		ballAnimation: {
+			completed: boolean;
+		};
 	};
 };

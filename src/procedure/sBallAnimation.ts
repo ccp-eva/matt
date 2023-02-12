@@ -1,64 +1,71 @@
 import { gsap } from 'gsap';
 import { playPromise } from '../util/audio';
+import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
 	data.slideCount++;
 	swapSlides('s-ball-animation', 's-mc-intro');
 
-	const tl = gsap.timeline();
-	// fade in ball
-	tl.fromTo(
-		'#link-sba-ball',
-		{
-			opacity: 0,
-		},
-		{
+	data.procedure.ballAnimation = { completed: false };
+	const ball = document.getElementById('link-sba-ball');
+
+	gsap.set(ball, { autoAlpha: 0 });
+
+	gsap
+		.timeline()
+		.to(ball, {
 			delay: 2,
 			duration: 1,
-			opacity: 1,
-		}
-	);
-	tl.to('#link-sba-ball', {
-		delay: 2,
-		duration: 1,
-		x: -575,
-	});
-	tl.to('#link-sba-ball', {
-		delay: 1,
-		opacity: 0,
-	});
-	tl.to('#link-sba-ball', {
-		delay: 0,
-		x: 0,
-	});
-	tl.to('#link-sba-ball', {
-		opacity: 1,
-	});
-	tl.to('#link-sba-ball', {
-		delay: 1,
-		duration: 1,
-		x: -460,
-	});
-	tl.to('#link-sba-ball', {
-		delay: 1,
-		opacity: 0,
-	});
-	tl.to('#link-sba-ball', {
-		delay: 0,
-		x: 0,
-	});
-	tl.to('#link-sba-ball', {
-		opacity: 1,
-	});
-	tl.to('#link-sba-ball', {
-		delay: 1,
-		duration: 1,
-		x: -894,
-	});
+			autoAlpha: 1,
+		})
+		.to(ball, {
+			delay: 2,
+			duration: 1,
+			x: -575,
+		})
+		.to(ball, {
+			delay: 1,
+			autoAlpha: 0,
+		})
+		.to(ball, {
+			delay: 0,
+			x: 0,
+		})
+		.to(ball, {
+			autoAlpha: 1,
+		})
+		.to(ball, {
+			delay: 1,
+			duration: 1,
+			x: -460,
+		})
+		.to(ball, {
+			delay: 1,
+			autoAlpha: 0,
+		})
+		.to(ball, {
+			delay: 0,
+			x: 0,
+		})
+		.to(ball, {
+			autoAlpha: 1,
+		})
+		.to(ball, {
+			delay: 1,
+			duration: 1,
+			x: -894,
+			onComplete: () => {
+				data.procedure.ballAnimation.completed = true;
+			},
+		});
 
-	await playPromise(`./cultures/${data.culture}/audio/s-ball-animation_2.mp3`);
-	await playPromise(`./cultures/${data.culture}/audio/sba-medium_1.mp3`);
-	await playPromise(`./cultures/${data.culture}/audio/sba-outer_1.mp3`);
-	await playPromise(`./cultures/${data.culture}/audio/sba-inner_2.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/s-ball-animation.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/sba-middle.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/sba-outer.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/sba-inner.mp3`);
+
+	while (!data.procedure.ballAnimation.completed) {
+		await sleep(500);
+	}
 };
