@@ -27,6 +27,29 @@ export const init = () => {
 	// get main svg element
 	const svg = document.querySelector('svg')! as SvgInHtml;
 
+	// check if svg is voxified
+	if (!svg.hasAttribute('voxified')) {
+		Toastify({
+			escapeMarkup: false,
+			text:
+				'⚠️ <strong><code>voxified</code> attribute not found!</strong><br>' +
+				'<small>You shoud run <code>npm run voxify</code></small>',
+			duration: 0,
+			// destination: 'https://github.com/apvarun/toastify-js',
+			// newWindow: true,
+			// close: true,
+			gravity: 'top', // `top` or `bottom`
+			position: 'right', // `left`, `center` or `right`
+			stopOnFocus: true, // Prevents dismissing of toast on hover
+			className: 'toast-error',
+			// style: {
+			// 	background:
+			// 		'linear-gradient(to bottom, hsl(335deg 86% 46%) 0%, hsl(347deg 90% 42%) 50%, hsl(347deg 90% 42%) 50%)',
+			// },
+			// onClick: function () {}, // Callback after click
+		}).showToast();
+	}
+
 	// parse SVG DOM for all child nodes from #svg group
 	const svgChilds: {
 		[key: string]: SVGImageElement | SVGGElement | Element;

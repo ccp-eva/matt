@@ -14,7 +14,7 @@ const svg = await fs.readFile(svgPath, 'utf8');
 let voxSvg = svg
 	.replace(/png/g, 'svg') // replace png with svg
 	.replace(/xlink:href="/g, 'xlink:href="assets/') // prepend path
-	.replace('-->', '-->\n<!-- voxified -->'); // add postprocess flag
+	.replace('<svg', '<svg voxified="true"'); // add postprocess flag
 
 fs.writeFile(path.resolve(__dirname, '../assets/experiment-voxified.svg'), voxSvg);
 
