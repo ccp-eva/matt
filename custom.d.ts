@@ -44,6 +44,9 @@ declare var data: {
 		introduction: {
 			duration: number;
 		};
+		humans: {
+			completed: boolean;
+		};
 		cow?: {
 			duration: number;
 			response: string;

@@ -1,5 +1,4 @@
 import { gsap } from 'gsap';
-import { playPromise } from '../util/audio';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 import pinda from '../cultures/deUrban/video/s-transition-1-humans-2.webm';
@@ -9,6 +8,7 @@ export default async () => {
 
 	// show first slide
 	swapSlides('s-humans', 's-introduction');
+	data.procedure.humans = { completed: false };
 
 	const player = document.getElementById('player') as HTMLVideoElement;
 	player.style.display = 'block';
@@ -28,7 +28,16 @@ export default async () => {
 		.timeline()
 		.to([woman, child, elderly, man], { autoAlpha: 1, duration: 1, delay: 10 })
 		.to([woman, child, elderly, man], { autoAlpha: 0, delay: 5 })
-		.to(player, { autoAlpha: 0, delay: 5 });
+		.to(player, {
+			autoAlpha: 0,
+			delay: 5,
+			onComplete: () => {
+				data.procedure.humans.completed = true;
+			},
+		});
 
-	await sleep(23000);
+	while (!data.procedure.humans.completed) {
+		console.log(data.procedure.humans.completed);
+		await sleep(500);
+	}
 };
