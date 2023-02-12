@@ -6,40 +6,34 @@ import { swapSlides } from '../util/slideVisibility';
 export default async () => {
 	data.slideCount++;
 
-	swapSlides('s-cow', 's-transition-2');
+	swapSlides('s-cow', 's-humans');
 	const startTime = new Date().getTime();
 
-	const tl = gsap.timeline();
-
-	gsap.set('#link-s-cow-yes', {
+	gsap.set(['#link-s-cow-yes', '#link-s-cow-no'], {
 		transformOrigin: '50% 50%',
-		opacity: 0,
-		visibility: 'hidden',
-	});
-	gsap.set('#link-s-cow-no', {
-		transformOrigin: '50% 50%',
-		opacity: 0,
-		visibility: 'hidden',
+		autoAlpha: 0,
 	});
 
-	tl.to('#link-s-cow-yes', {
-		delay: 2,
-		duration: 0.5,
-		opacity: 1,
-		visibility: 'visible',
-	});
+	gsap
+		.timeline()
+		.to('#link-s-cow-yes', {
+			delay: 2,
+			duration: 0.5,
+			opacity: 1,
+			visibility: 'visible',
+			onStart: () => {
+				playPromise(`./cultures/${data.culture}/audio/yes-no.mp3`);
+			},
+		})
+		.to('#link-s-cow-no', {
+			delay: 1,
+			duration: 0.5,
+			opacity: 1,
+			visibility: 'visible',
+		});
 
-	tl.to('#link-s-cow-no', {
-		delay: 1,
-		duration: 0.5,
-		opacity: 1,
-		visibility: 'visible',
-	});
-
-	await playPromise(`./cultures/${data.culture}/audio/s-food1_1.mp3`);
-	await playPromise(`./cultures/${data.culture}/audio/yes-no_new.mp3`);
-
-	play(`./cultures/${data.culture}/audio/s-food1_1.mp3`, 'link-s-cow-headphones');
+	await playPromise(`./cultures/${data.culture}/audio/s-cow.mp3`);
+	play(`./cultures/${data.culture}/audio/s-cow.mp3`, 'link-s-cow-headphones');
 
 	const response = await getResponse(['link-s-cow-yes', 'link-s-cow-no']);
 
@@ -50,10 +44,10 @@ export default async () => {
 	};
 
 	if (data.procedure.cow.response === 'link-s-cow-yes') {
-		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-ok_1.mp3`);
+		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`);
 	}
 
 	if (data.procedure.cow.response === 'link-s-cow-no') {
-		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no_1.mp3`);
+		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no.mp3`);
 	}
 };

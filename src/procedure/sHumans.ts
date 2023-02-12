@@ -1,19 +1,34 @@
+import { gsap } from 'gsap';
 import { playPromise } from '../util/audio';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
-import pinda from '../cultures/deUrban/video/s-humans.webm';
+import pinda from '../cultures/deUrban/video/s-transition-1-humans-2.webm';
 
 export default async () => {
 	data.slideCount++;
 
 	// show first slide
-	swapSlides('s-humans', 's-transition-1');
+	swapSlides('s-humans', 's-introduction');
 
 	const player = document.getElementById('player') as HTMLVideoElement;
 	player.style.display = 'block';
 	player.src = pinda;
 
-	await sleep(5000);
+	const woman = document.getElementById('link-sh-woman');
+	const child = document.getElementById('link-sh-child');
+	const elderly = document.getElementById('link-sh-elderly');
+	const man = document.getElementById('link-sh-man');
 
-	// await playPromise(`./cultures/${data.culture}/audio/s-humans_1.mp3`);
+	// initially hide
+	gsap.set([woman, child, elderly, man], {
+		autoAlpha: 0,
+	});
+
+	gsap
+		.timeline()
+		.to([woman, child, elderly, man], { autoAlpha: 1, duration: 1, delay: 10 })
+		.to([woman, child, elderly, man], { autoAlpha: 0, delay: 5 })
+		.to(player, { autoAlpha: 0, delay: 5 });
+
+	await sleep(23000);
 };
