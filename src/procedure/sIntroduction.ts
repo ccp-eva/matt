@@ -1,10 +1,7 @@
 import { gsap } from 'gsap';
-import { play, playPromise } from '../util/audio';
+import { play, playPromise, stop } from '../util/audio';
 import { swapSlides } from '../util/slideVisibility';
 import { getResponse } from '../util/getResponse';
-// todo make this a dynamic import
-import pindaStart from '../cultures/deUrban/video/si_welcome_headphones.webm';
-import pindaNext from '../cultures/deUrban/video/si_next.webm';
 
 export default async () => {
 	data.slideCount++;
@@ -34,7 +31,7 @@ export default async () => {
 	// timeline start
 	tl.to(pinda, {
 		onStart: () => {
-			pinda.src = pindaStart;
+			pinda.src = `./cultures/${data.culture}/video/s-introduction.webm`;
 		},
 	})
 		.to(
@@ -54,20 +51,8 @@ export default async () => {
 			yoyo: true,
 			reversed: true,
 		})
-		.to(pinda, {
-			delay: 4,
-			autoAlpha: 0,
-			duration: 0.1,
-			onComplete: () => {
-				pinda.src = pindaNext;
-			},
-		})
-		.to(pinda, {
-			autoAlpha: 1,
-			duration: 0.1,
-		})
 		.to(nextButton, {
-			delay: 0.5,
+			delay: 5,
 			opacity: 1,
 			visibility: 'visible',
 		})
@@ -81,17 +66,14 @@ export default async () => {
 		.to(pinda, {
 			delay: 3,
 			autoAlpha: 0,
+			onStart: () => {
+				play(`./cultures/${data.culture}/audio/si-next-red.mp3`, 'link-si-headphones');
+			},
 		});
 
-	const pindaRepeat = gsap.timeline();
-
-	// await playPromise(`./cultures/${data.culture}/audio/si-welcome_1.mp3`);
-	// await playPromise(`./cultures/${data.culture}/audio/si-headphones_1.mp3`);
-	// await playPromise(`./cultures/${data.culture}/audio/si-next-red_1.mp3`);
-
-	play(`./cultures/${data.culture}/audio/si-next_2.mp3`, 'link-si-headphones');
-
 	await getResponse('link-si-next');
+	// stop audio playback after next button is clicked
+	stop();
 
 	data.procedure.introduction = {
 		duration: new Date().getTime() - startTime,
