@@ -9,9 +9,9 @@ export default async () => {
 
 	const startTime = new Date().getTime();
 
-	await playPromise(`./cultures/${data.culture}/audio/s-food3_1.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/s-sheep.mp3`);
 
-	play(`./cultures/${data.culture}/audio/s-food3_1.mp3`, 'link-s-sheep-headphones');
+	play(`./cultures/${data.culture}/audio/s-sheep.mp3`, 'link-s-sheep-headphones');
 
 	const response = await getResponse(['link-s-sheep-yes', 'link-s-sheep-no']);
 	console.log(response.id);
@@ -21,10 +21,10 @@ export default async () => {
 	};
 
 	if (data.procedure.sheep.response === 'link-s-sheep-yes') {
-		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-ok_1.mp3`);
+		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`);
 	}
 
 	if (data.procedure.sheep.response === 'link-s-sheep-no') {
-		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no_1.mp3`);
+		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no.mp3`);
 	}
 };
