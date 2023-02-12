@@ -25,6 +25,6 @@ export default async () => {
 	}
 
 	if (data.procedure.sheep.response === 'link-s-sheep-no') {
-		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no.mp3`);
+		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no-next.mp3`);
 	}
 };

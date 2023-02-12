@@ -19,4 +19,12 @@ export default async () => {
 		duration: new Date().getTime() - startTime,
 		response: response.id,
 	};
+
+	if (data.procedure.goldfish.response === 'link-s-goldfish-yes') {
+		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`);
+	}
+
+	if (data.procedure.goldfish.response === 'link-s-goldfish-no') {
+		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no.mp3`);
+	}
 };

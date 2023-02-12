@@ -48,6 +48,6 @@ export default async () => {
 	}
 
 	if (data.procedure.cow.response === 'link-s-cow-no') {
-		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no.mp3`);
+		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no-next.mp3`);
 	}
 };
