@@ -166,6 +166,7 @@ export const swapSlides = (
 				removeChildVisibiltyStyleAttribs(slideToHide);
 				document.getElementById(slideToHide)!.setAttribute('visibility', 'hidden');
 				document.getElementById(slideToHide)!.removeAttribute('style');
+				document.getElementById(slideToShow)!.setAttribute('visibility', 'visible');
 			},
 		});
 	}
