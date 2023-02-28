@@ -1,113 +1,129 @@
 export const translations = {
 	welcome: {
 		deUrban: '<h1 class="heading">Willkommen und schön,<br>dass Du dabei bist!</h1>',
-		deRural: '',
-		enUrban: '<h1 class="heading">Welcome! We are glad,<br>that we have you here!</h1>',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	meaning: {
 		deUrban: '<p>Was heißt es für dich, wenn etwas sehr wichtig ist?</p>',
-		deRural: '',
-		naUrban: '',
 		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	saving: {
 		deUrban: '<p>Rettest Du ...</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	tenPencils: {
 		deUrban: '<p>10 Stifte</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	cantDecide: {
 		deUrban: '<p>Ich kann mich nicht entscheiden</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	questionMark: {
 		deUrban: '<p>?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	oneBike: {
 		deUrban: '<p>1 Fahrrad</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	confirm: {
 		deUrban: '<p>Wolltest du das aussuchen?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	oneHuman: {
 		deUrban: '<p>1 Mensch</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	twoHumans: {
 		deUrban: '<p>2 Menschen</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	tenHumans: {
 		deUrban: '<p>10 Menschen</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 	hundredHumans: {
 		deUrban: '<p>100 Menschen</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	oneCat: {
 		deUrban: '<p>1 Katze</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	twoCats: {
 		deUrban: '<p>2 Katzen</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	tenCats: {
 		deUrban: '<p>10 Katzen</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	hundredCats: {
 		deUrban: '<p>100 Katzen</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	oneCow: {
@@ -119,23 +135,26 @@ export const translations = {
 
 	twoCows: {
 		deUrban: '<p>2 Kühe</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	tenCows: {
 		deUrban: '<p>10 Kühe</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	hundredCows: {
 		deUrban: '<p>100 Kühe</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	tenNails: {
@@ -152,171 +171,236 @@ export const translations = {
 		enRural: '',
 	},
 
-	thoughts: {
+	thoughtsAdult: {
 		deUrban: '<p>Haben Tiere Gedanken?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
+	},
+
+	thoughtsChild: {
+		deUrban: '<p>Können Tiere denken?</p>',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	thoughtsComp: {
 		deUrban: '<p>Denken Tiere so wie Menschen?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
-	feelings: {
+	feelingsAdult: {
 		deUrban: '<p>Haben Tiere Gefühle?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
+	},
+
+	feelingsChild: {
+		deUrban: '<p>Können Tiere fühlen?</p>',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	feelingsComp: {
 		deUrban: '<p>Fühlen Tiere so wie Menschen?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
-	difference: {
+	differenceAdult: {
+		deUrban: '<p>Unterscheiden sich Menschen und Tiere?</p>',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
+	},
+
+	differenceChild: {
 		deUrban: '<p>Sind Menschen anders als Tiere?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	intelligence: {
 		deUrban: '<p>Wie schlau sind sie?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	pain: {
 		deUrban: '<p>Wie sehr können sie Schmerzen fühlen?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	feelingsRating: {
 		deUrban: '<p>Wie sehr können sie sich glücklich,<br>traurig oder ängstlich fühlen?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	similarity: {
 		deUrban: '<p>Wie ähnlich sind sie Menschen?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	notAtAll: {
 		deUrban: '<p>Überhaupt nicht</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	aLittle: {
 		deUrban: '<p>Ein bisschen</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	aMediumAmount: {
 		deUrban: '<p>Mittel</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	aLotSmart: {
 		deUrban: '<p>Sehr schlau</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	aLot: {
 		deUrban: '<p>Sehr</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	aLotSimilar: {
 		deUrban: '<p>Sehr ähnlich</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
-	ownership: {
+	ownershipChild: {
 		deUrban: '<p>Haben Du und Deine Familie Tiere<br>oder gibt es Tiere bei euch zuhause?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
-	exposure: {
+	ownershipAdult: {
+		deUrban:
+			'<p>Haben oder hatten du und deine Familie Tiere bzw. gibt oder gab es Tiere bei dir zuhause?</p>',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
+	},
+
+	exposureChild: {
 		deUrban: '<p>Wie oft triffst Du diese Tiere?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
+	},
+
+	exposureAdult: {
+		deUrban: '<p>Wie oft triffst du diese Tiere in deinem Alltag bzw. hast sie getroffen?</p>',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	never: {
 		deUrban: '<p>Nie</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	sometimes: {
 		deUrban: '<p>Manchmal</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	often: {
 		deUrban: '<p>Oft</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	almostEveryDay: {
 		deUrban: '<p>Fast jeden Tag</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	meatFish: {
 		deUrban: '<p>Isst Du Fleisch oder Fisch?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	eggCheeseMilk: {
 		deUrban: '<p>Isst Du Eier, Käse oder trinkst Du Milch?</p>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 
 	thankYou: {
 		deUrban: '<h1 class="heading">Vielen Dank!</h1>',
-		deRural: '',
-		enUrban: '',
-		enRural: '',
+		naRural: '',
+		idkRural: '',
+		idjUrban: '',
+		peRural: '',
 	},
 };
