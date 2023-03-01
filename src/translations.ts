@@ -325,7 +325,7 @@ export const translations = {
 
 	ownershipAdult: {
 		deUrban:
-			'<p>Haben oder hatten du und deine Familie Tiere bzw. gibt oder gab es Tiere bei dir zuhause?</p>',
+			'<p>Haben oder hatten du und deine Familie Tiere<br>bzw. gibt oder gab es Tiere bei dir zuhause?</p>',
 		naRural: '',
 		idkRural: '',
 		idjUrban: '',
@@ -341,7 +341,7 @@ export const translations = {
 	},
 
 	exposureAdult: {
-		deUrban: '<p>Wie oft triffst du diese Tiere in deinem Alltag bzw. hast sie getroffen?</p>',
+		deUrban: '<p>Wie oft triffst du diese Tiere in deinem Alltag<br>bzw. hast sie getroffen?</p>',
 		naRural: '',
 		idkRural: '',
 		idjUrban: '',
