@@ -26,8 +26,8 @@ export const play = (url: string, elementId?: string) => {
 			audio.autoplay = true;
 			// Restart the audio by setting the current time to 0
 			audio.currentTime = 0;
-			audio.play();
 			audio.setAttribute('src', url);
+			audio.play();
 		});
 	} else {
 		audio.autoplay = true; // autoplay when loaded
