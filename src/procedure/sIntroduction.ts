@@ -81,6 +81,4 @@ export default async () => {
 
 	// kill timeline animations
 	tl.kill();
-
-	pinda.style.display = 'none';
 };
