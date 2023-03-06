@@ -34,14 +34,26 @@ export default async () => {
 		.to(inner, {
 			delay: 14,
 			autoAlpha: 1,
+			repeat: 2,
+		})
+		.to(inner, {
+			autoAlpha: 0.5,
 		})
 		.to(middle, {
-			delay: 4,
+			delay: 2.5,
 			autoAlpha: 1,
+			repeat: 2,
+		})
+		.to(middle, {
+			autoAlpha: 0.5,
 		})
 		.to(outer, {
-			delay: 3.5,
+			delay: 1.5,
 			autoAlpha: 1,
+			repeat: 2,
+		})
+		.to(outer, {
+			autoAlpha: 0.5,
 		})
 		.to(pinda, {
 			delay: 2,
