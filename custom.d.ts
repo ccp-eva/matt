@@ -86,13 +86,18 @@ declare var data: {
 			completed: boolean;
 		};
 		ballPractice: {
-			duration?: number;
-			explanationCount?: number;
-			order?: string[];
-			inner?: string;
-			middle?: string;
-			outer?: string;
-			completed?: boolean;
+			duration: number;
+			explanationCount: number;
+			order: string[];
+			inner: string;
+			middle: string;
+			outer: string;
+			completed: boolean;
+		};
+		task: {
+			duration: number;
+			explanationCount: number;
+			completed: boolean;
 		};
 	};
 };
