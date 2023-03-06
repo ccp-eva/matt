@@ -42,6 +42,7 @@ css:
       link-s-goldfish-headphones,
       link-s-goldfish-yes,
       link-s-goldfish-no,
+      link-s-bp-headphones,
     ]
   # will be used within the init process to to add a zoom animation on hover
   scaleOnHoverObjects:
@@ -72,6 +73,7 @@ css:
       link-s-goldfish-headphones,
       link-s-goldfish-yes,
       link-s-goldfish-no,
+      link-s-bp-headphones,
     ]
 globals:
   defaultCulture: deUrban # use camelCase (de-urban → deUrban)
@@ -100,9 +102,9 @@ procedure:
       # s-dog,
       # s-rabbit,
       # s-goldfish,
-      # s-mc-intro,
+      s-mc-intro,
       s-ball-animation,
-      # s-ball-practice,
+      s-ball-practice,
     ]
   enUrban: [s-introduction, s-moral-circle, s-humans, s-transition]
   naUrban: [s-introduction, s-moral-circle, s-humans, s-transition]
