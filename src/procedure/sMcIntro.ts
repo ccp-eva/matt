@@ -12,7 +12,7 @@ export default async () => {
 	const inner = document.getElementById('smci-inner')! as SvgInHtml;
 	const middle = document.getElementById('smci-middle')! as SvgInHtml;
 	const outer = document.getElementById('smci-outer')! as SvgInHtml;
-	gsap.set([inner, middle, outer], { autoAlpha: 0.35 });
+	gsap.set([inner, middle, outer], { autoAlpha: 0.5 });
 
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 	gsap.set(pinda, { autoAlpha: 0 });
