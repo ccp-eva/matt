@@ -111,6 +111,7 @@ export default async () => {
 					if (currentCircle !== 'inner') {
 						data.procedure.ballPractice.explanationCount!++;
 						failed = true;
+						repeat = false;
 						data.procedure.ballPractice[currentCircle] === '';
 						i -= 1;
 					}
@@ -139,6 +140,7 @@ export default async () => {
 					if (currentCircle !== 'middle') {
 						data.procedure.ballPractice.explanationCount!++;
 						failed = true;
+						repeat = false;
 						data.procedure.ballPractice[currentCircle] === '';
 						i -= 1;
 					}
@@ -167,6 +169,7 @@ export default async () => {
 					if (currentCircle !== 'outer') {
 						data.procedure.ballPractice.explanationCount!++;
 						failed = true;
+						repeat = false;
 						data.procedure.ballPractice[currentCircle] === '';
 						i -= 1;
 					}
