@@ -75,21 +75,21 @@ export default async () => {
 	gsap.set(pinda, { autoAlpha: 0 });
 	gsap.set('#link-st-next', { autoAlpha: 0 });
 
-	gsap
-		.timeline()
-		.to(pinda, {
-			autoAlpha: 1,
-			delay: 0.5,
-			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/s-task.webm`;
-			},
-		})
-		.to(pinda, {
-			autoAlpha: 0,
-			delay: 14,
-		});
+	// gsap
+	// 	.timeline()
+	// 	.to(pinda, {
+	// 		autoAlpha: 1,
+	// 		delay: 0.5,
+	// 		onStart: () => {
+	// 			pinda.src = `./cultures/${data.culture}/video/s-task.webm`;
+	// 		},
+	// 	})
+	// 	.to(pinda, {
+	// 		autoAlpha: 0,
+	// 		delay: 14,
+	// 	});
 
-	await sleep(14000);
+	// await sleep(14000);
 
 	play(`./cultures/${data.culture}/audio/s-task-cut.mp3`, 'link-st-headphones');
 
@@ -100,7 +100,7 @@ export default async () => {
 	Draggable.create(
 		[chicken, elderly, pig, man, dog, sheep, goldfish, cow, rabbit, child, cat, woman],
 		{
-			onDragStart: function () {
+			onPress: function () {
 				// get current drag object
 				const currentId = this.target.id;
 				let currentObj = currentId.slice(8);
@@ -115,12 +115,14 @@ export default async () => {
 				play(`./cultures/${data.culture}/audio/st-${currentObj}.mp3`);
 			},
 			onDrag: function () {
+				const currentId = this.target.id;
 				if (
 					this.hitTest(inner, '50%') &&
 					this.hitTest(middle, '50%') &&
 					this.hitTest(outer, '50%')
 				) {
 					gsap.to(inner, { opacity: 1, duration: 0.25 });
+					gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
 				} else {
 					gsap.to(inner, { opacity: 0.5, duration: 0.25 });
 				}
@@ -131,6 +133,7 @@ export default async () => {
 					this.hitTest(outer, '50%')
 				) {
 					gsap.to(middle, { opacity: 1, duration: 0.25 });
+					gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
 				} else {
 					gsap.to(middle, { opacity: 0.5, duration: 0.25 });
 				}
@@ -141,12 +144,21 @@ export default async () => {
 					this.hitTest(outer, '50%')
 				) {
 					gsap.to(outer, { opacity: 1, duration: 0.25 });
+					gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
 				} else {
 					gsap.to(outer, { opacity: 0.5, duration: 0.25 });
+				}
+				if (
+					!this.hitTest(inner, '50%') &&
+					!this.hitTest(middle, '50%') &&
+					!this.hitTest(outer, '50%')
+				) {
+					gsap.to(`#${currentId}`, { scale: 1, transformOrigin: '50% 50%' });
 				}
 			},
 			onDragEnd: function () {
 				const currentId = this.target.id;
+				console.log(currentId);
 				const currentIdTrimmed = currentId.slice(8);
 
 				// INNER
@@ -174,6 +186,13 @@ export default async () => {
 					this.hitTest(outer, '50%')
 				) {
 					data.procedure.task[currentIdTrimmed] = 'outer';
+				}
+				if (
+					!this.hitTest(inner, '50%') &&
+					!this.hitTest(middle, '50%') &&
+					!this.hitTest(outer, '50%')
+				) {
+					gsap.to(`#${currentId}`, { x: 0, y: 0 });
 				}
 			},
 		}
