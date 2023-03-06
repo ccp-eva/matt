@@ -927,7 +927,9 @@
 		<image overflow="visible" width="89" height="67" id="link-sqre-cat" xlink:href="assets/cat.svg"  transform="matrix(0.7723 0 0 0.7723 1082.2614 302.5722)">
 	</image>
 	
-		<rect id="text-exposure" x="632" y="87" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="656" height="41"/>
+		<rect id="text-exposureAdult" x="490" y="46" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="940" height="123"/>
+	
+		<rect id="text-exposureChild" x="652.5" y="87" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="615" height="41"/>
 	<rect id="ph-sqre-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	
 		<image overflow="visible" width="80" height="80" id="link-sqre-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
@@ -935,7 +937,9 @@
 </g>
 <g id="s-q-o">
 	
-		<rect id="text-ownership" x="564" y="283" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="809" height="125"/>
+		<rect id="text-ownershipAdult" x="493.5" y="242" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="933" height="122"/>
+	
+		<rect id="text-ownershipChild" x="585" y="242" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="750" height="122"/>
 	<rect id="ph-sqo-no" x="1246" y="686" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
 	
 		<image overflow="visible" width="90" height="90" id="link-sqo-no" xlink:href="assets/no.svg"  transform="matrix(0.6778 0 0 0.6778 1261 701)">
@@ -1110,7 +1114,9 @@
 </g>
 <g id="s-q-d">
 	
-		<rect id="text-difference" x="610" y="283" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="715" height="41"/>
+		<rect id="text-differenceAdult" x="545" y="282.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="830" height="41"/>
+	
+		<rect id="text-differenceChild" x="628" y="282.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="664" height="41"/>
 	<rect id="ph-sqd-no" x="1246" y="686" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
 	
 		<image overflow="visible" width="90" height="90" id="link-sqd-no" xlink:href="assets/no.svg"  transform="matrix(0.6778 0 0 0.6778 1261 701)">
@@ -1126,7 +1132,7 @@
 </g>
 <g id="s-q-fc">
 	
-		<rect id="text-feelingsComp" x="632" y="283" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="673" height="41"/>
+		<rect id="text-feelingsComp" x="646" y="282.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="628" height="41"/>
 	<rect id="ph-sqfc-no" x="1246" y="686" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
 	
 		<image overflow="visible" width="90" height="90" id="link-sqfc-no" xlink:href="assets/no.svg"  transform="matrix(0.6778 0 0 0.6778 1261 701)">
@@ -1142,7 +1148,9 @@
 </g>
 <g id="s-q-f">
 	
-		<rect id="text-feelings" x="735" y="283" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="467" height="41"/>
+		<rect id="text-feelingsChild" x="745.5" y="282.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="429" height="41"/>
+	
+		<rect id="text-feelingsAdult" x="743.25" y="282.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="433.5" height="41"/>
 	<rect id="ph-sqf-no" x="1246" y="686" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
 	
 		<image overflow="visible" width="90" height="90" id="link-sqf-no" xlink:href="assets/no.svg"  transform="matrix(0.6778 0 0 0.6778 1261 701)">
@@ -1158,7 +1166,7 @@
 </g>
 <g id="s-q-tc">
 	
-		<rect id="text-thoughtsComp" x="624" y="283" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="689" height="41"/>
+		<rect id="text-thoughtsComp" x="639.75" y="282.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="640.5" height="41"/>
 	<rect id="ph-sqtc-no" x="1246" y="686" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
 	
 		<image overflow="visible" width="90" height="90" id="link-sqtc-no" xlink:href="assets/no.svg"  transform="matrix(0.6778 0 0 0.6778 1261 701)">
@@ -1174,7 +1182,9 @@
 </g>
 <g id="s-q-t_00000129206434872579118850000011950746699415733900_">
 	
-		<rect id="text-thoughts" x="711" y="283" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="515" height="41"/>
+		<rect id="text-thoughtsChild" x="733.78" y="282.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="452.45" height="41"/>
+	
+		<rect id="text-thoughtsAdult" x="723" y="282.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="474" height="41"/>
 	<rect id="ph-sqt-no" x="1246" y="686" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
 	
 		<image overflow="visible" width="90" height="90" id="link-sqt-no" xlink:href="assets/no.svg"  transform="matrix(0.6778 0 0 0.6778 1261 701)">
@@ -2570,9 +2580,13 @@
 </g>
 <g id="s-ball-practice">
 	<g id="sbp-circle">
-		<path id="sbp-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M1075.95,540c0,270.62-219.38,490-490,490
-			c-270.62,0-490-219.38-490-490c0-270.62,219.38-490,490-490C856.57,50,1075.95,269.38,1075.95,540z"/>
-		<circle id="sbp-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" cx="585.95" cy="540" r="385.21"/>
+		<path id="sbp-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M585.95,50c-270.62,0-490,219.38-490,490
+			c0,270.62,219.38,490,490,490c270.62,0,490-219.38,490-490C1075.95,269.38,856.57,50,585.95,50z M585.95,925.21
+			c-212.75,0-385.21-172.47-385.21-385.21s172.47-385.21,385.21-385.21S971.17,327.25,971.17,540S798.7,925.21,585.95,925.21z"/>
+		<path id="sbp-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" d="M585.95,154.79
+			c-212.75,0-385.21,172.47-385.21,385.21s172.47,385.21,385.21,385.21S971.17,752.75,971.17,540S798.7,154.79,585.95,154.79z
+			 M587.14,803.75c-146.33,0-264.95-118.62-264.95-264.95s118.62-264.95,264.95-264.95s264.95,118.62,264.95,264.95
+			S733.47,803.75,587.14,803.75z"/>
 		<circle id="sbp-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="587.14" cy="538.81" r="264.95"/>
 	</g>
 	<rect id="ph-s-bp-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
@@ -2586,9 +2600,13 @@
 </g>
 <g id="s-ball-animation">
 	<g id="sba-circle">
-		<path id="sba-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M1075.95,540c0,270.62-219.38,490-490,490
-			c-270.62,0-490-219.38-490-490c0-270.62,219.38-490,490-490C856.57,50,1075.95,269.38,1075.95,540z"/>
-		<circle id="sba-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" cx="585.95" cy="540" r="385.21"/>
+		<path id="sba-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M585.95,50c-270.62,0-490,219.38-490,490
+			c0,270.62,219.38,490,490,490c270.62,0,490-219.38,490-490C1075.95,269.38,856.57,50,585.95,50z M585.95,925.21
+			c-212.75,0-385.21-172.47-385.21-385.21s172.47-385.21,385.21-385.21S971.17,327.25,971.17,540S798.7,925.21,585.95,925.21z"/>
+		<path id="sba-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" d="M585.95,154.79
+			c-212.75,0-385.21,172.47-385.21,385.21s172.47,385.21,385.21,385.21S971.17,752.75,971.17,540S798.7,154.79,585.95,154.79z
+			 M587.14,803.75c-146.33,0-264.95-118.62-264.95-264.95s118.62-264.95,264.95-264.95s264.95,118.62,264.95,264.95
+			S733.47,803.75,587.14,803.75z"/>
 		<circle id="sba-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="587.14" cy="538.81" r="264.95"/>
 	</g>
 	<rect id="ph-s-ba-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
