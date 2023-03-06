@@ -47,35 +47,35 @@ declare var data: {
 		humans: {
 			completed: boolean;
 		};
-		cow?: {
+		cow: {
 			duration: number;
 			response: string;
 		};
-		pig?: {
+		pig: {
 			duration: number;
 			response: string;
 		};
-		sheep?: {
+		sheep: {
 			duration: number;
 			response: string;
 		};
-		chicken?: {
+		chicken: {
 			duration: number;
 			response: string;
 		};
-		cat?: {
+		cat: {
 			duration: number;
 			response: string;
 		};
-		dog?: {
+		dog: {
 			duration: number;
 			response: string;
 		};
-		rabbit?: {
+		rabbit: {
 			duration: number;
 			response: string;
 		};
-		goldfish?: {
+		goldfish: {
 			duration: number;
 			response: string;
 		};
@@ -84,6 +84,15 @@ declare var data: {
 		};
 		ballAnimation: {
 			completed: boolean;
+		};
+		ballPractice: {
+			duration?: number;
+			explanationCount?: number;
+			order?: string[];
+			inner?: string;
+			middle?: string;
+			outer?: string;
+			completed?: boolean;
 		};
 	};
 };
