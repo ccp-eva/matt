@@ -96,8 +96,19 @@ declare var data: {
 		};
 		task: {
 			duration: number;
-			explanationCount: number;
 			completed: boolean;
+			man: string;
+			woman: string;
+			child: string;
+			elderly: string;
+			chicken?: string;
+			pig?: string;
+			dog?: string;
+			sheep?: string;
+			goldfish?: string;
+			cow?: string;
+			rabbit?: string;
+			cat?: string;
 		};
 	};
 };
