@@ -1,5 +1,6 @@
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
+import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
@@ -19,4 +20,6 @@ export default async () => {
 		duration: new Date().getTime() - startTime,
 		response: response.id,
 	};
+
+	await sleep(500);
 };

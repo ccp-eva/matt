@@ -1,5 +1,6 @@
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
+import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
@@ -27,4 +28,6 @@ export default async () => {
 	if (data.procedure.goldfish.response === 'link-s-goldfish-no') {
 		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no.mp3`);
 	}
+
+	await sleep(500);
 };
