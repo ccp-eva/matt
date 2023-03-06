@@ -11,7 +11,6 @@ export default async () => {
 	data.slideCount++;
 	swapSlides('s-ball-practice', 's-ball-animation');
 
-	data.procedure.ballPractice = { completed: false };
 	const ball = document.getElementById('link-sbp-ball')! as SvgInHtml;
 	const inner = document.getElementById('sbp-inner')! as SvgInHtml;
 	const middle = document.getElementById('sbp-middle')! as SvgInHtml;
@@ -20,25 +19,26 @@ export default async () => {
 	await playPromise(`./cultures/${data.culture}/audio/s-ball-practice.mp3`);
 	await playPromise(`./cultures/${data.culture}/audio/sbp-expl.mp3`);
 
-	// practice should be in random order
+	// init data object
 	const order = _.shuffle(['inner', 'middle', 'outer']);
-	data.procedure.ballPractice.order = order;
-	data.procedure.ballPractice.inner = '';
-	data.procedure.ballPractice.middle = '';
-	data.procedure.ballPractice.outer = '';
+	data.procedure.ballPractice = {
+		duration: 0,
+		explanationCount: 1,
+		completed: false,
+		order: order,
+		inner: '',
+		middle: '',
+		outer: '',
+	};
 
 	const startTime = new Date().getTime();
-
-	// if first time, init explanationCount
-	if (!data.procedure.ballPractice!.explanationCount) {
-		data.procedure.ballPractice!.explanationCount = 1;
-	}
 
 	let failed = false;
 	let repeat = false;
 	for (let i = 0; i < order.length; i++) {
 		gsap.to([inner, middle, outer], { opacity: 0.5 });
-		gsap.to(ball, { x: 0, duration: 0.25 });
+		gsap.to(ball, { x: 0, y: 0, duration: 0.25 });
+
 		const currentCircle = order[i];
 		if (i > 0) {
 			await sleep(1000);
@@ -54,7 +54,7 @@ export default async () => {
 		await playPromise(`./cultures/${data.culture}/audio/sbp-${currentCircle}.mp3`);
 		play(`./cultures/${data.culture}/audio/sbp-${currentCircle}.mp3`, 'link-s-bp-headphones');
 
-		Draggable.create(ball, {
+		const dragBall = Draggable.create(ball, {
 			onDrag: function () {
 				if (
 					this.hitTest(inner, '50%') &&
@@ -92,6 +92,7 @@ export default async () => {
 					this.hitTest(middle, '50%') &&
 					this.hitTest(outer, '50%')
 				) {
+					dragBall[0].disable();
 					// Logging
 					data.procedure.ballPractice![currentCircle] = 'inner';
 
@@ -119,6 +120,7 @@ export default async () => {
 					this.hitTest(middle, '50%') &&
 					this.hitTest(outer, '50%')
 				) {
+					dragBall[0].disable();
 					// Logging
 					data.procedure.ballPractice![currentCircle] = 'middle';
 
@@ -146,6 +148,7 @@ export default async () => {
 					!this.hitTest(middle, '50%') &&
 					this.hitTest(outer, '50%')
 				) {
+					dragBall[0].disable();
 					// Logging
 					data.procedure.ballPractice![currentCircle] = 'outer';
 
@@ -183,8 +186,7 @@ export default async () => {
 	) {
 		data.procedure.ballPractice.completed = true;
 	}
+	data.procedure.ballPractice!.duration = new Date().getTime() - startTime;
 
 	await sleep(1000);
-
-	data.procedure.ballPractice!.duration = new Date().getTime() - startTime;
 };
