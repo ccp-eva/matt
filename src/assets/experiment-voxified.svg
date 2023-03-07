@@ -497,8 +497,6 @@
 		<image overflow="visible" width="80" height="80" id="link-sr1h1cow-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
-<g id="s-transition-11">
-</g>
 <g id="s-q-ecm">
 	<g id="eggCheeseMilk">
 		<path fill="#97E4EF" stroke="#97E4EF" stroke-width="2.5" stroke-miterlimit="10" d="M1013.7,474.96l-7.17-19.7
@@ -953,8 +951,6 @@
 		<image overflow="visible" width="80" height="80" id="link-sqo-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
-<g id="s-transition-10">
-</g>
 <g id="s-q-rs_00000106115475854007902340000015341115790255741059_">
 	<rect id="ph-sqrs-next" x="1790" y="968" fill="#B8846E" width="90" height="90"/>
 	
@@ -1110,8 +1106,6 @@
 		<image overflow="visible" width="80" height="80" id="link-sqri-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
-<g id="s-transition-9_00000101817963289400803490000015040391126736041877_">
-</g>
 <g id="s-q-d">
 	
 		<rect id="text-differenceAdult" x="545" y="282.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="830" height="41"/>
@@ -1197,8 +1191,6 @@
 	
 		<image overflow="visible" width="80" height="80" id="link-sqt-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
-</g>
-<g id="s-transition-8_00000062155197643318571740000014891199043419529361_">
 </g>
 <g id="s-c-1cat-1cow">
 	<g id="sc1cat1cow-oneCow">
@@ -1423,8 +1415,6 @@
 	
 		<image overflow="visible" width="80" height="80" id="link-sc1h10h-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
-</g>
-<g id="s-transition-7">
 </g>
 <g id="s-1h-100cows">
 	<g id="s1h100cows-hundredCows">
@@ -1837,8 +1827,6 @@
 		<image overflow="visible" width="80" height="80" id="link-s1h1cow-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
-<g id="s-transition-6">
-</g>
 <g id="s-1h-100cats">
 	<g id="s1h100cats-hundredCats">
 		
@@ -2248,8 +2236,6 @@
 		<image overflow="visible" width="80" height="80" id="link-s1h1cat-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
-<g id="s-transition-5">
-</g>
 <g id="s-pd-confirm-tenPencils">
 	<g id="spdc-tP-tenPencils">
 		
@@ -2468,8 +2454,6 @@
 		<image overflow="visible" width="80" height="80" id="link-sib-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
-<g id="s-transition-4">
-</g>
 <g id="s-meaning">
 	<rect id="sm-written-response" x="277" y="334" fill="#E5E5E5" width="1366" height="476"/>
 	
@@ -2599,8 +2583,6 @@
 		<image overflow="visible" width="80" height="80" id="link-s-mci-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
-<g id="s-transition-3">
-</g>
 <g id="s-goldfish">
 	<rect id="ph-s-goldfish-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	<rect id="ph-s-goldfish-goldfish" x="853" y="328" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
@@ -2617,6 +2599,24 @@
 	</image>
 	
 		<image overflow="visible" width="90" height="90" id="link-s-goldfish-yes" xlink:href="assets/yes.svg"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+</g>
+<g id="s-human">
+	<rect id="ph-s-human-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-human-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	<rect id="ph-s-human-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-s-human-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-human-no" xlink:href="assets/no.svg"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-human-yes" xlink:href="assets/yes.svg"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+	<rect id="ph-s-human-human" x="815.36" y="247.05" opacity="0.6" fill="#4AE5D9" width="313" height="313"/>
+	
+		<image overflow="visible" width="130" height="246" id="link-s-human-human" xlink:href="assets/human.svg"  transform="matrix(1 0 0 1 906.8607 269.0984)">
 	</image>
 </g>
 <g id="s-rabbit">
@@ -2741,27 +2741,6 @@
 	
 		<image overflow="visible" width="90" height="90" id="link-s-cow-yes" xlink:href="assets/yes.svg"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 	</image>
-</g>
-<g id="s-transition-2">
-</g>
-<g id="s-humans">
-	<rect id="ph-sh-elderly" x="1012" y="376" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
-	<rect id="ph-sh-child" x="675" y="429" opacity="0.6" fill="#4AE5D9" width="160" height="160"/>
-	<rect id="ph-sh-man" x="1358" y="374" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
-	<rect id="ph-sh-woman" x="341" y="374" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
-	
-		<image overflow="visible" width="48" height="92" id="link-sh-child" xlink:href="assets/child.svg"  transform="matrix(1 0 0 1 733 483)">
-	</image>
-	
-		<image overflow="visible" width="55" height="119" id="link-sh-elderly" xlink:href="assets/elderly.svg"  transform="matrix(1 0 0 1 1134 412)">
-	</image>
-	<image overflow="visible" width="65" height="118" id="link-sh-man" xlink:href="assets/man.svg"  transform="matrix(1 0 0 1 1500 442)">
-	</image>
-	
-		<image overflow="visible" width="63" height="118" id="link-sh-woman" xlink:href="assets/woman.svg"  transform="matrix(1 0 0 1 490 454)">
-	</image>
-</g>
-<g id="s-transition-1">
 </g>
 <g id="s-introduction">
 	
