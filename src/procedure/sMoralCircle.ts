@@ -40,7 +40,7 @@ export default async () => {
 // Draggable.create(smcChild);
 // // --------------------- humans ---------------------
 
-// swapSlides(['s-humans'], ['s-moral-circle']);
+// swapSlides(['s-human'], ['s-moral-circle']);
 
 // // await playPromise(sIntroductionAudioPath);
 

@@ -48,7 +48,7 @@ procedure:
   # todo use objects to specify more props per slide such as random
   deUrban: [
       # s-introduction,
-      # s-humans,
+      # s-human,
       # s-cow,
       # s-pig,
       # s-sheep,

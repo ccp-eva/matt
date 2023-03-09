@@ -7,7 +7,7 @@ import { swapSlides } from '../util/slideVisibility';
 export default async () => {
 	data.slideCount++;
 
-	swapSlides('s-cow', 's-humans');
+	swapSlides('s-cow', 's-human');
 	const startTime = new Date().getTime();
 
 	gsap.set(['#link-s-cow-yes', '#link-s-cow-no'], {

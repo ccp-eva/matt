@@ -6,7 +6,7 @@ export default async () => {
 	data.slideCount++;
 
 	// show first slide
-	swapSlides('s-humans', 's-introduction');
+	swapSlides('s-human', 's-introduction');
 	data.procedure.humans = { completed: false };
 
 	const pinda = document.getElementById('player') as HTMLVideoElement;
