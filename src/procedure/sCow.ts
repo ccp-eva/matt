@@ -5,9 +5,9 @@ import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
-	data.slideCount++;
+	data.slideCounter++;
 
-	swapSlides('s-cow', 's-human');
+	swapSlides('s-cow', 's-introduction');
 	const startTime = new Date().getTime();
 
 	gsap.set(['#link-s-cow-yes', '#link-s-cow-no'], {

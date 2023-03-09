@@ -37,7 +37,7 @@ declare var data: {
 	id: string;
 	culture: string;
 	initialTimestamp: string;
-	slideCount: number;
+	slideCounter: number;
 	gender: 'female' | 'male' | 'other';
 	birthday: 'string';
 	procedure: {

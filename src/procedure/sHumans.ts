@@ -3,7 +3,7 @@ import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
-	data.slideCount++;
+	data.slideCounter++;
 
 	// show first slide
 	swapSlides('s-human', 's-introduction');

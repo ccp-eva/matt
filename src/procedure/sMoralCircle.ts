@@ -4,7 +4,7 @@ import { swapSlides } from '../util/slideVisibility';
 import { sleep } from '../util/helpers';
 
 export default async () => {
-	data.slideCount++;
+	data.slideCounter++;
 
 	swapSlides('s-moral-circle', 's-introduction');
 

@@ -9,7 +9,7 @@ import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
-	data.slideCount++;
+	data.slideCounter++;
 	swapSlides('s-task', 's-ball-practice');
 
 	data.procedure.task = {

@@ -4,7 +4,7 @@ import { swapSlides } from '../util/slideVisibility';
 import { getResponse } from '../util/getResponse';
 
 export default async () => {
-	data.slideCount++;
+	data.slideCounter++;
 
 	// show first slide
 	swapSlides('s-introduction');

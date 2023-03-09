@@ -81,7 +81,7 @@ export const init = () => {
 		id: urlParameters.id,
 		culture: urlParameters.culture,
 		initialTimestamp: new Date().toISOString(),
-		slideCount: 0,
+		slideCounter: 0,
 		procedure: {},
 	};
 
