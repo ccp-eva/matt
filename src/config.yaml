@@ -49,13 +49,7 @@ procedure:
   de-urban:
     [
       s-introduction,
-      s-cow,
-      s-pig,
-      [s-sheep, s-chicken, s-cat],
-      s-dog,
-      s-rabbit,
-      s-goldfish,
-      s-human,
+      [s-cow, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human],
       s-mc-intro,
       s-ball-animation,
       s-ball-practice,
