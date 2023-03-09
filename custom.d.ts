@@ -35,7 +35,7 @@ declare module '*.webm' {
 
 declare var data: {
 	id: string;
-	culture: 'deUrban';
+	culture: string;
 	initialTimestamp: string;
 	slideCount: number;
 	gender: 'female' | 'male' | 'other';

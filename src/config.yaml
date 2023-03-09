@@ -31,7 +31,7 @@ css:
       '[id^=link][id$=no]',
     ]
 globals:
-  defaultCulture: deUrban # use camelCase (de-urban → deUrban)
+  defaultCulture: de-urban
   defaultSubjectId: demo
 audio:
   type: mp3
@@ -43,28 +43,16 @@ audio:
     si-introduction: [0]
 
 procedure:
-  # use camelCase for culture key names (de-urban → deUrban) and use exact
-  # slide ids from Illustrator for values
-  # todo use objects to specify more props per slide such as random
-  deUrban: [
-      # s-introduction,
-      # s-human,
-      # s-cow,
-      # s-pig,
-      # s-sheep,
-      # s-chicken,
-      s-cat,
-      # s-dog,
-      # s-rabbit,
-      # s-goldfish,
-      # s-mc-intro,
-      # s-ball-animation,
-      # s-ball-practice,
+  # use exact slide ids from Illustrator for values
+  # The order defines the experiment order
+  # If you create a nested array at the second level, the slides will be presented in random order
+  de-urban:
+    [
       s-task,
       s-intro-boats,
     ]
-  enUrban: [s-introduction, s-moral-circle, s-humans, s-transition]
-  naUrban: [s-introduction, s-moral-circle, s-humans, s-transition]
+  en-urban: [s-introduction, s-moral-circle, s-human, s-transition]
+  na-urban: [s-introduction, s-moral-circle, s-human, s-transition]
 
 dilemma:
   random: true
