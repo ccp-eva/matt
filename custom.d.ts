@@ -37,7 +37,15 @@ declare var data: {
 	id: string;
 	culture: string;
 	initialTimestamp: string;
+	totalSlides: number;
 	slideCounter: number;
+	previousSlide: string;
+	currentSlide: string;
+	nextSlide: string;
+	slideOrder: string[];
+	animalSlideCounter: number;
+	totalAnimalSlides: number;
+	animalOrder: string[];
 	gender: 'female' | 'male' | 'other';
 	birthday: 'string';
 	procedure: {

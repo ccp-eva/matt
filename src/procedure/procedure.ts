@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import Toastify from 'toastify-js';
 import config from '../config.yaml';
+import { stop } from '../util/audio';
 
 export const procedure = async () => {
 	const currentCulture = data.culture;
@@ -20,6 +21,9 @@ export const procedure = async () => {
 
 	// check if nested arrays exist at the second level, if so shuffle them, and flat them into the currentProcedure array
 	const isNested = currentProcedure.some((slide) => Array.isArray(slide));
+
+	data.totalAnimalSlides = 9;
+	data.animalSlideCounter = 0;
 
 	if (isNested) {
 		// create a copy of the currentProcedure array
@@ -42,19 +46,38 @@ export const procedure = async () => {
 	}
 
 	currentProcedure = currentProcedure.map((e: string) => _.camelCase(e));
+	data.slideOrder = currentProcedure;
 	console.log(currentProcedure);
 
-	// use dynamic imports to load the slides
+	data.totalSlides = currentProcedure.length;
+
+	// ================================================
+	// PROCEDURE LOOP
+	// ================================================
 	for (const [index, slide] of currentProcedure.entries()) {
+		// save slides in global data object
 		data.previousSlide = currentProcedure[index - 1];
 		data.currentSlide = slide;
 		data.nextSlide = currentProcedure[index + 1];
-		console.log(data.previousSlide);
-		console.log(data.currentSlide);
-		console.log(data.nextSlide);
+		data.slideCounter++;
+
+		// init procedure response
+		data.procedure[slide] = {
+			duration: 0,
+			response: '',
+		};
+		// start time tracking
+		const startTime = new Date().getTime();
+
+		// iterate through the slides
 		await (await import(`./${slide}`)).default();
+
+		// stop audio playback if it is still playing anything
+		stop();
+
+		// save duration of each slide
+		data.procedure[slide].duration = new Date().getTime() - startTime;
 	}
-	// await (await import(`./${currentProcedure[0]}`)).default();
-	// await (await import(`./${currentProcedure[1]}`)).default();
+
 	console.log('Procedure loop done');
 };

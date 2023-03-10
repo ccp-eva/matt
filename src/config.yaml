@@ -8,7 +8,7 @@ htmlBg: black # background color for letter boxing edges if aspect ratio is not 
 svgBg: white
 hideUrlParameters: false
 slideTransition:
-  override: false # force slide transitions, regardless of implementation in illustrator
+  override: false # force slide transitions
   fadeOut: 0.25
   fadeIn: 0.25
 css:
@@ -33,14 +33,7 @@ css:
 globals:
   defaultCulture: de-urban
   defaultSubjectId: demo
-audio:
-  type: mp3
-  customAnimationTimes: # this will override the german default
-    namibia:
-      s-introduction: [4] # time in seeconds for appear animation
-      s-human: [4, 2]
-  cues:
-    si-introduction: [0]
+  animalSlidesGap: 750 # in milliseconds
 
 procedure:
   # use exact slide ids from Illustrator for values
