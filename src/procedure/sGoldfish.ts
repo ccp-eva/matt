@@ -16,16 +16,16 @@ export default async () => {
 
 	const response = await getResponse(['link-s-goldfish-yes', 'link-s-goldfish-no']);
 	console.log(response.id);
-	data.procedure.goldfish = {
+	data.procedure.sGoldfish = {
 		duration: new Date().getTime() - startTime,
 		response: response.id,
 	};
 
-	if (data.procedure.goldfish.response === 'link-s-goldfish-yes') {
+	if (data.procedure.sGoldfish.response === 'link-s-goldfish-yes') {
 		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`);
 	}
 
-	if (data.procedure.goldfish.response === 'link-s-goldfish-no') {
+	if (data.procedure.sGoldfish.response === 'link-s-goldfish-no') {
 		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no.mp3`);
 	}
 

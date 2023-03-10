@@ -5,10 +5,6 @@ import { swapSlides } from '../util/slideVisibility';
 export default async () => {
 	data.slideCounter++;
 
-	// show first slide
-	swapSlides('s-human', 's-introduction');
-	data.procedure.humans = { completed: false };
-
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 	pinda.style.display = 'block';
 
@@ -37,11 +33,7 @@ export default async () => {
 			autoAlpha: 0,
 			delay: 5,
 			onComplete: () => {
-				data.procedure.humans.completed = true;
+				// data.procedure.sHuman;
 			},
 		});
-
-	while (!data.procedure.humans.completed) {
-		await sleep(500);
-	}
 };

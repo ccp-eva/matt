@@ -39,16 +39,16 @@ export default async () => {
 	const response = await getResponse(['link-s-pig-yes', 'link-s-pig-no']);
 
 	console.log(response.id);
-	data.procedure.pig = {
+	data.procedure.sPig = {
 		duration: new Date().getTime() - startTime,
 		response: response.id,
 	};
 
-	if (data.procedure.pig.response === 'link-s-pig-yes') {
+	if (data.procedure.sPig.response === 'link-s-pig-yes') {
 		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-alright.mp3`);
 	}
 
-	if (data.procedure.pig.response === 'link-s-pig-no') {
+	if (data.procedure.sPig.response === 'link-s-pig-no') {
 		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no-next.mp3`);
 	}
 

@@ -8,7 +8,7 @@ export default async () => {
 	data.slideCounter++;
 	swapSlides('s-ball-animation', 's-mc-intro');
 
-	data.procedure.ballAnimation = { completed: false };
+	data.procedure.sBallAnimation = { completed: false };
 	const ball = document.getElementById('link-sba-ball')! as SvgInHtml;
 	const innerCircle = document.getElementById('sba-inner')! as SvgInHtml;
 	const middleCircle = document.getElementById('sba-middle')! as SvgInHtml;
@@ -78,7 +78,7 @@ export default async () => {
 			duration: 1,
 			x: -894,
 			onComplete: () => {
-				data.procedure.ballAnimation.completed = true;
+				data.procedure.sBallAnimation.completed = true;
 			},
 		})
 		.to(
@@ -95,7 +95,7 @@ export default async () => {
 	await playPromise(`./cultures/${data.culture}/audio/sba-outer.mp3`);
 	await playPromise(`./cultures/${data.culture}/audio/sba-inner.mp3`);
 
-	while (!data.procedure.ballAnimation.completed) {
+	while (!data.procedure.sBallAnimation.completed) {
 		await sleep(500);
 	}
 };

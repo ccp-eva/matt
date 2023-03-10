@@ -21,7 +21,7 @@ export default async () => {
 
 	// init data object
 	const order = _.shuffle(['inner', 'middle', 'outer']);
-	data.procedure.ballPractice = {
+	data.procedure.sBallPractice = {
 		duration: 0,
 		explanationCount: 1,
 		completed: false,
@@ -94,7 +94,7 @@ export default async () => {
 				) {
 					dragBall[0].disable();
 					// Logging
-					data.procedure.ballPractice![currentCircle] = 'inner';
+					data.procedure.sBallPractice![currentCircle] = 'inner';
 
 					// SUCCESS
 					if (i === 2 && currentCircle === 'inner') {
@@ -109,10 +109,10 @@ export default async () => {
 
 					// FAIL
 					if (currentCircle !== 'inner') {
-						data.procedure.ballPractice.explanationCount!++;
+						data.procedure.sBallPractice.explanationCount!++;
 						failed = true;
 						repeat = false;
-						data.procedure.ballPractice[currentCircle] === '';
+						data.procedure.sBallPractice[currentCircle] === '';
 						i -= 1;
 					}
 				}
@@ -123,7 +123,7 @@ export default async () => {
 				) {
 					dragBall[0].disable();
 					// Logging
-					data.procedure.ballPractice![currentCircle] = 'middle';
+					data.procedure.sBallPractice![currentCircle] = 'middle';
 
 					// SUCCESS
 					if (i === 2 && currentCircle === 'middle') {
@@ -138,10 +138,10 @@ export default async () => {
 
 					// FAIL
 					if (currentCircle !== 'middle') {
-						data.procedure.ballPractice.explanationCount!++;
+						data.procedure.sBallPractice.explanationCount!++;
 						failed = true;
 						repeat = false;
-						data.procedure.ballPractice[currentCircle] === '';
+						data.procedure.sBallPractice[currentCircle] === '';
 						i -= 1;
 					}
 				}
@@ -152,7 +152,7 @@ export default async () => {
 				) {
 					dragBall[0].disable();
 					// Logging
-					data.procedure.ballPractice![currentCircle] = 'outer';
+					data.procedure.sBallPractice![currentCircle] = 'outer';
 
 					// SUCCESS
 					if (i === 2 && currentCircle === 'outer') {
@@ -167,29 +167,29 @@ export default async () => {
 
 					// FAIL
 					if (currentCircle !== 'outer') {
-						data.procedure.ballPractice.explanationCount!++;
+						data.procedure.sBallPractice.explanationCount!++;
 						failed = true;
 						repeat = false;
-						data.procedure.ballPractice[currentCircle] === '';
+						data.procedure.sBallPractice[currentCircle] === '';
 						i -= 1;
 					}
 				}
 			},
 		});
 
-		while (data.procedure.ballPractice[currentCircle] === '' || repeat) {
+		while (data.procedure.sBallPractice[currentCircle] === '' || repeat) {
 			await sleep(500);
 		}
 	}
 
 	if (
-		data.procedure.ballPractice.inner &&
-		data.procedure.ballPractice.middle &&
-		data.procedure.ballPractice.outer
+		data.procedure.sBallPractice.inner &&
+		data.procedure.sBallPractice.middle &&
+		data.procedure.sBallPractice.outer
 	) {
-		data.procedure.ballPractice.completed = true;
+		data.procedure.sBallPractice.completed = true;
 	}
-	data.procedure.ballPractice!.duration = new Date().getTime() - startTime;
+	data.procedure.sBallPractice!.duration = new Date().getTime() - startTime;
 
 	await sleep(1000);
 };

@@ -16,7 +16,7 @@ export default async () => {
 
 	const response = await getResponse(['link-s-dog-yes', 'link-s-dog-no']);
 	console.log(response.id);
-	data.procedure.dog = {
+	data.procedure.sDog = {
 		duration: new Date().getTime() - startTime,
 		response: response.id,
 	};

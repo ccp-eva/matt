@@ -39,16 +39,16 @@ export default async () => {
 	const response = await getResponse(['link-s-cow-yes', 'link-s-cow-no']);
 
 	console.log(response.id);
-	data.procedure.cow = {
+	data.procedure.sCow = {
 		duration: new Date().getTime() - startTime,
 		response: response.id,
 	};
 
-	if (data.procedure.cow.response === 'link-s-cow-yes') {
+	if (data.procedure.sCow.response === 'link-s-cow-yes') {
 		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`);
 	}
 
-	if (data.procedure.cow.response === 'link-s-cow-no') {
+	if (data.procedure.sCow.response === 'link-s-cow-no') {
 		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no-next.mp3`);
 	}
 

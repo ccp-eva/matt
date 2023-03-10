@@ -2,14 +2,11 @@ import { gsap } from 'gsap';
 import { play, playPromise, stop } from '../util/audio';
 import { swapSlides } from '../util/slideVisibility';
 import { getResponse } from '../util/getResponse';
+import _ from 'lodash';
 
 export default async () => {
-	data.slideCounter++;
-
-	// show first slide
-	swapSlides('s-introduction');
-
-	const startTime = new Date().getTime();
+	// show slide
+	swapSlides(_.kebabCase(data.currentSlide));
 
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 
@@ -72,12 +69,6 @@ export default async () => {
 		});
 
 	await getResponse('link-si-next');
-	// stop audio playback after next button is clicked
-	stop();
-
-	data.procedure.introduction = {
-		duration: new Date().getTime() - startTime,
-	};
 
 	// kill timeline animations
 	tl.kill();

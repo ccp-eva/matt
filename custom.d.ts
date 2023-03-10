@@ -41,51 +41,52 @@ declare var data: {
 	gender: 'female' | 'male' | 'other';
 	birthday: 'string';
 	procedure: {
-		introduction: {
+		sIntroduction: {
 			duration: number;
 		};
-		humans: {
+		sHuman: {
+			duration: number;
+			response: string;
+		};
+		sCow: {
+			duration: number;
+			response: string;
+		};
+		sPig: {
+			duration: number;
+			response: string;
+		};
+		sSheep: {
+			duration: number;
+			response: string;
+		};
+		sChicken: {
+			duration: number;
+			response: string;
+		};
+		sCat: {
+			duration: number;
+			response: string;
+		};
+		sDog: {
+			duration: number;
+			response: string;
+		};
+		sRabbit: {
+			duration: number;
+			response: string;
+		};
+		sGoldfish: {
+			duration: number;
+			response: string;
+		};
+		sMcIntro: {
 			completed: boolean;
 		};
-		cow: {
-			duration: number;
-			response: string;
-		};
-		pig: {
-			duration: number;
-			response: string;
-		};
-		sheep: {
-			duration: number;
-			response: string;
-		};
-		chicken: {
-			duration: number;
-			response: string;
-		};
-		cat: {
-			duration: number;
-			response: string;
-		};
-		dog: {
-			duration: number;
-			response: string;
-		};
-		rabbit: {
-			duration: number;
-			response: string;
-		};
-		goldfish: {
-			duration: number;
-			response: string;
-		};
-		mcIntro: {
+		sBallAnimation: {
 			completed: boolean;
 		};
-		ballAnimation: {
-			completed: boolean;
-		};
-		ballPractice: {
+		sBallPractice: {
 			duration: number;
 			explanationCount: number;
 			order: string[];
@@ -94,7 +95,7 @@ declare var data: {
 			outer: string;
 			completed: boolean;
 		};
-		task: {
+		sTask: {
 			duration: number;
 			completed: boolean;
 			man: string;

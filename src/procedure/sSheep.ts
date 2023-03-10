@@ -16,16 +16,16 @@ export default async () => {
 
 	const response = await getResponse(['link-s-sheep-yes', 'link-s-sheep-no']);
 	console.log(response.id);
-	data.procedure.sheep = {
+	data.procedure.sSheep = {
 		duration: new Date().getTime() - startTime,
 		response: response.id,
 	};
 
-	if (data.procedure.sheep.response === 'link-s-sheep-yes') {
+	if (data.procedure.sSheep.response === 'link-s-sheep-yes') {
 		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`);
 	}
 
-	if (data.procedure.sheep.response === 'link-s-sheep-no') {
+	if (data.procedure.sSheep.response === 'link-s-sheep-no') {
 		await playPromise(`./cultures/${data.culture}/audio/animal-resp-no-next.mp3`);
 	}
 

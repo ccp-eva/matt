@@ -6,7 +6,7 @@ import { swapSlides } from '../util/slideVisibility';
 export default async () => {
 	data.slideCounter++;
 
-	data.procedure.mcIntro = { completed: false };
+	data.procedure.sMcIntro = { completed: false };
 
 	// circles
 	const inner = document.getElementById('smci-inner')! as SvgInHtml;
@@ -60,11 +60,11 @@ export default async () => {
 			autoAlpha: 0,
 			duration: 2,
 			onComplete: () => {
-				data.procedure.mcIntro.completed = true;
+				data.procedure.sMcIntro.completed = true;
 			},
 		});
 
-	while (!data.procedure.mcIntro.completed) {
+	while (!data.procedure.sMcIntro.completed) {
 		await sleep(500);
 	}
 

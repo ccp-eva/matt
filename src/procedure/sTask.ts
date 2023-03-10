@@ -12,7 +12,7 @@ export default async () => {
 	data.slideCounter++;
 	swapSlides('s-task', 's-ball-practice');
 
-	data.procedure.task = {
+	data.procedure.sTask = {
 		duration: 0,
 		completed: false,
 		man: '',
@@ -75,21 +75,21 @@ export default async () => {
 	gsap.set(pinda, { autoAlpha: 0 });
 	gsap.set('#link-st-next', { autoAlpha: 0 });
 
-	// gsap
-	// 	.timeline()
-	// 	.to(pinda, {
-	// 		autoAlpha: 1,
-	// 		delay: 0.5,
-	// 		onStart: () => {
-	// 			pinda.src = `./cultures/${data.culture}/video/s-task.webm`;
-	// 		},
-	// 	})
-	// 	.to(pinda, {
-	// 		autoAlpha: 0,
-	// 		delay: 14,
-	// 	});
+	gsap
+		.timeline()
+		.to(pinda, {
+			autoAlpha: 1,
+			delay: 0.5,
+			onStart: () => {
+				pinda.src = `./cultures/${data.culture}/video/s-task.webm`;
+			},
+		})
+		.to(pinda, {
+			autoAlpha: 0,
+			delay: 14,
+		});
 
-	// await sleep(14000);
+	await sleep(14000);
 
 	play(`./cultures/${data.culture}/audio/s-task-cut.mp3`, 'link-st-headphones');
 
@@ -167,7 +167,7 @@ export default async () => {
 					this.hitTest(middle, '50%') &&
 					this.hitTest(outer, '50%')
 				) {
-					data.procedure.task[currentIdTrimmed] = 'inner';
+					data.procedure.sTask[currentIdTrimmed] = 'inner';
 				}
 
 				// MIDDLE
@@ -176,7 +176,7 @@ export default async () => {
 					this.hitTest(middle, '50%') &&
 					this.hitTest(outer, '50%')
 				) {
-					data.procedure.task[currentIdTrimmed] = 'middle';
+					data.procedure.sTask[currentIdTrimmed] = 'middle';
 				}
 
 				// OUTER
@@ -185,7 +185,7 @@ export default async () => {
 					!this.hitTest(middle, '50%') &&
 					this.hitTest(outer, '50%')
 				) {
-					data.procedure.task[currentIdTrimmed] = 'outer';
+					data.procedure.sTask[currentIdTrimmed] = 'outer';
 				}
 				if (
 					!this.hitTest(inner, '50%') &&
@@ -202,7 +202,7 @@ export default async () => {
 	const checkAnimals = () => {
 		let allPlaced: boolean[] = [];
 		knownAnimals.forEach((animal) => {
-			if (!data.procedure.task[animal]) {
+			if (!data.procedure.sTask[animal]) {
 				allPlaced.push(false);
 			}
 		});
@@ -230,5 +230,5 @@ export default async () => {
 	// stop audio playback after next button is clicked
 	stop();
 
-	data.procedure.task.duration = new Date().getTime() - startTime;
+	data.procedure.sTask.duration = new Date().getTime() - startTime;
 };

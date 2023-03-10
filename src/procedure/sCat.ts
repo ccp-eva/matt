@@ -16,7 +16,7 @@ export default async () => {
 
 	const response = await getResponse(['link-s-cat-yes', 'link-s-cat-no']);
 	console.log(response.id);
-	data.procedure.cat = {
+	data.procedure.sCat = {
 		duration: new Date().getTime() - startTime,
 		response: response.id,
 	};
