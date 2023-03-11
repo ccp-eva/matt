@@ -1,18 +1,19 @@
 import { gsap } from 'gsap';
+import _ from 'lodash';
 import { SvgInHtml } from '../types';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
-	data.slideCounter++;
+	data.procedure.sMcIntro.completed = false;
 
-	data.procedure.sMcIntro = { completed: false };
+	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
 
 	// circles
 	const inner = document.getElementById('smci-inner')! as SvgInHtml;
 	const middle = document.getElementById('smci-middle')! as SvgInHtml;
 	const outer = document.getElementById('smci-outer')! as SvgInHtml;
-	gsap.set([inner, middle, outer], { autoAlpha: 0.5 });
+	gsap.set([inner, middle, outer], { autoAlpha: 0 });
 
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 	gsap.set(pinda, { autoAlpha: 0 });
@@ -25,14 +26,14 @@ export default async () => {
 		},
 	});
 
-	await sleep(1500);
+	timeline.to([inner, middle, outer], {
+		autoAlpha: 0.5,
+		delay: 3.5,
+	});
 
-	swapSlides('s-mc-intro', 's-goldfish', [3, 1]);
-
-	// gsap flash animation for smci-inner id
 	timeline
 		.to(inner, {
-			delay: 14,
+			delay: 10.5,
 			autoAlpha: 1,
 			repeat: 2,
 		})
@@ -51,6 +52,7 @@ export default async () => {
 			delay: 1.5,
 			autoAlpha: 1,
 			repeat: 2,
+			reversed: true,
 		})
 		.to(outer, {
 			autoAlpha: 0.5,
@@ -65,8 +67,8 @@ export default async () => {
 		});
 
 	while (!data.procedure.sMcIntro.completed) {
-		await sleep(500);
+		await sleep(100);
 	}
 
-	await sleep(2000);
+	await sleep(1000);
 };
