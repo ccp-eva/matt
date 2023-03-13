@@ -40,3 +40,13 @@ export const stop = () => {
 	audio.pause();
 	audio.currentTime = 0;
 };
+
+// get duration of audio file
+export const getDuration = (url: string) =>
+	new Promise<number>((resolve) => {
+		const audio = document.createElement('audio');
+		audio.setAttribute('src', url);
+		audio.addEventListener('loadedmetadata', function () {
+			resolve(audio.duration);
+		});
+	});
