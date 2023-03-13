@@ -51,8 +51,8 @@ export default async () => {
 			repeat = true;
 		}
 
-		await playPromise(`./cultures/${data.culture}/audio/sbp-${currentCircle}.mp3`);
 		play(`./cultures/${data.culture}/audio/sbp-${currentCircle}.mp3`, 'link-s-bp-headphones');
+		await playPromise(`./cultures/${data.culture}/audio/sbp-${currentCircle}.mp3`);
 
 		const dragBall = Draggable.create(ball, {
 			onDrag: function () {
