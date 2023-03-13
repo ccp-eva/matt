@@ -25,7 +25,7 @@ export default async () => {
 	const order = _.shuffle(['inner', 'middle', 'outer']);
 	data.procedure.sBallPractice = {
 		duration: 0,
-		explanationCount: 1,
+		addExplanationCount: 0,
 		completed: false,
 		order: order,
 		inner: '',
@@ -150,7 +150,7 @@ export default async () => {
 
 					// FAIL
 					if (currentCircle !== 'inner') {
-						data.procedure.sBallPractice.explanationCount!++;
+						data.procedure.sBallPractice.addExplanationCount++;
 						failed = true;
 						repeat = false;
 						data.procedure.sBallPractice[currentCircle] === '';
@@ -179,7 +179,7 @@ export default async () => {
 
 					// FAIL
 					if (currentCircle !== 'middle') {
-						data.procedure.sBallPractice.explanationCount!++;
+						data.procedure.sBallPractice.addExplanationCount++;
 						failed = true;
 						repeat = false;
 						data.procedure.sBallPractice[currentCircle] === '';
@@ -208,7 +208,7 @@ export default async () => {
 
 					// FAIL
 					if (currentCircle !== 'outer') {
-						data.procedure.sBallPractice.explanationCount!++;
+						data.procedure.sBallPractice.addExplanationCount++;
 						failed = true;
 						repeat = false;
 						data.procedure.sBallPractice[currentCircle] === '';

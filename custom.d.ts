@@ -97,7 +97,7 @@ declare var data: {
 		};
 		sBallPractice: {
 			duration: number;
-			explanationCount: number;
+			addExplanationCount: number;
 			order: string[];
 			inner: string;
 			middle: string;
