@@ -8,18 +8,20 @@ import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
-	data.slideCounter++;
-	swapSlides('s-ball-practice', 's-ball-animation');
+	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
 
 	const ball = document.getElementById('link-sbp-ball')! as SvgInHtml;
 	const inner = document.getElementById('sbp-inner')! as SvgInHtml;
 	const middle = document.getElementById('sbp-middle')! as SvgInHtml;
 	const outer = document.getElementById('sbp-outer')! as SvgInHtml;
 
+	gsap.set([inner, middle, outer], { opacity: 0.5 });
+
 	await playPromise(`./cultures/${data.culture}/audio/s-ball-practice.mp3`);
 	await playPromise(`./cultures/${data.culture}/audio/sbp-expl.mp3`);
 
 	// init data object
+	// todo if explanation count > 3 skip to dilemma https://github.com/ccp-eva/matt/issues/18
 	const order = _.shuffle(['inner', 'middle', 'outer']);
 	data.procedure.sBallPractice = {
 		duration: 0,
@@ -44,11 +46,50 @@ export default async () => {
 			await sleep(1000);
 		}
 
+		console.log(currentCircle);
+
 		if (failed) {
-			await playPromise(`./cultures/${data.culture}/audio/sbp-fail.mp3`);
-			await playPromise(`./cultures/${data.culture}/audio/sba-${currentCircle}.mp3`);
 			failed = false;
 			repeat = true;
+
+			gsap.timeline().to('#link-s-bp-headphones', {
+				autoAlpha: 0,
+			});
+
+			await playPromise(`./cultures/${data.culture}/audio/sbp-fail.mp3`);
+
+			gsap
+				.timeline()
+				.to(inner, {
+					delay: 3,
+					autoAlpha: 1,
+					repeat: 2,
+				})
+				.to(inner, {
+					autoAlpha: 0.5,
+				})
+				.to(middle, {
+					delay: 2.5,
+					autoAlpha: 1,
+					repeat: 2,
+				})
+				.to(middle, {
+					autoAlpha: 0.5,
+				})
+				.to(outer, {
+					delay: 1.75,
+					autoAlpha: 1,
+					repeat: 2,
+					reversed: true,
+				})
+				.to(outer, {
+					autoAlpha: 0.5,
+				})
+				.to('#link-s-bp-headphones', {
+					autoAlpha: 1,
+				});
+
+			await playPromise(`./cultures/${data.culture}/audio/sbp-repeat-rules.mp3`);
 		}
 
 		play(`./cultures/${data.culture}/audio/sbp-${currentCircle}.mp3`, 'link-s-bp-headphones');
