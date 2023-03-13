@@ -18,17 +18,21 @@ export const playPromise = (url: string, elementId?: string) => {
 	});
 };
 
-export const play = (url: string, elementId?: string) => {
+export const play = (url: string, elementId?: string, once = false) => {
 	const audio = document.getElementById('audio') as HTMLAudioElement;
 
 	if (elementId) {
-		document.getElementById(elementId)!.addEventListener('click', () => {
-			audio.autoplay = true;
-			// Restart the audio by setting the current time to 0
-			audio.currentTime = 0;
-			audio.setAttribute('src', url);
-			audio.play();
-		});
+		document.getElementById(elementId)!.addEventListener(
+			'click',
+			() => {
+				audio.autoplay = true;
+				// Restart the audio by setting the current time to 0
+				audio.currentTime = 0;
+				audio.setAttribute('src', url);
+				audio.play();
+			},
+			{ once }
+		);
 	} else {
 		audio.autoplay = true; // autoplay when loaded
 		audio.setAttribute('src', url);
