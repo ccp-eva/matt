@@ -2561,11 +2561,7 @@
 		<circle id="sba-middle-anchor" fill="none" cx="912" cy="539" r="0.05"/>
 		<circle id="sba-outer-anchor" fill="none" cx="1024" cy="539" r="0.05"/>
 	</g>
-	<rect id="ph-s-ba-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	<rect id="ph-sba-ball" x="1411" y="470" opacity="0.6" fill="#4AE5D9" width="140" height="140"/>
-	
-		<image overflow="visible" width="80" height="80" id="link-s-ba-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
-	</image>
 	
 		<image overflow="visible" width="141" height="142" id="link-sba-ball" xlink:href="ball.png"  transform="matrix(0.4296 0 0 0.4296 1458 509)">
 	</image>
