@@ -1,7 +1,7 @@
 import config from '../config.yaml';
 
 // promised based timeout
-export const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
+export const sleep = (ms = 2000) => new Promise<number>((r) => setTimeout(r, ms));
 
 export const getUrlParameters = () => {
 	const urlParams = new URLSearchParams(window.location.search);
