@@ -42,8 +42,8 @@ export const stop = () => {
 };
 
 // get duration of audio file
-export const getDuration = (url: string) =>
-	new Promise<number>((resolve) => {
+export const getDuration = (url: string): Promise<number> =>
+	new Promise((resolve) => {
 		const audio = document.createElement('audio');
 		audio.setAttribute('src', url);
 		audio.addEventListener('loadedmetadata', function () {
