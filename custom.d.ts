@@ -92,6 +92,7 @@ declare var data: {
 			completed: boolean;
 		};
 		sBallAnimation: {
+			order: string[];
 			completed: boolean;
 		};
 		sBallPractice: {

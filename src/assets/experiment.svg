@@ -2557,6 +2557,9 @@
 			 M587.14,803.75c-146.33,0-264.95-118.62-264.95-264.95s118.62-264.95,264.95-264.95s264.95,118.62,264.95,264.95
 			S733.47,803.75,587.14,803.75z"/>
 		<circle id="sba-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="587.14" cy="538.81" r="264.95"/>
+		<circle id="sba-inner-anchor" fill="none" cx="587.14" cy="538.81" r="0.05"/>
+		<circle id="sba-middle-anchor" fill="none" cx="912" cy="539" r="0.05"/>
+		<circle id="sba-outer-anchor" fill="none" cx="1024" cy="539" r="0.05"/>
 	</g>
 	<rect id="ph-s-ba-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	<rect id="ph-sba-ball" x="1411" y="470" opacity="0.6" fill="#4AE5D9" width="140" height="140"/>
