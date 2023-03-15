@@ -2474,54 +2474,43 @@
 			S733.47,803.75,587.14,803.75z"/>
 		<circle id="st-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="587.14" cy="538.81" r="264.95"/>
 	</g>
-	<rect x="1223.27" y="50.75" fill="#EAEAEA" width="631.45" height="978.5"/>
+	<rect x="1223" y="148" fill="#EAEAEA" width="632" height="782"/>
 	<rect id="ph-st-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
-	<rect id="ph-st-elderly" x="1432" y="66" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
-	<rect id="ph-st-chicken" x="1276" y="120" opacity="0.6" fill="#4AE5D9" width="118" height="118"/>
-	<rect id="ph-st-pig" x="1681" y="100" opacity="0.6" fill="#4AE5D9" width="143" height="143"/>
-	<rect id="ph-st-dog" x="1465" y="363" opacity="0.6" fill="#4AE5D9" width="158" height="158"/>
-	<rect id="ph-st-sheep" x="1690" y="385" opacity="0.6" fill="#4AE5D9" width="120" height="120"/>
-	<rect id="ph-st-child" x="1238" y="833" opacity="0.6" fill="#4AE5D9" width="160" height="160"/>
-	<rect id="ph-st-man" x="1225" y="325" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
-	<rect id="ph-st-rabbit" x="1720" y="628" opacity="0.6" fill="#4AE5D9" width="93" height="93"/>
-	<rect id="ph-st-goldfish" x="1257" y="617" opacity="0.6" fill="#4AE5D9" width="122" height="122"/>
-	<rect id="ph-st-cow" x="1440" y="553" opacity="0.6" fill="#4AE5D9" width="208" height="208"/>
-	<rect id="ph-st-cat" x="1472" y="868" opacity="0.6" fill="#4AE5D9" width="117" height="117"/>
-	<rect id="ph-st-woman" x="1640" y="788" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
+	<rect id="ph-st-human" x="1432" y="200" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
+	<rect id="ph-st-chicken" x="1271" y="248" opacity="0.6" fill="#4AE5D9" width="118" height="118"/>
+	<rect id="ph-st-pig" x="1676" y="236" opacity="0.6" fill="#4AE5D9" width="143" height="143"/>
+	<rect id="ph-st-dog" x="1251" y="464" opacity="0.6" fill="#4AE5D9" width="158" height="158"/>
+	<rect id="ph-st-sheep" x="1688" y="483" opacity="0.6" fill="#4AE5D9" width="120" height="120"/>
+	<rect id="ph-st-rabbit" x="1701.5" y="732.5" opacity="0.6" fill="#4AE5D9" width="93" height="93"/>
+	<rect id="ph-st-goldfish" x="1269" y="718" opacity="0.6" fill="#4AE5D9" width="122" height="122"/>
+	<rect id="ph-st-cow" x="1432" y="672" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
+	<rect id="ph-st-cat" x="1480.5" y="484.5" opacity="0.6" fill="#4AE5D9" width="117" height="117"/>
 	<rect id="ph-st-next" x="1060" y="930" opacity="0.5" fill="#B8846E" width="80" height="80"/>
 	
 		<image overflow="visible" width="80" height="80" id="link-st-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
-	<image overflow="visible" width="89" height="67" id="link-st-cat" xlink:href="assets/cat.svg"  transform="matrix(1 0 0 1 1480 901)">
+	<image overflow="visible" width="89" height="67" id="link-st-cat" xlink:href="assets/cat.svg"  transform="matrix(1 0 0 1 1499 538)">
 	</image>
 	
-		<image overflow="visible" width="62" height="73" id="link-st-chicken" xlink:href="assets/chicken.svg"  transform="matrix(1 0 0 1 1301 149)">
+		<image overflow="visible" width="62" height="73" id="link-st-chicken" xlink:href="assets/chicken.svg"  transform="matrix(1 0 0 1 1301 271)">
+	</image>
+	<image overflow="visible" width="116" height="76" id="link-st-cow" xlink:href="assets/cow.svg"  transform="matrix(1 0 0 1 1523 753)">
+	</image>
+	<image overflow="visible" width="99" height="78" id="link-st-dog" xlink:href="assets/dog.svg"  transform="matrix(1 0 0 1 1283 506)">
 	</image>
 	
-		<image overflow="visible" width="48" height="92" id="link-st-child" xlink:href="assets/child.svg"  transform="matrix(1 0 0 1 1299 856)">
-	</image>
-	<image overflow="visible" width="116" height="76" id="link-st-cow" xlink:href="assets/cow.svg"  transform="matrix(1 0 0 1 1523 631)">
-	</image>
-	<image overflow="visible" width="99" height="78" id="link-st-dog" xlink:href="assets/dog.svg"  transform="matrix(1 0 0 1 1499 406)">
+		<image overflow="visible" width="80" height="56" id="link-st-goldfish" xlink:href="assets/goldfish.svg"  transform="matrix(1 0 0 1 1263 782)">
 	</image>
 	
-		<image overflow="visible" width="55" height="119" id="link-st-elderly" xlink:href="assets/elderly.svg"  transform="matrix(1 0 0 1 1472 108)">
+		<image overflow="visible" width="130" height="246" id="link-st-human" xlink:href="assets/human.svg"  transform="matrix(0.4694 0 0 0.4694 1462 223)">
+	</image>
+	<image overflow="visible" width="94" height="67" id="link-st-pig" xlink:href="assets/pig.svg"  transform="matrix(1 0 0 1 1697 247)">
 	</image>
 	
-		<image overflow="visible" width="80" height="56" id="link-st-goldfish" xlink:href="assets/goldfish.svg"  transform="matrix(1 0 0 1 1263 660)">
-	</image>
-	<image overflow="visible" width="65" height="118" id="link-st-man" xlink:href="assets/man.svg"  transform="matrix(1 0 0 1 1298 395)">
-	</image>
-	<image overflow="visible" width="94" height="67" id="link-st-pig" xlink:href="assets/pig.svg"  transform="matrix(1 0 0 1 1697 125)">
+		<image overflow="visible" width="70" height="61" id="link-st-rabbit" xlink:href="assets/rabbit.svg"  transform="matrix(1 0 0 1 1736 779)">
 	</image>
 	
-		<image overflow="visible" width="70" height="61" id="link-st-rabbit" xlink:href="assets/rabbit.svg"  transform="matrix(1 0 0 1 1736 657)">
-	</image>
-	
-		<image overflow="visible" width="80" height="76" id="link-st-sheep" xlink:href="assets/sheep.svg"  transform="matrix(1 0 0 1 1693 411)">
-	</image>
-	
-		<image overflow="visible" width="63" height="118" id="link-st-woman" xlink:href="assets/woman.svg"  transform="matrix(1 0 0 1 1684 831)">
+		<image overflow="visible" width="80" height="76" id="link-st-sheep" xlink:href="assets/sheep.svg"  transform="matrix(1 0 0 1 1693 533)">
 	</image>
 	
 		<image overflow="visible" width="80" height="81" id="link-st-next" xlink:href="assets/next.svg"  transform="matrix(0.575 0 0 0.5679 1077 945)">
