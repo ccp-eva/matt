@@ -54,7 +54,9 @@ export default async () => {
 		}
 
 		if (response.id.includes('-no')) {
-			await playPromise(`./cultures/${data.culture}/audio/animal-resp-no-next.mp3`);
+			const responseOption = ['resp-no', 'resp-no-next'];
+			const randomResponse = responseOption[Math.floor(Math.random() * responseOption.length)];
+			await playPromise(`./cultures/${data.culture}/audio/animal-${randomResponse}.mp3`);
 		}
 	}
 
