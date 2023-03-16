@@ -25,7 +25,7 @@ export default async () => {
 				opacity: 1,
 				visibility: 'visible',
 				onStart: () => {
-					playPromise(`./cultures/${data.culture}/audio/yes-no.mp3`);
+					play(`./cultures/${data.culture}/audio/yes-no.mp3`);
 				},
 			})
 			.to('#link-s-rabbit-no', {
@@ -47,7 +47,9 @@ export default async () => {
 	// play button response sounds only for the first four trials
 	if (data.animalSlideCounter <= 4) {
 		if (response.id.includes('-yes')) {
-			await playPromise(`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`);
+			const responseOption = ['ok', 'alright'];
+			const randomResponse = responseOption[Math.floor(Math.random() * responseOption.length)];
+			await playPromise(`./cultures/${data.culture}/audio/neutral-resp-${randomResponse}.mp3`);
 		}
 
 		if (response.id.includes('-no')) {
