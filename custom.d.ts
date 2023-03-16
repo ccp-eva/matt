@@ -107,10 +107,9 @@ declare var data: {
 		sTask: {
 			duration: number;
 			completed: boolean;
-			man: string;
-			woman: string;
-			child: string;
-			elderly: string;
+			knownAnimals: string[];
+			unknownAnimals: string[];
+			human: string;
 			chicken?: string;
 			pig?: string;
 			dog?: string;

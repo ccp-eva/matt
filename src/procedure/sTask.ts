@@ -5,20 +5,18 @@ import { SvgInHtml } from '../types';
 gsap.registerPlugin(Draggable);
 import { play, playPromise, stop } from '../util/audio';
 import { getResponse } from '../util/getResponse';
-import { sleep } from '../util/helpers';
+import { sleep, moveToCenterAnchor } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
-	data.slideCounter++;
-	swapSlides('s-task', 's-ball-practice');
+	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
 
 	data.procedure.sTask = {
 		duration: 0,
 		completed: false,
-		man: '',
-		woman: '',
-		child: '',
-		elderly: '',
+		knownAnimals: [],
+		unknownAnimals: [],
+		human: '',
 		chicken: undefined,
 		pig: undefined,
 		dog: undefined,
@@ -33,10 +31,7 @@ export default async () => {
 	const inner = document.getElementById('st-inner')! as SvgInHtml;
 	const middle = document.getElementById('st-middle')! as SvgInHtml;
 	const outer = document.getElementById('st-outer')! as SvgInHtml;
-	const man = document.getElementById('link-st-man')! as SvgInHtml;
-	const woman = document.getElementById('link-st-woman')! as SvgInHtml;
-	const child = document.getElementById('link-st-child')! as SvgInHtml;
-	const elderly = document.getElementById('link-st-elderly')! as SvgInHtml;
+	const human = document.getElementById('link-st-human')! as SvgInHtml;
 	const chicken = document.getElementById('link-st-chicken')! as SvgInHtml;
 	const pig = document.getElementById('link-st-pig')! as SvgInHtml;
 	const dog = document.getElementById('link-st-dog')! as SvgInHtml;
@@ -46,157 +41,176 @@ export default async () => {
 	const rabbit = document.getElementById('link-st-rabbit')! as SvgInHtml;
 	const cat = document.getElementById('link-st-cat')! as SvgInHtml;
 
+	gsap.to([inner, middle, outer], { opacity: 0.5 });
+
+	// set position slots (taken from Illustrator boxes centered anchor)
+	const slots = {
+		0: { x: 1330, y: 306 },
+		1: { x: 1539, y: 306 },
+		2: { x: 1748, y: 306 },
+		3: { x: 1330, y: 543 },
+		4: { x: 1539, y: 543 },
+		5: { x: 1748, y: 543 },
+		6: { x: 1330, y: 774 },
+		7: { x: 1539, y: 774 },
+		8: { x: 1748, y: 774 },
+	};
+
 	// fetch prior responses if subject knows an animal
 	const animals = ['chicken', 'pig', 'dog', 'sheep', 'goldfish', 'cow', 'rabbit', 'cat'];
 
 	let knownAnimals: string[] = [];
 	let unknownAnimals: string[] = [];
 	animals.forEach((animal) => {
-		if (!data.procedure[animal]) {
+		const prefixedAnimal = _.camelCase(`s-${animal}`);
+		if (!data.procedure[prefixedAnimal]) {
 			return;
 		}
-		if (data.procedure[animal].response.split('-').at(-1) === 'yes') {
+		if (data.procedure[prefixedAnimal].response.split('-').at(-1) === 'yes') {
 			knownAnimals.push(animal);
 		}
-		if (data.procedure[animal].response.split('-').at(-1) === 'no') {
+		if (data.procedure[prefixedAnimal].response.split('-').at(-1) === 'no') {
 			unknownAnimals.push(animal);
 		}
 	});
 
-	// always include humans
-	knownAnimals = ['man', 'woman', 'child', 'elderly', ...knownAnimals];
-	console.log(knownAnimals);
+	// store data
+	data.procedure.sTask.knownAnimals = knownAnimals;
+	data.procedure.sTask.unknownAnimals = unknownAnimals;
+
+	// always show human
+	knownAnimals = [...knownAnimals, 'human'];
 
 	// hide unknownAnimals not in list
 	unknownAnimals.forEach((animal) => {
 		gsap.set(`#link-st-${animal}`, { autoAlpha: 0 });
 	});
 
+	// put known animals in slots, so there are no gaps between them and store their positions
+	const animalPositionLut = {};
+	knownAnimals.forEach((animal, index) => {
+		animalPositionLut[animal] = index;
+		const animalElement = document.getElementById(`link-st-${animal}`)! as SvgInHtml;
+		moveToCenterAnchor(animalElement, slots[index].x, slots[index].y);
+	});
+
 	gsap.set(pinda, { autoAlpha: 0 });
 	gsap.set('#link-st-next', { autoAlpha: 0 });
 
-	gsap
-		.timeline()
-		.to(pinda, {
-			autoAlpha: 1,
-			delay: 0.5,
-			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/s-task.webm`;
-			},
-		})
-		.to(pinda, {
-			autoAlpha: 0,
-			delay: 14,
-		});
+	// gsap
+	// 	.timeline()
+	// 	.to(pinda, {
+	// 		autoAlpha: 1,
+	// 		delay: 0.5,
+	// 		onStart: () => {
+	// 			pinda.src = `./cultures/${data.culture}/video/s-task.webm`;
+	// 		},
+	// 	})
+	// 	.to(pinda, {
+	// 		autoAlpha: 0,
+	// 		delay: 14,
+	// 	});
 
-	await sleep(14000);
+	// await sleep(14000);
 
 	play(`./cultures/${data.culture}/audio/s-task-cut.mp3`, 'link-st-headphones');
 
-	const startTime = new Date().getTime();
+	Draggable.create([chicken, human, pig, dog, sheep, goldfish, cow, rabbit, cat], {
+		onPress: function () {
+			// get current drag object
+			const currentId = this.target.id;
+			let currentObj = currentId.slice(8);
 
-	gsap.to([inner, middle, outer], { opacity: 0.5 });
+			play(`./cultures/${data.culture}/audio/st-${currentObj}.mp3`);
+		},
+		onDrag: function () {
+			const currentId = this.target.id;
+			if (this.hitTest(inner, '50%') && this.hitTest(middle, '50%') && this.hitTest(outer, '50%')) {
+				gsap.to(inner, { opacity: 1, duration: 0.25 });
+				gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
+			} else {
+				gsap.to(inner, { opacity: 0.5, duration: 0.25 });
+			}
 
-	Draggable.create(
-		[chicken, elderly, pig, man, dog, sheep, goldfish, cow, rabbit, child, cat, woman],
-		{
-			onPress: function () {
-				// get current drag object
-				const currentId = this.target.id;
-				let currentObj = currentId.slice(8);
-				if (
-					currentObj === 'man' ||
-					currentObj === 'woman' ||
-					currentObj === 'child' ||
-					currentObj === 'elderly'
-				) {
-					currentObj = 'human';
-				}
-				play(`./cultures/${data.culture}/audio/st-${currentObj}.mp3`);
-			},
-			onDrag: function () {
-				const currentId = this.target.id;
-				if (
-					this.hitTest(inner, '50%') &&
-					this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
-				) {
-					gsap.to(inner, { opacity: 1, duration: 0.25 });
-					gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
-				} else {
-					gsap.to(inner, { opacity: 0.5, duration: 0.25 });
-				}
+			if (
+				!this.hitTest(inner, '50%') &&
+				this.hitTest(middle, '50%') &&
+				this.hitTest(outer, '50%')
+			) {
+				gsap.to(middle, { opacity: 1, duration: 0.25 });
+				gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
+			} else {
+				gsap.to(middle, { opacity: 0.5, duration: 0.25 });
+			}
 
-				if (
-					!this.hitTest(inner, '50%') &&
-					this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
-				) {
-					gsap.to(middle, { opacity: 1, duration: 0.25 });
-					gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
-				} else {
-					gsap.to(middle, { opacity: 0.5, duration: 0.25 });
-				}
+			if (
+				!this.hitTest(inner, '50%') &&
+				!this.hitTest(middle, '50%') &&
+				this.hitTest(outer, '50%')
+			) {
+				gsap.to(outer, { opacity: 1, duration: 0.25 });
+				gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
+			} else {
+				gsap.to(outer, { opacity: 0.5, duration: 0.25 });
+			}
+			if (
+				!this.hitTest(inner, '50%') &&
+				!this.hitTest(middle, '50%') &&
+				!this.hitTest(outer, '50%')
+			) {
+				gsap.to(`#${currentId}`, { scale: 1, transformOrigin: '50% 50%' });
+			}
+		},
+		onDragEnd: function () {
+			const currentId = this.target.id;
+			console.log(currentId);
+			const currentIdTrimmed = currentId.slice(8);
 
-				if (
-					!this.hitTest(inner, '50%') &&
-					!this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
-				) {
-					gsap.to(outer, { opacity: 1, duration: 0.25 });
-					gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
-				} else {
-					gsap.to(outer, { opacity: 0.5, duration: 0.25 });
-				}
-				if (
-					!this.hitTest(inner, '50%') &&
-					!this.hitTest(middle, '50%') &&
-					!this.hitTest(outer, '50%')
-				) {
-					gsap.to(`#${currentId}`, { scale: 1, transformOrigin: '50% 50%' });
-				}
-			},
-			onDragEnd: function () {
-				const currentId = this.target.id;
+			// INNER
+			if (this.hitTest(inner, '50%') && this.hitTest(middle, '50%') && this.hitTest(outer, '50%')) {
+				data.procedure.sTask[currentIdTrimmed] = 'inner';
+				gsap.to(inner, { opacity: 0.5, duration: 0.25 });
+			}
+
+			// MIDDLE
+			if (
+				!this.hitTest(inner, '50%') &&
+				this.hitTest(middle, '50%') &&
+				this.hitTest(outer, '50%')
+			) {
+				data.procedure.sTask[currentIdTrimmed] = 'middle';
+				gsap.to(middle, { opacity: 0.5, duration: 0.25 });
+			}
+
+			// OUTER
+			if (
+				!this.hitTest(inner, '50%') &&
+				!this.hitTest(middle, '50%') &&
+				this.hitTest(outer, '50%')
+			) {
+				data.procedure.sTask[currentIdTrimmed] = 'outer';
+				gsap.to(outer, { opacity: 0.5, duration: 0.25 });
+			}
+			if (
+				!this.hitTest(inner, '50%') &&
+				!this.hitTest(middle, '50%') &&
+				!this.hitTest(outer, '50%')
+			) {
 				console.log(currentId);
-				const currentIdTrimmed = currentId.slice(8);
+				console.log(this.target);
+				console.log(slots[animalPositionLut[currentIdTrimmed]].x);
+				console.log(slots[animalPositionLut[currentIdTrimmed]].y);
 
-				// INNER
-				if (
-					this.hitTest(inner, '50%') &&
-					this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
-				) {
-					data.procedure.sTask[currentIdTrimmed] = 'inner';
-				}
-
-				// MIDDLE
-				if (
-					!this.hitTest(inner, '50%') &&
-					this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
-				) {
-					data.procedure.sTask[currentIdTrimmed] = 'middle';
-				}
-
-				// OUTER
-				if (
-					!this.hitTest(inner, '50%') &&
-					!this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
-				) {
-					data.procedure.sTask[currentIdTrimmed] = 'outer';
-				}
-				if (
-					!this.hitTest(inner, '50%') &&
-					!this.hitTest(middle, '50%') &&
-					!this.hitTest(outer, '50%')
-				) {
-					gsap.to(`#${currentId}`, { x: 0, y: 0 });
-				}
-			},
-		}
-	);
+				// bug this is not working yet #72
+				// moveToCenterAnchor(
+				// 	this.target,
+				// 	slots[animalPositionLut[currentIdTrimmed]].x,
+				// 	slots[animalPositionLut[currentIdTrimmed]].y
+				// );
+				gsap.to(`#${currentId}`, { x: 0, y: 0 });
+			}
+		},
+	});
 
 	// check if all knowAnimals have been placed
 	const checkAnimals = () => {
@@ -229,6 +243,4 @@ export default async () => {
 	await getResponse('link-st-next');
 	// stop audio playback after next button is clicked
 	stop();
-
-	data.procedure.sTask.duration = new Date().getTime() - startTime;
 };
