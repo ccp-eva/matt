@@ -2462,6 +2462,10 @@
 	
 		<image overflow="visible" width="80" height="80" id="link-sm-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
+	<rect id="ph-sm-next" x="920" y="880" opacity="0.5" fill="#B8846E" width="80" height="80"/>
+	
+		<image overflow="visible" width="80" height="81" id="link-sm-next" xlink:href="assets/next.svg"  transform="matrix(0.575 0 0 0.5679 1100 968)">
+	</image>
 </g>
 <g id="s-task">
 	<g id="st-circle">
