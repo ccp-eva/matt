@@ -8,7 +8,7 @@ export const translations = {
 	},
 
 	meaning: {
-		'de-urban': '<p>Was heißt es für dich, wenn etwas sehr wichtig ist?</p>',
+		'de-urban': '<h1 class="heading-em">Was heißt es für dich, wenn etwas sehr wichtig ist?</p>',
 		'na-rural': '',
 		'idk-rural': '',
 		'idj-urban': '',

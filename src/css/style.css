@@ -31,6 +31,7 @@ svg {
 	font-style: italic;
 	letter-spacing: calc(20rem / 1000);
 	color: hsl(177deg 100% 21%);
+	text-align: center;
 }
 
 p {
@@ -55,4 +56,14 @@ p {
 
 .video-overlay__video {
 	width: 20vw;
+}
+
+textarea {
+	overflow-y: scroll;
+	resize: none;
+	width: 95%;
+	height: 70%;
+	font-family: cholla-sans, sans-serif;
+	font-weight: 500;
+	font-size: 2rem;
 }

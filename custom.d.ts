@@ -126,5 +126,9 @@ declare var data: {
 				outer: boolean;
 			};
 		};
+		sMeaning: {
+			duration: number;
+			textInput: string;
+		};
 	};
 };
