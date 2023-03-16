@@ -114,21 +114,21 @@ export default async () => {
 	gsap.set(pinda, { autoAlpha: 0 });
 	gsap.set('#link-st-next', { autoAlpha: 0 });
 
-	// gsap
-	// 	.timeline()
-	// 	.to(pinda, {
-	// 		autoAlpha: 1,
-	// 		delay: 0.5,
-	// 		onStart: () => {
-	// 			pinda.src = `./cultures/${data.culture}/video/s-task.webm`;
-	// 		},
-	// 	})
-	// 	.to(pinda, {
-	// 		autoAlpha: 0,
-	// 		delay: 14,
-	// 	});
+	gsap
+		.timeline()
+		.to(pinda, {
+			autoAlpha: 1,
+			delay: 0.5,
+			onStart: () => {
+				pinda.src = `./cultures/${data.culture}/video/s-task.webm`;
+			},
+		})
+		.to(pinda, {
+			autoAlpha: 0,
+			delay: 14,
+		});
 
-	// await sleep(14000);
+	await sleep(14000);
 
 	play(`./cultures/${data.culture}/audio/s-task-cut.mp3`, 'link-st-headphones');
 
