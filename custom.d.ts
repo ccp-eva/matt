@@ -106,7 +106,6 @@ declare var data: {
 		};
 		sTask: {
 			duration: number;
-			completed: boolean;
 			knownAnimals: string[];
 			unknownAnimals: string[];
 			human: string;

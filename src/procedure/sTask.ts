@@ -13,7 +13,6 @@ export default async () => {
 
 	data.procedure.sTask = {
 		duration: 0,
-		completed: false,
 		knownAnimals: [],
 		unknownAnimals: [],
 		human: '',
