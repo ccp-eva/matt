@@ -24,6 +24,14 @@ export default async () => {
 		cow: undefined,
 		rabbit: undefined,
 		cat: undefined,
+		assignedAnimals: 0,
+		comprehension: {
+			completed: false,
+			order: _.shuffle(['inner', 'middle', 'outer']),
+			inner: false,
+			middle: false,
+			outer: false,
+		},
 	};
 
 	const pinda = document.getElementById('player') as HTMLVideoElement;
@@ -41,6 +49,16 @@ export default async () => {
 	const cat = document.getElementById('link-st-cat')! as SvgInHtml;
 
 	gsap.to([inner, middle, outer], { opacity: 0.5 });
+
+	[inner, middle, outer].forEach((circle) => {
+		circle.style.cursor = 'pointer';
+		circle.addEventListener('mouseenter', () => {
+			gsap.timeline().to(circle, { autoAlpha: 1 });
+		});
+		circle.addEventListener('mouseleave', () => {
+			gsap.timeline().to(circle, { autoAlpha: 0.5 });
+		});
+	});
 
 	// set position slots (taken from Illustrator boxes centered anchor)
 	const slots = {
@@ -168,6 +186,7 @@ export default async () => {
 			// INNER
 			if (this.hitTest(inner, '50%') && this.hitTest(middle, '50%') && this.hitTest(outer, '50%')) {
 				data.procedure.sTask[currentIdTrimmed] = 'inner';
+				data.procedure.sTask.assignedAnimals++;
 				gsap.to(inner, { opacity: 0.5, duration: 0.25 });
 			}
 
@@ -178,6 +197,7 @@ export default async () => {
 				this.hitTest(outer, '50%')
 			) {
 				data.procedure.sTask[currentIdTrimmed] = 'middle';
+				data.procedure.sTask.assignedAnimals++;
 				gsap.to(middle, { opacity: 0.5, duration: 0.25 });
 			}
 
@@ -188,8 +208,11 @@ export default async () => {
 				this.hitTest(outer, '50%')
 			) {
 				data.procedure.sTask[currentIdTrimmed] = 'outer';
+				data.procedure.sTask.assignedAnimals++;
 				gsap.to(outer, { opacity: 0.5, duration: 0.25 });
 			}
+
+			// NONE
 			if (
 				!this.hitTest(inner, '50%') &&
 				!this.hitTest(middle, '50%') &&
@@ -221,6 +244,41 @@ export default async () => {
 		});
 		return allPlaced;
 	};
+
+	while (data.procedure.sTask.assignedAnimals < Math.ceil(knownAnimals.length / 2)) {
+		await sleep(500);
+	}
+
+	// check circle comprehension
+	console.log('Comprehension check...');
+
+	// hide all animals
+	gsap.timeline().to([chicken, human, pig, dog, sheep, goldfish, cow, rabbit, cat], {
+		autoAlpha: 0,
+	});
+
+	for (const order of data.procedure.sTask.comprehension.order) {
+		play(`./cultures/${data.culture}/audio/s-comp-check-${order}.mp3`, 'link-st-headphones');
+		await playPromise(`./cultures/${data.culture}/audio/s-comp-check.mp3`);
+		await playPromise(`./cultures/${data.culture}/audio/s-comp-check-${order}.mp3`);
+		await playPromise(`./cultures/${data.culture}/audio/s-comp-check-expl.mp3`);
+
+		const response = await getResponse(['st-inner', 'st-middle', 'st-outer']);
+
+		const responseOption = ['ok', 'alright', 'okThanks'];
+		const randomResponse = responseOption[Math.floor(Math.random() * responseOption.length)];
+		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-${randomResponse}.mp3`);
+
+		if (response.id.slice(3) === order) {
+			data.procedure.sTask.comprehension[order] = true;
+		}
+	}
+
+	data.procedure.sTask.comprehension.completed = true;
+
+	gsap.timeline().to([chicken, human, pig, dog, sheep, goldfish, cow, rabbit, cat], {
+		autoAlpha: 1,
+	});
 
 	while (checkAnimals().length > 0) {
 		await sleep(1000);

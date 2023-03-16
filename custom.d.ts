@@ -117,6 +117,14 @@ declare var data: {
 			cow?: string;
 			rabbit?: string;
 			cat?: string;
+			assignedAnimals: number;
+			comprehension: {
+				completed: boolean;
+				order: string[];
+				inner: boolean;
+				middle: boolean;
+				outer: boolean;
+			};
 		};
 	};
 };
