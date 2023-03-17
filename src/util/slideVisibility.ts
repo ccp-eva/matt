@@ -139,34 +139,38 @@ export const swapSlides = (
 		document.getElementById(slideToHide)!.removeAttribute('style');
 	}
 	// if fadeDurations is defined, we use GSAP to fade in and out between slides (using opacity)
-	// fadeDurations requires visibleSlides and hiddenSlides
-	if (fadeDurations && (!visibleSlides || !hiddenSlides)) {
-		console.warn('fade requires visibleSlides and hiddenSlides');
-	}
-	if (fadeDurations && visibleSlides && hiddenSlides) {
+	if (fadeDurations && visibleSlides) {
 		// make sure to have a single string
 		const slideToShow = typeof visibleSlides === 'string' ? visibleSlides : visibleSlides[0];
-		const slideToHide = typeof hiddenSlides === 'string' ? hiddenSlides : hiddenSlides[0];
+		let slideToHide = '';
+		if (hiddenSlides) {
+			slideToHide = typeof hiddenSlides === 'string' ? hiddenSlides : hiddenSlides[0];
+		}
 
 		// visibility hidden needs to be set always
-		gsap.set(`#${slideToShow}`, { visibility: 'visible', opacity: 0 });
+		gsap.set(`#${slideToShow}`, { autoAlpha: 0 });
+
 		const tl = gsap.timeline();
-		tl.to(`#${slideToHide}`, {
-			opacity: 0,
-			duration: fadeDurations[0],
-		});
-		tl.to(`#${slideToHide}`, {
-			visibility: 'hidden',
-		});
+
+		if (!!slideToHide) {
+			tl.to(`#${slideToHide}`, {
+				autoAlpha: 0,
+				duration: fadeDurations[0],
+			});
+		}
+
 		tl.to(`#${slideToShow}`, {
-			opacity: 1,
+			autoAlpha: 1,
 			duration: fadeDurations[1],
 			// clean-up DOM after animation
 			onComplete: () => {
-				removeChildVisibiltyStyleAttribs(slideToHide);
-				document.getElementById(slideToHide)!.setAttribute('visibility', 'hidden');
-				document.getElementById(slideToHide)!.removeAttribute('style');
-				document.getElementById(slideToShow)!.setAttribute('visibility', 'visible');
+				// todo I may not need this anymore?
+				if (!!slideToHide) {
+					removeChildVisibiltyStyleAttribs(slideToHide);
+					document.getElementById(slideToHide)!.setAttribute('visibility', 'hidden');
+					document.getElementById(slideToHide)!.removeAttribute('style');
+					document.getElementById(slideToShow)!.setAttribute('visibility', 'visible');
+				}
 			},
 		});
 	}
