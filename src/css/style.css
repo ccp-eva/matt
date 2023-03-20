@@ -67,6 +67,18 @@ p {
 	height: 100%;
 }
 
+.dilemma {
+	text-align: center;
+	font-family: pt-sans-narrow;
+	font-size: 2.5rem;
+}
+
+.dilemma__qm {
+	text-align: center;
+	font-family: pt-sans-narrow;
+	font-size: 10rem;
+}
+
 textarea {
 	overflow-y: scroll;
 	resize: none;
@@ -126,4 +138,15 @@ input[type='checkbox']:checked + .check-trail .check-handler {
 }
 input[type='checkbox']:checked + .check-trail .check-handler::before {
 	content: '🗣️';
+}
+
+.dilemma-card {
+	outline: solid 1px black;
+	transition: 0.2s;
+	cursor: pointer;
+	pointer-events: visible;
+}
+
+.dilemma-card:hover {
+	outline: solid 10px #006c66;
 }

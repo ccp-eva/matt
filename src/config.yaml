@@ -55,7 +55,8 @@ procedure:
       # s-ball-practice,
       # s-task,
       # s-meaning,
-      s-intro-boats,
+      # s-intro-boats,
+      s-practice-dilemma,
     ]
   en-urban: [s-introduction, s-moral-circle, s-human, s-transition]
   na-urban: [s-introduction, s-moral-circle, s-human, s-transition]

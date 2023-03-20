@@ -133,5 +133,10 @@ declare var data: {
 			isVoice: boolean;
 			voiceExplanation: boolean;
 		};
+		sPracticeDilemma: {
+			duration: number;
+			response: string;
+			completed: boolean;
+		};
 	};
 };

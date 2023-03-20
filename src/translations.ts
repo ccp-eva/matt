@@ -16,7 +16,7 @@ export const translations = {
 	},
 
 	saving: {
-		'de-urban': '<p>Rettest Du ...</p>',
+		'de-urban': '<p class="dilemma">Rettest Du ...</p>',
 		'na-rural': '',
 		'idk-rural': '',
 		'idj-urban': '',
@@ -24,7 +24,7 @@ export const translations = {
 	},
 
 	tenPencils: {
-		'de-urban': '<p>10 Stifte</p>',
+		'de-urban': '<p class="dilemma">10 Stifte</p>',
 		'na-rural': '',
 		'idk-rural': '',
 		'idj-urban': '',
@@ -32,7 +32,7 @@ export const translations = {
 	},
 
 	cantDecide: {
-		'de-urban': '<p>Ich kann mich nicht entscheiden</p>',
+		'de-urban': '<p class="dilemma">Ich kann mich nicht entscheiden</p>',
 		'na-rural': '',
 		'idk-rural': '',
 		'idj-urban': '',
@@ -40,7 +40,7 @@ export const translations = {
 	},
 
 	questionMark: {
-		'de-urban': '<p>?</p>',
+		'de-urban': '<p class="dilemma__qm">?</p>',
 		'na-rural': '',
 		'idk-rural': '',
 		'idj-urban': '',
@@ -48,7 +48,7 @@ export const translations = {
 	},
 
 	oneBike: {
-		'de-urban': '<p>1 Fahrrad</p>',
+		'de-urban': '<p class="dilemma">1 Fahrrad</p>',
 		'na-rural': '',
 		'idk-rural': '',
 		'idj-urban': '',
