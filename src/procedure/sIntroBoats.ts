@@ -6,8 +6,6 @@ import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
-
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 	const headphones = document.getElementById('link-sib-headphones') as SvgInHtml;
 
@@ -25,6 +23,8 @@ export default async () => {
 		autoAlpha: 0,
 		delay: 20,
 	});
+
+	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 2]);
 
 	await sleep(23000);
 
