@@ -2449,6 +2449,9 @@
 	</image>
 </g>
 <g id="s-intro-boats">
+	<g id="sib-animation-canvas">
+		<rect fill="none" width="1920" height="1080"/>
+	</g>
 	<rect id="ph-sib-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	
 		<image overflow="visible" width="80" height="80" id="link-sib-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
@@ -2464,7 +2467,7 @@
 	</image>
 	<rect id="ph-sm-next" x="920" y="880" opacity="0.5" fill="#B8846E" width="80" height="80"/>
 	
-		<image overflow="visible" width="80" height="81" id="link-sm-next" xlink:href="next.png"  transform="matrix(0.575 0 0 0.5679 1100 968)">
+		<image overflow="visible" width="80" height="81" id="link-sm-next" xlink:href="next.png"  transform="matrix(0.575 0 0 0.5679 937 897)">
 	</image>
 </g>
 <g id="s-task">
