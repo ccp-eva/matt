@@ -129,6 +129,9 @@ declare var data: {
 		sMeaning: {
 			duration: number;
 			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
 		};
 	};
 };

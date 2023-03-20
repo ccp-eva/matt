@@ -19,14 +19,17 @@ export default async () => {
 			},
 		})
 		.to(pinda, {
-			autoAlpha: 0,
 			delay: 11,
+			onStart: () => {
+				pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+			},
+		})
+		.to(pinda, {
+			autoAlpha: 0,
+			delay: 6,
 		});
 
-	console.log(data.currentSlide);
-	console.log(data.previousSlide);
-
-	// await sleep(8000);
+	await sleep(8000);
 
 	// swap slides automatically (don’t touch this)
 	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [10, 1]);
@@ -36,6 +39,9 @@ export default async () => {
 	data.procedure.sMeaning = {
 		duration: 0,
 		textInput: '',
+		isText: false,
+		isVoice: false,
+		voiceExplanation: false,
 	};
 
 	const nextButton = document.getElementById('link-sm-next') as SvgInHtml;
@@ -71,6 +77,7 @@ export default async () => {
 
 	const textResponse = document.getElementById('text-response') as HTMLTextAreaElement;
 	const voiceResponse = document.getElementById('voice-response') as HTMLTextAreaElement;
+	const checkLabel = document.querySelector('.check-trail') as HTMLLabelElement;
 
 	// unchecked = keyboard response
 	// checked = voice response
@@ -80,6 +87,14 @@ export default async () => {
 			gsap
 				.timeline()
 				.to(textResponse, {
+					onStart: () => {
+						if (!data.procedure.sMeaning.voiceExplanation) {
+							data.procedure.sMeaning.voiceExplanation = true;
+							gsap.timeline().to(pinda, { autoAlpha: 1 });
+							pinda.src = `./cultures/${data.culture}/video/sr-ex-next-red-audioInput.webm`;
+							gsap.timeline().to(pinda, { autoAlpha: 0, delay: 6 });
+						}
+					},
 					autoAlpha: 0,
 					duration: 0.25,
 					pointerEvents: 'none',
@@ -120,6 +135,8 @@ export default async () => {
 	});
 
 	voiceResponse.addEventListener('click', async () => {
+		data.procedure.sMeaning.isText = false;
+		data.procedure.sMeaning.isVoice = true;
 		let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 		let recorder = new RecordRTC.RecordRTCPromisesHandler(stream, {
 			type: 'audio',
@@ -143,15 +160,40 @@ export default async () => {
 	textResponse.addEventListener('input', () => {
 		// show next button if textarea hast at least n chars
 		if (textResponse.value.length >= 15) {
+			data.procedure.sMeaning.isText = true;
+			data.procedure.sMeaning.isVoice = false;
 			nextButton.style.pointerEvents = 'auto';
-			gsap.timeline().to(nextButton, {
-				autoAlpha: 1,
-			});
+			checkLabel.style.pointerEvents = 'none';
+			gsap
+				.timeline()
+				.to(nextButton, {
+					autoAlpha: 1,
+					duration: 0.25,
+				})
+				.to(
+					'.check-trail',
+					{
+						autoAlpha: 0.25,
+						duration: 0.25,
+					},
+					'<'
+				);
 		} else {
 			nextButton.style.pointerEvents = 'none';
-			gsap.timeline().to(nextButton, {
-				autoAlpha: 0.25,
-			});
+			checkLabel.style.pointerEvents = 'auto';
+			gsap
+				.timeline()
+				.to(nextButton, {
+					autoAlpha: 0.25,
+				})
+				.to(
+					'.check-trail',
+					{
+						autoAlpha: 1,
+						duration: 0.25,
+					},
+					'<'
+				);
 		}
 	});
 
