@@ -9,7 +9,19 @@ export const widowedKeyChecker = () => {
 	) as NodeListOf<SVGForeignObjectElement>;
 
 	// remove prefix
-	const foreignObjectKeys = [...foreignObjectNodeList].map((e) => e.id.replace('text-', ''));
+	let foreignObjectKeys = [...foreignObjectNodeList].map((e) => e.id.replace('text-', ''));
+
+	// remove Illustrator hash
+	foreignObjectKeys = foreignObjectKeys.map((key) => {
+		// illustrator generates a hash for duplicated ids surrounded with an underscore (my-id_0001_)
+		const hashStartIndex = key.indexOf('_');
+		const stringLength = key.length - 1;
+		const isHash = key[stringLength] === '_';
+		if (isHash) {
+			return key.slice(0, hashStartIndex);
+		}
+		return key;
+	});
 
 	const translationKeys = Object.keys(translations);
 
@@ -44,11 +56,12 @@ export const widowedKeyChecker = () => {
 		);
 	}
 
-	const textKeys = _.intersection(translationKeys, foreignObjectKeys);
-	console.log(
-		'Following keys are present in both translation file and SVG composition and can be used for text elements:',
-		textKeys
-	);
+	// const textKeys = _.intersection(translationKeys, foreignObjectKeys);
+	// console.log(
+	// 	'Following keys are present in both translation file and SVG composition and can be used for text elements:',
+	// 	textKeys
+	// );
 
+	// note that _.intersection() will remove duplicates in foreignObjectKeys due to the hash removal
 	return _.intersection(translationKeys, foreignObjectKeys);
 };

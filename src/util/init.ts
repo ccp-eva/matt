@@ -87,14 +87,18 @@ export const init = () => {
 
 	// check if all translation keys have a matching foreignObject and vice versa
 	const textKeys = widowedKeyChecker();
+
 	const translation = _.zipObject(
 		Object.keys(translations),
 		Object.values(translations).map((e) => e[data.culture])
 	);
+
 	// iterate over all text keys and add text into foreign objects
 	textKeys.forEach((e) => {
-		const foNode = document.getElementById(`text-${e}`)!;
-		foNode.innerHTML = translation[e as keyof typeof translation];
+		const foNodes = document.querySelectorAll(`[id^="text-${e}"]`);
+		foNodes.forEach((foNode) => {
+			foNode.innerHTML = translation[e as keyof typeof translation];
+		});
 	});
 
 	// hide all group slides
