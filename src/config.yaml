@@ -8,7 +8,7 @@ htmlBg: black # background color for letter boxing edges if aspect ratio is not 
 svgBg: white
 hideUrlParameters: false
 slideTransition:
-  override: false # force slide transitions
+  override: true # force slide transitions
   fadeOut: 0.25
   fadeIn: 0.25
 css:
@@ -34,19 +34,27 @@ globals:
   defaultCulture: de-urban
   defaultSubjectId: demo
   animalSlidesGap: 750 # in milliseconds
+# audio:
+#   type: mp3
+#   customAnimationTimes: # this will override the german default
+#     namibia:
+#       s-introduction: [4] # time in seeconds for appear animation
+#       s-human: [4, 2]
+#   cues:
+#     si-introduction: [0]
 
 procedure:
   # use exact slide ids from Illustrator for values
   # The order defines the experiment order
   # If you create a nested array at the second level, the slides will be presented in random order
-  de-urban:
-    [
-      s-introduction,
-      [s-cow, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human],
-      s-mc-intro,
-      s-ball-animation,
-      s-ball-practice,
-      s-task,
+  de-urban: [
+      # s-introduction,
+      # [s-cow, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human],
+      # s-mc-intro,
+      # s-ball-animation,
+      # s-ball-practice,
+      # s-task,
+      # s-meaning,
       s-intro-boats,
     ]
   en-urban: [s-introduction, s-moral-circle, s-human, s-transition]
