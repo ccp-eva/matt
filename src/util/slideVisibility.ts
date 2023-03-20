@@ -23,7 +23,7 @@ export const getChildrenFromParent = (parentId = 'svg') => {
 	let childIds = childrenArray.map((e) => e.id);
 	if (childIds.filter((e) => e === '').length > 0) {
 		console.warn(
-			'IDs are missing in the First Level of the SVG. Make sure those objects have an ID.'
+			`IDs are missing in the first level of the SVG (see ${parentId}). Make sure those objects have an ID.`
 		);
 		childIds = childIds.filter(Boolean);
 	}
