@@ -230,5 +230,22 @@ export default async () => {
 		data.procedure[data.currentSlide].response = response.id;
 	}
 
-	await sleep(500);
+	const pinda = document.getElementById('player') as HTMLVideoElement;
+
+	gsap.set(pinda, { autoAlpha: 0 });
+
+	const tl = gsap.timeline();
+
+	tl.to(pinda, {
+		autoAlpha: 1,
+		duration: 2,
+		onStart: () => {
+			pinda.src = `./cultures/${data.culture}/video/s-transition-5.webm`;
+		},
+	}).to(pinda, {
+		autoAlpha: 0,
+		delay: 4,
+	});
+
+	await sleep(5000);
 };
