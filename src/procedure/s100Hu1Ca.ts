@@ -25,7 +25,7 @@ export default async () => {
 	let response = await getResponse([
 		's100h1cat-oneCat',
 		's100h1cat-cantDecide',
-		's100h1cat-cantDecide',
+		's100h1cat-hundredHumans',
 	]);
 
 	// bubble up until first g element
