@@ -32,7 +32,7 @@ export default async () => {
 	await sleep(8000);
 
 	// swap slides automatically (don’t touch this)
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [10, 1]);
+	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 1]);
 
 	play(`./cultures/${data.culture}/audio/st-meaning.mp3`, 'link-sm-headphones');
 
@@ -142,6 +142,9 @@ export default async () => {
 			type: 'audio',
 		});
 		recorder.startRecording();
+
+		// todo
+		const buttonRecordingString = 'Start Recording';
 
 		voiceResponse.innerText = '🛑 Stop Recording';
 
