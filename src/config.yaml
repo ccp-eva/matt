@@ -56,7 +56,9 @@ procedure:
       # s-task,
       # s-meaning,
       # s-intro-boats,
-      s-practice-dilemma,
+      # s-1-hu-1-ca,
+      # s-2-hu-1-ca,
+      s-1-hu-2-ca,
     ]
   en-urban: [s-introduction, s-moral-circle, s-human, s-transition]
   na-urban: [s-introduction, s-moral-circle, s-human, s-transition]
