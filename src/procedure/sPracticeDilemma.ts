@@ -41,6 +41,16 @@ export default async () => {
 	const oneBikeYesButton = document.getElementById('link-b-oneBike-yes')! as SvgInHtml;
 	const oneBikeNoButton = document.getElementById('link-b-oneBike-no')! as SvgInHtml;
 
+	const confirm1 = document.getElementById(
+		'text-confirm_00000034811373726967630570000006256181144808529834_'
+	);
+	const confirm2 = document.getElementById(
+		'text-confirm_00000142136083963970369070000006815839807686652318_'
+	);
+	const confirm3 = document.getElementById(
+		'text-confirm_00000101822596987739090480000015423414397412023998_'
+	);
+
 	while (!data.procedure.sPracticeDilemma.completed) {
 		// hide card contents
 		gsap.set(
@@ -62,6 +72,9 @@ export default async () => {
 				cantDecideNoButton,
 				oneBikeYesButton,
 				oneBikeNoButton,
+				confirm1,
+				confirm2,
+				confirm3,
 			],
 			{
 				autoAlpha: 0,
@@ -150,6 +163,13 @@ export default async () => {
 					pointerEvents: 'none',
 					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
 				})
+				.to(
+					confirm1,
+					{
+						autoAlpha: 1,
+					},
+					'<'
+				)
 				.to([cantDecideGroup, oneBikeGroup], {
 					autoAlpha: 0.25,
 				})
@@ -178,6 +198,13 @@ export default async () => {
 					pointerEvents: 'none',
 					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
 				})
+				.to(
+					confirm2,
+					{
+						autoAlpha: 1,
+					},
+					'<'
+				)
 				.to([tenPencilsGroup, oneBikeGroup], {
 					autoAlpha: 0.25,
 				})
@@ -206,6 +233,13 @@ export default async () => {
 					pointerEvents: 'none',
 					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
 				})
+				.to(
+					confirm3,
+					{
+						autoAlpha: 1,
+					},
+					'<'
+				)
 				.to([tenPencilsGroup, cantDecideGroup], {
 					autoAlpha: 0.25,
 				})

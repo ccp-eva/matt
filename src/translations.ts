@@ -16,7 +16,7 @@ export const translations = {
 	},
 
 	saving: {
-		'de-urban': '<p class="dilemma">Rettest Du ...</p>',
+		'de-urban': '<p class="dilemma__saving">Rettest Du ...</p>',
 		'na-rural': '',
 		'idk-rural': '',
 		'idj-urban': '',
@@ -56,7 +56,7 @@ export const translations = {
 	},
 
 	confirm: {
-		'de-urban': '<p>Wolltest du das aussuchen?</p>',
+		'de-urban': '<p class="dilemma__confirm">Wolltest du das aussuchen?</p>',
 		'na-rural': '',
 		'idk-rural': '',
 		'idj-urban': '',

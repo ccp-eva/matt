@@ -2423,6 +2423,8 @@
 		
 			<image overflow="visible" width="90" height="90" id="link-b-oneBike-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 		</image>
+		
+			<rect id="text-confirm_00000101822596987739090480000015423414397412023998_" x="1312.97" y="784" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="539.5" height="50"/>
 	</g>
 	<g id="spd-cantDecide">
 		
@@ -2439,28 +2441,32 @@
 		
 			<image overflow="visible" width="90" height="90" id="link-b-cantDecide-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 		</image>
+		
+			<rect id="text-confirm_00000142136083963970369070000006815839807686652318_" x="689.43" y="784" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="539.5" height="50"/>
 	</g>
 	<g id="spd-tenPencils">
 		
-			<rect id="spd-r-tenPencils" x="67.5" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+			<rect id="spd-r-tenPencils" x="67.9" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="539.2" height="931"/>
 		
-			<rect id="text-tenPencils" x="67" y="975" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="540" height="50"/>
-		<rect id="ph-spd-tenPencils" x="201" y="424" opacity="0.6" fill="#4AE5D9" width="273" height="273"/>
+			<rect id="text-tenPencils" x="67.4" y="975" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="539.2" height="50"/>
+		<rect id="ph-spd-tenPencils" x="201.2" y="424" opacity="0.6" fill="#4AE5D9" width="272.59" height="273"/>
 		
-			<image overflow="visible" width="274" height="170" id="link-spd-tenPencils" xlink:href="pencils.png"  transform="matrix(0.5438 0 0 0.5438 245 525)">
+			<image overflow="visible" width="274" height="170" id="link-spd-tenPencils" xlink:href="pencils.png"  transform="matrix(0.543 0 0 0.5438 245.1374 525)">
 		</image>
-		<rect id="ph-spd-boat-tenPencils" x="210" y="114" opacity="0.6" fill="#4AE5D9" width="258" height="258"/>
+		<rect id="ph-spd-boat-tenPencils" x="210.19" y="114" opacity="0.6" fill="#4AE5D9" width="257.62" height="258"/>
 		
-			<image overflow="visible" width="260" height="245" id="link-spd-boat-tenPencils" xlink:href="boat.png"  transform="matrix(0.4192 0 0 0.4192 293 192)">
+			<image overflow="visible" width="260" height="245" id="link-spd-boat-tenPencils" xlink:href="boat.png"  transform="matrix(0.4186 0 0 0.4192 293.0659 192)">
 		</image>
-		<rect id="ph-b-tenPencils-no" x="407" y="866" opacity="0.6" fill="#4AE5D9" width="60" height="60"/>
+		<rect id="ph-b-tenPencils-no" x="406.9" y="866" opacity="0.6" fill="#4AE5D9" width="59.91" height="60"/>
 		
 			<image overflow="visible" width="90" height="90" id="link-b-tenPencils-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
 		</image>
-		<rect id="ph-b-tenPencils-yes" x="207" y="866" opacity="0.6" fill="#4AE5D9" width="60" height="60"/>
+		<rect id="ph-b-tenPencils-yes" x="207.19" y="866" opacity="0.6" fill="#4AE5D9" width="59.91" height="60"/>
 		
 			<image overflow="visible" width="90" height="90" id="link-b-tenPencils-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 		</image>
+		
+			<rect id="text-confirm_00000034811373726967630570000006256181144808529834_" x="67.5" y="784.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="540" height="50"/>
 	</g>
 	
 		<rect id="text-saving_00000106108774247113259110000008279924360793000330_" x="852" y="36" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="216" height="50"/>
