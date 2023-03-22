@@ -148,6 +148,10 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
+		sC1Ca1Co: {
+			duration: number;
+			response: string;
+		};
 		sQuThoughtsComp: {
 			response: string;
 		};
@@ -196,6 +200,14 @@ declare var data: {
 			voiceExplanation: boolean;
 		};
 		sReasoning1Hu1Ca: {
+			response: string;
+			duration: number;
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+		};
+		sReasoning1Ca1Co: {
 			response: string;
 			duration: number;
 			textInput: string;

@@ -49,7 +49,7 @@ procedure:
   # use exact slide ids from Illustrator for values
   # The order defines the experiment order
   # If you create a nested array at the second level, the slides will be presented in random order
-      s-reasoning-1-hu-1-ca,
+      s-reasoning-1-ca-1-co,
     ]
   en-urban: [s-introduction, s-moral-circle, s-human, s-transition]
   na-urban: [s-introduction, s-moral-circle, s-human, s-transition]
