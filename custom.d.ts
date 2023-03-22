@@ -140,6 +140,10 @@ declare var data: {
 			response: string;
 			completed: boolean;
 		};
+		s1Hu1Co: {
+			duration: number;
+			response: string;
+		};
 		sQuThoughtsComp: {
 			response: string;
 		};
