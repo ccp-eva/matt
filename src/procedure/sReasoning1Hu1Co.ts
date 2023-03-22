@@ -38,7 +38,7 @@ export default async () => {
 	// create textarea
 
 	fo.innerHTML = `
-<div id="response-wrapper-reasoning" style="margin-top: -5px;">
+<div id="response-wrapper-reasoning-cow" style="margin-top: -5px;">
 	<div id="toggle" style="width: 9em; margin: 0 auto;">
 		<input id="chck" type="checkbox" />
 		<label for="chck" class="check-trail" style="scale: 0.8;"><span class="check-handler"></span> </label>
@@ -92,7 +92,7 @@ export default async () => {
 		right.classList.add('dilemma-card-fix');
 	}
 
-	gsap.set('#response-wrapper-reasoning', { autoAlpha: 0 });
+	gsap.set('#response-wrapper-reasoning-cow', { autoAlpha: 0 });
 
 	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 2]);
 
@@ -198,7 +198,7 @@ export default async () => {
 		voiceResponse.addEventListener('click', async () => {
 			await recorder.stopRecording();
 			let blob = await recorder.getBlob();
-			RecordRTC.invokeSaveAsDialog(blob, `s-reasoning-1h1c-${data.id}`);
+			RecordRTC.invokeSaveAsDialog(blob, `s-reasoning-1h1co-${data.id}`);
 
 			nextButton.style.pointerEvents = 'auto';
 			gsap.timeline().to(nextButton, {
