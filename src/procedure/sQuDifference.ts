@@ -11,6 +11,8 @@ export default async () => {
 
 	const childQuestion = document.getElementById('text-differenceChild') as SvgInHtml;
 	const adultQuestion = document.getElementById('text-differenceAdult') as SvgInHtml;
+	const pinda = document.getElementById('player') as HTMLVideoElement;
+	gsap.set(pinda, { autoAlpha: 0 });
 
 	childQuestion.children[0].classList.add('question');
 	adultQuestion.children[0].classList.add('question');
@@ -33,5 +35,18 @@ export default async () => {
 		response: response.id,
 	};
 
-	await sleep(500);
+	gsap
+		.timeline()
+		.to(pinda, {
+			autoAlpha: 1,
+			onStart: () => {
+				pinda.src = `./cultures/${data.culture}/video/s-transition-9.webm`;
+			},
+		})
+		.to(pinda, {
+			delay: 4,
+			autoAlpha: 0,
+		});
+
+	await sleep(5000);
 };
