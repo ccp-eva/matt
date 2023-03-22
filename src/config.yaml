@@ -82,7 +82,7 @@ procedure:
       s-qu-difference,
       s-qu-ranking-intelligence,
       s-qu-ranking-pain,
-      s-qu-ranking-feelings,
+      s-qu-ranking-similarity,
     ]
   en-urban: [s-introduction, s-moral-circle, s-human, s-transition]
   na-urban: [s-introduction, s-moral-circle, s-human, s-transition]

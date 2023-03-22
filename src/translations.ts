@@ -132,7 +132,7 @@ export const translations = {
 	},
 
 	similarity: {
-		'de-urban': '<p>Wie ähnlich sind sie Menschen?</p>',
+		'de-urban': '<p class="question">Wie ähnlich sind sie Menschen?</p>',
 	},
 
 	notAtAll: {
