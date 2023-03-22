@@ -153,6 +153,12 @@ declare var data: {
 			cat: 0 | 1 | 2 | 3 | 4;
 			human: 0 | 1 | 2 | 3 | 4;
 		};
+		sQuRankingPain: {
+			response: string;
+			duration: number;
+			cow: 0 | 1 | 2 | 3 | 4;
+			cat: 0 | 1 | 2 | 3 | 4;
+			human: 0 | 1 | 2 | 3 | 4;
 		};
 	};
 };

@@ -123,7 +123,7 @@ export const translations = {
 	},
 
 	pain: {
-		'de-urban': '<p>Wie sehr können sie Schmerzen fühlen?</p>',
+		'de-urban': '<p class="question">Wie sehr können sie Schmerzen fühlen?</p>',
 	},
 
 	feelingsRating: {
