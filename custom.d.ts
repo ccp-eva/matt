@@ -149,9 +149,10 @@ declare var data: {
 		sQuRankingIntelligence: {
 			response: string;
 			duration: number;
-			cow: string;
-			cat: string;
-			human: string;
+			cow: 0 | 1 | 2 | 3 | 4;
+			cat: 0 | 1 | 2 | 3 | 4;
+			human: 0 | 1 | 2 | 3 | 4;
+		};
 		};
 	};
 };

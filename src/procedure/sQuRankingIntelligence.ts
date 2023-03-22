@@ -14,13 +14,11 @@ export default async () => {
 	data.procedure.sQuRankingIntelligence = {
 		response: '',
 		duration: 0,
-		cow: '',
-		cat: '',
-		human: '',
+		cow: 0,
+		cat: 0,
+		human: 0,
 	};
 
-	const questionTitle = document.getElementById('text-intelligence')!
-		.children[0] as HTMLParagraphElement;
 	const notAtAll = document.getElementById('text-notAtAll')!.children[0] as HTMLParagraphElement;
 	const aLittle = document.getElementById('text-aLittle')!.children[0] as HTMLParagraphElement;
 	const aMediumAmount = document.getElementById('text-aMediumAmount')!
@@ -112,22 +110,22 @@ export default async () => {
 			const currentIdTrimmed = currentId.slice(10);
 
 			if (this.hitTest(rect1, '70%')) {
-				data.procedure.sQuRankingIntelligence[currentIdTrimmed] = 'notAtAll';
+				data.procedure.sQuRankingIntelligence[currentIdTrimmed] = 1;
 				rect1.setAttribute('fill', rect1Fill);
 			}
 
 			if (this.hitTest(rect2, '70%')) {
-				data.procedure.sQuRankingIntelligence[currentIdTrimmed] = 'aLittle';
+				data.procedure.sQuRankingIntelligence[currentIdTrimmed] = 2;
 				rect2.setAttribute('fill', rect2Fill);
 			}
 
 			if (this.hitTest(rect3, '70%')) {
-				data.procedure.sQuRankingIntelligence[currentIdTrimmed] = 'aMediumAmount';
+				data.procedure.sQuRankingIntelligence[currentIdTrimmed] = 3;
 				rect3.setAttribute('fill', rect3Fill);
 			}
 
 			if (this.hitTest(rect4, '70%')) {
-				data.procedure.sQuRankingIntelligence[currentIdTrimmed] = 'aLotSmart';
+				data.procedure.sQuRankingIntelligence[currentIdTrimmed] = 4;
 				rect4.setAttribute('fill', rect4Fill);
 			}
 		},
