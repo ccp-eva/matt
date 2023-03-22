@@ -195,7 +195,7 @@ export const translations = {
 	},
 
 	meatFish: {
-		'de-urban': '<p>Isst Du Fleisch oder Fisch?</p>',
+		'de-urban': '<p class="question">Isst Du Fleisch oder Fisch?</p>',
 	},
 
 	eggCheeseMilk: {

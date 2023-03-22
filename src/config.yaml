@@ -85,7 +85,7 @@ procedure:
       s-qu-ranking-feelings,
       s-qu-ranking-similarity,
       s-qu-ownership,
-      s-qu-ranking-exposure,
+      s-qu-meat-fish,
     ]
   en-urban: [s-introduction, s-moral-circle, s-human, s-transition]
   na-urban: [s-introduction, s-moral-circle, s-human, s-transition]
