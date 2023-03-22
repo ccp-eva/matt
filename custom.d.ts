@@ -146,5 +146,12 @@ declare var data: {
 		sQuFeelingsComp: {
 			response: string;
 		};
+		sQuRankingIntelligence: {
+			response: string;
+			duration: number;
+			cow: string;
+			cat: string;
+			human: string;
+		};
 	};
 };

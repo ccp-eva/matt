@@ -80,6 +80,7 @@ procedure:
       s-qu-thoughts,
       s-qu-feelings,
       s-qu-difference,
+      s-qu-ranking-intelligence,
     ]
   en-urban: [s-introduction, s-moral-circle, s-human, s-transition]
   na-urban: [s-introduction, s-moral-circle, s-human, s-transition]
