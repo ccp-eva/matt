@@ -12,7 +12,9 @@ export default async () => {
 	const childQuestion = document.getElementById('text-thoughtsChild') as SvgInHtml;
 	const adultQuestion = document.getElementById('text-thoughtsAdult') as SvgInHtml;
 	const comp = document.getElementById('text-thoughtsComp') as SvgInHtml;
-	gsap.set(comp, { autoAlpha: 0 });
+	const yes = document.getElementById('link-sqt-yes') as SvgInHtml;
+	const no = document.getElementById('link-sqt-no') as SvgInHtml;
+	gsap.set([comp, yes, no], { autoAlpha: 0 });
 
 	[childQuestion, adultQuestion, comp].forEach((el) => {
 		el.children[0].classList.add('question');
@@ -28,6 +30,19 @@ export default async () => {
 		play(`./cultures/${data.culture}/audio/sqt-child.mp3`, 'link-sqt-headphones');
 		await playPromise(`./cultures/${data.culture}/audio/sqt-child.mp3`);
 	}
+
+	gsap
+		.timeline()
+		.to(yes, {
+			autoAlpha: 1,
+			onStart: () => {
+				play(`./cultures/${data.culture}/audio/yes-no.mp3`);
+			},
+		})
+		.to(no, {
+			delay: 1,
+			autoAlpha: 1,
+		});
 
 	// save responses and store to response object
 	const response = await getResponse(['link-sqt-yes', 'link-sqt-no']);
