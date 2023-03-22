@@ -199,7 +199,7 @@ export const translations = {
 	},
 
 	eggCheeseMilk: {
-		'de-urban': '<p>Isst Du Eier, Käse oder trinkst Du Milch?</p>',
+		'de-urban': '<p class="question">Isst Du Eier, Käse oder trinkst Du Milch?</p>',
 	},
 
 	thankYou: {
