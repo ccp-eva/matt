@@ -144,6 +144,10 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
+		s1Hu1Ca: {
+			duration: number;
+			response: string;
+		};
 		sQuThoughtsComp: {
 			response: string;
 		};
@@ -184,6 +188,14 @@ declare var data: {
 			cat: 0 | 1 | 2 | 3 | 4;
 		};
 		sReasoning1Hu1Co: {
+			response: string;
+			duration: number;
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+		};
+		sReasoning1Hu1Ca: {
 			response: string;
 			duration: number;
 			textInput: string;
