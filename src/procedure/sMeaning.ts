@@ -58,7 +58,7 @@ export default async () => {
 	// create textarea
 
 	fo.innerHTML = `
-	<div id="wrapper">
+	<div>
 	<div id="toggle" style="width: 9em; margin: 0 auto; margin-bottom: 10px">
 		<input id="chck" type="checkbox" />
 		<label for="chck" class="check-trail"><span class="check-handler"></span> </label>
