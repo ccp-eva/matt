@@ -144,18 +144,26 @@ export default async () => {
 	};
 
 	while (checkAnimals().length > 0) {
-		await sleep(500);
+		await sleep(1000);
 	}
 
-	gsap.timeline().to(next, { autoAlpha: 1 }).to(next, {
-		filter: 'drop-shadow(0px 0px 14px #a90707)',
-		delay: 1,
-		repeat: -1,
-		yoyo: true,
-		reversed: true,
-	});
+	gsap
+		.timeline()
+		.to(next, {
+			autoAlpha: 1,
+			onStart: () => {
+				play(`./cultures/${data.culture}/audio/sqr-next-red.mp3`);
+			},
+		})
+		.to(next, {
+			filter: 'drop-shadow(0px 0px 14px #a90707)',
+			delay: 1,
+			repeat: -1,
+			yoyo: true,
+			reversed: true,
+		});
 
-	const response = await getResponse('link-sqri-next');
+	await getResponse('link-sqri-next');
 
 	await sleep(500);
 };
