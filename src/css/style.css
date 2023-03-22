@@ -164,6 +164,10 @@ input[type='checkbox']:checked + .check-trail .check-handler::before {
 	outline: solid 10px #006c66;
 }
 
+.dilemma-card-fix {
+	outline: solid 10px #006c66;
+}
+
 .question {
 	font-size: 4rem;
 	font-family: cholla-sans, sans-serif;

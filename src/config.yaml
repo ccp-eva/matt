@@ -87,7 +87,7 @@ procedure:
       s-qu-ownership,
       s-qu-ranking-exposure,
       s-qu-meat-fish,
-      s-qu-egg-cheese-milk,
+      s-reasoning-1-hu-1-co,
     ]
   en-urban: [s-introduction, s-moral-circle, s-human, s-transition]
   na-urban: [s-introduction, s-moral-circle, s-human, s-transition]

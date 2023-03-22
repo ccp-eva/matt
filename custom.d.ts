@@ -179,5 +179,13 @@ declare var data: {
 			cow: 0 | 1 | 2 | 3 | 4;
 			cat: 0 | 1 | 2 | 3 | 4;
 		};
+		sReasoning1Hu1Co: {
+			response: string;
+			duration: number;
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+		};
 	};
 };
