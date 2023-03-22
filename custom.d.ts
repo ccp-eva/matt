@@ -140,5 +140,11 @@ declare var data: {
 			response: string;
 			completed: boolean;
 		};
+		sQuThoughtsComp: {
+			response: string;
+		};
+		sQuFeelingsComp: {
+			response: string;
+		};
 	};
 };

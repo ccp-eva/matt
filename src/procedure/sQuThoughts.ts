@@ -11,9 +11,12 @@ export default async () => {
 
 	const childQuestion = document.getElementById('text-thoughtsChild') as SvgInHtml;
 	const adultQuestion = document.getElementById('text-thoughtsAdult') as SvgInHtml;
+	const comp = document.getElementById('text-thoughtsComp') as SvgInHtml;
+	gsap.set(comp, { autoAlpha: 0 });
 
-	childQuestion.children[0].classList.add('question');
-	adultQuestion.children[0].classList.add('question');
+	[childQuestion, adultQuestion, comp].forEach((el) => {
+		el.children[0].classList.add('question');
+	});
 
 	if (data.agegroup === 'adult') {
 		gsap.set(childQuestion, { autoAlpha: 0 });
@@ -32,6 +35,20 @@ export default async () => {
 	data.procedure[data.currentSlide] = {
 		response: response.id,
 	};
+
+	if (response.id.includes('-yes')) {
+		gsap.set([childQuestion, adultQuestion], { autoAlpha: 0 });
+		gsap.set(comp, { autoAlpha: 1 });
+
+		play(`./cultures/${data.culture}/audio/sqtc.mp3`, 'link-sqt-headphones');
+		await playPromise(`./cultures/${data.culture}/audio/sqtc.mp3`);
+
+		const response = await getResponse(['link-sqt-yes', 'link-sqt-no']);
+		console.log(response.id);
+		data.procedure.sQuThoughtsComp = {
+			response: response.id,
+		};
+	}
 
 	await sleep(500);
 };

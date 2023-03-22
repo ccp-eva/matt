@@ -78,9 +78,7 @@ procedure:
       s-c-1-hu-10-sp,
       s-c-1-ca-1-co,
       s-qu-thoughts,
-      s-qu-thoughts-comp,
       s-qu-feelings,
-      s-qu-feelings-comp,
       s-qu-difference,
     ]
   en-urban: [s-introduction, s-moral-circle, s-human, s-transition]
