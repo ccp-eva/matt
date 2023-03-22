@@ -163,3 +163,12 @@ input[type='checkbox']:checked + .check-trail .check-handler::before {
 .dilemma-card:hover {
 	outline: solid 10px #006c66;
 }
+
+.question {
+	font-size: 4rem;
+	font-family: cholla-sans, sans-serif;
+	font-weight: 700;
+	letter-spacing: calc(20rem / 1000);
+	color: #003330;
+	text-align: center;
+}
