@@ -97,8 +97,7 @@ textarea {
 	resize: none;
 	width: 100%;
 	height: 30vh;
-	font-family: cholla-sans, sans-serif;
-	font-weight: 500;
+	font-family: pt-sans-narrow, sans-serif;
 	font-size: 2rem;
 }
 
