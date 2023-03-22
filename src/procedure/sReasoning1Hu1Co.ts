@@ -119,7 +119,7 @@ export default async () => {
 				pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
 			},
 		})
-		.to('#response-wrapper-reasoning', { autoAlpha: 1 })
+		.to('#response-wrapper-reasoning-cow', { autoAlpha: 1 })
 		.to(pinda, { delay: 5, autoAlpha: 0 });
 
 	const textResponse = document.getElementById('text-response') as HTMLTextAreaElement;
