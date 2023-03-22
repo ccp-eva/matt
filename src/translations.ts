@@ -170,28 +170,28 @@ export const translations = {
 	},
 
 	exposureChild: {
-		'de-urban': '<p>Wie oft triffst Du diese Tiere?</p>',
+		'de-urban': '<p class="question">Wie oft triffst Du diese Tiere?</p>',
 	},
 
 	exposureAdult: {
 		'de-urban':
-			'<p>Wie oft triffst du diese Tiere in deinem Alltag<br>bzw. hast sie getroffen?</p>',
+			'<p class="question">Wie oft triffst du diese Tiere in deinem Alltag<br>bzw. hast sie getroffen?</p>',
 	},
 
 	never: {
-		'de-urban': '<p>Nie</p>',
+		'de-urban': '<p class="question__capion">Nie</p>',
 	},
 
 	sometimes: {
-		'de-urban': '<p>Manchmal</p>',
+		'de-urban': '<p class="question__capion">Manchmal</p>',
 	},
 
 	often: {
-		'de-urban': '<p>Oft</p>',
+		'de-urban': '<p class="question__capion">Oft</p>',
 	},
 
 	almostEveryDay: {
-		'de-urban': '<p>Fast jeden Tag</p>',
+		'de-urban': '<p class="question__capion">Fast jeden Tag</p>',
 	},
 
 	meatFish: {

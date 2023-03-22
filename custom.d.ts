@@ -173,5 +173,11 @@ declare var data: {
 			cow: 0 | 1 | 2 | 3 | 4;
 			cat: 0 | 1 | 2 | 3 | 4;
 		};
+		sQuRankingExposure: {
+			response: string;
+			duration: number;
+			cow: 0 | 1 | 2 | 3 | 4;
+			cat: 0 | 1 | 2 | 3 | 4;
+		};
 	};
 };
