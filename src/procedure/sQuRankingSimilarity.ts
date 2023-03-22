@@ -18,6 +18,8 @@ export default async () => {
 		cat: 0,
 	};
 
+	const pinda = document.getElementById('player') as HTMLVideoElement;
+
 	const cow = document.getElementById('link-sqrs-cow') as SvgInHtml;
 	const cat = document.getElementById('link-sqrs-cat') as SvgInHtml;
 
@@ -32,7 +34,7 @@ export default async () => {
 
 	const next = document.getElementById('link-sqrs-next') as SvgInHtml;
 
-	gsap.set(next, { autoAlpha: 0 });
+	gsap.set([next, pinda], { autoAlpha: 0 });
 
 	await playPromise(`./cultures/${data.culture}/audio/sqrs.mp3`);
 	play(`./cultures/${data.culture}/audio/sqrs.mp3`, 'link-sqrs-headphones');
@@ -130,5 +132,18 @@ export default async () => {
 
 	await getResponse('link-sqrs-next');
 
-	await sleep(500);
+	gsap
+		.timeline()
+		.to(pinda, {
+			autoAlpha: 1,
+			onStart: () => {
+				pinda.src = `./cultures/${data.culture}/video/s-transition-10.webm`;
+			},
+		})
+		.to(pinda, {
+			delay: 3,
+			autoAlpha: 0,
+		});
+
+	await sleep(4000);
 };
