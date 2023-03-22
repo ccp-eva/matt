@@ -14,9 +14,6 @@ export default async () => {
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 	gsap.set(pinda, { autoAlpha: 0 });
 
-	childQuestion.children[0].classList.add('question');
-	adultQuestion.children[0].classList.add('question');
-
 	if (data.agegroup === 'adult') {
 		gsap.set(childQuestion, { autoAlpha: 0 });
 		play(`./cultures/${data.culture}/audio/sqd-adult.mp3`, 'link-sqd-headphones');

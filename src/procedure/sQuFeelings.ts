@@ -14,10 +14,6 @@ export default async () => {
 	const comp = document.getElementById('text-feelingsComp') as SvgInHtml;
 	gsap.set(comp, { autoAlpha: 0 });
 
-	[childQuestion, adultQuestion, comp].forEach((el) => {
-		el.children[0].classList.add('question');
-	});
-
 	if (data.agegroup === 'adult') {
 		gsap.set(childQuestion, { autoAlpha: 0 });
 		play(`./cultures/${data.culture}/audio/sqf-adult.mp3`, 'link-sqf-headphones');

@@ -87,39 +87,39 @@ export const translations = {
 	},
 
 	thoughtsAdult: {
-		'de-urban': '<p>Haben Tiere Gedanken?</p>',
+		'de-urban': '<p class="question">Haben Tiere Gedanken?</p>',
 	},
 
 	thoughtsChild: {
-		'de-urban': '<p>Können Tiere denken?</p>',
+		'de-urban': '<p class="question">Können Tiere denken?</p>',
 	},
 
 	thoughtsComp: {
-		'de-urban': '<p>Denken Tiere so wie Menschen?</p>',
+		'de-urban': '<p class="question">Denken Tiere so wie Menschen?</p>',
 	},
 
 	feelingsAdult: {
-		'de-urban': '<p>Haben Tiere Gefühle?</p>',
+		'de-urban': '<p class="question">Haben Tiere Gefühle?</p>',
 	},
 
 	feelingsChild: {
-		'de-urban': '<p>Können Tiere fühlen?</p>',
+		'de-urban': '<p class="question">Können Tiere fühlen?</p>',
 	},
 
 	feelingsComp: {
-		'de-urban': '<p>Fühlen Tiere so wie Menschen?</p>',
+		'de-urban': '<p class="question">Fühlen Tiere so wie Menschen?</p>',
 	},
 
 	differenceAdult: {
-		'de-urban': '<p>Unterscheiden sich Menschen und Tiere?</p>',
+		'de-urban': '<p class="question">Unterscheiden sich Menschen und Tiere?</p>',
 	},
 
 	differenceChild: {
-		'de-urban': '<p>Sind Menschen anders als Tiere?</p>',
+		'de-urban': '<p class="question">Sind Menschen anders als Tiere?</p>',
 	},
 
 	intelligence: {
-		'de-urban': '<p>Wie schlau sind sie?</p>',
+		'de-urban': '<p class="question">Wie schlau sind sie?</p>',
 	},
 
 	pain: {
@@ -135,19 +135,19 @@ export const translations = {
 	},
 
 	notAtAll: {
-		'de-urban': '<p>Überhaupt nicht</p>',
+		'de-urban': '<p class="question__capion">Überhaupt nicht</p>',
 	},
 
 	aLittle: {
-		'de-urban': '<p>Ein bisschen</p>',
+		'de-urban': '<p class="question__capion">Ein bisschen</p>',
 	},
 
 	aMediumAmount: {
-		'de-urban': '<p>Mittel</p>',
+		'de-urban': '<p class="question__capion">Mittel</p>',
 	},
 
 	aLotSmart: {
-		'de-urban': '<p>Sehr schlau</p>',
+		'de-urban': '<p class="question__capion">Sehr schlau</p>',
 	},
 
 	aLot: {
