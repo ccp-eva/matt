@@ -160,12 +160,13 @@ export const translations = {
 	},
 
 	ownershipChild: {
-		'de-urban': '<p>Haben Du und Deine Familie Tiere<br>oder gibt es Tiere bei euch zuhause?</p>',
+		'de-urban':
+			'<p class="question">Haben Du und Deine Familie Tiere<br>oder gibt es Tiere bei euch zuhause?</p>',
 	},
 
 	ownershipAdult: {
 		'de-urban':
-			'<p>Haben oder hatten du und deine Familie Tiere<br>bzw. gibt oder gab es Tiere bei dir zuhause?</p>',
+			'<p class="question">Haben oder hatten du und deine Familie Tiere<br>bzw. gibt oder gab es Tiere bei dir zuhause?</p>',
 	},
 
 	exposureChild: {
