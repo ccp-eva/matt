@@ -33,6 +33,8 @@ css:
 globals:
   defaultCulture: de-urban
   defaultSubjectId: demo
+  defaultAgeGroup: child
+  defaultInput: userchoice
   animalSlidesGap: 750 # in milliseconds
 # audio:
 #   type: mp3

@@ -11,15 +11,19 @@ export const getUrlParameters = () => {
 		params[key] = value;
 	}
 
-	// if no culture is set, use default culture
-	if (!params.culture) {
-		params.culture = config.globals.defaultCulture;
-	}
-	// if no id is set, use default id
+	// Use defaults if no parameters are set, as in config.yaml
 	if (!params.id) {
 		params.id = config.globals.defaultSubjectId;
 	}
-
+	if (!params.culture) {
+		params.culture = config.globals.defaultCulture;
+	}
+	if (!params.agegroup) {
+		params.agegroup = config.globals.defaultAgeGroup;
+	}
+	if (!params.input) {
+		params.input = config.globals.defaultInput;
+	}
 	return params;
 };
 

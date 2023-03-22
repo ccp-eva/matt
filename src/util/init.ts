@@ -81,6 +81,8 @@ export const init = () => {
 	global.data = {
 		id: urlParameters.id,
 		culture: urlParameters.culture,
+		agegroup: urlParameters.agegroup,
+		input: urlParameters.input,
 		initialTimestamp: new Date().toISOString(),
 		slideCounter: 0,
 		procedure: {},

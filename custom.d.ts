@@ -36,6 +36,8 @@ declare module '*.webm' {
 declare var data: {
 	id: string;
 	culture: string;
+	agegroup: 'child' | 'adult';
+	input: 'audio' | 'text' | 'userchoice';
 	initialTimestamp: string;
 	totalSlides: number;
 	slideCounter: number;
