@@ -347,7 +347,7 @@
 		</g>
 	</g>
 </g>
-<g id="s-reasoning-1cat1cow">
+<g id="s-reasoning-1-ca-1-co">
 	<g id="sr1cat1cow-oneCat">
 		
 			<rect id="sr1cat1cow-r-oneCat" x="1229.97" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
@@ -384,7 +384,7 @@
 		
 			<rect id="text-oneCow_00000016785600527252542950000016329240876665517476_" x="278.4" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.6" height="50"/>
 	</g>
-	<rect id="sr1cat1cow-wr" x="277" y="817" fill="#E5E5E5" width="1366" height="199"/>
+	<rect id="sr1cat1cow-wr" x="277" y="809" fill="#E5E5E5" width="1366" height="250"/>
 	<rect id="ph-sr1cat1cow-next" x="1790" y="968" fill="#B8846E" width="90" height="90"/>
 	
 		<image overflow="visible" width="80" height="81" id="link-sr1cat1cow-next" xlink:href="assets/next.svg"  transform="matrix(0.8375 0 0 0.8272 1800 977)">
@@ -394,7 +394,7 @@
 		<image overflow="visible" width="80" height="80" id="link-sr1cat1cow-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
-<g id="s-reasoning-1h1cat">
+<g id="s-reasoning-1-hu-1-ca">
 	<g id="sr1h1cat-oneCat">
 		
 			<rect id="sr1h1cat-r-oneCat" x="1229.97" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
@@ -431,7 +431,7 @@
 		
 			<rect id="text-oneHuman_00000126286940317943006420000007330785264777530755_" x="278.4" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.6" height="50"/>
 	</g>
-	<rect id="sr1h1cat-wr" x="277" y="817" fill="#E5E5E5" width="1366" height="199"/>
+	<rect id="sr1h1cat-wr" x="277" y="809" fill="#E5E5E5" width="1366" height="250"/>
 	<rect id="ph-sr1h1cat-next" x="1790" y="968" fill="#B8846E" width="90" height="90"/>
 	
 		<image overflow="visible" width="80" height="81" id="link-sr1h1cat-next" xlink:href="assets/next.svg"  transform="matrix(0.8375 0 0 0.8272 1800 977)">
@@ -441,7 +441,7 @@
 		<image overflow="visible" width="80" height="80" id="link-sr1h1cat-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
-<g id="s-reasoning-1h1cow">
+<g id="s-reasoning-1-hu-1-co">
 	<g id="sr1h1cow-oneCow">
 		
 			<rect id="sr1h1cow-r-oneCow" x="1229.97" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
@@ -478,7 +478,7 @@
 		
 			<rect id="text-oneHuman_00000177486688293706920800000008931663284154733205_" x="277.73" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.6" height="50"/>
 	</g>
-	<rect id="sr1h1cow-wr" x="277" y="817" fill="#E5E5E5" width="1366" height="199"/>
+	<rect id="sr1h1cow-wr" x="277" y="809" fill="#E5E5E5" width="1366" height="250"/>
 	<rect id="ph-sr1h1cow-next" x="1790" y="968" fill="#B8846E" width="90" height="90"/>
 	
 		<image overflow="visible" width="80" height="81" id="link-sr1h1cow-next" xlink:href="assets/next.svg"  transform="matrix(0.8375 0 0 0.8272 1800 977)">
@@ -2520,5 +2520,8 @@
 <g id="s-welcome">
 	
 		<rect id="text-xxx" x="645.5" y="316" display="none" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="629" height="136"/>
+	<g id="enter">
+		<circle fill="#C40070" cx="960" cy="540" r="75"/>
+	</g>
 </g>
 </svg>
