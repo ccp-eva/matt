@@ -39,7 +39,7 @@ export default {
 					},
 				],
 			},
-			{ test: /\.(png|gif|jpg|jpeg|ogg|mp3|wav|webm)$/i, type: 'asset/resource' },
+			{ test: /\.(png|gif|jpg|jpeg|ogg|mp3|wav|webm|mp4)$/i, type: 'asset/resource' },
 			{
 				test: /\.svg$/i,
 				type: 'asset/source',

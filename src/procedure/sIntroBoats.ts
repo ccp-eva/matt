@@ -35,7 +35,7 @@ export default async () => {
 		autoAlpha: 1,
 		duration: 2,
 		onStart: () => {
-			fsplayer.src = '../assets/s-intro-boats.mp4';
+			fsplayer.src = `./cultures/${data.culture}/video/s-intro-boats.mp4`;
 		},
 	}).to(fsplayer, {
 		autoAlpha: 0,
