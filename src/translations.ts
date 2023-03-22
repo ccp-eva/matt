@@ -127,7 +127,8 @@ export const translations = {
 	},
 
 	feelingsRating: {
-		'de-urban': '<p>Wie sehr können sie sich glücklich,<br>traurig oder ängstlich fühlen?</p>',
+		'de-urban':
+			'<p class="question">Wie sehr können sie sich glücklich,<br>traurig oder ängstlich fühlen?</p>',
 	},
 
 	similarity: {
