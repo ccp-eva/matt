@@ -252,10 +252,13 @@ export default async () => {
 	// check circle comprehension
 	console.log('Comprehension check...');
 
-	// hide all animals
-	gsap.timeline().to([chicken, human, pig, dog, sheep, goldfish, cow, rabbit, cat], {
-		autoAlpha: 0,
-	});
+	// hide all known animals
+	gsap.timeline().to(
+		knownAnimals.map((e) => `#link-st-${e}`),
+		{
+			autoAlpha: 0,
+		}
+	);
 
 	for (const order of data.procedure.sTask.comprehension.order) {
 		play(`./cultures/${data.culture}/audio/s-comp-check-${order}.mp3`, 'link-st-headphones');
@@ -276,9 +279,13 @@ export default async () => {
 
 	data.procedure.sTask.comprehension.completed = true;
 
-	gsap.timeline().to([chicken, human, pig, dog, sheep, goldfish, cow, rabbit, cat], {
-		autoAlpha: 1,
-	});
+	// show all known animals
+	gsap.timeline().to(
+		knownAnimals.map((e) => `#link-st-${e}`),
+		{
+			autoAlpha: 1,
+		}
+	);
 
 	while (checkAnimals().length > 0) {
 		await sleep(1000);
