@@ -54,3 +54,7 @@ export const getDuration = (url: string): Promise<number> =>
 			resolve(audio.duration);
 		});
 	});
+
+export const isPlaying = (media: HTMLMediaElement) => {
+	return !!(media.currentTime > 0 && !media.paused && !media.ended && media.readyState > 2);
+};
