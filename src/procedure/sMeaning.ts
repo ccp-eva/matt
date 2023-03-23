@@ -35,8 +35,6 @@ export default async () => {
 	// swap slides automatically (don’t touch this)
 	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 1]);
 
-	play(`./cultures/${data.culture}/audio/st-meaning.mp3`, 'link-sm-headphones');
-
 	data.procedure.sMeaning = {
 		duration: 0,
 		textInput: '',
@@ -61,16 +59,17 @@ export default async () => {
 	fo.innerHTML = `
 	<div>
 	<div id="toggle" style="width: 9em; margin: 0 auto; margin-bottom: 10px">
-		<input id="chck" type="checkbox" />
+		<input id="chck" type="checkbox" disabled />
 		<label for="chck" class="check-trail"><span class="check-handler"></span> </label>
 	</div>
 
 	<div id="response-area">
 		<textarea
+		   disabled
 			id="text-response"
 			maxlength="2000"
 			style="pointer-events: auto;"
-		></textarea>
+		></textarea disab>
 		<button type="button" id="voice-response" style="display: none; font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🎤 Record</button>
 	</div>
 </div>
@@ -80,9 +79,15 @@ export default async () => {
 	const voiceResponse = document.getElementById('voice-response') as HTMLTextAreaElement;
 	const checkLabel = document.querySelector('.check-trail') as HTMLLabelElement;
 
+	await sleep(8000);
+	play(`./cultures/${data.culture}/audio/st-meaning.mp3`, 'link-sm-headphones');
+
 	// unchecked = keyboard response
 	// checked = voice response
 	const chck = document.getElementById('chck') as HTMLInputElement;
+	chck.disabled = false;
+	textResponse.disabled = false;
+
 	chck.addEventListener('change', () => {
 		if (chck.checked) {
 			gsap
