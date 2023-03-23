@@ -21,6 +21,15 @@ import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
 
 export const init = () => {
+	// add custom property to HTMLMediaElement: .playing which returns a boolean if an audio/video is currently playing
+	// usage: document.getElementById("audio").playing
+	// from https://stackoverflow.com/a/31133401/2258480
+	Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
+		get: function () {
+			return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
+		},
+	});
+
 	const wrapper = document.getElementById('wrapper')! as HTMLDivElement;
 	// load initial SVG file
 	wrapper.innerHTML = svgPath;
