@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import _ from 'lodash';
+import config from '../config.yaml';
 import RecordRTC from 'recordrtc';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
@@ -162,7 +163,7 @@ export default async () => {
 
 	textResponse.addEventListener('input', () => {
 		// show next button if textarea hast at least n chars
-		if (textResponse.value.length >= 15) {
+		if (textResponse.value.length >= config.globals.minimumTextInputLength) {
 			data.procedure.sMeaning.isText = true;
 			data.procedure.sMeaning.isVoice = false;
 			nextButton.style.pointerEvents = 'auto';
