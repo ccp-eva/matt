@@ -41,8 +41,15 @@ export const play = (url: string, elementId?: string, once = false) => {
 
 export const stop = () => {
 	const audio = document.getElementById('audio') as HTMLAudioElement;
+	const video = document.getElementById('player') as HTMLVideoElement;
+
+	// stop audio
 	audio.pause();
 	audio.currentTime = 0;
+
+	// stop video
+	video.pause();
+	video.currentTime = 0;
 };
 
 // get duration of audio file
