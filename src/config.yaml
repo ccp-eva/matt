@@ -17,7 +17,7 @@ css:
   # Syntax: [id^=startsWith][id$=endsWith]
   mousePointerObjects:
     [
-      '#enter',
+      '#link-si-speaker',
       '[id^=link][id$=next]',
       '[id^=link][id$=headphones]',
       '[id^=link][id$=yes]',
@@ -26,7 +26,7 @@ css:
   # will be used within the init process to to add a zoom animation on hover
   scaleOnHoverObjects:
     [
-      '#enter',
+      '#link-si-speaker',
       '[id^=link][id$=next]',
       '[id^=link][id$=headphones]',
       '[id^=link][id$=yes]',
@@ -52,9 +52,7 @@ procedure:
   # use exact slide ids from Illustrator for values
   # The order defines the experiment order
   # If you create a nested array at the second level, the slides will be presented in random order
-  de-urban:
-    [
-      s-welcome,
+  de-urban: [
       s-introduction,
       [s-cow, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human],
       s-mc-intro,
