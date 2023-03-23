@@ -8,7 +8,7 @@ htmlBg: black # background color for letter boxing edges if aspect ratio is not 
 svgBg: white
 hideUrlParameters: false
 slideTransition:
-  override: true # force slide transitions
+  override: false # force slide transitions
   fadeOut: 0.25
   fadeIn: 0.25
 css:
