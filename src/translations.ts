@@ -1,6 +1,11 @@
 export const translations = {
-	welcome: {
-		'de-urban': '<h1 class="heading">Willkommen und schön,<br>dass Du dabei bist!</h1>',
+	beginning: {
+		'de-urban': '<h1 class="heading">Gleich geht es los...</h1>',
+	},
+
+	introParents: {
+		'de-urban':
+			'<p class="dilemma__saving">Durch einen Klick auf das Lautsprecher-Symbol hören Sie eine kurze Begrüßung.<br>Nachdem die Sprachaufnahme vollständig abgespielt ist, erscheint ein “weiter“-<br>Knopf unten auf der Seite. Diesen drücken Sie bitte, wenn Sie mit Ihrem Kind die<br>Spiele starten möchten.<br>In den Spielen wird Ihr Kind Dinge sortieren und Entscheidungen treffen. Außerdem<br>stellen wir Ihrem Kind verschiedene Fragen. Lassen Sie dafür Ihr Kind selbst auf<br>den Bildschirm tippen bzw. mit der Maus klicken. Wenn nötig, helfen Sie ihrem Kind<br>beim Navigieren der Maus.<br>An einigen Stellen hat Ihr Kind die Möglichkeit, verbal auf Fragen zu antworten. Das<br>funktioniert entweder über eine Aufnahme mit dem Mikrofon Ihres Gerätes oder<br>indem Sie oder Ihr Kind die Antwort Ihres Kindes in ein Textfeld schreiben.<br>Geben Sie Ihrem Kind während der gesamten Studie bitte keinerlei Hinweise.<br>Bitte Klicken Sie nun auf das Lautsprecher-Symbol.</p>',
 	},
 
 	meaning: {
