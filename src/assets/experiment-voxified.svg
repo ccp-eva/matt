@@ -1010,7 +1010,7 @@
 		<image overflow="visible" width="130" height="246" id="link-sqrf-human" xlink:href="assets/human.svg"  transform="matrix(0.5366 0 0 0.5366 1179 247)">
 	</image>
 	
-		<rect id="text-feelingsRating" x="110" y="60" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1700" height="120"/>
+		<rect id="text-feelingsRating" x="110" y="60" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1700" height="150"/>
 	<rect id="ph-sqrf-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	
 		<image overflow="visible" width="80" height="80" id="link-sqrf-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">

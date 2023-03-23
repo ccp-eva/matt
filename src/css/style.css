@@ -177,6 +177,7 @@ input[type='checkbox']:checked + .check-trail .check-handler::before {
 	font-size: 4rem;
 	font-family: cholla-sans, sans-serif;
 	font-weight: 700;
+	line-height: 1.2;
 	letter-spacing: calc(20rem / 1000);
 	color: #003330;
 	text-align: center;
