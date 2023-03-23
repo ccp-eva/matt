@@ -37,7 +37,8 @@ globals:
   defaultSubjectId: demo
   defaultAgeGroup: child
   defaultInput: userchoice
-  animalSlidesGap: 750 # in milliseconds
+  animalSlidesGap: 750 # delay in milliseconds after animal slides
+  minimumTextInputLength: 4
 # audio:
 #   type: mp3
 #   customAnimationTimes: # this will override the german default
