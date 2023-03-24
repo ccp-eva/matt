@@ -347,6 +347,11 @@
 		</g>
 	</g>
 </g>
+<g id="s-resolve-dilemma">
+	<g id="srd-animation-canvas">
+		<rect fill="none" width="1920" height="1080"/>
+	</g>
+</g>
 <g id="s-reasoning-1-ca-1-co">
 	<g id="sr1cat1cow-oneCat">
 		
@@ -1151,6 +1156,9 @@
 	
 		<image overflow="visible" width="80" height="80" id="link-sqt-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
+</g>
+<g id="s-motiviation-dilemma3">
+	<rect id="s-md3" x="825" y="405" fill="none" width="271" height="271"/>
 </g>
 <g id="s-c-1-ca-1-co">
 	<g id="sc1cat1cow-oneCow">
@@ -2220,10 +2228,6 @@
 	<g id="sib-animation-canvas">
 		<rect fill="none" width="1920" height="1080"/>
 	</g>
-	<rect id="ph-sib-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
-	
-		<image overflow="visible" width="80" height="80" id="link-sib-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
-	</image>
 </g>
 <g id="s-meaning">
 	<rect id="sm-written-response" x="277" y="334" fill="#E5E5E5" width="1366" height="476"/>
@@ -2400,6 +2404,24 @@
 		<image overflow="visible" width="90" height="90" id="link-s-rabbit-yes" xlink:href="assets/yes.svg"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 	</image>
 </g>
+<g id="s-giraffe">
+	<rect id="ph-s-giraffe-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-giraffe" x="868.5" y="344" opacity="0.6" fill="#4AE5D9" width="183" height="183"/>
+	<rect id="ph-s-giraffe-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	<rect id="ph-s-giraffe-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" width="90" height="90"/>
+	
+		<image overflow="visible" width="80" height="80" id="link-s-giraffe-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-giraffe-no" xlink:href="assets/no.svg"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image overflow="visible" width="90" height="90" id="link-s-giraffe-yes" xlink:href="assets/yes.svg"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+	
+		<image overflow="visible" width="75" height="116" id="link-giraffe" xlink:href="assets/giraffe.svg"  transform="matrix(1 0 0 1 885 358)">
+	</image>
+</g>
 <g id="s-dog">
 	<rect id="ph-s-dog-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	<rect id="ph-s-dog-dog" x="810" y="232" opacity="0.6" fill="#4AE5D9" width="300" height="300"/>
@@ -2504,6 +2526,9 @@
 	
 		<image overflow="visible" width="90" height="90" id="link-s-cow-yes" xlink:href="assets/yes.svg"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 	</image>
+</g>
+<g id="s-intro-human-animals">
+	<rect id="s-iha" x="825" y="405" fill="none" width="271" height="271"/>
 </g>
 <g id="s-introduction">
 	<rect id="ph-si-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
