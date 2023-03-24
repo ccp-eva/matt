@@ -1010,7 +1010,7 @@
 		<image overflow="visible" width="130" height="246" id="link-sqrf-human" xlink:href="human.png"  transform="matrix(0.5366 0 0 0.5366 1179 247)">
 	</image>
 	
-		<rect id="text-feelingsRating" x="110" y="60" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1700" height="120"/>
+		<rect id="text-feelingsRating" x="110" y="60" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1700" height="150"/>
 	<rect id="ph-sqrf-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	
 		<image overflow="visible" width="80" height="80" id="link-sqrf-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
@@ -2506,22 +2506,25 @@
 	</image>
 </g>
 <g id="s-introduction">
-	
-		<rect id="text-welcome" x="645.5" y="316" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="629" height="136"/>
 	<rect id="ph-si-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	
 		<image overflow="visible" width="80" height="80" id="link-si-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
-	<rect id="ph-si-next" x="920" y="683" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-si-next" x="1815" y="981" fill="#B8846E" width="80" height="80"/>
 	
-		<image overflow="visible" width="80" height="81" id="link-si-next" xlink:href="next.png"  transform="matrix(1 0 0 0.9877 920 682.5)">
+		<image overflow="visible" width="80" height="81" id="link-si-next" xlink:href="next.png"  transform="matrix(1 0 0 0.9877 1815 981)">
 	</image>
-</g>
-<g id="s-welcome">
+	<rect id="ph-si-matt-logo" x="1507" y="-17" fill="#B8846E" width="430" height="430"/>
 	
-		<rect id="text-xxx" x="645.5" y="316" display="none" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="629" height="136"/>
-	<g id="enter">
-		<circle fill="#C40070" cx="960" cy="540" r="75"/>
-	</g>
+		<image overflow="visible" width="430" height="431" id="link-si-matt-logo" xlink:href="matt-logo.png"  transform="matrix(0.5673 0 0 0.5673 1602 74)">
+	</image>
+	<rect id="ph-si-speaker" x="920" y="945" fill="#B8846E" width="80" height="80"/>
+	
+		<image overflow="visible" width="80" height="81" id="link-si-speaker" xlink:href="speaker.png"  transform="matrix(0.55 0 0 0.55 938 967)">
+	</image>
+	
+		<rect id="text-introParents" x="401" y="142.28" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1118" height="805.43"/>
+	
+		<rect id="text-beginning" x="140" y="35" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="765.98" height="110"/>
 </g>
 </svg>
