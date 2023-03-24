@@ -36,8 +36,7 @@ export default async () => {
 			});
 	}
 
-	// todo audio
-	// await playPromise(`./cultures/${data.culture}/audio/s-human.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/s-human.mp3`);
 	play(`./cultures/${data.culture}/audio/s-human.mp3`, 'link-s-human-headphones');
 
 	const response = await getResponse(['link-s-human-yes', 'link-s-human-no']);
