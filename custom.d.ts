@@ -46,7 +46,6 @@ declare var data: {
 	nextSlide: string;
 	slideOrder: string[];
 	animalSlideCounter: number;
-	totalAnimalSlides: number;
 	animalOrder: string[];
 	gender: 'female' | 'male' | 'other';
 	birthday: 'string';
