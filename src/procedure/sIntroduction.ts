@@ -79,12 +79,10 @@ export default async () => {
 	});
 
 	audio.addEventListener('play', () => {
-		console.log('audio started');
 		nextButton.style.pointerEvents = 'none';
 		gsap.set(nextButton, { autoAlpha: 0.25 });
 	});
 	video.addEventListener('play', () => {
-		console.log('video started');
 		nextButton.style.pointerEvents = 'none';
 		if (playingTimeline) {
 			gsap.set(nextButton, { autoAlpha: 0 });
@@ -93,14 +91,12 @@ export default async () => {
 		}
 	});
 	audio.addEventListener('ended', () => {
-		console.log('audio ended');
 		nextButton.style.pointerEvents = 'auto';
 		gsap.to(nextButton, { autoAlpha: 1 });
 	});
 	video.addEventListener('ended', () => {
 		nextButton.style.pointerEvents = 'auto';
 		gsap.to(nextButton, { autoAlpha: 1 });
-		console.log('video ended');
 	});
 
 	await getResponse(nextButton.id);
