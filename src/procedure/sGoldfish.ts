@@ -13,8 +13,9 @@ export default async () => {
 	data.animalSlideCounter++;
 
 	const audio = document.getElementById('audio') as HTMLMediaElement;
-	const yesButton = document.getElementById('link-s-goldfish-yes') as SvgInHtml;
-	const noButton = document.getElementById('link-s-goldfish-no') as SvgInHtml;
+	const animalPrefix = 's-goldfish';
+	const yesButton = document.getElementById(`link-${animalPrefix}-yes`) as SvgInHtml;
+	const noButton = document.getElementById(`link-${animalPrefix}-no`) as SvgInHtml;
 
 	gsap.set([yesButton, noButton], {
 		pointerEvents: 'none',
@@ -26,8 +27,7 @@ export default async () => {
 		gsap.set([yesButton, noButton], { autoAlpha: 0.5 });
 	}
 
-	await playPromise(`./cultures/${data.culture}/audio/s-goldfish.mp3`);
-	play(`./cultures/${data.culture}/audio/s-goldfish.mp3`, 'link-s-goldfish-headphones');
+	await playPromise(`./cultures/${data.culture}/audio/${animalPrefix}.mp3`);
 
 	// for the first two animal slides, hide yes and no response buttons
 	if (data.animalSlideCounter <= config.globals.playAnimalYesNoAudio) {
@@ -52,6 +52,8 @@ export default async () => {
 	} else {
 		gsap.set([yesButton, noButton], { autoAlpha: 1, pointerEvents: 'auto' });
 	}
+
+	play(`./cultures/${data.culture}/audio/${animalPrefix}.mp3`, `link-${animalPrefix}-headphones`);
 
 	function handlePlay() {
 		yesButton.style.pointerEvents = 'none';
