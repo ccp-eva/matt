@@ -48,6 +48,8 @@ procedure:
   # If you create a nested array at the second level, the slides will be presented in random order
   de-urban: [
       s-introduction,
+      # s-intro-human-animals,
+      # s-cow,
       [s-cow, s-giraffe, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human],
       s-mc-intro,
       s-ball-animation,
@@ -56,6 +58,14 @@ procedure:
       s-meaning,
       s-intro-boats,
       s-practice-dilemma,
+      # # [
+      # #   [s-1-hu-1-ca, s-2-hu-1-ca, s-1-hu-2-ca, s-10-hu-1-ca, s-1-hu-10-ca, s-100-hu-1-ca]
+      # # dynamic transiton slide 1
+      # #   [s-1-hu-1-co, s-2-hu-1-co, s-1-hu-2-co, s-10-hu-1-co, s-1-hu-10-co, s-100-hu-1-co, s-1-hu-100-co]
+      # # dynamic transiton slide 2
+      # #   [s-c-1-hu-10-hu, s-c-1-hu-10-na, s-c-1-hu-10-sp, s-c-1-ca-1-co]
+      # # ]
+      # s-motivation-dilemma3,
       s-1-hu-1-ca,
       s-2-hu-1-ca,
       s-1-hu-2-ca,
@@ -76,38 +86,21 @@ procedure:
       s-qu-thoughts,
       s-qu-feelings,
       s-qu-difference,
-      # s-qu-ranking-intelligence,
-      # s-qu-ranking-pain,
+      # # [s-qu-ranking-intelligence, s-qu-ranking-pain, s-qu-ranking-feelings, s-qu-ranking-similarity]
+      s-qu-ranking-intelligence,
+      s-qu-ranking-pain,
       s-qu-ranking-feelings,
-      # s-qu-ranking-similarity,
-      # s-qu-ownership,
-      # s-qu-ranking-exposure,
-      # s-qu-meat-fish,
-      # s-qu-egg-cheese-milk,
+      s-qu-ranking-similarity,
+      s-qu-ownership,
+      s-qu-ranking-exposure,
+      s-qu-meat-fish,
+      s-qu-egg-cheese-milk,
+      # # [s-reasoning-1-hu-1-co, s-reasoning-1-hu-1-ca, s-reasoning-1-ca-1-co]
       s-reasoning-1-hu-1-co,
       s-reasoning-1-hu-1-ca,
       s-reasoning-1-ca-1-co,
+      s-resolve-dilemma,
       s-end,
     ]
   en-urban: [s-introduction, s-moral-circle, s-human]
   na-urban: [s-introduction, s-moral-circle, s-human]
-
-dilemma:
-  random: true
-  # procedure: [
-  #   - cat:
-  #       random: false
-  #       procedure: [asdf-adsf-, c-a-3 ]
-  #   - cow:
-  #       random: true
-  #       procedure: [c-a-3, asdf-adsf-]
-  #   - control:
-  #       random: true
-  #       procedure: [c-a-3, asdf-adsf-]
-  # ]
-interview:
-  random: false
-  order: [asdf-adsf-, c-a-3]
-capacity:
-  random: true
-  order: [asdf-asdf, asfdsaf-asdasfd]
