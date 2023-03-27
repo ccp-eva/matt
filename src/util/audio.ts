@@ -18,8 +18,25 @@ export const playPromise = (url: string, elementId?: string) => {
 	});
 };
 
-export const play = (url: string, elementId?: string, once = false) => {
+export const play = (url: string | string[], elementId?: string, once = false) => {
 	const audio = document.getElementById('audio') as HTMLAudioElement;
+
+	// play audio sequentially
+	if (Array.isArray(url)) {
+		const playNext = () => {
+			if (url.length > 0) {
+				const nextUrl = url.shift();
+				if (!nextUrl) return;
+				audio.setAttribute('src', nextUrl);
+				audio.play();
+			}
+		};
+
+		audio.addEventListener('ended', playNext);
+
+		playNext();
+		return;
+	}
 
 	if (elementId) {
 		document.getElementById(elementId)!.addEventListener(
