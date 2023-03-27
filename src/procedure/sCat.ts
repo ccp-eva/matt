@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import _ from 'lodash';
 import config from '../config.yaml';
+import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
 import { sleep } from '../util/helpers';
@@ -11,38 +12,76 @@ export default async () => {
 
 	data.animalSlideCounter++;
 
+	const audio = document.getElementById('audio') as HTMLMediaElement;
+	const animalPrefix = 's-cat';
+	const yesButton = document.getElementById(`link-${animalPrefix}-yes`) as SvgInHtml;
+	const noButton = document.getElementById(`link-${animalPrefix}-no`) as SvgInHtml;
+
+	gsap.set([yesButton, noButton], {
+		pointerEvents: 'none',
+	});
+
+	if (data.animalSlideCounter <= config.globals.playAnimalYesNoAudio) {
+		gsap.set([yesButton, noButton], { autoAlpha: 0 });
+	} else {
+		gsap.set([yesButton, noButton], { autoAlpha: 0.5 });
+	}
+
+	await playPromise(`./cultures/${data.culture}/audio/${animalPrefix}.mp3`);
+
 	// for the first two animal slides, hide yes and no response buttons
 	if (data.animalSlideCounter <= config.globals.playAnimalYesNoAudio) {
-		gsap.set(['#link-s-cat-yes', '#link-s-cat-no'], {
-			autoAlpha: 0,
-		});
-
-		gsap
+		await gsap
 			.timeline()
-			.to('#link-s-cat-yes', {
-				delay: 2,
+			.to(yesButton, {
 				duration: 0.5,
-				opacity: 1,
-				visibility: 'visible',
+				autoAlpha: 0.5,
 				onStart: () => {
 					play(`./cultures/${data.culture}/audio/yes-no.mp3`);
 				},
 			})
-			.to('#link-s-cat-no', {
+			.to(noButton, {
 				delay: 1,
 				duration: 0.5,
-				opacity: 1,
-				visibility: 'visible',
+				autoAlpha: 0.5,
+				onComplete: () => {
+					gsap.set([yesButton, noButton], { pointerEvents: 'auto' });
+					gsap.to([yesButton, noButton], { autoAlpha: 1 });
+				},
 			});
+	} else {
+		gsap.set([yesButton, noButton], { autoAlpha: 1, pointerEvents: 'auto' });
 	}
 
-	await playPromise(`./cultures/${data.culture}/audio/s-cat.mp3`);
-	play(`./cultures/${data.culture}/audio/s-cat.mp3`, 'link-s-cat-headphones');
+	play(`./cultures/${data.culture}/audio/${animalPrefix}.mp3`, `link-${animalPrefix}-headphones`);
 
-	const response = await getResponse(['link-s-cat-yes', 'link-s-cat-no']);
+	function handlePlay() {
+		yesButton.style.pointerEvents = 'none';
+		noButton.style.pointerEvents = 'none';
+		gsap.to([yesButton, noButton], { autoAlpha: 0.5 });
+	}
+
+	function handleEnded() {
+		yesButton.style.pointerEvents = 'auto';
+		noButton.style.pointerEvents = 'auto';
+		gsap.to([yesButton, noButton], { autoAlpha: 1 });
+	}
+
+	audio.addEventListener('play', handlePlay);
+	audio.addEventListener('ended', handleEnded);
+
+	// Get Response
+	const response = await getResponse([yesButton.id, noButton.id]);
+
+	// Remove Event Listeners after response
+	audio.removeEventListener('play', handlePlay);
+	audio.removeEventListener('ended', handleEnded);
+
+	// Hide Response Buttons
+	gsap.to([yesButton, noButton], { autoAlpha: 0 });
 
 	console.log(response.id);
-	data.procedure.sCat.response = response.id;
+	data.procedure[data.currentSlide].response = response.id;
 
 	// play button response sounds only for the first four trials
 	if (data.animalSlideCounter <= config.globals.playAnimalResponseFeedback) {
