@@ -38,7 +38,6 @@ export default async () => {
 				autoAlpha: 0.5,
 				onStart: () => {
 					play(`./cultures/${data.culture}/audio/yes-no.mp3`);
-					console.log('this is the start');
 				},
 			})
 			.to(noButton, {
