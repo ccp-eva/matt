@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import _ from 'lodash';
 import config from '../config.yaml';
+import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
 import { sleep } from '../util/helpers';
@@ -11,38 +12,75 @@ export default async () => {
 
 	data.animalSlideCounter++;
 
-	// for the first two animal slides, hide yes and no response buttons
-	if (data.animalSlideCounter <= config.globals.playAnimalYesNoAudio) {
-		gsap.set(['#link-s-human-yes', '#link-s-human-no'], {
-			autoAlpha: 0,
-		});
+	const audio = document.getElementById('audio') as HTMLMediaElement;
+	const yesButton = document.getElementById('link-s-human-yes') as SvgInHtml;
+	const noButton = document.getElementById('link-s-human-no') as SvgInHtml;
 
-		gsap
-			.timeline()
-			.to('#link-s-human-yes', {
-				delay: 2,
-				duration: 0.5,
-				opacity: 1,
-				visibility: 'visible',
-				onStart: () => {
-					play(`./cultures/${data.culture}/audio/yes-no.mp3`);
-				},
-			})
-			.to('#link-s-human-no', {
-				delay: 1,
-				duration: 0.5,
-				opacity: 1,
-				visibility: 'visible',
-			});
+	gsap.set([yesButton, noButton], {
+		pointerEvents: 'none',
+	});
+
+	if (data.animalSlideCounter <= config.globals.playAnimalYesNoAudio) {
+		gsap.set([yesButton, noButton], { autoAlpha: 0 });
+	} else {
+		gsap.set([yesButton, noButton], { autoAlpha: 0.5 });
 	}
 
 	await playPromise(`./cultures/${data.culture}/audio/s-human.mp3`);
 	play(`./cultures/${data.culture}/audio/s-human.mp3`, 'link-s-human-headphones');
 
-	const response = await getResponse(['link-s-human-yes', 'link-s-human-no']);
+	// for the first two animal slides, hide yes and no response buttons
+	if (data.animalSlideCounter <= config.globals.playAnimalYesNoAudio) {
+		await gsap
+			.timeline()
+			.to(yesButton, {
+				duration: 0.5,
+				autoAlpha: 0.5,
+				onStart: () => {
+					play(`./cultures/${data.culture}/audio/yes-no.mp3`);
+					console.log('this is the start');
+				},
+			})
+			.to(noButton, {
+				delay: 1,
+				duration: 0.5,
+				autoAlpha: 0.5,
+				onComplete: () => {
+					gsap.set([yesButton, noButton], { pointerEvents: 'auto' });
+					gsap.to([yesButton, noButton], { autoAlpha: 1 });
+				},
+			});
+	} else {
+		gsap.set([yesButton, noButton], { autoAlpha: 1, pointerEvents: 'auto' });
+	}
+
+	function handlePlay() {
+		yesButton.style.pointerEvents = 'none';
+		noButton.style.pointerEvents = 'none';
+		gsap.to([yesButton, noButton], { autoAlpha: 0.5 });
+	}
+
+	function handleEnded() {
+		yesButton.style.pointerEvents = 'auto';
+		noButton.style.pointerEvents = 'auto';
+		gsap.to([yesButton, noButton], { autoAlpha: 1 });
+	}
+
+	audio.addEventListener('play', handlePlay);
+	audio.addEventListener('ended', handleEnded);
+
+	// Get Response
+	const response = await getResponse([yesButton.id, noButton.id]);
+
+	// Remove Event Listeners after response
+	audio.removeEventListener('play', handlePlay);
+	audio.removeEventListener('ended', handleEnded);
+
+	// Hide Response Buttons
+	gsap.to([yesButton, noButton], { autoAlpha: 0 });
 
 	console.log(response.id);
-	data.procedure.sHuman.response = response.id;
+	data.procedure[data.currentSlide].response = response.id;
 
 	// play button response sounds only for the first four trials
 	if (data.animalSlideCounter <= config.globals.playAnimalResponseFeedback) {
