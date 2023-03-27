@@ -63,7 +63,7 @@ export default async () => {
 			autoAlpha: 1,
 			duration: 2,
 			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/s-transition-11.webm`;
+				pinda.src = `./cultures/${data.culture}/video/intro-reasoning.webm`;
 			},
 		})
 		.to(pinda, {

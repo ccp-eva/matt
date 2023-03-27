@@ -46,7 +46,6 @@ declare var data: {
 	nextSlide: string;
 	slideOrder: string[];
 	animalSlideCounter: number;
-	totalAnimalSlides: number;
 	animalOrder: string[];
 	gender: 'female' | 'male' | 'other';
 	birthday: 'string';
@@ -67,6 +66,10 @@ declare var data: {
 			response: string;
 		};
 		sSheep: {
+			duration: number;
+			response: string;
+		};
+		sGiraffe: {
 			duration: number;
 			response: string;
 		};

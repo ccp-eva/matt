@@ -22,7 +22,7 @@ export default async () => {
 		autoAlpha: 1,
 		duration: 1,
 		onStart: () => {
-			pinda.src = `./cultures/${data.culture}/video/s-transition-3-mc-intro.webm`;
+			pinda.src = `./cultures/${data.culture}/video/s-outro-animals-mc-intro.webm`;
 		},
 	});
 

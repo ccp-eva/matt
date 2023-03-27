@@ -22,7 +22,6 @@ export const procedure = async () => {
 	// check if nested arrays exist at the second level, if so shuffle them, and flat them into the currentProcedure array
 	const isNested = currentProcedure.some((slide) => Array.isArray(slide));
 
-	data.totalAnimalSlides = 9;
 	data.animalSlideCounter = 0;
 
 	if (isNested) {

@@ -12,7 +12,7 @@ export default async () => {
 	data.animalSlideCounter++;
 
 	// for the first two animal slides, hide yes and no response buttons
-	if (data.animalSlideCounter === 1 || data.animalSlideCounter === 2) {
+	if (data.animalSlideCounter <= config.globals.playAnimalYesNoAudio) {
 		gsap.set(['#link-s-dog-yes', '#link-s-dog-no'], {
 			autoAlpha: 0,
 		});
@@ -45,7 +45,7 @@ export default async () => {
 	data.procedure.sDog.response = response.id;
 
 	// play button response sounds only for the first four trials
-	if (data.animalSlideCounter <= 4) {
+	if (data.animalSlideCounter <= config.globals.playAnimalResponseFeedback) {
 		if (response.id.includes('-yes')) {
 			const responseOption = ['ok', 'alright'];
 			const randomResponse = responseOption[Math.floor(Math.random() * responseOption.length)];

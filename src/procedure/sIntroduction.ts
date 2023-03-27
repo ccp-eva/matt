@@ -10,6 +10,11 @@ export default async () => {
 	// show slide
 	swapSlides(_.kebabCase(data.currentSlide));
 
+	// play([
+	// 	`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`,
+	// 	`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`,
+	// 	`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`,
+	// ]);
 	const video = document.getElementById('player') as HTMLMediaElement;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 

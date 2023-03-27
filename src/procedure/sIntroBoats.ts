@@ -17,7 +17,7 @@ export default async () => {
 		autoAlpha: 1,
 		duration: 2,
 		onStart: () => {
-			pinda.src = `./cultures/${data.culture}/video/sr-react2-transition-4.webm`;
+			pinda.src = `./cultures/${data.culture}/video/sr-react2-intro-dilemmas.webm`;
 		},
 	}).to(pinda, {
 		autoAlpha: 0,
