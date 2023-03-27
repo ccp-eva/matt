@@ -69,6 +69,10 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
+		sGiraffe: {
+			duration: number;
+			response: string;
+		};
 		sChicken: {
 			duration: number;
 			response: string;
