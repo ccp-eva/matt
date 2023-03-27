@@ -38,6 +38,8 @@ globals:
   defaultAgeGroup: child # or adult
   defaultInput: userchoice
   animalSlidesGap: 750 # delay in milliseconds after animal slides
+  playAnimalYesNoAudio: 2
+  playAnimalResponseFeedback: 1
   minimumTextInputLength: 4
 
 procedure:
