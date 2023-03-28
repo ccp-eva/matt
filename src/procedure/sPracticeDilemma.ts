@@ -82,7 +82,6 @@ export default async () => {
 		);
 
 		gsap.set([tenPencilsGroup, cantDecideGroup, oneBikeGroup], {
-			pointerEvents: 'auto',
 			autoAlpha: 1,
 		});
 
@@ -140,9 +139,8 @@ export default async () => {
 				},
 			});
 
-		play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`, 'link-spd-headphones');
-
 		await sleep(16000);
+		play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`, 'link-spd-headphones');
 
 		[tenPencilsGroup, cantDecideGroup, oneBikeGroup].forEach((el) => {
 			el.classList.add('dilemma-card');
@@ -150,6 +148,10 @@ export default async () => {
 
 		// save responses and store to response object
 		let response = await getResponse(['spd-tenPencils', 'spd-cantDecide', 'spd-oneBike']);
+
+		[tenPencilsGroup, cantDecideGroup, oneBikeGroup].forEach((el) => {
+			el.classList.remove('dilemma-card');
+		});
 
 		// bubble up until first g element
 		while (response.tagName !== 'g') {
@@ -159,10 +161,15 @@ export default async () => {
 		console.log(response.id);
 
 		if (response.id.includes('tenPencils')) {
+			gsap.to([cantDecideGroup, oneBikeGroup], {
+				autoAlpha: 0.25,
+			});
+
+			await playPromise(`./cultures/${data.culture}/audio/spdc-tenPencils.mp3`);
+
 			gsap
 				.timeline()
 				.to([cantDecideGroup, oneBikeGroup], {
-					pointerEvents: 'none',
 					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
 				})
 				.to(
@@ -172,12 +179,9 @@ export default async () => {
 					},
 					'<'
 				)
-				.to([cantDecideGroup, oneBikeGroup], {
-					autoAlpha: 0.25,
-				})
 				.to(pencilYesButton, {
-					delay: 2,
 					autoAlpha: 1,
+					delay: 1,
 					onStart: () => play(`./cultures/${data.culture}/audio/yes-no.mp3`),
 				})
 				.to(pencilNoButton, {
@@ -189,15 +193,19 @@ export default async () => {
 
 			if (response.id.includes('yes')) {
 				data.procedure.sPracticeDilemma.completed = true;
-				await playPromise(`./cultures/${data.culture}/audio/spdc-tenPencils.mp3`);
 			}
 		}
 
 		if (response.id.includes('cantDecide')) {
+			gsap.to([tenPencilsGroup, oneBikeGroup], {
+				autoAlpha: 0.25,
+			});
+
+			await playPromise(`./cultures/${data.culture}/audio/spdc-cantDecide.mp3`);
+
 			gsap
 				.timeline()
 				.to([tenPencilsGroup, oneBikeGroup], {
-					pointerEvents: 'none',
 					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
 				})
 				.to(
@@ -207,12 +215,9 @@ export default async () => {
 					},
 					'<'
 				)
-				.to([tenPencilsGroup, oneBikeGroup], {
-					autoAlpha: 0.25,
-				})
 				.to(cantDecideYesButton, {
-					delay: 2,
 					autoAlpha: 1,
+					delay: 1,
 					onStart: () => play(`./cultures/${data.culture}/audio/yes-no.mp3`),
 				})
 				.to(cantDecideNoButton, {
@@ -224,15 +229,18 @@ export default async () => {
 
 			if (response.id.includes('yes')) {
 				data.procedure.sPracticeDilemma.completed = true;
-				await playPromise(`./cultures/${data.culture}/audio/spdc-cantDecide.mp3`);
 			}
 		}
 
 		if (response.id.includes('oneBike')) {
+			gsap.to([tenPencilsGroup, cantDecideGroup], {
+				autoAlpha: 0.25,
+			});
+
+			await playPromise(`./cultures/${data.culture}/audio/spdc-oneBike.mp3`);
 			gsap
 				.timeline()
 				.to([tenPencilsGroup, cantDecideGroup], {
-					pointerEvents: 'none',
 					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
 				})
 				.to(
@@ -242,12 +250,9 @@ export default async () => {
 					},
 					'<'
 				)
-				.to([tenPencilsGroup, cantDecideGroup], {
-					autoAlpha: 0.25,
-				})
 				.to(oneBikeYesButton, {
-					delay: 2,
 					autoAlpha: 1,
+					delay: 1,
 					onStart: () => play(`./cultures/${data.culture}/audio/yes-no.mp3`),
 				})
 				.to(oneBikeNoButton, {
@@ -259,29 +264,11 @@ export default async () => {
 
 			if (response.id.includes('yes')) {
 				data.procedure.sPracticeDilemma.completed = true;
-				await playPromise(`./cultures/${data.culture}/audio/spdc-oneBike.mp3`);
 			}
 		}
 
 		data.procedure[data.currentSlide].response = response.id;
 	}
 
-	const pinda = document.getElementById('player') as HTMLVideoElement;
-
-	gsap.set(pinda, { autoAlpha: 0 });
-
-	const tl = gsap.timeline();
-
-	tl.to(pinda, {
-		autoAlpha: 1,
-		duration: 2,
-		onStart: () => {
-			pinda.src = `./cultures/${data.culture}/video/s-dilemma-start.webm`;
-		},
-	}).to(pinda, {
-		autoAlpha: 0,
-		delay: 4,
-	});
-
-	await sleep(5000);
+	await sleep(500);
 };
