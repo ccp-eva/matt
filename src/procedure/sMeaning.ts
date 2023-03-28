@@ -97,7 +97,7 @@ export default async () => {
 						if (!data.procedure.sMeaning.voiceExplanation) {
 							data.procedure.sMeaning.voiceExplanation = true;
 							gsap.timeline().to(pinda, { autoAlpha: 1 });
-							pinda.src = `./cultures/${data.culture}/video/sr-ex-next-red-audioInput.webm`;
+							pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
 							gsap.timeline().to(pinda, { autoAlpha: 0, delay: 6 });
 						}
 					},
