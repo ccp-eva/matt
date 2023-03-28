@@ -9,7 +9,7 @@ import { sleep, moveToCenterAnchor } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
+	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [0, 0]);
 
 	data.procedure.sTask = {
 		duration: 0,
