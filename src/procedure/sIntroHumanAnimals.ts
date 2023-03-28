@@ -11,19 +11,13 @@ export default async () => {
 	gsap.set(pinda, { autoAlpha: 0 });
 
 	let isPlaying = true;
-	gsap
-		.timeline()
-		.to(pinda, {
-			autoAlpha: 1,
-			duration: 2,
-			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/s-intro-human-animals.webm`;
-			},
-		})
-		.to(pinda, {
-			autoAlpha: 0,
-			delay: 19,
-		});
+	gsap.timeline().to(pinda, {
+		autoAlpha: 1,
+		duration: 2,
+		onStart: () => {
+			pinda.src = `./cultures/${data.culture}/video/intro-human-animals.webm`;
+		},
+	});
 
 	pinda.addEventListener('play', () => {
 		isPlaying = true;
@@ -35,6 +29,8 @@ export default async () => {
 	while (isPlaying) {
 		await sleep(100);
 	}
+
+	gsap.to(pinda, { autoAlpha: 0 });
 
 	await sleep(1000);
 };

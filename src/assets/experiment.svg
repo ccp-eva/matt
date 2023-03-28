@@ -2247,23 +2247,22 @@
 		<path id="st-outer" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="M585.95,50c-270.62,0-490,219.38-490,490
 			c0,270.62,219.38,490,490,490c270.62,0,490-219.38,490-490C1075.95,269.38,856.57,50,585.95,50z M585.95,925.21
 			c-212.75,0-385.21-172.47-385.21-385.21s172.47-385.21,385.21-385.21S971.17,327.25,971.17,540S798.7,925.21,585.95,925.21z"/>
-		<path id="st-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" d="M585.95,154.79
-			c-212.75,0-385.21,172.47-385.21,385.21s172.47,385.21,385.21,385.21S971.17,752.75,971.17,540S798.7,154.79,585.95,154.79z
-			 M587.14,803.75c-146.33,0-264.95-118.62-264.95-264.95s118.62-264.95,264.95-264.95s264.95,118.62,264.95,264.95
-			S733.47,803.75,587.14,803.75z"/>
-		<circle id="st-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="587.14" cy="538.81" r="264.95"/>
+		<path id="st-middle" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" d="M585.95,155c-212.63,0-385,172.37-385,385
+			s172.37,385,385,385s385-172.37,385-385S798.58,155,585.95,155z M587.14,803.61c-146.24,0-264.8-118.55-264.8-264.8
+			s118.55-264.8,264.8-264.8s264.8,118.55,264.8,264.8S733.39,803.61,587.14,803.61z"/>
+		<circle id="st-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="585.95" cy="540" r="265"/>
 	</g>
 	<rect x="1204" y="150" fill="#EAEAEA" width="670" height="780"/>
 	<rect id="ph-st-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
-	<rect id="ph-st-human" x="1432" y="199" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
-	<rect id="ph-st-chicken" x="1271" y="247" opacity="0.6" fill="#4AE5D9" width="118" height="118"/>
-	<rect id="ph-st-pig" x="1676.5" y="234.5" opacity="0.6" fill="#4AE5D9" width="143" height="143"/>
-	<rect id="ph-st-dog" x="1251" y="464" opacity="0.6" fill="#4AE5D9" width="158" height="158"/>
-	<rect id="ph-st-sheep" x="1688" y="483" opacity="0.6" fill="#4AE5D9" width="120" height="120"/>
-	<rect id="ph-st-rabbit" x="1701.5" y="727.5" opacity="0.6" fill="#4AE5D9" width="93" height="93"/>
-	<rect id="ph-st-goldfish" x="1269" y="713" opacity="0.6" fill="#4AE5D9" width="122" height="122"/>
-	<rect id="ph-st-cow" x="1432" y="667" opacity="0.6" fill="#4AE5D9" width="214" height="214"/>
-	<rect id="ph-st-cat" x="1480.5" y="484.5" opacity="0.6" fill="#4AE5D9" width="117" height="117"/>
+	<rect id="ph-st-human" x="1477" y="192" opacity="0.6" fill="#4AE5D9" width="124" height="228"/>
+	<rect id="ph-st-chicken" x="1283.5" y="251" opacity="0.6" fill="#4AE5D9" width="93" height="110"/>
+	<rect id="ph-st-pig" x="1677.5" y="255.75" opacity="0.6" fill="#4AE5D9" width="141" height="100.5"/>
+	<rect id="ph-st-dog" x="1255.75" y="484.5" opacity="0.6" fill="#4AE5D9" width="148.5" height="117"/>
+	<rect id="ph-st-sheep" x="1688" y="486" opacity="0.6" fill="#4AE5D9" width="120" height="114"/>
+	<rect id="ph-st-rabbit" x="1695.5" y="728.25" opacity="0.6" fill="#4AE5D9" width="105" height="91.5"/>
+	<rect id="ph-st-goldfish" x="1270" y="732" opacity="0.6" fill="#4AE5D9" width="120" height="84"/>
+	<rect id="ph-st-cow" x="1452" y="717" opacity="0.6" fill="#4AE5D9" width="174" height="114"/>
+	<rect id="ph-st-cat" x="1472.25" y="492.75" opacity="0.6" fill="#4AE5D9" width="133.5" height="100.5"/>
 	<rect id="ph-st-next" x="1083" y="951" opacity="0.5" fill="#B8846E" width="80" height="80"/>
 	
 		<image overflow="visible" width="80" height="80" id="link-st-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
@@ -2271,17 +2270,17 @@
 	<image overflow="visible" width="89" height="67" id="link-st-cat" xlink:href="cat.png"  transform="matrix(1 0 0 1 1499 538)">
 	</image>
 	
-		<image overflow="visible" width="62" height="73" id="link-st-chicken" xlink:href="chicken.png"  transform="matrix(1 0 0 1 1301 271)">
+		<image overflow="visible" width="62" height="73" id="link-st-chicken" xlink:href="chicken.png"  transform="matrix(1 0 0 1 1283 237)">
 	</image>
 	<image overflow="visible" width="116" height="76" id="link-st-cow" xlink:href="cow.png"  transform="matrix(1 0 0 1 1523 753)">
 	</image>
-	<image overflow="visible" width="99" height="78" id="link-st-dog" xlink:href="dog.png"  transform="matrix(1 0 0 1 1283 506)">
+	<image overflow="visible" width="99" height="78" id="link-st-dog" xlink:href="dog.png"  transform="matrix(1 0 0 1 1231 485)">
 	</image>
 	
 		<image overflow="visible" width="80" height="56" id="link-st-goldfish" xlink:href="goldfish.png"  transform="matrix(1 0 0 1 1263 782)">
 	</image>
 	
-		<image overflow="visible" width="130" height="246" id="link-st-human" xlink:href="human.png"  transform="matrix(0.4694 0 0 0.4694 1462 223)">
+		<image overflow="visible" width="130" height="246" id="link-st-human" xlink:href="human.png"  transform="matrix(0.4694 0 0 0.4694 1508 248)">
 	</image>
 	<image overflow="visible" width="94" height="67" id="link-st-pig" xlink:href="pig.png"  transform="matrix(1 0 0 1 1697 247)">
 	</image>
