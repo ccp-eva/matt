@@ -86,6 +86,8 @@ export default async () => {
 			autoAlpha: 1,
 		});
 
+		await playPromise(`./cultures/${data.culture}/audio/s-practice-dilemma-intro.mp3`);
+
 		gsap
 			.timeline()
 			.to([boatLeft, boatRight], {
