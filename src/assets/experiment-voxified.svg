@@ -2150,6 +2150,9 @@
 	
 		<rect id="text-saving_00000121274299026547989750000007519087397466329738_" x="852" y="36" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="216" height="50"/>
 </g>
+<g id="s-dilemma-start">
+	<rect id="s-ds" x="825" y="405" fill="none" width="271" height="271"/>
+</g>
 <g id="s-practice-dilemma">
 	<g id="spd-oneBike">
 		
