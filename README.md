@@ -9,6 +9,23 @@
 
 ---
 
+- [Study Overview](#study-overview)
+- [Development \& Customization](#development--customization)
+  - [URL Parameters](#url-parameters)
+  - [How To Add A New Culture](#how-to-add-a-new-culture)
+  - [How To Add New Slide](#how-to-add-new-slide)
+    - [❡ Adding Text](#-adding-text)
+    - [♲ Recycle/Reuse Objects](#-recyclereuse-objects)
+  - [Global Objects](#global-objects)
+    - [`data`](#data)
+    - [`downloadData()`](#downloaddata)
+  - [Deploy to GitHub Staging Site](#deploy-to-github-staging-site)
+  - [Deploy to MPI Server](#deploy-to-mpi-server)
+- [Contributions](#contributions)
+  - [Voice-over speakers](#voice-over-speakers)
+
+---
+
 ## Study Overview
 
 todo
@@ -23,12 +40,13 @@ todo
 You can modify the experiment by attaching various URL parameters, for example:  
 https://ccp-eva.github.io/matt/?id=johndoe&culture=de-urban&agegroup=child&input=text
 
-| Parameter  | Default      | Explanation                                                                  | Restrictions                                                                                                            |
-| ---------- | ------------ | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `id`       | `demo`       | Participant id                                                               | Any value that is alphanumeric and ≤ 20 chars                                                                           |
-| `culture`  | `de-urban`   | Changes, text, audio, and visuals                                            | Any value defined with procedure key in [config.yaml](https://github.com/ccp-eva/matt/blob/develop/src/config.yaml#L45) |
-| `agegroup` | `child`      | Loads a different set of text                                                | Either `child` or `adult`                                                                                               |
-| `input`    | `userchoice` | Respond either by text or audio input, or leave it up the the user to decide | Either `text`, `audio` or `userchoice`                                                                                  |
+| Parameter  | Default            | Explanation                                                                                                                                                           | Restrictions                                                                                                            |
+| ---------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `id`       | `demo`             | Participant id                                                                                                                                                        | Any value that is alphanumeric and ≤ 20 chars                                                                           |
+| `culture`  | `de-urban`         | Changes, text, audio, and visuals                                                                                                                                     | Any value defined with procedure key in [config.yaml](https://github.com/ccp-eva/matt/blob/develop/src/config.yaml#L45) |
+| `agegroup` | `child`            | Loads a different set of text                                                                                                                                         | Either `child` or `adult`                                                                                               |
+| `input`    | `userchoice-audio` | Respond either by text or audio input, or leave it up the the user to decide. `userchoice-audio` will land on audio first. `userchoice-text` will land on text first. | Either `text`, `audio` or `userchoice-audio`, `userchoice-text`                                                         |
+|            |
 
 Culture parameters are composed of a country code (i.e, [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), lowercased (e.g., de)) and an arbitrary suffix (i.e., rural or urban). For example: `de-urban`.
 
