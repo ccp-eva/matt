@@ -161,7 +161,7 @@ export const translations = {
 	},
 
 	aLotSimilar: {
-		'de-urban': '<p>Sehr ähnlich</p>',
+		'de-urban': '<p class="question__capion">Sehr ähnlich</p>',
 	},
 
 	ownershipChild: {
