@@ -5,7 +5,7 @@ import config from '../config.yaml';
 import { rectToForeignObject } from './rectToForeignObject';
 import { recycleObjects } from './recycleObjects';
 import { copyAttributes } from './copyAttributes';
-import { getUrlParameters } from './helpers';
+import { getUrlParameters, downloadData } from './helpers';
 import { widowedKeyChecker } from './widowedKeyChecker';
 import {
 	showSingleSlide,
@@ -148,4 +148,6 @@ export const init = () => {
 		global.recycleObjects = recycleObjects;
 		global.copyAttributes = copyAttributes;
 	}
+	// always expose downloadData function
+	global.downloadData = downloadData;
 };

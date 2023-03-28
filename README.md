@@ -1,32 +1,40 @@
 <img align="right" width="300" src="logo/matt-logo.svg">
 
-# matt
+# MATT
 
-> Moral Attitudes Study
+> **Moral Attitudes Study**  
+> A browser-based game that investigates todo ...
+>
+> **🚀 Demo:** **https://ccp-eva.github.io/matt/**
 
 ---
 
-## In Active Developlment
+## Study Overview
 
-This repo is on active development and changes on a daily basis. Things will break and other things are no yet documented. Check back at a later time when things are more robust (March 2022).
+todo
+
+- Link to prereg
+- ...
 
 ## Development & Customization
 
 ### URL Parameters
 
 You can modify the experiment by attaching various URL parameters, for example:  
-https://ccp-odc.eva.mpg.de/matt/?id=12345&culture=DE_urban&webcam=true&adult=true
+https://ccp-eva.github.io/matt/?id=johndoe&culture=de-urban&agegroup=child&input=text
 
-Culture parameters are composed of a country code (i.e, [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) (e.g., DE)) and a suffix (i.e., rural or urban). For example: `de-urban`
+| Parameter  | Default      | Explanation                                                                  | Restrictions                                                                                                            |
+| ---------- | ------------ | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `id`       | `demo`       | Participant id                                                               | Any value that is alphanumeric and ≤ 20 chars                                                                           |
+| `culture`  | `de-urban`   | Changes, text, audio, and visuals                                            | Any value defined with procedure key in [config.yaml](https://github.com/ccp-eva/matt/blob/develop/src/config.yaml#L45) |
+| `agegroup` | `child`      | Loads a different set of text                                                | Either `child` or `adult`                                                                                               |
+| `input`    | `userchoice` | Respond either by text or audio input, or leave it up the the user to decide | Either `text`, `audio` or `userchoice`                                                                                  |
 
-- `id`: subject id, defaults to `demo`
-- `culture`: this loads slides, sounds, and texts; defaults to `de-urban`
-- `agegroup`: changes audio and text, defaults to `child` (`child` | `adult`)
-- `input`: `audio` | `text` | `userchoice` (default)
+Culture parameters are composed of a country code (i.e, [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), lowercased (e.g., de)) and an arbitrary suffix (i.e., rural or urban). For example: `de-urban`.
 
 ### How To Add A New Culture
 
-1. If necessary add new layers to illustrator if need to change or adjust visuals (see link to how to)
+1. If necessary add new layers to Illustrator if need to change or adjust visuals (see link to how to)
 2. Create a new folder unter cultures using ISO 3166-1 alpha-2 country codes (e.g., pe-rural)
 3. Copy and Paste another the audio and video folder from another culture into your new culture.
 4. Modify you audio and video files accordingly, keep files names to avoid coding adjustments
@@ -103,6 +111,18 @@ If you use an SVG object more than once, and your object is a more complex shape
 11. Profit
 
 For further (implementation) details, see this issue: [#53](https://github.com/ccp-eva/matt/issues/53).
+
+### Global Objects
+
+In the production build, there are two global objects (i.e., `data` and `downloadData()`), which can be accessed in your browser’s dev tools (Ctrl+Shift+I or Cmd+Shift+I).
+
+#### `data`
+
+This object holds all response data and other client information. This objects gets downloaded in the last slide.
+
+#### `downloadData()`
+
+Is called in the last slide, to download the the `data` object in JSON format. The function call be called any time to download intermediate states of the game.
 
 ### Deploy to GitHub Staging Site
 
