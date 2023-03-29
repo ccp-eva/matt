@@ -47,6 +47,7 @@ export default async () => {
 	const nextButton = document.getElementById('link-sm-next') as SvgInHtml;
 
 	const textResponse = document.getElementById('text-response') as HTMLTextAreaElement;
+	const voiceResponse = document.getElementById('voice-response') as HTMLDivElement;
 	const voiceResponseStart = document.getElementById('voice-response-start') as HTMLButtonElement;
 	const voiceResponseStop = document.getElementById('voice-response-stop') as HTMLButtonElement;
 	const toggle = document.getElementById('toggle') as HTMLDivElement;
@@ -75,17 +76,25 @@ export default async () => {
 	// if text, do nothing and hide toggle
 	if (data.input === 'text') {
 		toggle.style.visibility = 'hidden';
+		voiceResponse.style.display = 'none';
 	}
 	// if audio, check checkbox and hide toggle
 	if (data.input === 'audio') {
 		checkBox.click();
 		toggle.style.visibility = 'hidden';
 		textResponse.style.display = 'none';
+		voiceResponse.style.display = 'flex';
 	}
 	// if userchoice-audio, show toggle, clicked
 	if (data.input === 'userchoice-audio') {
 		checkBox.click();
 		textResponse.style.display = 'none';
+		voiceResponse.style.display = 'flex';
+	}
+
+	if (data.input === 'userchoice-text') {
+		textResponse.style.display = 'block';
+		voiceResponse.style.display = 'none';
 	}
 
 	data.procedure.sMeaning.voiceExplanation = checkBox.checked;
@@ -187,10 +196,12 @@ export default async () => {
 		// switch to voice
 		if (switchToVoice) {
 			textResponse.style.display = 'none';
+			voiceResponse.style.display = 'flex';
 		}
 
 		if (switchToText) {
 			textResponse.style.display = 'block';
+			voiceResponse.style.display = 'none';
 		}
 
 		// play voice instruction if not already played yet
