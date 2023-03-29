@@ -57,6 +57,7 @@ procedure:
       s-meaning,
       s-intro-boats,
       s-practice-dilemma,
+      s-dilemma-start,
       # # [
       # #   [s-1-hu-1-ca, s-2-hu-1-ca, s-1-hu-2-ca, s-10-hu-1-ca, s-1-hu-10-ca, s-100-hu-1-ca]
       # # dynamic transiton slide 1
@@ -95,6 +96,7 @@ procedure:
       s-qu-meat-fish,
       s-qu-egg-cheese-milk,
       # # [s-reasoning-1-hu-1-co, s-reasoning-1-hu-1-ca, s-reasoning-1-ca-1-co]
+      s-intro-reasoning,
       s-reasoning-1-hu-1-co,
       s-reasoning-1-hu-1-ca,
       s-reasoning-1-ca-1-co,

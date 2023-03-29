@@ -493,6 +493,9 @@
 		<image overflow="visible" width="80" height="80" id="link-sr1h1cow-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
+<g id="s-intro-reasoning">
+	<rect id="s-ir" x="825" y="405" fill="none" width="271" height="271"/>
+</g>
 <g id="s-qu-egg-cheese-milk">
 	<g id="eggCheeseMilk">
 		<path fill="#97E4EF" stroke="#97E4EF" stroke-width="2.5" stroke-miterlimit="10" d="M1013.7,474.96l-7.17-19.7
