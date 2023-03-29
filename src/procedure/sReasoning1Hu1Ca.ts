@@ -186,7 +186,7 @@ export default async () => {
 					pinda.src = `./cultures/${data.culture}/video/sr-prompt-audioInput.webm`;
 				}
 				if (data.reasoningSlideCounter === 3) {
-					pinda.src = `./cultures/${data.culture}/video/sr-ex-next-red-audioInput.webm`;
+					pinda.src = `./cultures/${data.culture}/video/audio-input-3.webm`;
 				}
 			}
 			if (!checkBox.checked) {
@@ -197,7 +197,7 @@ export default async () => {
 					pinda.src = `./cultures/${data.culture}/video/sr-promp-textInput.webm`;
 				}
 				if (data.reasoningSlideCounter === 3) {
-					pinda.src = `./cultures/${data.culture}/video/sr-promp-textInput.webm`;
+					pinda.src = `./cultures/${data.culture}/video/text-input-3.webm`;
 				}
 			}
 		},
@@ -290,7 +290,7 @@ export default async () => {
 						pinda.src = `./cultures/${data.culture}/video/sr-prompt-audioInput.webm`;
 					}
 					if (data.reasoningSlideCounter === 3) {
-						pinda.src = `./cultures/${data.culture}/video/sr-ex-next-red-audioInput.webm`;
+						pinda.src = `./cultures/${data.culture}/video/audio-input-3.webm`;
 					}
 				},
 				onComplete: () => {
@@ -341,7 +341,7 @@ export default async () => {
 						pinda.src = `./cultures/${data.culture}/video/sr-promp-textInput.webm`;
 					}
 					if (data.reasoningSlideCounter === 3) {
-						pinda.src = `./cultures/${data.culture}/video/sr-promp-textInput.webm`;
+						pinda.src = `./cultures/${data.culture}/video/text-input-3.webm`;
 					}
 				},
 				onComplete: () => {
