@@ -11,8 +11,11 @@ import { swapSlides } from '../util/slideVisibility';
 export default async () => {
 	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
 
+	const order = _.shuffle(['cow', 'cat', 'human']);
+
 	data.procedure.sQuRankingIntelligence = {
 		response: '',
+		order,
 		duration: 0,
 		cow: 0,
 		cat: 0,
