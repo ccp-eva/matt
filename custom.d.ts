@@ -47,6 +47,8 @@ declare var data: {
 	slideOrder: string[];
 	animalSlideCounter: number;
 	animalOrder: string[];
+	reasoningSlideCounter: number;
+	reasoningOrder: string[];
 	gender: 'female' | 'male' | 'other';
 	birthday: 'string';
 	procedure: {
@@ -198,12 +200,13 @@ declare var data: {
 			cat: 0 | 1 | 2 | 3 | 4;
 		};
 		sReasoning1Hu1Co: {
-			response: string;
 			duration: number;
+			input: 'text' | 'audio' | 'userchoice-audio' | 'userchoice-text';
 			textInput: string;
 			isText: boolean;
 			isVoice: boolean;
 			voiceExplanation: boolean;
+			textExplanation: boolean;
 		};
 		sReasoning1Hu1Ca: {
 			response: string;

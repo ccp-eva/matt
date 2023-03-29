@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import Toastify from 'toastify-js';
 import config from '../config.yaml';
 import { stop } from '../util/audio';
 
@@ -10,7 +9,9 @@ export const procedure = async () => {
 	const isNested = currentProcedure.some((slide) => Array.isArray(slide));
 
 	data.animalSlideCounter = 0;
+	data.reasoningSlideCounter = 0;
 
+	// todo use animalOrder and reasoningOrder
 	if (isNested) {
 		// create a copy of the currentProcedure array
 		const currentProcedureFlat = [...currentProcedure];
