@@ -79,6 +79,12 @@ p {
 	font-size: 2.5rem;
 }
 
+.dilemma__reasoning {
+	text-align: center;
+	font-family: pt-sans-narrow;
+	font-size: 2rem;
+}
+
 .dilemma__saving {
 	text-align: center;
 	font-family: pt-sans-narrow;
