@@ -66,7 +66,7 @@ export default async () => {
 	gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
 	gsap.set(pinda, { autoAlpha: 0 });
 
-	data.procedure.sReasoning1Hu1Co = {
+	data.procedure[data.currentSlide] = {
 		duration: 0,
 		input: data.input,
 		textInput: '',

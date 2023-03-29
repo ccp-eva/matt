@@ -66,7 +66,7 @@ export default async () => {
 	gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
 	gsap.set(pinda, { autoAlpha: 0 });
 
-	data.procedure.sReasoning1Hu1Co = {
+	data.procedure[data.currentSlide] = {
 		duration: 0,
 		input: data.input,
 		textInput: '',
@@ -111,11 +111,11 @@ export default async () => {
 	let wasHuman = true;
 	let wasCow = false;
 	let wasCantDecide = false;
-	// check actual responses from s1Hu1Ca and overwrite default values
-	if (data.procedure.s1Hu1Ca) {
-		wasHuman = data.procedure.s1Hu1Ca.response.toLowerCase().includes('-onehuman');
-		wasCow = data.procedure.s1Hu1Ca.response.toLowerCase().includes('-onecow');
-		wasCantDecide = data.procedure.s1Hu1Ca.response.toLowerCase().includes('-cantdecide');
+	// check actual responses from s1Hu1Co and overwrite default values
+	if (data.procedure.s1Hu1Co) {
+		wasHuman = data.procedure.s1Hu1Co.response.toLowerCase().includes('-onehuman');
+		wasCow = data.procedure.s1Hu1Co.response.toLowerCase().includes('-onecow');
+		wasCantDecide = data.procedure.s1Hu1Co.response.toLowerCase().includes('-cantdecide');
 	}
 
 	// make text smaller for reasoning slides
