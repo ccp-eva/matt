@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import _ from 'lodash';
+import _, { head } from 'lodash';
 import config from '../config.yaml';
 import RecordRTC from 'recordrtc';
 import { SvgInHtml } from '../types';
@@ -9,161 +9,291 @@ import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
+	// insert HTML
+	{
+		// get svg rect element
+		const rect = document.getElementById('sm-written-response')! as SvgInHtml;
+		// create new foreignObject
+		const fo = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
+		[...rect.attributes].map(({ name, value }) => fo.setAttribute(name, value));
+		fo.removeAttribute('fill');
+		rect.replaceWith(fo);
+		// create textarea
+
+		fo.innerHTML = `
+		<div>
+		<div id="toggle" style="width: 9em; margin: 0 auto; margin-bottom: 10px">
+			<input id="chck" type="checkbox" />
+			<label for="chck" class="check-trail"><span class="check-handler"></span> </label>
+		</div>
+	
+		<div id="response-area">
+			<textarea
+				disabled
+				id="text-response"
+				maxlength="2000"
+				style="display: block; pointer-events: auto;"
+			></textarea>
+			<div id="voice-response" style="display: flex;">
+				<button type="button" disabled id="voice-response-start" style="font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🎤 Start</button> <button type="button" disabled id="voice-response-stop" style="font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🛑 Stop</button>
+			</div>
+		</div>
+	</div>
+	`;
+	}
+	const headphones = document.getElementById('link-sm-headphones') as SvgInHtml;
+	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const nextButton = document.getElementById('link-sm-next') as SvgInHtml;
+
+	const textResponse = document.getElementById('text-response') as HTMLTextAreaElement;
+	const voiceResponseStart = document.getElementById('voice-response-start') as HTMLButtonElement;
+	const voiceResponseStop = document.getElementById('voice-response-stop') as HTMLButtonElement;
+	const toggle = document.getElementById('toggle') as HTMLDivElement;
+	const checkLabel = document.querySelector('.check-trail') as HTMLLabelElement;
+	const checkBox = document.getElementById('chck') as HTMLInputElement;
+
+	nextButton.style.pointerEvents = 'none';
+	checkLabel.style.pointerEvents = 'none';
+	gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
 	gsap.set(pinda, { autoAlpha: 0 });
+
+	data.procedure.sMeaning = {
+		duration: 0,
+		input: data.input,
+		textInput: '',
+		isText: false,
+		isVoice: false,
+		voiceExplanation: false,
+		textExplanation: false,
+	};
+
+	// unchecked = keyboard response (default)
+	// checked = voice response
+	// change checkBox depending on URL parameter
+
+	// if text, do nothing and hide toggle
+	if (data.input === 'text') {
+		toggle.style.visibility = 'hidden';
+	}
+	// if audio, check checkbox and hide toggle
+	if (data.input === 'audio') {
+		checkBox.click();
+		toggle.style.visibility = 'hidden';
+		textResponse.style.display = 'none';
+	}
+	// if userchoice-audio, show toggle, clicked
+	if (data.input === 'userchoice-audio') {
+		checkBox.click();
+		textResponse.style.display = 'none';
+	}
+
+	data.procedure.sMeaning.voiceExplanation = checkBox.checked;
+	data.procedure.sMeaning.textExplanation = !checkBox.checked;
+
+	let isPlaying = true;
+	let isExplaining = true;
 	const timeline = gsap.timeline();
 	timeline
 		.to(pinda, {
 			autoAlpha: 1,
 			onStart: () => {
 				pinda.src = `./cultures/${data.culture}/video/st-finish-meaning.webm`;
+				isExplaining = true;
+				isPlaying = true;
 			},
 		})
 		.to(pinda, {
-			delay: 11,
+			delay: 8,
 			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+				swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 1]);
 			},
 		})
 		.to(pinda, {
+			delay: 2,
 			autoAlpha: 0,
-			delay: 6,
+		})
+		.to(pinda, {
+			autoAlpha: 1,
+			onStart: () => {
+				isExplaining = true;
+				if (checkBox.checked) {
+					pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+					gsap
+						.timeline()
+						.to(voiceResponseStart, {
+							filter: 'drop-shadow(0px 0px 20px #969696)',
+							delay: 8,
+							repeat: 3,
+							yoyo: true,
+							reversed: true,
+						})
+						.to(voiceResponseStop, {
+							filter: 'drop-shadow(0px 0px 20px #969696)',
+							delay: 1.5,
+							repeat: 3,
+							yoyo: true,
+							reversed: true,
+						});
+				}
+				if (!checkBox.checked) {
+					pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+				}
+			},
+			onComplete: () => {
+				isExplaining = false;
+			},
 		});
 
-	await sleep(8000);
-
-	// swap slides automatically (don’t touch this)
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 1]);
-
-	data.procedure.sMeaning = {
-		duration: 0,
-		textInput: '',
-		isText: false,
-		isVoice: false,
-		voiceExplanation: false,
-	};
-
-	const nextButton = document.getElementById('link-sm-next') as SvgInHtml;
-	nextButton.style.pointerEvents = 'none';
-	gsap.set(nextButton, { autoAlpha: 0.25 });
-
-	// get svg rect element
-	const rect = document.getElementById('sm-written-response')! as SvgInHtml;
-	// create new foreignObject
-	const fo = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
-	[...rect.attributes].map(({ name, value }) => fo.setAttribute(name, value));
-	fo.removeAttribute('fill');
-	rect.replaceWith(fo);
-	// create textarea
-
-	fo.innerHTML = `
-	<div>
-	<div id="toggle" style="width: 9em; margin: 0 auto; margin-bottom: 10px">
-		<input id="chck" type="checkbox" disabled />
-		<label for="chck" class="check-trail"><span class="check-handler"></span> </label>
-	</div>
-
-	<div id="response-area">
-		<textarea
-		   disabled
-			id="text-response"
-			maxlength="2000"
-			style="pointer-events: auto;"
-		></textarea disab>
-		<button type="button" id="voice-response" style="display: none; font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🎤 Record</button>
-	</div>
-</div>
-`;
-
-	const textResponse = document.getElementById('text-response') as HTMLTextAreaElement;
-	const voiceResponse = document.getElementById('voice-response') as HTMLTextAreaElement;
-	const checkLabel = document.querySelector('.check-trail') as HTMLLabelElement;
-
-	await sleep(8000);
-	play(`./cultures/${data.culture}/audio/st-meaning.mp3`, 'link-sm-headphones');
-
-	// unchecked = keyboard response
-	// checked = voice response
-	const chck = document.getElementById('chck') as HTMLInputElement;
-	chck.disabled = false;
-	textResponse.disabled = false;
-
-	chck.addEventListener('change', () => {
-		if (chck.checked) {
-			gsap
-				.timeline()
-				.to(textResponse, {
-					onStart: () => {
-						if (!data.procedure.sMeaning.voiceExplanation) {
-							data.procedure.sMeaning.voiceExplanation = true;
-							gsap.timeline().to(pinda, { autoAlpha: 1 });
-							pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
-							gsap.timeline().to(pinda, { autoAlpha: 0, delay: 6 });
-						}
-					},
-					autoAlpha: 0,
-					duration: 0.25,
-					pointerEvents: 'none',
-					display: 'none',
-				})
-				.to(
-					voiceResponse,
-					{
-						autoAlpha: 1,
-						duration: 0.25,
-						pointerEvents: 'auto',
-						display: 'block',
-					},
-					'>'
-				);
-		}
-
-		if (!chck.checked) {
-			gsap
-				.timeline()
-				.to(voiceResponse, {
-					autoAlpha: 0,
-					duration: 0.25,
-					pointerEvents: 'none',
-					display: 'none',
-				})
-				.to(
-					textResponse,
-					{
-						autoAlpha: 1,
-						duration: 0.25,
-						pointerEvents: 'auto',
-						display: 'block',
-					},
-					'>'
-				);
-		}
+	pinda.addEventListener('play', () => {
+		isPlaying = true;
+	});
+	pinda.addEventListener('ended', () => {
+		isPlaying = false;
 	});
 
-	voiceResponse.addEventListener('click', async () => {
-		data.procedure.sMeaning.isText = false;
-		data.procedure.sMeaning.isVoice = true;
-		let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-		let recorder = new RecordRTC.RecordRTCPromisesHandler(stream, {
-			type: 'audio',
-		});
-		recorder.startRecording();
+	while (isPlaying || isExplaining) {
+		await sleep(100);
+	}
 
-		// todo
-		const buttonRecordingString = 'Start Recording';
+	gsap.to(pinda, {
+		onStart: () => {
+			pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
+			pinda.loop = true;
+		},
+	});
 
-		voiceResponse.innerText = '🛑 Stop Recording';
+	gsap.to(checkLabel, { autoAlpha: 1 });
+	checkLabel.style.pointerEvents = 'auto';
+	textResponse.disabled = false;
+	voiceResponseStart.disabled = false;
 
-		voiceResponse.addEventListener('click', async () => {
-			await recorder.stopRecording();
-			let blob = await recorder.getBlob();
-			RecordRTC.invokeSaveAsDialog(blob, `s-meaning-${data.id}`);
+	play(`./cultures/${data.culture}/audio/st-meaning.mp3`, headphones.id);
 
-			nextButton.style.pointerEvents = 'auto';
-			gsap.timeline().to(nextButton, {
-				autoAlpha: 1,
+	audio.addEventListener('play', () => {
+		checkLabel.style.pointerEvents = 'none';
+		gsap.set(checkLabel, { autoAlpha: 0.25 });
+	});
+	audio.addEventListener('ended', () => {
+		checkLabel.style.pointerEvents = 'auto';
+		gsap.set(checkLabel, { autoAlpha: 1 });
+	});
+
+	// if userchoice part
+	checkBox.addEventListener('change', async () => {
+		const switchToVoice = checkBox.checked;
+		const switchToText = !checkBox.checked;
+
+		// switch to voice
+		if (switchToVoice) {
+			textResponse.style.display = 'none';
+		}
+
+		if (switchToText) {
+			textResponse.style.display = 'block';
+		}
+
+		// play voice instruction if not already played yet
+		if (switchToVoice && !data.procedure.sMeaning.voiceExplanation) {
+			data.procedure.sMeaning.voiceExplanation = true;
+
+			voiceResponseStart.disabled = true;
+			checkLabel.style.pointerEvents = 'none';
+			headphones.style.pointerEvents = 'none';
+			gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
+
+			let isExplaining = true;
+			gsap.timeline().to(pinda, {
+				onStart: () => {
+					pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+					pinda.loop = false;
+					gsap
+						.timeline()
+						.to(voiceResponseStart, {
+							filter: 'drop-shadow(0px 0px 20px #969696)',
+							delay: 8,
+							repeat: 3,
+							yoyo: true,
+							reversed: true,
+						})
+						.to(voiceResponseStop, {
+							filter: 'drop-shadow(0px 0px 20px #969696)',
+							delay: 1.5,
+							repeat: 3,
+							yoyo: true,
+							reversed: true,
+						});
+				},
+				onComplete: () => {
+					isExplaining = false;
+				},
 			});
-		});
+
+			while (isPlaying || isExplaining) {
+				await sleep(100);
+			}
+
+			voiceResponseStart.disabled = false;
+			gsap.to(checkLabel, { autoAlpha: 1 });
+			checkLabel.style.pointerEvents = 'auto';
+			headphones.style.pointerEvents = 'auto';
+
+			gsap
+				.timeline()
+				.to(pinda, {
+					autoAlpha: 0,
+				})
+				.to(pinda, {
+					autoAlpha: 1,
+					onStart: () => {
+						pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
+						pinda.loop = true;
+					},
+				});
+		}
+
+		// play text instuction if not already played yet
+		if (switchToText && !data.procedure.sMeaning.textExplanation) {
+			data.procedure.sMeaning.textExplanation = true;
+
+			textResponse.disabled = true;
+			checkLabel.style.pointerEvents = 'none';
+			headphones.style.pointerEvents = 'none';
+			gsap.set(checkLabel, { autoAlpha: 0.25 });
+
+			let isExplaining = true;
+			gsap.timeline().to(pinda, {
+				onStart: () => {
+					pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+					pinda.loop = false;
+				},
+				onComplete: () => {
+					isExplaining = false;
+				},
+			});
+
+			while (isPlaying || isExplaining) {
+				await sleep(100);
+			}
+
+			textResponse.disabled = false;
+			gsap.to(checkLabel, { autoAlpha: 1 });
+			checkLabel.style.pointerEvents = 'auto';
+			headphones.style.pointerEvents = 'auto';
+
+			gsap
+				.timeline()
+				.to(pinda, {
+					autoAlpha: 0,
+				})
+				.to(pinda, {
+					autoAlpha: 1,
+					onStart: () => {
+						pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
+						pinda.loop = true;
+					},
+				});
+		}
 	});
 
 	textResponse.addEventListener('input', () => {
@@ -180,7 +310,7 @@ export default async () => {
 					duration: 0.25,
 				})
 				.to(
-					'.check-trail',
+					checkLabel,
 					{
 						autoAlpha: 0.25,
 						duration: 0.25,
@@ -196,7 +326,7 @@ export default async () => {
 					autoAlpha: 0.25,
 				})
 				.to(
-					'.check-trail',
+					checkLabel,
 					{
 						autoAlpha: 1,
 						duration: 0.25,
@@ -204,6 +334,39 @@ export default async () => {
 					'<'
 				);
 		}
+	});
+
+	voiceResponseStart.addEventListener('click', async () => {
+		data.procedure.sMeaning.isText = false;
+		data.procedure.sMeaning.isVoice = true;
+		let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+		let recorder = new RecordRTC.RecordRTCPromisesHandler(stream, {
+			type: 'audio',
+		});
+		recorder.startRecording();
+
+		voiceResponseStart.disabled = true;
+		voiceResponseStop.disabled = false;
+
+		checkLabel.style.pointerEvents = 'none';
+		gsap.set(checkLabel, { autoAlpha: 0.25 });
+
+		voiceResponseStop.addEventListener('click', async () => {
+			await recorder.stopRecording();
+			let blob = await recorder.getBlob();
+			RecordRTC.invokeSaveAsDialog(blob, `s-meaning-${data.id}`);
+
+			nextButton.style.pointerEvents = 'auto';
+			gsap.timeline().to(nextButton, {
+				autoAlpha: 1,
+			});
+
+			voiceResponseStart.disabled = false;
+			voiceResponseStop.disabled = true;
+
+			checkLabel.style.pointerEvents = 'auto';
+			gsap.set(checkLabel, { autoAlpha: 1 });
+		});
 	});
 
 	// save responses and store to response object

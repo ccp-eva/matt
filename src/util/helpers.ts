@@ -63,10 +63,15 @@ export const getUrlParameters = () => {
 		params.agegroup = config.globals.defaultAgeGroup;
 	}
 	if (params.input) {
-		if (params.input !== 'text' && params.input !== 'audio' && params.input !== 'userchoice') {
+		if (
+			params.input !== 'text' &&
+			params.input !== 'audio' &&
+			params.input !== 'userchoice-audio' &&
+			params.input !== 'userchoice-text'
+		) {
 			Toastify({
 				escapeMarkup: false,
-				text: '<strong>Parameter Error</strong>: <small><code>input</code> parameter can only be: <code>text</code>, <code>audio</code> or <code>userchoice</code></small>',
+				text: '<strong>Parameter Error</strong>: <small><code>input</code> parameter can only be: <code>text</code>, <code>audio</code>, <code>userchoice-audio</code> or <code>userchoice-text</code></small>',
 				duration: 0,
 				className: 'toast-info',
 			}).showToast();

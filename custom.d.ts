@@ -37,7 +37,7 @@ declare var data: {
 	id: string;
 	culture: string;
 	agegroup: 'child' | 'adult';
-	input: 'audio' | 'text' | 'userchoice';
+	input: 'audio' | 'text' | 'userchoice-audio' | 'userchoice-text';
 	initialTimestamp: string;
 	totalSlides: number;
 	slideCounter: number;
@@ -133,10 +133,12 @@ declare var data: {
 		};
 		sMeaning: {
 			duration: number;
+			input: 'text' | 'audio' | 'userchoice-audio' | 'userchoice-text';
 			textInput: string;
 			isText: boolean;
 			isVoice: boolean;
 			voiceExplanation: boolean;
+			textExplanation: boolean;
 		};
 		sPracticeDilemma: {
 			duration: number;
@@ -164,6 +166,7 @@ declare var data: {
 		sQuRankingIntelligence: {
 			response: string;
 			duration: number;
+			order: string[];
 			cow: 0 | 1 | 2 | 3 | 4;
 			cat: 0 | 1 | 2 | 3 | 4;
 			human: 0 | 1 | 2 | 3 | 4;
