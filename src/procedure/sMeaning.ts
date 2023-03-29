@@ -375,5 +375,7 @@ export default async () => {
 	data.procedure.sMeaning.textInput = textResponse.value;
 	console.log(data.procedure.sMeaning.textInput);
 
+	pinda.loop = false;
+
 	await sleep(500);
 };
