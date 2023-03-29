@@ -98,7 +98,7 @@ export const downloadData = () => {
 	// download data as JSON from global data object
 	const blob = new Blob([JSON.stringify(data, null, 2)]);
 	const day = new Date().toISOString().slice(0, 10);
-	const time = new Date().toISOString().slice(11, 19);
+	const time = new Date().toISOString().slice(11, 19).split(':').join('-');
 
 	const hiddenElement = document.createElement('a');
 	hiddenElement.href = window.URL.createObjectURL(blob);
