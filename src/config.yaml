@@ -8,7 +8,7 @@ htmlBg: black # background color for letter boxing edges if aspect ratio is not 
 svgBg: white
 hideUrlParameters: false
 slideTransition:
-  override: false # force slide transitions
+  override: true # force slide transitions
   fadeOut: 0.25
   fadeIn: 0.25
 css:
@@ -36,7 +36,7 @@ globals:
   defaultCulture: de-urban # possible keys from
   defaultSubjectId: demo
   defaultAgeGroup: child # or adult
-  defaultInput: userchoice
+  defaultInput: userchoice-audio
   animalSlidesGap: 750 # delay in milliseconds after animal slides
   playAnimalYesNoAudio: 2
   playAnimalResponseFeedback: 1
@@ -81,7 +81,7 @@ procedure:
       s-c-1-hu-10-hu,
       s-c-1-hu-10-na,
       s-c-1-hu-10-sp,
-      s-c-1-ca-1-co,
+      s-motivation-dilemma-3,
       s-qu-thoughts,
       s-qu-feelings,
       s-qu-difference,

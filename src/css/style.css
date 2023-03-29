@@ -158,6 +158,14 @@ input[type='checkbox']:checked + .check-trail .check-handler::before {
 	content: '🗣️';
 }
 
+button {
+	cursor: pointer;
+}
+
+button:disabled {
+	cursor: not-allowed;
+}
+
 .dilemma-card {
 	outline: solid 1px black;
 	transition: 0.2s;

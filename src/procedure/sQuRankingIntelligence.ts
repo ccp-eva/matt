@@ -67,8 +67,8 @@ export default async () => {
 		});
 
 	await sleep(7800);
-	play(`./cultures/${data.culture}/audio/sqre-expl.mp3`, 'link-sqri-headphones');
-	await playPromise(`./cultures/${data.culture}/audio/sqre-expl.mp3`);
+	play(`./cultures/${data.culture}/audio/sqr-expl.mp3`, 'link-sqri-headphones');
+	await playPromise(`./cultures/${data.culture}/audio/sqr-expl.mp3`);
 
 	Draggable.create([cow, cat, human], {
 		onPress: function () {

@@ -9,7 +9,7 @@ import { sleep, moveToCenterAnchor } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
+	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [0, 0]);
 
 	data.procedure.sTask = {
 		duration: 0,
@@ -34,6 +34,7 @@ export default async () => {
 		},
 	};
 
+	const nextButton = document.getElementById('link-st-next')! as SvgInHtml;
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 	const inner = document.getElementById('st-inner')! as SvgInHtml;
 	const middle = document.getElementById('st-middle')! as SvgInHtml;
@@ -80,7 +81,10 @@ export default async () => {
 	let unknownAnimals: string[] = [];
 	animals.forEach((animal) => {
 		const prefixedAnimal = _.camelCase(`s-${animal}`);
+		// if the key does not exist, treat is as unknown (this should only exist during development)
 		if (!data.procedure[prefixedAnimal]) {
+			console.warn(`${animal} not found in data.procedure, treating it as unknown.`);
+			unknownAnimals.push(animal);
 			return;
 		}
 		if (data.procedure[prefixedAnimal].response.split('-').at(-1) === 'yes') {
@@ -98,21 +102,27 @@ export default async () => {
 	// always show human
 	knownAnimals = [...knownAnimals, 'human'];
 
-	// hide unknownAnimals not in list
-	unknownAnimals.forEach((animal) => {
-		gsap.set(`#link-st-${animal}`, { autoAlpha: 0 });
-	});
+	const knownAnimalElements = knownAnimals.map(
+		(animal) => document.getElementById(`link-st-${animal}`)! as SvgInHtml
+	);
+	const unknownAnimalElements = unknownAnimals.map(
+		(animal) => document.getElementById(`link-st-${animal}`)! as SvgInHtml
+	);
 
-	// put known animals in slots, so there are no gaps between them and store their positions
-	const animalPositionLut = {};
-	knownAnimals.forEach((animal, index) => {
-		animalPositionLut[animal] = index;
-		const animalElement = document.getElementById(`link-st-${animal}`)! as SvgInHtml;
-		moveToCenterAnchor(animalElement, slots[index].x, slots[index].y);
-	});
+	// hide unknownAnimals not in list
+	gsap.set(unknownAnimalElements, { autoAlpha: 0 });
+
+	// // todo
+	// // put known animals in slots, so there are no gaps between them and store their positions
+	// const animalPositionLut = {};
+	// knownAnimals.forEach((animal, index) => {
+	// 	animalPositionLut[animal] = index;
+	// 	const animalElement = document.getElementById(`link-st-${animal}`)! as SvgInHtml;
+	// 	moveToCenterAnchor(animalElement, slots[index].x, slots[index].y);
+	// });
 
 	gsap.set(pinda, { autoAlpha: 0 });
-	gsap.set('#link-st-next', { autoAlpha: 0 });
+	gsap.set(nextButton, { autoAlpha: 0 });
 
 	gsap
 		.timeline()
@@ -132,59 +142,86 @@ export default async () => {
 
 	play(`./cultures/${data.culture}/audio/s-task-cut.mp3`, 'link-st-headphones');
 
-	Draggable.create([chicken, human, pig, dog, sheep, goldfish, cow, rabbit, cat], {
+	// MORAL CIRCLE LOGIC
+	const innerRadius = inner.getBBox().width / 2;
+	const middleRadius = middle.getBBox().width / 2;
+	const outerRadius = outer.getBBox().width / 2;
+
+	// get center of circles
+	const innerCx = inner.getBBox().x + innerRadius;
+	const innerCy = inner.getBBox().y + innerRadius;
+	const middleCx = middle.getBBox().x + middleRadius;
+	const middleCy = middle.getBBox().y + middleRadius;
+	const outerCx = outer.getBBox().x + outerRadius;
+	const outerCy = outer.getBBox().y + outerRadius;
+
+	Draggable.create(knownAnimalElements, {
 		onPress: function () {
 			// get current drag object
 			const currentId = this.target.id;
 			let currentObj = currentId.slice(8);
-
 			play(`./cultures/${data.culture}/audio/st-${currentObj}.mp3`);
 		},
 		onDrag: function () {
-			const currentId = this.target.id;
-			if (this.hitTest(inner, '50%') && this.hitTest(middle, '50%') && this.hitTest(outer, '50%')) {
-				gsap.to(inner, { opacity: 1, duration: 0.25 });
-				gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
-			} else {
-				gsap.to(inner, { opacity: 0.5, duration: 0.25 });
+			const currentTarget = this.target;
+			const targetBBox = currentTarget.getBBox();
+			const targetHeight = currentTarget.getBBox().height / 2;
+			const targetWidth = currentTarget.getBBox().width / 2;
+
+			let updatedObjX = targetBBox.x + targetWidth + this.x;
+			let updatedObjY = targetBBox.y + targetHeight + this.y;
+
+			const circleDistance = Math.sqrt(
+				Math.pow(updatedObjX - innerCx, 2) + Math.pow(updatedObjY - innerCy, 2)
+			);
+
+			// Check if the distance between the centers is less than or equal to the sum of the radii
+			if (circleDistance * 1.2 <= innerRadius + targetWidth) {
+				gsap.to(inner, { opacity: 1 });
+				gsap.to([middle, outer], { opacity: 0.5 });
 			}
 
 			if (
-				!this.hitTest(inner, '50%') &&
-				this.hitTest(middle, '50%') &&
-				this.hitTest(outer, '50%')
+				circleDistance * 1.2 <= middleRadius + targetWidth &&
+				circleDistance * 1.2 > innerRadius + targetWidth
 			) {
-				gsap.to(middle, { opacity: 1, duration: 0.25 });
-				gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
-			} else {
-				gsap.to(middle, { opacity: 0.5, duration: 0.25 });
+				gsap.to(middle, { opacity: 1 });
+				gsap.to([inner, outer], { opacity: 0.5 });
 			}
 
 			if (
-				!this.hitTest(inner, '50%') &&
-				!this.hitTest(middle, '50%') &&
-				this.hitTest(outer, '50%')
+				circleDistance * 1.2 <= outerRadius + targetWidth &&
+				circleDistance * 1.2 > middleRadius + targetWidth
 			) {
-				gsap.to(outer, { opacity: 1, duration: 0.25 });
-				gsap.to(`#${currentId}`, { scale: 0.5, transformOrigin: '50% 50%' });
-			} else {
-				gsap.to(outer, { opacity: 0.5, duration: 0.25 });
+				gsap.to(outer, { opacity: 1 });
+				gsap.to([inner, middle], { opacity: 0.5 });
+				gsap.to(this.target, { scale: 0.5, transformOrigin: '50% 50%' });
 			}
-			if (
-				!this.hitTest(inner, '50%') &&
-				!this.hitTest(middle, '50%') &&
-				!this.hitTest(outer, '50%')
-			) {
-				gsap.to(`#${currentId}`, { scale: 1, transformOrigin: '50% 50%' });
+
+			// Outside of outer circle (i.e., all circles)
+			if (circleDistance * 1.2 > outerRadius + targetWidth) {
+				gsap.to(this.target, { scale: 1, transformOrigin: '50% 50%' });
+				gsap.to([inner, middle, outer], { opacity: 0.5 });
 			}
 		},
 		onDragEnd: function () {
-			const currentId = this.target.id;
+			const currentTarget = this.target;
+			const currentId = currentTarget.id;
 			console.log(currentId);
 			const currentIdTrimmed = currentId.slice(8);
+			const targetBBox = currentTarget.getBBox();
+			const targetHeight = currentTarget.getBBox().height / 2;
+			const targetWidth = currentTarget.getBBox().width / 2;
 
-			// INNER
-			if (this.hitTest(inner, '50%') && this.hitTest(middle, '50%') && this.hitTest(outer, '50%')) {
+			let updatedObjX = targetBBox.x + targetWidth + this.x;
+			let updatedObjY = targetBBox.y + targetHeight + this.y;
+
+			const circleDistance = Math.sqrt(
+				Math.pow(updatedObjX - innerCx, 2) + Math.pow(updatedObjY - innerCy, 2)
+			);
+
+			// Check if the distance between the centers is less than or equal to the sum of the radii
+			if (circleDistance * 1.2 <= innerRadius + targetWidth) {
 				data.procedure.sTask[currentIdTrimmed] = 'inner';
 				data.procedure.sTask.assignedAnimals++;
 				gsap.to(inner, { opacity: 0.5, duration: 0.25 });
@@ -192,9 +229,8 @@ export default async () => {
 
 			// MIDDLE
 			if (
-				!this.hitTest(inner, '50%') &&
-				this.hitTest(middle, '50%') &&
-				this.hitTest(outer, '50%')
+				circleDistance * 1.2 <= middleRadius + targetWidth &&
+				circleDistance * 1.2 > innerRadius + targetWidth
 			) {
 				data.procedure.sTask[currentIdTrimmed] = 'middle';
 				data.procedure.sTask.assignedAnimals++;
@@ -203,9 +239,8 @@ export default async () => {
 
 			// OUTER
 			if (
-				!this.hitTest(inner, '50%') &&
-				!this.hitTest(middle, '50%') &&
-				this.hitTest(outer, '50%')
+				circleDistance * 1.2 <= outerRadius + targetWidth &&
+				circleDistance * 1.2 > middleRadius + targetWidth
 			) {
 				data.procedure.sTask[currentIdTrimmed] = 'outer';
 				data.procedure.sTask.assignedAnimals++;
@@ -213,15 +248,11 @@ export default async () => {
 			}
 
 			// NONE
-			if (
-				!this.hitTest(inner, '50%') &&
-				!this.hitTest(middle, '50%') &&
-				!this.hitTest(outer, '50%')
-			) {
-				console.log(currentId);
-				console.log(this.target);
-				console.log(slots[animalPositionLut[currentIdTrimmed]].x);
-				console.log(slots[animalPositionLut[currentIdTrimmed]].y);
+			if (circleDistance * 1.2 > outerRadius + targetWidth) {
+				// console.log(currentId);
+				// console.log(this.target);
+				// console.log(slots[animalPositionLut[currentIdTrimmed]].x);
+				// console.log(slots[animalPositionLut[currentIdTrimmed]].y);
 
 				// bug this is not working yet #72
 				// moveToCenterAnchor(
@@ -229,7 +260,7 @@ export default async () => {
 				// 	slots[animalPositionLut[currentIdTrimmed]].x,
 				// 	slots[animalPositionLut[currentIdTrimmed]].y
 				// );
-				gsap.to(`#${currentId}`, { x: 0, y: 0 });
+				gsap.to(currentTarget, { x: 0, y: 0 });
 			}
 		},
 	});
@@ -293,10 +324,10 @@ export default async () => {
 
 	gsap
 		.timeline()
-		.to('#link-st-next', {
+		.to(nextButton, {
 			autoAlpha: 1,
 		})
-		.to('#link-st-next', {
+		.to(nextButton, {
 			filter: 'drop-shadow(0px 0px 14px #a90707)',
 			delay: 1,
 			repeat: -1,
@@ -304,7 +335,7 @@ export default async () => {
 			reversed: true,
 		});
 
-	await getResponse('link-st-next');
+	await getResponse(nextButton.id);
 	// stop audio playback after next button is clicked
 	stop();
 };

@@ -4,20 +4,7 @@ import config from '../config.yaml';
 import { stop } from '../util/audio';
 
 export const procedure = async () => {
-	const currentCulture = data.culture;
-	let currentProcedure = config.procedure[currentCulture] as string[];
-
-	if (!config.procedure[currentCulture]) {
-		Toastify({
-			escapeMarkup: false,
-			text: `🌏 <strong>Culture not found.</strong> <small>Your given URL paramter was not found within procedure objects in config.yaml. You either need to define the procedure, or check your URL parameter for typos.</small>`,
-			duration: 20000,
-			gravity: 'top', // `top` or `bottom`
-			position: 'right', // `left`, `center` or `right`
-			stopOnFocus: true, // Prevents dismissing of toast on hover
-			className: 'toast-error',
-		}).showToast();
-	}
+	let currentProcedure = config.procedure[data.culture] as string[];
 
 	// check if nested arrays exist at the second level, if so shuffle them, and flat them into the currentProcedure array
 	const isNested = currentProcedure.some((slide) => Array.isArray(slide));
