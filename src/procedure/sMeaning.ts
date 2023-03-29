@@ -27,7 +27,7 @@ export default async () => {
 			<label for="chck" class="check-trail"><span class="check-handler"></span> </label>
 		</div>
 	
-		<div id="response-area">
+		<div>
 			<textarea
 				disabled
 				id="text-response"
