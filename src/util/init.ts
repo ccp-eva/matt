@@ -118,7 +118,7 @@ export const init = () => {
 	if (config.devMode.enabled) {
 		Toastify({
 			escapeMarkup: false,
-			text: `⚙️ <strong>DEVMODE ON</strong>. <small>Verbose outputs.</small>`,
+			text: `⚙️ <strong>DEVMODE ON</strong>`,
 			duration: 5000,
 			// destination: 'https://github.com/apvarun/toastify-js',
 			// newWindow: true,
@@ -135,7 +135,7 @@ export const init = () => {
 		}).showToast();
 	}
 
-	if (config.devMode.enabled && config.devMode.exposeGlobalVariables) {
+	if (config.devMode.enabled) {
 		global.translations = translations;
 		global.showSingleSlide = showSingleSlide;
 		global.swapSlides = swapSlides;

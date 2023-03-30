@@ -1,8 +1,6 @@
 ---
-devMode: # if devMode is true, it will override individual settings for development
-  enabled: true
-  # if enabled the following properties will be set
-  exposeGlobalVariables: true
+devMode: # exposes global variables
+  enabled: false
 
 htmlBg: black # background color for letter boxing edges if aspect ratio is not 16:9
 svgBg: white
