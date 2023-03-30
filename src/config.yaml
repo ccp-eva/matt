@@ -85,6 +85,7 @@ procedure:
     - s-qu-thoughts
     - s-qu-feelings
     - s-qu-difference
+    - s-intro-ranking
     - rankingOrder:
         [
           s-qu-ranking-intelligence,
@@ -92,6 +93,7 @@ procedure:
           s-qu-ranking-feelings,
           s-qu-ranking-similarity,
         ]
+    - s-motivation-questions
     - s-qu-ownership
     - s-qu-ranking-exposure
     - s-qu-meat-fish
