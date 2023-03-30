@@ -22,6 +22,8 @@ import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
 
 export const init = () => {
+	const urlParameters = getUrlParameters();
+
 	const wrapper = document.getElementById('wrapper')! as HTMLDivElement;
 	// load initial SVG file
 	wrapper.innerHTML = svgPath;
@@ -69,8 +71,6 @@ export const init = () => {
 		removeDisplayNone();
 	}
 
-	const urlParameters = getUrlParameters();
-
 	// transform all rect nodes to foreignObject nodes
 	rectToForeignObject();
 
@@ -116,7 +116,7 @@ export const init = () => {
 	setMousePointer();
 	setScaleOnHover();
 
-	if (config.devMode.enabled) {
+	if (config.devmode) {
 		Toastify({
 			escapeMarkup: false,
 			text: `⚙️ <strong>DEVMODE ON</strong>`,
@@ -136,7 +136,7 @@ export const init = () => {
 		}).showToast();
 	}
 
-	if (config.devMode.enabled) {
+	if (config.devmode) {
 		global.translations = translations;
 		global.showSingleSlide = showSingleSlide;
 		global.swapSlides = swapSlides;

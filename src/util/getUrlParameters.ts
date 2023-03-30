@@ -92,5 +92,13 @@ export const getUrlParameters = () => {
 	} else {
 		params.input = config.globals.defaultDataTransfer;
 	}
+
+	// if not in devmode, remove all params from URL
+	console.log(config.devmode);
+	if (!config.devmode) {
+		// remove all params from URL
+		window.history.pushState({}, document.title, window.location.pathname);
+	}
+
 	return params;
 };
