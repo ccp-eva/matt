@@ -16,6 +16,9 @@ export default async () => {
 		isPlaying = false;
 	});
 
+	gsap.set(fsplayer, { autoAlpha: 0 });
+	fsplayer.style.display = 'block';
+
 	gsap
 		.timeline()
 		.to('#svg', {
@@ -48,4 +51,5 @@ export default async () => {
 		);
 
 	await sleep(500);
+	fsplayer.style.display = 'none';
 };

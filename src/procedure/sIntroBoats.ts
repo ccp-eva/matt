@@ -37,6 +37,9 @@ export default async () => {
 		autoAlpha: 0,
 	});
 
+	gsap.set(fsplayer, { autoAlpha: 0 });
+	fsplayer.style.display = 'block';
+
 	isPlaying = true;
 	gsap
 		.timeline()
@@ -70,4 +73,5 @@ export default async () => {
 		);
 
 	await sleep(500);
+	fsplayer.style.display = 'none';
 };
