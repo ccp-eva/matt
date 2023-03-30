@@ -3,38 +3,76 @@ import config from '../config.yaml';
 import { stop } from '../util/audio';
 
 export const procedure = async () => {
+	// let currentProcedure = config.procedure[data.culture] as string[];
 	let currentProcedure = config.procedure[data.culture] as string[];
 
-	// check if nested arrays exist at the second level, if so shuffle them, and flat them into the currentProcedure array
-	const isNested = currentProcedure.some((slide) => Array.isArray(slide));
+	// check if nested objects exist
+	let isNested = currentProcedure.some((e) => _.isPlainObject(e));
+
+	if (isNested) {
+		while (isNested) {
+			// get index of first nested occurrence (ni)
+			const ni = currentProcedure.findIndex((e) => _.isPlainObject(e));
+
+			// get the first nested object key
+			const nkey = Object.keys(currentProcedure[ni])[0];
+
+			// check if nested object is nested again
+			const isNestedAgain: boolean = currentProcedure[ni][nkey].some((e: string) =>
+				_.isPlainObject(e)
+			);
+
+			// if nested object is nested again, get nested key(s)
+			if (isNestedAgain) {
+				// shuffle nested keys in procedure
+				currentProcedure[ni][nkey] = _.shuffle(currentProcedure[ni][nkey]);
+
+				// get new nested key order
+				let nnkeys = currentProcedure[ni][nkey].map((e: string[]) => Object.keys(e)[0]) as string[];
+
+				// save shuffled order in data object
+				data[nkey] = nnkeys;
+
+				// shuffle inside our double nested array
+				nnkeys.forEach((nnkey, i) => {
+					let nnArray = currentProcedure[ni][nkey][i][nnkey] as string[];
+					nnArray = _.shuffle(nnArray);
+
+					// save shuffled order in data object
+					data[nnkey] = nnArray;
+
+					// save shuffled order in procedure
+					currentProcedure[ni][nkey][i][nnkey] = nnArray;
+				});
+
+				// flatten nested array
+				let subArrays: string[] = [];
+				currentProcedure[ni][nkey].forEach((e: string) => {
+					subArrays.push(...Object.values(e));
+				});
+				subArrays = _.flattenDeep(subArrays);
+				// overwrite procedure with flattened array
+				currentProcedure.splice(ni, 1, ...subArrays);
+			}
+			// if nested object is not nested again, shuffle nested keys in procedure
+			else {
+				currentProcedure[ni][nkey] = _.shuffle(currentProcedure[ni][nkey]);
+				data[nkey] = currentProcedure[ni][nkey];
+				const subArr = Object.values(currentProcedure[ni][nkey]) as string[];
+				currentProcedure.splice(ni, 1, ...subArr);
+			}
+
+			// check if procedure still contains nested objects
+			isNested = currentProcedure.some((e) => _.isPlainObject(e));
+		}
+	}
 
 	data.animalSlideCounter = 0;
 	data.reasoningSlideCounter = 0;
 
-	// todo use animalOrder and reasoningOrder
-	if (isNested) {
-		// create a copy of the currentProcedure array
-		const currentProcedureFlat = [...currentProcedure];
-
-		// get true/false indexes of nested arrays
-		const boolArray = currentProcedure.map((arr) => Array.isArray(arr));
-
-		// get all index positions from the boolArray that are true
-		const indices = boolArray.flatMap((bool, index) => (bool ? [index] : []));
-
-		// shuffle the nested arrays and insert them into currentProcedureFlat
-		for (const index of indices) {
-			const shuffledSubArray = _.shuffle(currentProcedure[index]);
-			currentProcedureFlat.splice(index, 1, ...shuffledSubArray);
-		}
-
-		// overwrite currentProcedure with the shuffled and flattened array
-		currentProcedure = currentProcedureFlat;
-	}
-
 	currentProcedure = currentProcedure.map((e: string) => _.camelCase(e));
 	data.slideOrder = currentProcedure;
-	console.log(currentProcedure);
+	console.table(currentProcedure);
 
 	data.totalSlides = currentProcedure.length;
 
