@@ -132,18 +132,5 @@ export default async () => {
 
 	await getResponse('link-sqrs-next');
 
-	gsap
-		.timeline()
-		.to(pinda, {
-			autoAlpha: 1,
-			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/motivation-questions.webm`;
-			},
-		})
-		.to(pinda, {
-			delay: 3,
-			autoAlpha: 0,
-		});
-
-	await sleep(4000);
+	await sleep(500);
 };

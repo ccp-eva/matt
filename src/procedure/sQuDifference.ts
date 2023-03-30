@@ -32,18 +32,5 @@ export default async () => {
 		response: response.id,
 	};
 
-	gsap
-		.timeline()
-		.to(pinda, {
-			autoAlpha: 1,
-			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/intro-ranking.webm`;
-			},
-		})
-		.to(pinda, {
-			delay: 4,
-			autoAlpha: 0,
-		});
-
-	await sleep(5000);
+	await sleep(500);
 };
