@@ -35,6 +35,7 @@ globals:
   defaultSubjectId: demo
   defaultAgeGroup: child # or adult
   defaultInput: userchoice-audio
+  defaultDataTransfer: server
   animalSlidesGap: 750 # delay in milliseconds after animal slides
   playAnimalYesNoAudio: 2
   playAnimalResponseFeedback: 1

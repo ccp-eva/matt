@@ -5,7 +5,8 @@ import config from '../config.yaml';
 import { rectToForeignObject } from './rectToForeignObject';
 import { recycleObjects } from './recycleObjects';
 import { copyAttributes } from './copyAttributes';
-import { getUrlParameters, downloadData } from './helpers';
+import { downloadData } from './helpers';
+import { getUrlParameters } from './getUrlParameters';
 import { widowedKeyChecker } from './widowedKeyChecker';
 import {
 	showSingleSlide,
