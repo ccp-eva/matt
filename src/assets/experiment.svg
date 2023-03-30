@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 27.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1920 1080" enable-background="new 0 0 1920 1080" xml:space="preserve">
 <g id="s-end">
@@ -494,7 +494,7 @@
 	</image>
 </g>
 <g id="s-intro-reasoning">
-	<rect id="s-ir" x="825" y="405" fill="none" width="271" height="271"/>
+	<rect id="s-ireasoning" x="825" y="405" fill="none" width="271" height="271"/>
 </g>
 <g id="s-qu-egg-cheese-milk">
 	<g id="eggCheeseMilk">
@@ -950,6 +950,9 @@
 		<image overflow="visible" width="80" height="80" id="link-sqo-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
+<g id="s-motivation-questions">
+	<rect id="s-mq" x="825" y="405" fill="none" width="271" height="271"/>
+</g>
 <g id="s-qu-ranking-similarity">
 	<rect id="ph-sqrs-next" x="1790" y="968" fill="#B8846E" width="90" height="90"/>
 	
@@ -1101,6 +1104,9 @@
 	
 		<image overflow="visible" width="80" height="80" id="link-sqri-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
+</g>
+<g id="s-intro-ranking">
+	<rect id="s-iranking" x="825" y="405" fill="none" width="271" height="271"/>
 </g>
 <g id="s-qu-difference">
 	
