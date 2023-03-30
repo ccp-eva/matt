@@ -1,7 +1,5 @@
 import { gsap } from 'gsap';
 import _ from 'lodash';
-import { play, playPromise } from '../util/audio';
-import { getResponse } from '../util/getResponse';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
@@ -11,20 +9,30 @@ export default async () => {
 
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 	gsap.set(pinda, { autoAlpha: 0 });
+	let isPlaying = true;
 
-	gsap
-		.timeline()
-		.to(pinda, {
-			autoAlpha: 1,
-			duration: 2,
-			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/intro-reasoning.webm`;
-			},
-		})
-		.to(pinda, {
-			autoAlpha: 0,
-			delay: 10.5,
-		});
+	pinda.addEventListener('play', () => {
+		isPlaying = true;
+	});
+	pinda.addEventListener('ended', () => {
+		isPlaying = false;
+	});
+
+	gsap.to(pinda, {
+		autoAlpha: 1,
+		duration: 2,
+		onStart: () => {
+			pinda.src = `./cultures/${data.culture}/video/intro-reasoning.webm`;
+		},
+	});
+
+	while (isPlaying) {
+		await sleep(100);
+	}
+
+	gsap.to(pinda, {
+		autoAlpha: 0,
+	});
 
 	await sleep(500);
 };

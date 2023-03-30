@@ -5,7 +5,8 @@ import config from '../config.yaml';
 import { rectToForeignObject } from './rectToForeignObject';
 import { recycleObjects } from './recycleObjects';
 import { copyAttributes } from './copyAttributes';
-import { getUrlParameters, downloadData } from './helpers';
+import { downloadData } from './helpers';
+import { getUrlParameters } from './getUrlParameters';
 import { widowedKeyChecker } from './widowedKeyChecker';
 import {
 	showSingleSlide,
@@ -21,6 +22,8 @@ import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
 
 export const init = () => {
+	const urlParameters = getUrlParameters();
+
 	const wrapper = document.getElementById('wrapper')! as HTMLDivElement;
 	// load initial SVG file
 	wrapper.innerHTML = svgPath;
@@ -68,8 +71,6 @@ export const init = () => {
 		removeDisplayNone();
 	}
 
-	const urlParameters = getUrlParameters();
-
 	// transform all rect nodes to foreignObject nodes
 	rectToForeignObject();
 
@@ -115,10 +116,10 @@ export const init = () => {
 	setMousePointer();
 	setScaleOnHover();
 
-	if (config.devMode.enabled) {
+	if (config.devmode) {
 		Toastify({
 			escapeMarkup: false,
-			text: `⚙️ <strong>DEVMODE ON</strong>. <small>Verbose outputs.</small>`,
+			text: `⚙️ <strong>DEVMODE ON</strong>`,
 			duration: 5000,
 			// destination: 'https://github.com/apvarun/toastify-js',
 			// newWindow: true,
@@ -135,7 +136,7 @@ export const init = () => {
 		}).showToast();
 	}
 
-	if (config.devMode.enabled && config.devMode.exposeGlobalVariables) {
+	if (config.devmode) {
 		global.translations = translations;
 		global.showSingleSlide = showSingleSlide;
 		global.swapSlides = swapSlides;

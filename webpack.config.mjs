@@ -86,8 +86,8 @@ export default {
 		}),
 		new HtmlWebpackPlugin({
 			title: 'Moral Attitudes Study',
-			filename: 'index.html', // default: index.html
-			template: './src/index.html',
+			filename: 'app.html', // default: index.html
+			template: './src/app.html',
 		}),
 	],
 
@@ -97,7 +97,7 @@ export default {
 			directory: path.join(__dirname, './'), // that should point where you index.html is
 		},
 		// port: 3000,
-		open: { app: { name: 'firefox' } },
+		open: { app: { name: 'firefox' }, target: ['app.html'] },
 		hot: true, // enable hot reload
 		compress: true, // enable gzip compression
 		historyApiFallback: true, // enable HTML5 history API

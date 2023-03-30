@@ -1,9 +1,5 @@
 ---
-devMode: # if devMode is true, it will override individual settings for development
-  enabled: true
-  # if enabled the following properties will be set
-  exposeGlobalVariables: true
-
+devmode: false # exposes global variables, and does other stuff
 htmlBg: black # background color for letter boxing edges if aspect ratio is not 16:9
 svgBg: white
 hideUrlParameters: false
@@ -37,6 +33,7 @@ globals:
   defaultSubjectId: demo
   defaultAgeGroup: child # or adult
   defaultInput: userchoice-audio
+  defaultDataTransfer: server
   animalSlidesGap: 750 # delay in milliseconds after animal slides
   playAnimalYesNoAudio: 2
   playAnimalResponseFeedback: 1
