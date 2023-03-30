@@ -45,7 +45,7 @@ export default async () => {
 
 	const left = document.getElementById('sr1h1cat-oneHuman')! as SvgInHtml;
 	const center = document.getElementById('sr1h1cat-cantDecide')! as SvgInHtml;
-	const right = document.getElementById('sr1h1cat-onecat')! as SvgInHtml;
+	const right = document.getElementById('sr1h1cat-oneCat')! as SvgInHtml;
 	const nextButton = document.getElementById('link-sr1h1cat-next') as SvgInHtml;
 	const headphones = document.getElementById('link-sr1h1cat-headphones') as SvgInHtml;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
