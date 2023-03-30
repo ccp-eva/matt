@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 27.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1920 1080" enable-background="new 0 0 1920 1080" xml:space="preserve">
 <g id="s-end">
@@ -924,9 +924,9 @@
 		<image overflow="visible" width="89" height="67" id="link-sqre-cat" xlink:href="cat.png"  transform="matrix(0.7723 0 0 0.7723 1082.2614 302.5722)">
 	</image>
 	
-		<rect id="text-exposureAdult" x="110" y="60" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1700" height="120"/>
+		<rect id="text-exposureAdult" x="110" y="60" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1700" height="160"/>
 	
-		<rect id="text-exposureChild" x="110" y="60" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1700" height="120"/>
+		<rect id="text-exposureChild" x="110" y="60" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1700" height="160"/>
 	<rect id="ph-sqre-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	
 		<image overflow="visible" width="80" height="80" id="link-sqre-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
