@@ -14,9 +14,17 @@ export default async () => {
 	const inner = document.getElementById('sbp-inner')! as SvgInHtml;
 	const middle = document.getElementById('sbp-middle')! as SvgInHtml;
 	const outer = document.getElementById('sbp-outer')! as SvgInHtml;
+	const audio = document.getElementById('audio') as HTMLMediaElement;
 
 	gsap.set([inner, middle, outer], { opacity: 0.5 });
 
+	let isPlaying = true;
+	audio.addEventListener('play', () => {
+		isPlaying = true;
+	});
+	audio.addEventListener('ended', () => {
+		isPlaying = false;
+	});
 	await playPromise(`./cultures/${data.culture}/audio/s-ball-practice.mp3`);
 	await playPromise(`./cultures/${data.culture}/audio/sbp-expl.mp3`);
 
@@ -230,7 +238,10 @@ export default async () => {
 	) {
 		data.procedure.sBallPractice.completed = true;
 	}
-	data.procedure.sBallPractice!.duration = new Date().getTime() - startTime;
 
-	await sleep(1000);
+	while (isPlaying) {
+		await sleep(100);
+	}
+
+	// await sleep(1000);
 };
