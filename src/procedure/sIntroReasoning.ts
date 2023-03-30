@@ -26,5 +26,5 @@ export default async () => {
 			delay: 10.5,
 		});
 
-	await sleep(50000);
+	await sleep(500);
 };
