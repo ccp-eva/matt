@@ -15,6 +15,43 @@ export const moveToCenterAnchor = (svg: SvgInHtml, x: number, y: number) => {
 	svg.setAttribute('transform', `translate(${x - cx}, ${y - cy})`);
 };
 
+export const startFullscreen = () => {
+	const elem = document.documentElement as HTMLElement & {
+		mozRequestFullScreen(): Promise<void>;
+		webkitRequestFullscreen(): Promise<void>;
+		msRequestFullscreen(): Promise<void>;
+	};
+	if (elem.requestFullscreen) {
+		elem.requestFullscreen();
+	} else if (elem.webkitRequestFullscreen) {
+		/* Safari */
+		elem.webkitRequestFullscreen();
+	} else if (elem.msRequestFullscreen) {
+		/* IE11 */
+		elem.msRequestFullscreen();
+	}
+};
+
+export const exitFullscreen = () => {
+	const elem = document as Document & {
+		mozCancelFullScreen(): Promise<void>;
+		webkitExitFullscreen(): Promise<void>;
+		msExitFullscreen(): Promise<void>;
+	};
+	if (elem.exitFullscreen) {
+		elem.exitFullscreen();
+	} else if (elem.mozCancelFullScreen) {
+		/* Firefox */
+		elem.mozCancelFullScreen();
+	} else if (elem.webkitExitFullscreen) {
+		/* Chrome, Safari and Opera */
+		elem.webkitExitFullscreen();
+	} else if (elem.msExitFullscreen) {
+		/* IE/Edge */
+		elem.msExitFullscreen();
+	}
+};
+
 export const downloadData = () => {
 	// download data as JSON from global data object
 	const blob = new Blob([JSON.stringify(data, null, 2)]);
