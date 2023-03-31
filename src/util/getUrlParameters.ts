@@ -76,14 +76,10 @@ export const getUrlParameters = () => {
 	}
 
 	if (params.datatransfer) {
-		if (
-			params.datatransfer !== 'server' &&
-			params.datatransfer !== 'local' &&
-			params.datatransfer !== 'both'
-		) {
+		if (params.datatransfer !== 'both' && params.datatransfer !== 'server') {
 			Toastify({
 				escapeMarkup: false,
-				text: '<strong>Parameter Error</strong>: <small><code>datatransfer</code> parameter can only be: <code>server</code>, <code>local</code>, or <code>both</code></small>',
+				text: '<strong>Parameter Error</strong>: <small><code>datatransfer</code> parameter can only be: <code>both</code> or <code>server</code></small>',
 				duration: 0,
 				className: 'toast-info',
 			}).showToast();

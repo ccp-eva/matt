@@ -38,6 +38,7 @@ declare var data: {
 	culture: string;
 	agegroup: 'child' | 'adult';
 	input: 'audio' | 'text' | 'userchoice-audio' | 'userchoice-text';
+	datatransfer: 'server' | 'both';
 	initialTimestamp: string;
 	totalSlides: number;
 	slideCounter: number;
