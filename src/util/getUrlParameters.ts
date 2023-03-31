@@ -89,7 +89,7 @@ export const getUrlParameters = () => {
 			}).showToast();
 		}
 	} else {
-		params.input = config.globals.defaultDataTransfer;
+		params.datatransfer = config.globals.defaultDataTransfer;
 	}
 
 	// if not in devmode, remove all params from URL
