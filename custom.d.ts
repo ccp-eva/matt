@@ -46,13 +46,10 @@ declare var data: {
 	nextSlide: string;
 	slideOrder: string[];
 	dilemmaOrder: string[];
-	dilemmaCounter: number;
+	dilemmaMotivationOnePlayed: boolean;
 	companionOrder: string[];
-	companionCounter: number;
 	foodOrder: string[];
-	foodCounter: number;
 	controlOrder: string[];
-	controlCounter: number;
 	animalSlideCounter: number;
 	animalOrder: string[];
 	reasoningSlideCounter: number;
