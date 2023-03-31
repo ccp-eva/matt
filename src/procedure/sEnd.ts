@@ -5,6 +5,7 @@ import { exitFullscreen } from '../util/helpers';
 import { downloadData, uploadData } from '../util/helpers';
 
 export default async () => {
+	data.endingTimestamp = new Date().toISOString();
 	exitFullscreen();
 	if (data.datatransfer === 'both') {
 		uploadData();

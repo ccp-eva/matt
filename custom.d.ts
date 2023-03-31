@@ -40,6 +40,7 @@ declare var data: {
 	input: 'audio' | 'text' | 'userchoice-audio' | 'userchoice-text';
 	datatransfer: 'server' | 'both';
 	initialTimestamp: string;
+	endingTimestamp: string;
 	totalSlides: number;
 	slideCounter: number;
 	previousSlide: string;
