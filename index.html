@@ -23,7 +23,10 @@
 				<form>
 					<h1>Moral Attitudes Study</h1>
 					<p style="text-align: center; margin-bottom: 30px">
-						Max Planck Institute for Evolutionary Anthropology, Comparative Cultural Psychology
+						Max Planck Institute for Evolutionary Anthropology, Comparative Cultural Psychology<br />
+						<span style="font-size: small"
+							><a href="mailto:noemi_thiede@eva.mpg.de">Thiede N., et al.</a></span
+						>
 					</p>
 					<hr />
 					<div id="form-id" class="form-group">
@@ -34,7 +37,7 @@
 							required
 							maxlength="20"
 							autocomplete="off"
-							onkeydown="return /[0-9a-zA-Z]/i.test(event.key)"
+							onkeydown="return /[0-9a-zA-Z-_]/i.test(event.key)"
 						/>
 						<label for="input-id" class="control-label">ID (alphanumeric, max. 20 chars)</label
 						><i class="bar"></i>
