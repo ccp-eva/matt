@@ -5,7 +5,7 @@ import config from '../config.yaml';
 import { rectToForeignObject } from './rectToForeignObject';
 import { recycleObjects } from './recycleObjects';
 import { copyAttributes } from './copyAttributes';
-import { downloadData } from './helpers';
+import { downloadData, uploadData } from './helpers';
 import { getUrlParameters } from './getUrlParameters';
 import { widowedKeyChecker } from './widowedKeyChecker';
 import {
@@ -150,5 +150,6 @@ export const init = () => {
 	}
 	// always expose downloadData function
 	global.downloadData = downloadData;
+	global.uploadData = uploadData;
 	global.config = config;
 };
