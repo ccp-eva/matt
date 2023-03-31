@@ -76,6 +76,7 @@ export const procedure = async () => {
 	data.animalSlideCounter = 0;
 	data.reasoningSlideCounter = 0;
 	data.dilemmaMotivationOnePlayed = false;
+	data.dilemmaMotivationTwoPlayed = false;
 
 	currentProcedure = currentProcedure.map((e: string) => _.camelCase(e));
 	data.slideOrder = currentProcedure;

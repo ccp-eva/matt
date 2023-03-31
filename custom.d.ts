@@ -47,6 +47,7 @@ declare var data: {
 	slideOrder: string[];
 	dilemmaOrder: string[];
 	dilemmaMotivationOnePlayed: boolean;
+	dilemmaMotivationTwoPlayed: boolean;
 	companionOrder: string[];
 	foodOrder: string[];
 	controlOrder: string[];

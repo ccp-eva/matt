@@ -66,7 +66,7 @@ export default async () => {
 	console.log(response.id);
 	data.procedure[data.currentSlide].response = response.id;
 
-	if (isLast) {
+	if (isLast && !data.dilemmaMotivationTwoPlayed) {
 		pinda.addEventListener('play', () => {
 			isPlaying = true;
 		});
@@ -83,6 +83,7 @@ export default async () => {
 					data.dilemmaMotivationOnePlayed = true;
 				} else {
 					pinda.src = `./cultures/${data.culture}/video/motivation-dilemma2.webm`;
+					data.dilemmaMotivationTwoPlayed = true;
 				}
 			},
 		});
