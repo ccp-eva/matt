@@ -6,8 +6,14 @@ import { downloadData, uploadData } from '../util/helpers';
 
 export default async () => {
 	exitFullscreen();
-	uploadData();
-	downloadData();
+	if (data.datatransfer === 'both') {
+		uploadData();
+		downloadData();
+	}
+	if (data.datatransfer === 'server') {
+		uploadData();
+	}
+
 	// swap slides automatically (don’t touch this)
 	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
 
