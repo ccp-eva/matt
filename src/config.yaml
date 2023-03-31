@@ -79,19 +79,19 @@ procedure:
             ]
         - controlOrder: [s-c-1-hu-10-hu, s-c-1-hu-10-na, s-c-1-hu-10-sp, s-c-1-ca-1-co]
     - s-motivation-dilemma3
-    # - s-qu-thoughts
-    # - s-qu-feelings
-    # - s-qu-difference
-    # - s-intro-ranking
-    # - rankingOrder:
-    #     [
-    #       s-qu-ranking-intelligence,
-    #       s-qu-ranking-pain,
-    #       s-qu-ranking-feelings,
-    #       s-qu-ranking-similarity,
-    #     ]
-    # - s-motivation-questions
-    # - s-qu-ownership
+    - s-qu-thoughts
+    - s-qu-feelings
+    - s-qu-difference
+    - s-intro-ranking
+    - rankingOrder:
+        [
+          s-qu-ranking-intelligence,
+          s-qu-ranking-pain,
+          s-qu-ranking-feelings,
+          s-qu-ranking-similarity,
+        ]
+    - s-motivation-questions
+    - s-qu-ownership
     - s-qu-ranking-exposure
     - s-qu-meat-fish
     - s-qu-egg-cheese-milk

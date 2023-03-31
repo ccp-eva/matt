@@ -20,7 +20,10 @@
     - [`data`](#data)
     - [`downloadData()`](#downloaddata)
   - [Deploy to GitHub Staging Site](#deploy-to-github-staging-site)
+  - [Offline Usage](#offline-usage)
   - [Deploy to MPI Server](#deploy-to-mpi-server)
+    - [Manual Steps](#manual-steps)
+    - [Using GitHub Actions](#using-github-actions)
 - [Contributions](#contributions)
   - [Voice-over speakers](#voice-over-speakers)
 
@@ -38,7 +41,7 @@ todo
 ### URL Parameters
 
 You can modify the experiment by attaching various URL parameters, for example:  
-https://ccp-eva.github.io/matt/?id=johndoe&culture=de-urban&agegroup=child&input=text
+https://ccp-eva.github.io/matt/app?id=johndoe&culture=de-urban&agegroup=child&input=text
 
 | Parameter      | Default            | Explanation                                                                                                                                                           | Restrictions                                                                                                            |
 | -------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -152,7 +155,20 @@ Is called in the last slide, to download the the `data` object in JSON format. T
 6. This will trigger a [GitHub Action](https://github.com/ccp-eva/matt/actions)
 7. After 2 to 3 minutes the website is live here: https://ccp-eva.github.io/matt/
 
+### Offline Usage
+
+1. Install nodejs
+2. Install live-server globally `npm i -g live-server`
+3. Download this repo at gh-pages branch: https://github.com/ccp-eva/matt/archive/refs/heads/gh-pages.zip
+4. unzip matt-gh-pages
+5. cd into that gh-pages folder and run `liver-server`
+6. Your default browser will open
+
 ### Deploy to MPI Server
+
+#### Manual Steps
+
+#### Using GitHub Actions
 
 todo
 
