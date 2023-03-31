@@ -21,7 +21,7 @@ export default async () => {
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 	gsap.set(pinda, { autoAlpha: 0 });
 
-	const slidePrefix = 'ss2h1cat';
+	const slidePrefix = 's2h1cat';
 	const leftPostfix = 'oneCat';
 	const rightPostfix = 'twoHumans';
 	const headphones = document.getElementById(`link-${slidePrefix}-headphones`)! as SvgInHtml;

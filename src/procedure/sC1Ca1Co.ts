@@ -32,7 +32,7 @@ export default async () => {
 
 	gsap.set([left, center, right, headphones], { opacity: 0.5, pointerEvents: 'none' });
 
-	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-1cat-left.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-cat-left.mp3`);
 	await playPromise(`./cultures/${data.culture}/audio/saving.mp3`);
 
 	gsap.set([left, center, right, headphones], { opacity: 1, pointerEvents: 'visible' });
