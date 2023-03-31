@@ -10,7 +10,7 @@ export const getUrlParameters = () => {
 
 	// Perfom sanity checks on provided parameters, else use config.yaml defaults
 	if (params.id) {
-		const alphaNumeric = /^[a-z0-9]+$/i;
+		const alphaNumeric = /^[a-z0-9-_]+$/i;
 		if (!alphaNumeric.test(params.id)) {
 			Toastify({
 				escapeMarkup: false,
