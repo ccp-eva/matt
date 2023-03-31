@@ -28,7 +28,6 @@ export const getUrlParameters = () => {
 				className: 'toast-info',
 			}).showToast();
 		}
-		console.log(params.id);
 	} else {
 		params.id = config.globals.defaultSubjectId;
 	}
@@ -94,7 +93,6 @@ export const getUrlParameters = () => {
 	}
 
 	// if not in devmode, remove all params from URL
-	console.log(config.devmode);
 	if (!config.devmode) {
 		// remove all params from URL
 		window.history.pushState({}, document.title, window.location.pathname);
