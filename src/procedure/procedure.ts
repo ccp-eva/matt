@@ -3,8 +3,7 @@ import config from '../config.yaml';
 import { stop } from '../util/audio';
 
 export const procedure = async () => {
-	// let currentProcedure = config.procedure[data.culture] as string[];
-	let currentProcedure = config.procedure[data.culture] as string[];
+	let currentProcedure = _.cloneDeep(config.procedure[data.culture]);
 
 	// check if nested objects exist
 	let isNested = currentProcedure.some((e) => _.isPlainObject(e));
@@ -86,11 +85,14 @@ export const procedure = async () => {
 		data.nextSlide = currentProcedure[index + 1];
 		data.slideCounter++;
 
-		// init procedure response
+		// init default procedure response
 		data.procedure[slide] = {
 			duration: 0,
 			response: '',
 		};
+
+		// track dilemma slides
+
 		// start time tracking
 		const startTime = new Date().getTime();
 
