@@ -145,10 +145,10 @@ export const init = () => {
 		global.getChildrenFromParent = getChildrenFromParent;
 		global.removeDisplayNone = removeDisplayNone;
 		global.svgChilds = svgChilds;
-		global.config = config;
 		global.recycleObjects = recycleObjects;
 		global.copyAttributes = copyAttributes;
 	}
 	// always expose downloadData function
 	global.downloadData = downloadData;
+	global.config = config;
 };

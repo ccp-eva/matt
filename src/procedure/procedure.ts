@@ -5,6 +5,13 @@ import { stop } from '../util/audio';
 export const procedure = async () => {
 	let currentProcedure = _.cloneDeep(config.procedure[data.culture]);
 
+	const nestedProcKeyValueStore = currentProcedure.reduce((acc, cv, i) => {
+		if (_.isPlainObject(cv)) {
+			acc[Object.keys(cv)[0]] = i;
+		}
+		return acc;
+	}, {});
+
 	// check if nested objects exist
 	let isNested = currentProcedure.some((e) => _.isPlainObject(e));
 
@@ -74,6 +81,10 @@ export const procedure = async () => {
 	console.table(currentProcedure);
 
 	data.totalSlides = currentProcedure.length;
+
+	// DILEMMA SLIDE LOGIC
+	console.log(data.dilemmaOrder);
+	console.log(config.procedure[data.culture][nestedProcKeyValueStore.dilemmaOrder].dilemmaOrder);
 
 	// ================================================
 	// PROCEDURE LOOP

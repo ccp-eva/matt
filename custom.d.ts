@@ -45,6 +45,14 @@ declare var data: {
 	currentSlide: string;
 	nextSlide: string;
 	slideOrder: string[];
+	dilemmaOrder: string[];
+	dilemmaCounter: number;
+	companionOrder: string[];
+	companionCounter: number;
+	foodOrder: string[];
+	foodCounter: number;
+	controlOrder: string[];
+	controlCounter: number;
 	animalSlideCounter: number;
 	animalOrder: string[];
 	reasoningSlideCounter: number;
