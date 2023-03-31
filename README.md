@@ -138,7 +138,7 @@ For further (implementation) details, see this issue: [#53](https://github.com/c
 
 ### Global Objects
 
-In the production build, there are two global objects (i.e., `data` and `downloadData()`), which can be accessed in your browser’s dev tools (Ctrl+Shift+I or Cmd+Shift+I).
+In the production build, there are four global objects (i.e., `data`, `downloadData()`, `uploadData()`, and the configuration file `config`), which can be accessed in your browser’s dev tools (Ctrl+Shift+I or Cmd+Shift+I).
 
 #### `data`
 
