@@ -84,6 +84,7 @@ export const init = () => {
 		culture: urlParameters.culture,
 		agegroup: urlParameters.agegroup,
 		input: urlParameters.input,
+		datatransfer: urlParameters.datatransfer,
 		initialTimestamp: new Date().toISOString(),
 		slideCounter: 0,
 		procedure: {},
