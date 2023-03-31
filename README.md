@@ -171,6 +171,14 @@ Is called in the last slide, to download the the `data` object in JSON format. T
 
 #### Manual Steps
 
+1. Make your changes
+2. Test with npm start if you changes work
+3. Commit your changes into `develop` branch
+4. Merge your changes into main (this will rollout to GitHub Staging Site)
+   1. (`git switch main` → `git merge develop` → `git push`)
+5. Switch back to develop (`git switch develop`)
+6. Deploy to MPI server: `npm run deploy`
+
 #### Using GitHub Actions
 
 todo
