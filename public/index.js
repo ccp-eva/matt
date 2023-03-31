@@ -79,7 +79,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
 		.set(2, 'audio')
 		.set(3, 'text');
 
-	const datatransferMapping = new Map().set(0, 'server').set(1, 'local').set(2, 'both');
+	const datatransferMapping = new Map().set(0, 'both').set(1, 'server');
 
 	input = input ? input : inputMapping.get(inputIndex);
 	datatransfer = datatransfer ? datatransfer : datatransferMapping.get(datatransferIndex);

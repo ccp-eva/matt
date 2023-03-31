@@ -1,4 +1,5 @@
-import _ from 'lodash';
+import { gsap } from 'gsap';
+import _, { head } from 'lodash';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
@@ -9,13 +10,42 @@ export default async () => {
 	// swap slides automatically (don’t touch this)
 	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
 
-	const left = document.getElementById('s100h1cat-oneCat')! as SvgInHtml;
-	const center = document.getElementById('s100h1cat-cantDecide')! as SvgInHtml;
-	const right = document.getElementById('s100h1cat-hundredHumans')! as SvgInHtml;
+	// check if current slide is last slide in any of the orders
+	let isLast = false;
+	[data.companionOrder, data.foodOrder, data.controlOrder].forEach((order) => {
+		const orderLength = order.length - 1;
+		if (order.indexOf(_.kebabCase(data.currentSlide)) === orderLength) {
+			isLast = true;
+			return;
+		}
+	});
+	const pinda = document.getElementById('player') as HTMLVideoElement;
+	gsap.set(pinda, { autoAlpha: 0 });
 
-	play(`./cultures/${data.culture}/audio/s100h1cat-left.mp3`, 'link-s100h1cat-headphones');
-	await playPromise(`./cultures/${data.culture}/audio/s100h1cat-right.mp3`);
+	const slidePrefix = 's100h1cat';
+	const leftPostfix = 'oneCat';
+	const rightPostfix = 'hundredHumans';
+	const headphones = document.getElementById(`link-${slidePrefix}-headphones`)! as SvgInHtml;
+	const audio = document.getElementById('audio') as HTMLMediaElement;
+	const left = document.getElementById(`${slidePrefix}-${leftPostfix}`)! as SvgInHtml;
+	const center = document.getElementById(`${slidePrefix}-cantDecide`)! as SvgInHtml;
+	const right = document.getElementById(`${slidePrefix}-${rightPostfix}`)! as SvgInHtml;
+
+	gsap.set([left, center, right, headphones], { opacity: 0.5, pointerEvents: 'none' });
+
+	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
 	await playPromise(`./cultures/${data.culture}/audio/saving.mp3`);
+
+	gsap.set([left, center, right, headphones], { opacity: 1, pointerEvents: 'visible' });
+
+	audio.addEventListener('play', () => {
+		gsap.set([headphones, left, center, right], { autoAlpha: 0.25, pointerEvents: 'none' });
+	});
+	audio.addEventListener('ended', () => {
+		gsap.to([headphones, left, center, right], { autoAlpha: 1, pointerEvents: 'visible' });
+	});
+
+	play(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`, headphones.id);
 
 	[left, center, right].forEach((el) => {
 		el.classList.add('dilemma-card');
@@ -23,9 +53,9 @@ export default async () => {
 
 	// save responses and store to response object
 	let response = await getResponse([
-		's100h1cat-oneCat',
-		's100h1cat-cantDecide',
-		's100h1cat-hundredHumans',
+		`${slidePrefix}-${leftPostfix}`,
+		`${slidePrefix}-cantDecide`,
+		`${slidePrefix}-${rightPostfix}`,
 	]);
 
 	// bubble up until first g element
@@ -35,6 +65,35 @@ export default async () => {
 
 	console.log(response.id);
 	data.procedure[data.currentSlide].response = response.id;
+
+	if (isLast && !data.dilemmaMotivationTwoPlayed) {
+		pinda.addEventListener('play', () => {
+			isPlaying = true;
+		});
+		pinda.addEventListener('ended', () => {
+			isPlaying = false;
+		});
+		let isPlaying = true;
+		gsap.timeline().to(pinda, {
+			autoAlpha: 1,
+			duration: 2,
+			onStart: () => {
+				if (data.dilemmaMotivationOnePlayed === false) {
+					pinda.src = `./cultures/${data.culture}/video/motivation-dilemma1.webm`;
+					data.dilemmaMotivationOnePlayed = true;
+				} else {
+					pinda.src = `./cultures/${data.culture}/video/motivation-dilemma2.webm`;
+					data.dilemmaMotivationTwoPlayed = true;
+				}
+			},
+		});
+
+		while (isPlaying) {
+			await sleep(100);
+		}
+
+		gsap.to(pinda, { autoAlpha: 0 });
+	}
 
 	await sleep(500);
 };

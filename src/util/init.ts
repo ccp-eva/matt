@@ -5,7 +5,7 @@ import config from '../config.yaml';
 import { rectToForeignObject } from './rectToForeignObject';
 import { recycleObjects } from './recycleObjects';
 import { copyAttributes } from './copyAttributes';
-import { downloadData } from './helpers';
+import { downloadData, uploadData } from './helpers';
 import { getUrlParameters } from './getUrlParameters';
 import { widowedKeyChecker } from './widowedKeyChecker';
 import {
@@ -84,6 +84,7 @@ export const init = () => {
 		culture: urlParameters.culture,
 		agegroup: urlParameters.agegroup,
 		input: urlParameters.input,
+		datatransfer: urlParameters.datatransfer,
 		initialTimestamp: new Date().toISOString(),
 		slideCounter: 0,
 		procedure: {},
@@ -150,5 +151,6 @@ export const init = () => {
 	}
 	// always expose downloadData function
 	global.downloadData = downloadData;
+	global.uploadData = uploadData;
 	global.config = config;
 };

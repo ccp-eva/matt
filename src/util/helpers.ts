@@ -52,14 +52,34 @@ export const exitFullscreen = () => {
 	}
 };
 
+export const generateUserIdFilename = () => {
+	const day = new Date().toISOString().slice(0, 10);
+	const time = new Date().toISOString().slice(11, 19).split(':').join('-');
+	return `matt-${data.id}-${day}-${time}.json`;
+};
+
 export const downloadData = () => {
 	// download data as JSON from global data object
 	const blob = new Blob([JSON.stringify(data, null, 2)]);
-	const day = new Date().toISOString().slice(0, 10);
-	const time = new Date().toISOString().slice(11, 19).split(':').join('-');
-
 	const hiddenElement = document.createElement('a');
 	hiddenElement.href = window.URL.createObjectURL(blob);
-	hiddenElement.download = `matt-${data.id}-${day}-${time}.json`;
+	hiddenElement.download = generateUserIdFilename();
 	hiddenElement.click();
+};
+
+export const uploadData = (blob: {} = data, id: string = generateUserIdFilename()) => {
+	fetch('./data/data.php', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ data: JSON.stringify(blob), fname: id }),
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log('Success:', data);
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+		});
 };

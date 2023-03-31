@@ -2,11 +2,19 @@ import _ from 'lodash';
 import { gsap } from 'gsap';
 import { swapSlides } from '../util/slideVisibility';
 import { exitFullscreen } from '../util/helpers';
-import { downloadData } from '../util/helpers';
+import { downloadData, uploadData } from '../util/helpers';
 
 export default async () => {
+	data.endingTimestamp = new Date().toISOString();
 	exitFullscreen();
-	downloadData();
+	if (data.datatransfer === 'both') {
+		uploadData();
+		downloadData();
+	}
+	if (data.datatransfer === 'server') {
+		uploadData();
+	}
+
 	// swap slides automatically (don’t touch this)
 	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
 

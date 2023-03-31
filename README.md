@@ -5,7 +5,10 @@
 > **Moral Attitudes Study**  
 > A browser-based game that investigates todo ...
 >
-> **🚀 Demo:** **https://ccp-eva.github.io/matt/**
+> **🚀 Demos:**
+>
+> - **https://ccp-eva.github.io/matt/** (Staging)
+> - **https://ccp-odc.eva.mpg.de/matt/** (Live)
 
 ---
 
@@ -49,7 +52,7 @@ https://ccp-eva.github.io/matt/app?id=johndoe&culture=de-urban&agegroup=child&in
 | `culture`      | `de-urban`         | Changes, text, audio, and visuals                                                                                                                                     | Any value defined with procedure key in [config.yaml](https://github.com/ccp-eva/matt/blob/develop/src/config.yaml#L45) |
 | `agegroup`     | `child`            | Loads a different set of text                                                                                                                                         | Either `child` or `adult`                                                                                               |
 | `input`        | `userchoice-audio` | Respond either by text or audio input, or leave it up the the user to decide. `userchoice-audio` will land on audio first. `userchoice-text` will land on text first. | Either `text`, `audio` or `userchoice-audio`, `userchoice-text`                                                         |
-| `datatransfer` | `server`           | The way where response data is sent to. `sever` will use the php endpoint. `local` calls `downloadData()` at the last slide. Both does both :)                        | Can either be: `server` (default), `local`, `both`                                                                      |
+| `datatransfer` | `both`             | The way where response data is sent to. `sever` will use the php endpoint. `both` calls `downloadData()` and you will also get a local copy of your data.             | Can either be: `both` (default) or `server`                                                                             |
 
 Culture parameters are composed of a country code (i.e, [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), lowercased (e.g., de)) and an arbitrary suffix (i.e., rural or urban). For example: `de-urban`.
 
@@ -135,7 +138,7 @@ For further (implementation) details, see this issue: [#53](https://github.com/c
 
 ### Global Objects
 
-In the production build, there are two global objects (i.e., `data` and `downloadData()`), which can be accessed in your browser’s dev tools (Ctrl+Shift+I or Cmd+Shift+I).
+In the production build, there are four global objects (i.e., `data`, `downloadData()`, `uploadData()`, and the configuration file `config`), which can be accessed in your browser’s dev tools (Ctrl+Shift+I or Cmd+Shift+I).
 
 #### `data`
 
@@ -167,6 +170,14 @@ Is called in the last slide, to download the the `data` object in JSON format. T
 ### Deploy to MPI Server
 
 #### Manual Steps
+
+1. Make your changes
+2. Test with npm start if you changes work
+3. Commit your changes into `develop` branch
+4. Merge your changes into main (this will rollout to GitHub Staging Site)
+   1. (`git switch main` → `git merge develop` → `git push`)
+5. Switch back to develop (`git switch develop`)
+6. Deploy to MPI server: `npm run deploy`
 
 #### Using GitHub Actions
 

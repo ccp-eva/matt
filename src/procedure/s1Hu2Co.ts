@@ -10,6 +10,18 @@ export default async () => {
 	// swap slides automatically (don’t touch this)
 	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
 
+	// check if current slide is last slide in any of the orders
+	let isLast = false;
+	[data.companionOrder, data.foodOrder, data.controlOrder].forEach((order) => {
+		const orderLength = order.length - 1;
+		if (order.indexOf(_.kebabCase(data.currentSlide)) === orderLength) {
+			isLast = true;
+			return;
+		}
+	});
+	const pinda = document.getElementById('player') as HTMLVideoElement;
+	gsap.set(pinda, { autoAlpha: 0 });
+
 	const slidePrefix = 's1h2cows';
 	const leftPostfix = 'oneHuman';
 	const rightPostfix = 'twoCows';
@@ -53,6 +65,35 @@ export default async () => {
 
 	console.log(response.id);
 	data.procedure[data.currentSlide].response = response.id;
+
+	if (isLast && !data.dilemmaMotivationTwoPlayed) {
+		pinda.addEventListener('play', () => {
+			isPlaying = true;
+		});
+		pinda.addEventListener('ended', () => {
+			isPlaying = false;
+		});
+		let isPlaying = true;
+		gsap.timeline().to(pinda, {
+			autoAlpha: 1,
+			duration: 2,
+			onStart: () => {
+				if (data.dilemmaMotivationOnePlayed === false) {
+					pinda.src = `./cultures/${data.culture}/video/motivation-dilemma1.webm`;
+					data.dilemmaMotivationOnePlayed = true;
+				} else {
+					pinda.src = `./cultures/${data.culture}/video/motivation-dilemma2.webm`;
+					data.dilemmaMotivationTwoPlayed = true;
+				}
+			},
+		});
+
+		while (isPlaying) {
+			await sleep(100);
+		}
+
+		gsap.to(pinda, { autoAlpha: 0 });
+	}
 
 	await sleep(500);
 };

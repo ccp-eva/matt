@@ -9,7 +9,8 @@
 		"voxify": "node src/voxify/",
 		"start": "webpack serve",
 		"clean": "rimraf dist",
-		"build": "npm run clean && NODE_ENV=production webpack"
+		"build": "npm run clean && NODE_ENV=production webpack",
+		"deploy": "npm run build && rsync -avu --chmod D2775 dist/ ccp-odcJ:/srv/ccp-odc/matt/"
 	},
 	"repository": {
 		"type": "git",

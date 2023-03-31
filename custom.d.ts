@@ -38,7 +38,9 @@ declare var data: {
 	culture: string;
 	agegroup: 'child' | 'adult';
 	input: 'audio' | 'text' | 'userchoice-audio' | 'userchoice-text';
+	datatransfer: 'server' | 'both';
 	initialTimestamp: string;
+	endingTimestamp: string;
 	totalSlides: number;
 	slideCounter: number;
 	previousSlide: string;
@@ -46,13 +48,11 @@ declare var data: {
 	nextSlide: string;
 	slideOrder: string[];
 	dilemmaOrder: string[];
-	dilemmaCounter: number;
+	dilemmaMotivationOnePlayed: boolean;
+	dilemmaMotivationTwoPlayed: boolean;
 	companionOrder: string[];
-	companionCounter: number;
 	foodOrder: string[];
-	foodCounter: number;
 	controlOrder: string[];
-	controlCounter: number;
 	animalSlideCounter: number;
 	animalOrder: string[];
 	reasoningSlideCounter: number;
