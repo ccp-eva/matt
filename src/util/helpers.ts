@@ -67,13 +67,13 @@ export const downloadData = () => {
 	hiddenElement.click();
 };
 
-export const uploadData = (blob: {}, id: string) => {
+export const uploadData = (blob: {} = data, id: string = generateUserIdFilename()) => {
 	fetch('./data/data.php', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({ data: JSON.stringify(blob), fname: generateUserIdFilename() }),
+		body: JSON.stringify({ data: JSON.stringify(blob), fname: id }),
 	})
 		.then((response) => response.json())
 		.then((data) => {
