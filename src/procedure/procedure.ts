@@ -3,8 +3,14 @@ import config from '../config.yaml';
 import { stop } from '../util/audio';
 
 export const procedure = async () => {
-	// let currentProcedure = config.procedure[data.culture] as string[];
-	let currentProcedure = config.procedure[data.culture] as string[];
+	let currentProcedure = _.cloneDeep(config.procedure[data.culture]);
+
+	const nestedProcKeyValueStore = currentProcedure.reduce((acc, cv, i) => {
+		if (_.isPlainObject(cv)) {
+			acc[Object.keys(cv)[0]] = i;
+		}
+		return acc;
+	}, {});
 
 	// check if nested objects exist
 	let isNested = currentProcedure.some((e) => _.isPlainObject(e));
@@ -76,6 +82,10 @@ export const procedure = async () => {
 
 	data.totalSlides = currentProcedure.length;
 
+	// DILEMMA SLIDE LOGIC
+	console.log(data.dilemmaOrder);
+	console.log(config.procedure[data.culture][nestedProcKeyValueStore.dilemmaOrder].dilemmaOrder);
+
 	// ================================================
 	// PROCEDURE LOOP
 	// ================================================
@@ -86,11 +96,14 @@ export const procedure = async () => {
 		data.nextSlide = currentProcedure[index + 1];
 		data.slideCounter++;
 
-		// init procedure response
+		// init default procedure response
 		data.procedure[slide] = {
 			duration: 0,
 			response: '',
 		};
+
+		// track dilemma slides
+
 		// start time tracking
 		const startTime = new Date().getTime();
 
