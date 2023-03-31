@@ -13,7 +13,8 @@ export default async () => {
 	// check if current slide is last slide in any of the orders
 	let isLast = false;
 	[data.companionOrder, data.foodOrder, data.controlOrder].forEach((order) => {
-		if (order.indexOf(_.kebabCase(data.currentSlide)) === data.foodOrder.length - 1) {
+		const orderLength = order.length - 1;
+		if (order.indexOf(_.kebabCase(data.currentSlide)) === orderLength) {
 			isLast = true;
 			return;
 		}
