@@ -430,3 +430,9 @@ fieldset {
 .button:focus {
 	outline: none;
 }
+
+.imprint {
+	text-align: center;
+	padding-bottom: 2rem;
+	font-size: smaller;
+}
