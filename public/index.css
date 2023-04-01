@@ -27,7 +27,6 @@ body {
 #hero-image {
 	display: block;
 	margin: auto;
-	width: 75%;
 }
 
 h1 {
@@ -430,4 +429,10 @@ fieldset {
 }
 .button:focus {
 	outline: none;
+}
+
+.imprint {
+	text-align: center;
+	padding-bottom: 2rem;
+	font-size: smaller;
 }
