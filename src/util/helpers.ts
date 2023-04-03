@@ -1,4 +1,5 @@
 import { SvgInHtml } from '../types';
+import Toastify from 'toastify-js';
 
 // promised based timeout
 export const sleep = (ms = 2000) => new Promise<number>((r) => setTimeout(r, ms));
@@ -52,10 +53,10 @@ export const exitFullscreen = () => {
 	}
 };
 
-export const generateUserIdFilename = () => {
+export const generateUserIdFilename = (prefix = 'matt', postfix = 'data', extension = 'json') => {
 	const day = new Date().toISOString().slice(0, 10);
 	const time = new Date().toISOString().slice(11, 19).split(':').join('-');
-	return `matt-${data.id}-${day}-${time}.json`;
+	return `${prefix}-${data.id}-${day}-${time}-${postfix}.${extension}`;
 };
 
 export const downloadData = () => {
@@ -67,17 +68,65 @@ export const downloadData = () => {
 	hiddenElement.click();
 };
 
-export const uploadData = (blob: {} = data, id: string = generateUserIdFilename()) => {
+export const uploadData = (
+	jsonData: {} = data,
+	id: string = generateUserIdFilename('matt', undefined)
+) => {
 	fetch('./data/data.php', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({ data: JSON.stringify(blob), fname: id }),
+		body: JSON.stringify({ data: JSON.stringify(jsonData), fname: id }),
 	})
 		.then((response) => response.json())
 		.then((data) => {
 			console.log('Success:', data);
+			if (data.success) {
+				Toastify({
+					text: '💾',
+					duration: 2000,
+					className: 'toast-info',
+				}).showToast();
+			} else {
+				Toastify({
+					text: '🤔',
+					duration: 2000,
+					className: 'toast-error',
+				}).showToast();
+			}
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+		});
+};
+
+export const uploadAudio = (
+	blob: Blob,
+	id: string = generateUserIdFilename('matt', 'audio', 'ogg')
+) => {
+	const formData = new FormData();
+	formData.append('file', blob, id);
+	fetch('./data/audio.php', {
+		method: 'POST',
+		body: formData,
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log('Success:', data);
+			if (data.success) {
+				Toastify({
+					text: '💾',
+					duration: 2000,
+					className: 'toast-info',
+				}).showToast();
+			} else {
+				Toastify({
+					text: '🤔',
+					duration: 2000,
+					className: 'toast-error',
+				}).showToast();
+			}
 		})
 		.catch((error) => {
 			console.error('Error:', error);
