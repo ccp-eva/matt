@@ -87,6 +87,7 @@ export const init = () => {
 		datatransfer: urlParameters.datatransfer,
 		initialTimestamp: new Date().toISOString(),
 		slideCounter: 0,
+		quitBeforeEnd: false,
 		procedure: {},
 	};
 
@@ -135,6 +136,16 @@ export const init = () => {
 			// },
 			// onClick: function () {}, // Callback after click
 		}).showToast();
+	}
+
+	// show warning when user tries to leave the page
+	if (!config.devmode) {
+		window.onbeforeunload = function (evt: BeforeUnloadEvent) {
+			evt.preventDefault();
+			global.data.quitBeforeEnd = true;
+			uploadData();
+			return '';
+		};
 	}
 
 	if (config.devmode) {
