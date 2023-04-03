@@ -5,7 +5,7 @@ import config from '../config.yaml';
 import { rectToForeignObject } from './rectToForeignObject';
 import { recycleObjects } from './recycleObjects';
 import { copyAttributes } from './copyAttributes';
-import { downloadData, uploadData } from './helpers';
+import { downloadData, uploadData, uploadAudio } from './helpers';
 import { getUrlParameters } from './getUrlParameters';
 import { widowedKeyChecker } from './widowedKeyChecker';
 import {
@@ -87,6 +87,7 @@ export const init = () => {
 		datatransfer: urlParameters.datatransfer,
 		initialTimestamp: new Date().toISOString(),
 		slideCounter: 0,
+		quitBeforeEnd: false,
 		procedure: {},
 	};
 
@@ -137,6 +138,16 @@ export const init = () => {
 		}).showToast();
 	}
 
+	// show warning when user tries to leave the page
+	if (!config.devmode) {
+		window.onbeforeunload = function (evt: BeforeUnloadEvent) {
+			evt.preventDefault();
+			global.data.quitBeforeEnd = true;
+			uploadData();
+			return '';
+		};
+	}
+
 	if (config.devmode) {
 		global.translations = translations;
 		global.showSingleSlide = showSingleSlide;
@@ -152,5 +163,6 @@ export const init = () => {
 	// always expose downloadData function
 	global.downloadData = downloadData;
 	global.uploadData = uploadData;
+	global.uploadAudio = uploadAudio;
 	global.config = config;
 };

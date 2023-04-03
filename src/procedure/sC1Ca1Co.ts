@@ -45,7 +45,7 @@ export default async () => {
 		gsap.to([headphones, left, center, right], { autoAlpha: 1, pointerEvents: 'visible' });
 	});
 
-	play(`./cultures/${data.culture}/audio/${slidePrefix}-1cat-left.mp3`, headphones.id);
+	play(`./cultures/${data.culture}/audio/${slidePrefix}-cat-left.mp3`, headphones.id);
 
 	[left, center, right].forEach((el) => {
 		el.classList.add('dilemma-card');

@@ -41,6 +41,7 @@ declare var data: {
 	datatransfer: 'server' | 'both';
 	initialTimestamp: string;
 	endingTimestamp: string;
+	quitBeforeEnd: boolean;
 	totalSlides: number;
 	slideCounter: number;
 	previousSlide: string;

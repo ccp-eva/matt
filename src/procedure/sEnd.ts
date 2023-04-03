@@ -14,6 +14,8 @@ export default async () => {
 	if (data.datatransfer === 'server') {
 		uploadData();
 	}
+	// users can leave page now
+	window.onbeforeunload = null;
 
 	// swap slides automatically (don’t touch this)
 	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));

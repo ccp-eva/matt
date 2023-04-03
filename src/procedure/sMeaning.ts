@@ -5,7 +5,7 @@ import RecordRTC from 'recordrtc';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
-import { sleep } from '../util/helpers';
+import { generateUserIdFilename, sleep, uploadAudio } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
@@ -18,38 +18,42 @@ export default async () => {
 		[...rect.attributes].map(({ name, value }) => fo.setAttribute(name, value));
 		fo.removeAttribute('fill');
 		rect.replaceWith(fo);
-		// create textarea
-
+		// create html content
 		fo.innerHTML = `
-		<div>
+	<div id="wrapper-smeaning" style="display: none;">
 		<div id="toggle" style="width: 9em; margin: 0 auto; margin-bottom: 10px">
-			<input id="chck" type="checkbox" />
+				<input id="chck" type="checkbox" />
 			<label for="chck" class="check-trail"><span class="check-handler"></span> </label>
 		</div>
-	
+
 		<div>
 			<textarea
 				disabled
-				id="text-response"
+				id="text-response-meaning"
 				maxlength="2000"
 				style="display: block; pointer-events: auto;"
 			></textarea>
-			<div id="voice-response" style="display: flex;">
-				<button type="button" disabled id="voice-response-start" style="font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🎤 Start</button> <button type="button" disabled id="voice-response-stop" style="font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🛑 Stop</button>
+			<div id="voice-response-meaning" style="display: flex;">
+				<button type="button" disabled id="voice-response-start-meaning" style="font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🎤 Start</button> <button type="button" disabled id="voice-response-stop-meaning" style="font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🛑 Stop</button>
 			</div>
 		</div>
-	</div>
-	`;
+	</div>`;
 	}
+
 	const headphones = document.getElementById('link-sm-headphones') as SvgInHtml;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 	const nextButton = document.getElementById('link-sm-next') as SvgInHtml;
 
-	const textResponse = document.getElementById('text-response') as HTMLTextAreaElement;
-	const voiceResponse = document.getElementById('voice-response') as HTMLDivElement;
-	const voiceResponseStart = document.getElementById('voice-response-start') as HTMLButtonElement;
-	const voiceResponseStop = document.getElementById('voice-response-stop') as HTMLButtonElement;
+	const wrapper = document.getElementById('wrapper-smeaning') as HTMLDivElement;
+	const textResponse = document.getElementById('text-response-meaning') as HTMLTextAreaElement;
+	const voiceResponse = document.getElementById('voice-response-meaning') as HTMLDivElement;
+	const voiceResponseStart = document.getElementById(
+		'voice-response-start-meaning'
+	) as HTMLButtonElement;
+	const voiceResponseStop = document.getElementById(
+		'voice-response-stop-meaning'
+	) as HTMLButtonElement;
 	const toggle = document.getElementById('toggle') as HTMLDivElement;
 	const checkLabel = document.querySelector('.check-trail') as HTMLLabelElement;
 	const checkBox = document.getElementById('chck') as HTMLInputElement;
@@ -97,68 +101,70 @@ export default async () => {
 		voiceResponse.style.display = 'none';
 	}
 
+	// show wrapper
+	wrapper.style.display = 'block';
+
 	data.procedure.sMeaning.voiceExplanation = checkBox.checked;
 	data.procedure.sMeaning.textExplanation = !checkBox.checked;
 
 	let isPlaying = true;
 	let isExplaining = true;
-	const timeline = gsap.timeline();
-	timeline
-		.to(pinda, {
-			autoAlpha: 1,
-			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/st-finish-meaning.webm`;
-				isExplaining = true;
-				isPlaying = true;
-			},
-		})
-		.to(pinda, {
-			delay: 8,
-			onStart: () => {
-				swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 1]);
-			},
-		})
-		.to(pinda, {
-			delay: 2,
-			autoAlpha: 0,
-		})
-		.to(pinda, {
-			autoAlpha: 1,
-			onStart: () => {
-				isExplaining = true;
-				if (checkBox.checked) {
-					pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
-					gsap
-						.timeline()
-						.to(voiceResponseStart, {
-							filter: 'drop-shadow(0px 0px 20px #969696)',
-							delay: 8,
-							repeat: 3,
-							yoyo: true,
-							reversed: true,
-						})
-						.to(voiceResponseStop, {
-							filter: 'drop-shadow(0px 0px 20px #969696)',
-							delay: 1.5,
-							repeat: 3,
-							yoyo: true,
-							reversed: true,
-						});
-				}
-				if (!checkBox.checked) {
-					pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
-				}
-			},
-			onComplete: () => {
-				isExplaining = false;
-			},
-		});
 
 	pinda.addEventListener('play', () => {
 		isPlaying = true;
 	});
 	pinda.addEventListener('ended', () => {
 		isPlaying = false;
+	});
+
+	gsap
+		.timeline()
+		.to(pinda, {
+			autoAlpha: 1,
+			onStart: () => {
+				pinda.src = `./cultures/${data.culture}/video/st-finish-meaning.webm`;
+			},
+		})
+		.to(pinda, {
+			delay: 7,
+			onStart: () => {
+				swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 1]);
+			},
+		});
+
+	while (isPlaying) {
+		await sleep(100);
+	}
+
+	gsap.timeline().to(pinda, {
+		autoAlpha: 1,
+		onStart: () => {
+			if (checkBox.checked) {
+				pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+				gsap
+					.timeline()
+					.to(voiceResponseStart, {
+						filter: 'drop-shadow(0px 0px 20px #969696)',
+						delay: 8,
+						repeat: 3,
+						yoyo: true,
+						reversed: true,
+					})
+					.to(voiceResponseStop, {
+						filter: 'drop-shadow(0px 0px 20px #969696)',
+						delay: 1.5,
+						repeat: 3,
+						yoyo: true,
+						reversed: true,
+					});
+			}
+			if (!checkBox.checked) {
+				pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+			}
+		},
+		onComplete: () => {
+			isExplaining = false;
+		},
 	});
 
 	while (isPlaying || isExplaining) {
@@ -184,166 +190,145 @@ export default async () => {
 		gsap.set(checkLabel, { autoAlpha: 0.25 });
 	});
 	audio.addEventListener('ended', () => {
-		checkLabel.style.pointerEvents = 'auto';
+		checkLabel.style.pointerEvents = 'visible';
 		gsap.set(checkLabel, { autoAlpha: 1 });
 	});
 
 	// if userchoice part
-	checkBox.addEventListener('change', async () => {
-		const switchToVoice = checkBox.checked;
-		const switchToText = !checkBox.checked;
+	if (data.input === 'userchoice-audio' || data.input === 'userchoice-text') {
+		checkBox.addEventListener('change', async () => {
+			const switchToVoice = checkBox.checked;
+			const switchToText = !checkBox.checked;
 
-		// switch to voice
-		if (switchToVoice) {
-			textResponse.style.display = 'none';
-			voiceResponse.style.display = 'flex';
-		}
-
-		if (switchToText) {
-			textResponse.style.display = 'block';
-			voiceResponse.style.display = 'none';
-		}
-
-		// play voice instruction if not already played yet
-		if (switchToVoice && !data.procedure.sMeaning.voiceExplanation) {
-			data.procedure.sMeaning.voiceExplanation = true;
-
-			voiceResponseStart.disabled = true;
-			checkLabel.style.pointerEvents = 'none';
-			headphones.style.pointerEvents = 'none';
-			gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
-
-			let isExplaining = true;
-			gsap.timeline().to(pinda, {
-				onStart: () => {
-					pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
-					pinda.loop = false;
-					gsap
-						.timeline()
-						.to(voiceResponseStart, {
-							filter: 'drop-shadow(0px 0px 20px #969696)',
-							delay: 8,
-							repeat: 3,
-							yoyo: true,
-							reversed: true,
-						})
-						.to(voiceResponseStop, {
-							filter: 'drop-shadow(0px 0px 20px #969696)',
-							delay: 1.5,
-							repeat: 3,
-							yoyo: true,
-							reversed: true,
-						});
-				},
-				onComplete: () => {
-					isExplaining = false;
-				},
-			});
-
-			while (isPlaying || isExplaining) {
-				await sleep(100);
+			// switch to voice
+			if (switchToVoice) {
+				textResponse.style.display = 'none';
+				voiceResponse.style.display = 'flex';
 			}
 
-			voiceResponseStart.disabled = false;
-			gsap.to(checkLabel, { autoAlpha: 1 });
-			checkLabel.style.pointerEvents = 'auto';
-			headphones.style.pointerEvents = 'auto';
-
-			gsap
-				.timeline()
-				.to(pinda, {
-					autoAlpha: 0,
-				})
-				.to(pinda, {
-					autoAlpha: 1,
-					onStart: () => {
-						pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
-						pinda.loop = true;
-					},
-				});
-		}
-
-		// play text instuction if not already played yet
-		if (switchToText && !data.procedure.sMeaning.textExplanation) {
-			data.procedure.sMeaning.textExplanation = true;
-
-			textResponse.disabled = true;
-			checkLabel.style.pointerEvents = 'none';
-			headphones.style.pointerEvents = 'none';
-			gsap.set(checkLabel, { autoAlpha: 0.25 });
-
-			let isExplaining = true;
-			gsap.timeline().to(pinda, {
-				onStart: () => {
-					pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
-					pinda.loop = false;
-				},
-				onComplete: () => {
-					isExplaining = false;
-				},
-			});
-
-			while (isPlaying || isExplaining) {
-				await sleep(100);
+			if (switchToText) {
+				textResponse.style.display = 'block';
+				voiceResponse.style.display = 'none';
 			}
 
-			textResponse.disabled = false;
-			gsap.to(checkLabel, { autoAlpha: 1 });
-			checkLabel.style.pointerEvents = 'auto';
-			headphones.style.pointerEvents = 'auto';
+			// play voice instruction if not already played yet
+			if (switchToVoice && !data.procedure.sMeaning.voiceExplanation) {
+				data.procedure.sMeaning.voiceExplanation = true;
 
-			gsap
-				.timeline()
-				.to(pinda, {
-					autoAlpha: 0,
-				})
-				.to(pinda, {
-					autoAlpha: 1,
+				voiceResponseStart.disabled = true;
+				checkLabel.style.pointerEvents = 'none';
+				headphones.style.pointerEvents = 'none';
+				gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
+
+				let isExplaining = true;
+				gsap.timeline().to(pinda, {
 					onStart: () => {
-						pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
-						pinda.loop = true;
+						pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+						pinda.loop = false;
+						gsap
+							.timeline()
+							.to(voiceResponseStart, {
+								filter: 'drop-shadow(0px 0px 20px #969696)',
+								delay: 8,
+								repeat: 3,
+								yoyo: true,
+								reversed: true,
+							})
+							.to(voiceResponseStop, {
+								filter: 'drop-shadow(0px 0px 20px #969696)',
+								delay: 1.5,
+								repeat: 3,
+								yoyo: true,
+								reversed: true,
+							});
+					},
+					onComplete: () => {
+						isExplaining = false;
 					},
 				});
-		}
-	});
+
+				while (isPlaying || isExplaining) {
+					await sleep(100);
+				}
+
+				voiceResponseStart.disabled = false;
+				gsap.to(checkLabel, { autoAlpha: 1 });
+				checkLabel.style.pointerEvents = 'auto';
+				headphones.style.pointerEvents = 'auto';
+
+				gsap
+					.timeline()
+					.to(pinda, {
+						autoAlpha: 0,
+					})
+					.to(pinda, {
+						autoAlpha: 1,
+						onStart: () => {
+							pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
+							pinda.loop = true;
+						},
+					});
+			}
+
+			// play text instuction if not already played yet
+			if (switchToText && !data.procedure.sMeaning.textExplanation) {
+				data.procedure.sMeaning.textExplanation = true;
+
+				textResponse.disabled = true;
+				checkLabel.style.pointerEvents = 'none';
+				headphones.style.pointerEvents = 'none';
+				gsap.set(checkLabel, { autoAlpha: 0.25 });
+
+				let isExplaining = true;
+				gsap.timeline().to(pinda, {
+					onStart: () => {
+						pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+						pinda.loop = false;
+					},
+					onComplete: () => {
+						isExplaining = false;
+					},
+				});
+
+				while (isPlaying || isExplaining) {
+					await sleep(100);
+				}
+
+				textResponse.disabled = false;
+				gsap.to(checkLabel, { autoAlpha: 1 });
+				checkLabel.style.pointerEvents = 'auto';
+				headphones.style.pointerEvents = 'auto';
+
+				gsap
+					.timeline()
+					.to(pinda, {
+						autoAlpha: 0,
+					})
+					.to(pinda, {
+						autoAlpha: 1,
+						onStart: () => {
+							pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
+							pinda.loop = true;
+						},
+					});
+			}
+		});
+	}
 
 	textResponse.addEventListener('input', () => {
 		// show next button if textarea hast at least n chars
 		if (textResponse.value.length >= config.globals.minimumTextInputLength) {
 			data.procedure.sMeaning.isText = true;
 			data.procedure.sMeaning.isVoice = false;
-			nextButton.style.pointerEvents = 'auto';
+			gsap.set(nextButton, { autoAlpha: 1 });
+			gsap.set(checkLabel, { autoAlpha: 0.25 });
+			nextButton.style.pointerEvents = 'visible';
 			checkLabel.style.pointerEvents = 'none';
-			gsap
-				.timeline()
-				.to(nextButton, {
-					autoAlpha: 1,
-					duration: 0.25,
-				})
-				.to(
-					checkLabel,
-					{
-						autoAlpha: 0.25,
-						duration: 0.25,
-					},
-					'<'
-				);
 		} else {
+			gsap.set(checkLabel, { autoAlpha: 1 });
+			gsap.set(nextButton, { autoAlpha: 0.25 });
 			nextButton.style.pointerEvents = 'none';
-			checkLabel.style.pointerEvents = 'auto';
-			gsap
-				.timeline()
-				.to(nextButton, {
-					autoAlpha: 0.25,
-				})
-				.to(
-					checkLabel,
-					{
-						autoAlpha: 1,
-						duration: 0.25,
-					},
-					'<'
-				);
+			checkLabel.style.pointerEvents = 'visible';
 		}
 	});
 
@@ -365,6 +350,10 @@ export default async () => {
 		voiceResponseStop.addEventListener('click', async () => {
 			await recorder.stopRecording();
 			let blob = await recorder.getBlob();
+
+			// upload blob to server
+			uploadAudio(blob, generateUserIdFilename('matt', 's-meaning', 'ogg'));
+
 			RecordRTC.invokeSaveAsDialog(blob, `s-meaning-${data.id}`);
 
 			nextButton.style.pointerEvents = 'auto';
@@ -389,4 +378,6 @@ export default async () => {
 	pinda.loop = false;
 
 	await sleep(500);
+	// make sure wrapper is hidden
+	wrapper.style.display = 'none';
 };
