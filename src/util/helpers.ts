@@ -121,6 +121,7 @@ export const uploadAudio = (
 					className: 'toast-info',
 				}).showToast();
 			} else {
+				console.error('Error:', data);
 				Toastify({
 					text: '🤔',
 					duration: 2000,
