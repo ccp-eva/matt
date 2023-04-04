@@ -433,9 +433,12 @@ export default async () => {
 			let blob = await recorder.getBlob();
 
 			// upload blob to server
-			uploadAudio(blob, generateUserIdFilename('matt', 's-reasoning-1ca-1co', 'ogg'));
+			uploadAudio(blob, generateUserIdFilename('matt', `${data.currentSlide}`, 'ogg'));
 
-			RecordRTC.invokeSaveAsDialog(blob, `${data.currentSlide}-${data.id}`);
+			RecordRTC.invokeSaveAsDialog(
+				blob,
+				generateUserIdFilename('matt', `${data.currentSlide}`, 'ogg')
+			);
 
 			nextButton.style.pointerEvents = 'auto';
 			gsap.timeline().to(nextButton, {
