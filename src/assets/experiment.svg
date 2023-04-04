@@ -2356,10 +2356,6 @@
 			S733.47,803.75,587.14,803.75z"/>
 		<circle id="smci-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="587.14" cy="538.81" r="264.95"/>
 	</g>
-	<rect id="ph-s-mci-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
-	
-		<image overflow="visible" width="80" height="80" id="link-s-mci-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
-	</image>
 </g>
 <g id="s-goldfish">
 	<rect id="ph-s-goldfish-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
@@ -2550,7 +2546,7 @@
 	
 		<image overflow="visible" width="80" height="81" id="link-si-next" xlink:href="next.png"  transform="matrix(1 0 0 0.9877 1815 981)">
 	</image>
-	<rect id="ph-si-matt-logo" x="1507" y="-17" fill="#B8846E" width="430" height="430"/>
+	<rect id="ph-si-matt-logo" x="1507" y="-17" fill="#AAAAAA" width="430" height="430"/>
 	
 		<image overflow="visible" width="430" height="431" id="link-si-matt-logo" xlink:href="matt-logo.png"  transform="matrix(0.5673 0 0 0.5673 1602 74)">
 	</image>
@@ -2565,5 +2561,12 @@
 </g>
 <g id="s-pinda-video">
 	<rect id="s-pv" y="645" fill="#FFFFFF" width="339" height="435"/>
+</g>
+<g id="s-blocking-state">
+	<rect id="s-bs" opacity="0.75" fill="#FFFFFF" width="1920" height="1080"/>
+	<rect id="ph-ccp-orb" x="845" y="425" fill="#AAAAAA" width="230" height="230"/>
+	
+		<image overflow="visible" width="172" height="172" id="link-ccp-orb" xlink:href="ccp-orb.png"  transform="matrix(1 0 0 1 874 454)">
+	</image>
 </g>
 </svg>

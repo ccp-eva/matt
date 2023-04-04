@@ -180,6 +180,26 @@ export const init = () => {
 		parent.setAttribute('visibility', 'hidden');
 	});
 
+	// blocking state slide
+	const bsFo = document.getElementById('s-bs')! as SvgInHtml;
+	bsFo.innerHTML = `<div id="blocking-state" style="
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+	opacity: 0.75;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	backdrop-filter: blur(10px);"></div>`;
+
+	gsap.set('#link-ccp-orb', { transformOrigin: '50% 50%', scale: 0.5, filter: 'blur(5px)' });
+	gsap.to('#link-ccp-orb', {
+		duration: 0.3,
+		rotation: 360,
+		repeat: -1,
+		ease: 'none',
+	});
+
 	if (config.devmode.on) {
 		global.translations = translations;
 		global.showSingleSlide = showSingleSlide;
