@@ -89,7 +89,7 @@ export const getUrlParameters = () => {
 	}
 
 	// if not in devmode, remove all params from URL
-	if (!config.devmode) {
+	if (!config.devmode.on) {
 		// remove all params from URL
 		window.history.pushState({}, document.title, window.location.pathname);
 	}
