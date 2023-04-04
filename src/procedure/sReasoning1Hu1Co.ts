@@ -156,56 +156,6 @@ export default async () => {
 	gsap.to('#response-wrapper-reasoning-cow', { autoAlpha: 1 });
 
 	let isPlaying = true;
-	let isExplaining = true;
-	const timeline = gsap.timeline();
-	timeline.to(pinda, {
-		autoAlpha: 1,
-		onStart: () => {
-			isExplaining = true;
-			if (checkBox.checked) {
-				if (data.reasoningSlideCounter === 1) {
-					pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
-					gsap
-						.timeline()
-						.to(voiceResponseStart, {
-							filter: 'drop-shadow(0px 0px 20px #969696)',
-							delay: 8,
-							repeat: 3,
-							yoyo: true,
-							reversed: true,
-						})
-						.to(voiceResponseStop, {
-							filter: 'drop-shadow(0px 0px 20px #969696)',
-							delay: 1.5,
-							repeat: 3,
-							yoyo: true,
-							reversed: true,
-						});
-				}
-				if (data.reasoningSlideCounter === 2) {
-					pinda.src = `./cultures/${data.culture}/video/sr-prompt-audioInput.webm`;
-				}
-				if (data.reasoningSlideCounter === 3) {
-					pinda.src = `./cultures/${data.culture}/video/audio-input-3.webm`;
-				}
-			}
-			if (!checkBox.checked) {
-				if (data.reasoningSlideCounter === 1) {
-					pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
-				}
-				if (data.reasoningSlideCounter === 2) {
-					pinda.src = `./cultures/${data.culture}/video/sr-promp-textInput.webm`;
-				}
-				if (data.reasoningSlideCounter === 3) {
-					pinda.src = `./cultures/${data.culture}/video/text-input-3.webm`;
-				}
-			}
-		},
-		onComplete: () => {
-			isExplaining = false;
-		},
-	});
-
 	pinda.addEventListener('play', () => {
 		isPlaying = true;
 	});
@@ -213,16 +163,54 @@ export default async () => {
 		isPlaying = false;
 	});
 
-	while (isPlaying || isExplaining) {
+	if (checkBox.checked) {
+		if (data.reasoningSlideCounter === 1) {
+			pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+			gsap
+				.timeline()
+				.to(voiceResponseStart, {
+					filter: 'drop-shadow(0px 0px 20px #969696)',
+					delay: 8,
+					repeat: 3,
+					yoyo: true,
+					reversed: true,
+				})
+				.to(voiceResponseStop, {
+					filter: 'drop-shadow(0px 0px 20px #969696)',
+					delay: 1.5,
+					repeat: 3,
+					yoyo: true,
+					reversed: true,
+				});
+		}
+		if (data.reasoningSlideCounter === 2) {
+			pinda.src = `./cultures/${data.culture}/video/sr-prompt-audioInput.webm`;
+		}
+		if (data.reasoningSlideCounter === 3) {
+			pinda.src = `./cultures/${data.culture}/video/audio-input-3.webm`;
+		}
+	}
+	if (!checkBox.checked) {
+		if (data.reasoningSlideCounter === 1) {
+			pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+		}
+		if (data.reasoningSlideCounter === 2) {
+			pinda.src = `./cultures/${data.culture}/video/sr-promp-textInput.webm`;
+		}
+		if (data.reasoningSlideCounter === 3) {
+			pinda.src = `./cultures/${data.culture}/video/text-input-3.webm`;
+		}
+	}
+
+	while (isPlaying) {
 		await sleep(100);
 	}
 
-	gsap.to(pinda, {
-		onStart: () => {
-			pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
-			pinda.loop = true;
-		},
-	});
+	await sleep(500);
+
+	pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
+	pinda.play();
+	pinda.loop = true;
 
 	gsap.to(checkLabel, { autoAlpha: 1 });
 	checkLabel.style.pointerEvents = 'auto';
@@ -264,61 +252,46 @@ export default async () => {
 			gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
 			pinda.loop = false;
 
-			let isExplaining = true;
-			gsap.timeline().to(pinda, {
-				onStart: () => {
-					if (data.reasoningSlideCounter === 1) {
-						pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
-						gsap
-							.timeline()
-							.to(voiceResponseStart, {
-								filter: 'drop-shadow(0px 0px 20px #969696)',
-								delay: 8,
-								repeat: 3,
-								yoyo: true,
-								reversed: true,
-							})
-							.to(voiceResponseStop, {
-								filter: 'drop-shadow(0px 0px 20px #969696)',
-								delay: 1.5,
-								repeat: 3,
-								yoyo: true,
-								reversed: true,
-							});
-					}
-					if (data.reasoningSlideCounter === 2) {
-						pinda.src = `./cultures/${data.culture}/video/sr-prompt-audioInput.webm`;
-					}
-					if (data.reasoningSlideCounter === 3) {
-						pinda.src = `./cultures/${data.culture}/video/audio-input-3.webm`;
-					}
-				},
-				onComplete: () => {
-					isExplaining = false;
-				},
-			});
+			if (data.reasoningSlideCounter === 1) {
+				pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+				await gsap
+					.timeline()
+					.to(voiceResponseStart, {
+						filter: 'drop-shadow(0px 0px 20px #969696)',
+						delay: 8,
+						repeat: 3,
+						yoyo: true,
+						reversed: true,
+					})
+					.to(voiceResponseStop, {
+						filter: 'drop-shadow(0px 0px 20px #969696)',
+						delay: 1.5,
+						repeat: 3,
+						yoyo: true,
+						reversed: true,
+					});
+			}
 
-			while (isPlaying || isExplaining) {
+			if (data.reasoningSlideCounter === 2) {
+				pinda.src = `./cultures/${data.culture}/video/sr-prompt-audioInput.webm`;
+			}
+			if (data.reasoningSlideCounter === 3) {
+				pinda.src = `./cultures/${data.culture}/video/audio-input-3.webm`;
+			}
+
+			while (isPlaying) {
 				await sleep(100);
 			}
+
+			await sleep(500);
 
 			voiceResponseStart.disabled = false;
 			gsap.to(checkLabel, { autoAlpha: 1 });
 			checkLabel.style.pointerEvents = 'auto';
 			headphones.style.pointerEvents = 'auto';
 
-			gsap
-				.timeline()
-				.to(pinda, {
-					autoAlpha: 0,
-				})
-				.to(pinda, {
-					autoAlpha: 1,
-					onStart: () => {
-						pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
-						pinda.loop = true;
-					},
-				});
+			pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
+			pinda.loop = true;
 		}
 
 		// play text instuction if not already played yet
@@ -332,44 +305,31 @@ export default async () => {
 
 			let isExplaining = true;
 			pinda.loop = false;
-			gsap.timeline().to(pinda, {
-				onStart: () => {
-					if (data.reasoningSlideCounter === 1) {
-						pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
-					}
-					if (data.reasoningSlideCounter === 2) {
-						pinda.src = `./cultures/${data.culture}/video/sr-promp-textInput.webm`;
-					}
-					if (data.reasoningSlideCounter === 3) {
-						pinda.src = `./cultures/${data.culture}/video/text-input-3.webm`;
-					}
-				},
-				onComplete: () => {
-					isExplaining = false;
-				},
-			});
+
+			if (data.reasoningSlideCounter === 1) {
+				pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+			}
+			if (data.reasoningSlideCounter === 2) {
+				pinda.src = `./cultures/${data.culture}/video/sr-promp-textInput.webm`;
+			}
+			if (data.reasoningSlideCounter === 3) {
+				pinda.src = `./cultures/${data.culture}/video/text-input-3.webm`;
+			}
+			isExplaining = false;
 
 			while (isPlaying || isExplaining) {
 				await sleep(100);
 			}
+
+			await sleep(500);
 
 			textResponse.disabled = false;
 			gsap.to(checkLabel, { autoAlpha: 1 });
 			checkLabel.style.pointerEvents = 'auto';
 			headphones.style.pointerEvents = 'auto';
 
-			gsap
-				.timeline()
-				.to(pinda, {
-					autoAlpha: 0,
-				})
-				.to(pinda, {
-					autoAlpha: 1,
-					onStart: () => {
-						pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
-						pinda.loop = true;
-					},
-				});
+			pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
+			pinda.loop = true;
 		}
 	});
 
