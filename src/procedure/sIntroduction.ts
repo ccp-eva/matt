@@ -3,6 +3,7 @@ import { play, stop } from '../util/audio';
 import { swapSlides } from '../util/slideVisibility';
 import { getResponse } from '../util/getResponse';
 import { startFullscreen } from '../util/helpers';
+import config from '../config.yaml';
 import _ from 'lodash';
 import { SvgInHtml } from '../types';
 import { sleep } from '../util/helpers';
@@ -30,7 +31,10 @@ export default async () => {
 
 	let playingTimeline = false;
 	speaker.addEventListener('click', () => {
-		startFullscreen();
+		if (!config.devmode) {
+			startFullscreen();
+		}
+
 		gsap.set(speaker, { autoAlpha: 0 });
 		// timeline start
 		tl.to(pinda, {
