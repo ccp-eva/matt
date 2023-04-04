@@ -5,7 +5,7 @@ import RecordRTC from 'recordrtc';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
-import { sleep } from '../util/helpers';
+import { generateUserIdFilename, sleep, uploadAudio } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async () => {
@@ -431,6 +431,10 @@ export default async () => {
 		voiceResponseStop.addEventListener('click', async () => {
 			await recorder.stopRecording();
 			let blob = await recorder.getBlob();
+
+			// upload blob to server
+			uploadAudio(blob, generateUserIdFilename('matt', 's-reasoning-1ca-1co', 'ogg'));
+
 			RecordRTC.invokeSaveAsDialog(blob, `${data.currentSlide}-${data.id}`);
 
 			nextButton.style.pointerEvents = 'auto';
