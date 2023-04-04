@@ -54,16 +54,6 @@ p {
 	background: linear-gradient(to bottom, #1cafe3, #1aaadf, #18a4db, #179fd7, #179ad3) !important;
 }
 
-.video-overlay {
-	position: absolute;
-	bottom: 10vh;
-	pointer-events: none;
-}
-
-.video-overlay__video {
-	width: 20vw;
-}
-
 #fsplayer {
 	display: none;
 	position: absolute;

@@ -138,6 +138,13 @@ export const init = () => {
 		}).showToast();
 	}
 
+	// replace pinda
+	// insert HTML
+	// get pinda fo
+	const pindaFo = document.getElementById('s-pv')! as SvgInHtml;
+	pindaFo.parentElement!.removeAttribute('visibility');
+	pindaFo.innerHTML = '<video id="player" style="height: 100%;" autoplay playsinline></video>';
+
 	// show warning when user tries to leave the page
 	if (!config.devmode) {
 		window.onbeforeunload = function (evt: BeforeUnloadEvent) {
