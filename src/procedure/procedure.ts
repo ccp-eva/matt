@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import config from '../config.yaml';
 import { stop } from '../util/audio';
+import { sleep } from '../util/helpers';
 
 export const procedure = async () => {
 	let currentProcedure = _.cloneDeep(config.procedure[data.culture]);
@@ -100,6 +101,8 @@ export const procedure = async () => {
 
 		// iterate through the slides
 		await (await import(`./${slide}`)).default();
+
+		await sleep(config.globals.slideGapDuration);
 
 		// stop audio playback if it is still playing anything
 		stop();

@@ -37,6 +37,7 @@ globals:
   defaultInput: userchoice-audio
   defaultDataTransfer: both
   animalSlidesGap: 750 # delay in milliseconds after animal slides
+  slideGapDuration: 500 # delay in milliseconds after animal slides
   playAnimalYesNoAudio: 2
   playAnimalResponseFeedback: 1
   minimumTextInputLength: 4
