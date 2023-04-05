@@ -141,7 +141,9 @@ export const init = () => {
 
 	// replace pinda
 	const pindaFo = document.getElementById('s-pv')! as SvgInHtml;
-	pindaFo.innerHTML = `<video id="player" autoplay playsinline style="height: 100%;" ></video>`;
+	pindaFo.innerHTML = '<video id="player" autoplay playsinline style="height: 100%;" ></video>';
+	const pindaNeutralFo = document.getElementById('s-pv-neutral')! as SvgInHtml;
+	pindaNeutralFo.innerHTML = `<video id="pinda-neutral" autoply loop playsinline style="height: 100%; visibility: hidden" ></video>`;
 
 	// show warning when user tries to leave the page
 	if (!config.devmode.on) {

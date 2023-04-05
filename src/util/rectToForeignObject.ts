@@ -8,7 +8,9 @@
  */
 export const rectToForeignObject = () => {
 	// get all rect nodes that start with id "text-"
-	const rectNodes = Array.from(document.querySelectorAll('[id^="text-"], #s-pv, #s-bs'));
+	const rectNodes = Array.from(
+		document.querySelectorAll('[id^="text-"], #s-pv, #s-pv-neutral, #s-bs')
+	);
 	rectNodes.forEach((rect) => {
 		const fo = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
 		// copy all attributes from rect to new foreignObject
