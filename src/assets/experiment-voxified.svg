@@ -2244,7 +2244,7 @@
 <g id="s-meaning">
 	<rect id="sm-written-response" x="277" y="334" fill="#E5E5E5" width="1366" height="476"/>
 	
-		<rect id="text-meaning" x="415" y="188" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1096" height="54"/>
+		<rect id="text-meaning" y="100" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1920" height="200"/>
 	<rect id="ph-sm-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	
 		<image overflow="visible" width="80" height="80" id="link-sm-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
