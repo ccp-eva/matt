@@ -109,7 +109,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	play(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`, headphones.id);
 	if (data.rankingSlideCounter === 1) {
-		await playPromise(`./cultures/${data.culture}/audio/sqr-expl.mp3`);
+		await playPromise(`./cultures/${data.culture}/audio/sqre-expl.mp3`);
 	}
 
 	gsap.to([entity1Element, entity2Element, headphones], { autoAlpha: 1 });
