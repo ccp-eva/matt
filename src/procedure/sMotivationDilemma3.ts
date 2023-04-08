@@ -1,35 +1,32 @@
-import _ from 'lodash';
-import { gsap } from 'gsap';
 import { swapSlides } from '../util/slideVisibility';
 import { sleep } from '../util/helpers';
+import { SvgInHtml } from '../types';
 
-export default async () => {
+export default async ({ currentSlide, previousSlide }) => {
 	// swap slides automatically (don’t touch this)
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
+	swapSlides(currentSlide, previousSlide);
 
 	const pinda = document.getElementById('player') as HTMLVideoElement;
-	gsap.set(pinda, { autoAlpha: 0 });
 
-	let isPlaying = true;
-	gsap.timeline().to(pinda, {
-		autoAlpha: 1,
-		duration: 2,
-		onStart: () => {
-			pinda.src = `./cultures/${data.culture}/video/s-motivation-dilemma3.webm`;
-		},
-	});
+	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
+	parentBlock.removeAttribute('visibility');
+	const preloadVideo = await fetch(`./cultures/${data.culture}/video/s-motivation-dilemma3.webm`);
+	const blob = await preloadVideo.blob();
+	const url = URL.createObjectURL(blob);
+	parentBlock.setAttribute('visibility', 'hidden');
 
+	let isPlaying = false;
 	pinda.addEventListener('play', () => {
 		isPlaying = true;
 	});
 	pinda.addEventListener('ended', () => {
 		isPlaying = false;
-		gsap.to(pinda, { autoAlpha: 0 });
 	});
+
+	isPlaying = true;
+	pinda.src = url;
 
 	while (isPlaying) {
 		await sleep(100);
 	}
-
-	await sleep(1000);
 };

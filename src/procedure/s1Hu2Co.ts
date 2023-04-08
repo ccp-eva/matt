@@ -1,14 +1,14 @@
 import { gsap } from 'gsap';
-import _, { head } from 'lodash';
+import _ from 'lodash';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
-export default async () => {
+export default async ({ currentSlide, previousSlide }) => {
 	// swap slides automatically (don’t touch this)
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
+	swapSlides(currentSlide, previousSlide);
 
 	// check if current slide is last slide in any of the orders
 	let isLast = false;
@@ -74,26 +74,18 @@ export default async () => {
 			isPlaying = false;
 		});
 		let isPlaying = true;
-		gsap.timeline().to(pinda, {
-			autoAlpha: 1,
-			duration: 2,
-			onStart: () => {
-				if (data.dilemmaMotivationOnePlayed === false) {
-					pinda.src = `./cultures/${data.culture}/video/motivation-dilemma1.webm`;
-					data.dilemmaMotivationOnePlayed = true;
-				} else {
-					pinda.src = `./cultures/${data.culture}/video/motivation-dilemma2.webm`;
-					data.dilemmaMotivationTwoPlayed = true;
-				}
-			},
-		});
+		if (data.dilemmaMotivationOnePlayed === false) {
+			pinda.src = `./cultures/${data.culture}/video/motivation-dilemma1.webm`;
+			data.dilemmaMotivationOnePlayed = true;
+		} else {
+			pinda.src = `./cultures/${data.culture}/video/motivation-dilemma2.webm`;
+			data.dilemmaMotivationTwoPlayed = true;
+		}
+
+		await gsap.timeline().to(`#${left.parentElement!.id}`, { autoAlpha: 0 });
 
 		while (isPlaying) {
 			await sleep(100);
 		}
-
-		gsap.to(pinda, { autoAlpha: 0 });
 	}
-
-	await sleep(500);
 };

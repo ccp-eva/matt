@@ -5,13 +5,13 @@ export const playPromise = (url: string, elementId?: string) => {
 		if (elementId) {
 			document.getElementById(elementId)!.addEventListener('click', () => {
 				audio.autoplay = true;
-				audio.setAttribute('src', url);
+				audio.src = url;
 				audio.onerror = reject;
 				audio.onended = resolve;
 			});
 		} else {
 			audio.autoplay = true;
-			audio.setAttribute('src', url);
+			audio.src = url;
 			audio.onerror = reject;
 			audio.onended = resolve;
 		}
@@ -58,15 +58,15 @@ export const play = (url: string | string[], elementId?: string, once = false) =
 
 export const stop = () => {
 	const audio = document.getElementById('audio') as HTMLAudioElement;
-	const video = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('player') as HTMLVideoElement;
 
 	// stop audio
 	audio.pause();
 	audio.currentTime = 0;
 
-	// stop video
-	video.pause();
-	video.currentTime = 0;
+	// stop pinda
+	pinda.pause();
+	pinda.currentTime = 0;
 };
 
 // get duration of audio file

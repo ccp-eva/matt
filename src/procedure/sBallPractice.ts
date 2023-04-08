@@ -7,29 +7,28 @@ import { play, playPromise } from '../util/audio';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
-export default async () => {
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [0, 0]);
+export default async ({ currentSlide, previousSlide }) => {
+	swapSlides(currentSlide, previousSlide, [0, 0]);
 
 	const ball = document.getElementById('link-sbp-ball')! as SvgInHtml;
 	const inner = document.getElementById('sbp-inner')! as SvgInHtml;
 	const middle = document.getElementById('sbp-middle')! as SvgInHtml;
 	const outer = document.getElementById('sbp-outer')! as SvgInHtml;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
+	const headphones = document.getElementById('link-s-bp-headphones') as HTMLMediaElement;
 
 	gsap.set([inner, middle, outer], { opacity: 0.5 });
+	gsap.set(headphones, { autoAlpha: 0 });
 
-	let isPlaying = true;
+	let isPlaying = false;
 	audio.addEventListener('play', () => {
 		isPlaying = true;
 	});
 	audio.addEventListener('ended', () => {
 		isPlaying = false;
 	});
-	await playPromise(`./cultures/${data.culture}/audio/s-ball-practice.mp3`);
-	await playPromise(`./cultures/${data.culture}/audio/sbp-expl.mp3`);
 
 	// init data object
-	// todo if explanation count > 3 skip to dilemma https://github.com/ccp-eva/matt/issues/18
 	const order = _.shuffle(['inner', 'middle', 'outer']);
 	data.procedure.sBallPractice = {
 		duration: 0,
@@ -41,17 +40,18 @@ export default async () => {
 		outer: '',
 	};
 
-	const startTime = new Date().getTime();
-
 	let failed = false;
 	let repeat = false;
 	for (let i = 0; i < order.length; i++) {
 		gsap.to([inner, middle, outer], { opacity: 0.5 });
-		gsap.to(ball, { x: 0, y: 0, duration: 0.25 });
+		gsap.to(ball, { x: 0, y: 0, duration: 0.25, scale: 1, opacity: 0.5 });
+		gsap.to(headphones, { autoAlpha: 0 });
 
 		const currentCircle = order[i];
-		if (i > 0) {
-			await sleep(1000);
+
+		// if ongoing audio, sleep
+		while (isPlaying) {
+			await sleep(100);
 		}
 
 		console.log(currentCircle);
@@ -60,13 +60,14 @@ export default async () => {
 			failed = false;
 			repeat = true;
 
-			gsap.timeline().to('#link-s-bp-headphones', {
+			gsap.timeline().to(headphones, {
 				autoAlpha: 0,
 			});
 
 			await playPromise(`./cultures/${data.culture}/audio/sbp-fail.mp3`);
 
-			gsap
+			play(`./cultures/${data.culture}/audio/sbp-repeat-rules.mp3`);
+			await gsap
 				.timeline()
 				.to(inner, {
 					delay: 3,
@@ -92,70 +93,94 @@ export default async () => {
 				})
 				.to(outer, {
 					autoAlpha: 0.5,
-				})
-				.to('#link-s-bp-headphones', {
-					autoAlpha: 1,
 				});
-
-			await playPromise(`./cultures/${data.culture}/audio/sbp-repeat-rules.mp3`);
 		}
 
-		play(`./cultures/${data.culture}/audio/sbp-${currentCircle}.mp3`, 'link-s-bp-headphones');
+		play(`./cultures/${data.culture}/audio/sbp-${currentCircle}.mp3`, headphones.id);
 		await playPromise(`./cultures/${data.culture}/audio/sbp-${currentCircle}.mp3`);
+		gsap.to(ball, { opacity: 1 });
+		gsap.to(headphones, { autoAlpha: 1 });
+
+		// Circle Logic
+		const innerRadius = inner.getBBox().width / 2;
+		const middleRadius = middle.getBBox().width / 2;
+		const outerRadius = outer.getBBox().width / 2;
+		const innerCx = inner.getBBox().x + innerRadius;
+		const innerCy = inner.getBBox().y + innerRadius;
 
 		const dragBall = Draggable.create(ball, {
 			onDrag: function () {
-				if (
-					this.hitTest(inner, '50%') &&
-					this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
-				) {
-					gsap.to(inner, { opacity: 1, duration: 0.25 });
-				} else {
-					gsap.to(inner, { opacity: 0.5, duration: 0.25 });
+				const currentTarget = this.target;
+				const targetBBox = currentTarget.getBBox();
+				const targetHeight = currentTarget.getBBox().height / 2;
+				const targetWidth = currentTarget.getBBox().width / 2;
+
+				let updatedObjX = targetBBox.x + targetWidth + this.x;
+				let updatedObjY = targetBBox.y + targetHeight + this.y;
+
+				const circleDistance = Math.sqrt(
+					Math.pow(updatedObjX - innerCx, 2) + Math.pow(updatedObjY - innerCy, 2)
+				);
+
+				// Check if the distance between the centers is less than or equal to the sum of the radii
+				if (circleDistance * 1.22 <= innerRadius + targetWidth) {
+					gsap.to(inner, { opacity: 1 });
+					gsap.to([middle, outer], { opacity: 0.5 });
 				}
 
 				if (
-					!this.hitTest(inner, '50%') &&
-					this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
+					circleDistance * 1.22 <= middleRadius + targetWidth &&
+					circleDistance * 1.22 > innerRadius + targetWidth
 				) {
-					gsap.to(middle, { opacity: 1, duration: 0.25 });
-				} else {
-					gsap.to(middle, { opacity: 0.5, duration: 0.25 });
+					gsap.to(middle, { opacity: 1 });
+					gsap.to([inner, outer], { opacity: 0.5 });
 				}
 
 				if (
-					!this.hitTest(inner, '50%') &&
-					!this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
+					circleDistance * 1.22 <= outerRadius + targetWidth &&
+					circleDistance * 1.22 > middleRadius + targetWidth
 				) {
-					gsap.to(outer, { opacity: 1, duration: 0.25 });
-				} else {
-					gsap.to(outer, { opacity: 0.5, duration: 0.25 });
+					gsap.to(outer, { opacity: 1 });
+					gsap.to([inner, middle], { opacity: 0.5 });
+					gsap.to(this.target, { scale: 0.5, transformOrigin: '50% 50%' });
+				}
+
+				// Outside of outer circle (i.e., all circles)
+				if (circleDistance * 1.22 > outerRadius + targetWidth) {
+					gsap.to(this.target, { scale: 1, transformOrigin: '50% 50%' });
+					gsap.to([inner, middle, outer], { opacity: 0.5 });
 				}
 			},
 			onDragEnd: function () {
-				if (
-					this.hitTest(inner, '50%') &&
-					this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
-				) {
+				const currentTarget = this.target;
+				const currentId = currentTarget.id;
+				console.log(currentId);
+				const targetBBox = currentTarget.getBBox();
+				const targetHeight = currentTarget.getBBox().height / 2;
+				const targetWidth = currentTarget.getBBox().width / 2;
+
+				let updatedObjX = targetBBox.x + targetWidth + this.x;
+				let updatedObjY = targetBBox.y + targetHeight + this.y;
+
+				const circleDistance = Math.sqrt(
+					Math.pow(updatedObjX - innerCx, 2) + Math.pow(updatedObjY - innerCy, 2)
+				);
+
+				// Check if the distance between the centers is less than or equal to the sum of the radii
+				if (circleDistance * 1.22 <= innerRadius + targetWidth) {
 					dragBall[0].disable();
+					gsap.to(inner, { opacity: 0.5, duration: 0.25 });
 					// Logging
 					data.procedure.sBallPractice![currentCircle] = 'inner';
-
 					// SUCCESS
 					if (i === 2 && currentCircle === 'inner') {
 						repeat = false;
 						play(`./cultures/${data.culture}/audio/sbp-resp3.mp3`);
 					}
-
 					if (i < 2 && currentCircle === 'inner') {
 						repeat = false;
 						play(`./cultures/${data.culture}/audio/sbp-resp${_.random(1, 2)}.mp3`);
 					}
-
 					// FAIL
 					if (currentCircle !== 'inner') {
 						data.procedure.sBallPractice.addExplanationCount++;
@@ -165,26 +190,24 @@ export default async () => {
 						i -= 1;
 					}
 				}
+				// MIDDLE
 				if (
-					!this.hitTest(inner, '50%') &&
-					this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
+					circleDistance * 1.22 <= middleRadius + targetWidth &&
+					circleDistance * 1.22 > innerRadius + targetWidth
 				) {
 					dragBall[0].disable();
+					gsap.to(middle, { opacity: 0.5, duration: 0.25 });
 					// Logging
 					data.procedure.sBallPractice![currentCircle] = 'middle';
-
 					// SUCCESS
 					if (i === 2 && currentCircle === 'middle') {
 						repeat = false;
 						play(`./cultures/${data.culture}/audio/sbp-resp3.mp3`);
 					}
-
 					if (i < 2 && currentCircle === 'middle') {
 						repeat = false;
 						play(`./cultures/${data.culture}/audio/sbp-resp${_.random(1, 2)}.mp3`);
 					}
-
 					// FAIL
 					if (currentCircle !== 'middle') {
 						data.procedure.sBallPractice.addExplanationCount++;
@@ -195,25 +218,22 @@ export default async () => {
 					}
 				}
 				if (
-					!this.hitTest(inner, '50%') &&
-					!this.hitTest(middle, '50%') &&
-					this.hitTest(outer, '50%')
+					circleDistance * 1.22 <= outerRadius + targetWidth &&
+					circleDistance * 1.22 > middleRadius + targetWidth
 				) {
 					dragBall[0].disable();
+					gsap.to(outer, { opacity: 0.5, duration: 0.25 });
 					// Logging
 					data.procedure.sBallPractice![currentCircle] = 'outer';
-
 					// SUCCESS
 					if (i === 2 && currentCircle === 'outer') {
 						repeat = false;
 						play(`./cultures/${data.culture}/audio/sbp-resp3.mp3`);
 					}
-
 					if (i < 2 && currentCircle === 'outer') {
 						repeat = false;
 						play(`./cultures/${data.culture}/audio/sbp-resp${_.random(1, 2)}.mp3`);
 					}
-
 					// FAIL
 					if (currentCircle !== 'outer') {
 						data.procedure.sBallPractice.addExplanationCount++;
@@ -222,6 +242,10 @@ export default async () => {
 						data.procedure.sBallPractice[currentCircle] === '';
 						i -= 1;
 					}
+				}
+				// None of the circles
+				if (circleDistance * 1.22 > outerRadius + targetWidth) {
+					gsap.to(currentTarget, { x: 0, y: 0 });
 				}
 			},
 		});
@@ -242,6 +266,4 @@ export default async () => {
 	while (isPlaying) {
 		await sleep(100);
 	}
-
-	// await sleep(1000);
 };

@@ -1,10 +1,27 @@
 import { gsap } from 'gsap';
 import _ from 'lodash';
+import config from '../config.yaml';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
+import { SvgInHtml } from '../types';
 
-export default async () => {
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 2]);
+export default async ({ currentSlide, previousSlide }) => {
+	const prefetchedVideos = {
+		transition: `./cultures/${data.culture}/video/sr-react2-intro-dilemmas.webm`,
+		boat: `./cultures/${data.culture}/video/s-intro-combined-720p.mp4`,
+	};
+
+	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
+	parentBlock.removeAttribute('visibility');
+	for (const [key, value] of Object.entries(prefetchedVideos)) {
+		const videoResp = await fetch(value);
+		const blob = await videoResp.blob();
+		prefetchedVideos[key] = URL.createObjectURL(blob);
+	}
+	parentBlock.setAttribute('visibility', 'hidden');
+	console.log(prefetchedVideos);
+
+	swapSlides(currentSlide, previousSlide, [2, 2]);
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 	const fsplayer = document.getElementById('fsplayer') as HTMLVideoElement;
 
@@ -19,29 +36,18 @@ export default async () => {
 		});
 	});
 
-	gsap.set(pinda, { autoAlpha: 0 });
-
-	gsap.to(pinda, {
-		autoAlpha: 1,
-		duration: 2,
-		onStart: () => {
-			pinda.src = `./cultures/${data.culture}/video/sr-react2-intro-dilemmas.webm`;
-		},
-	});
+	pinda.src = prefetchedVideos.transition;
 
 	while (isPlaying) {
 		await sleep(100);
 	}
 
-	gsap.to(pinda, {
-		autoAlpha: 0,
-	});
-
 	gsap.set(fsplayer, { autoAlpha: 0 });
 	fsplayer.style.display = 'block';
 
-	isPlaying = true;
-	gsap
+	gsap.to(pinda, { autoAlpha: 0 });
+
+	await gsap
 		.timeline()
 		.to('#svg', {
 			backgroundColor: '#000',
@@ -50,28 +56,15 @@ export default async () => {
 		.to(fsplayer, {
 			autoAlpha: 1,
 			onStart: () => {
-				fsplayer.src = `./cultures/${data.culture}/video/s-intro-combined-720p.mp4`;
+				fsplayer.src = prefetchedVideos.boat;
 			},
 		});
 
 	while (isPlaying) {
-		await sleep(100);
+		await sleep(1);
 	}
 
-	gsap
-		.timeline()
-		.to('#svg', {
-			backgroundColor: '#fff',
-			duration: 1,
-		})
-		.to(
-			fsplayer,
-			{
-				autoAlpha: 0,
-			},
-			'<'
-		);
+	await gsap.timeline().to('#svg', { backgroundColor: '#fff' }).to(fsplayer, { autoAlpha: 0 }, '<');
 
-	await sleep(500);
 	fsplayer.style.display = 'none';
 };

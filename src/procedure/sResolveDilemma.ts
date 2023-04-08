@@ -3,8 +3,8 @@ import _ from 'lodash';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
-export default async () => {
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 2]);
+export default async ({ currentSlide, previousSlide }) => {
+	swapSlides(currentSlide, previousSlide, [2, 2]);
 	const fsplayer = document.getElementById('fsplayer') as HTMLVideoElement;
 
 	let isPlaying = true;
@@ -50,6 +50,5 @@ export default async () => {
 			'<'
 		);
 
-	await sleep(500);
 	fsplayer.style.display = 'none';
 };

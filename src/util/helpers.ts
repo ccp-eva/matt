@@ -1,8 +1,16 @@
+import { gsap } from 'gsap';
 import { SvgInHtml } from '../types';
 import Toastify from 'toastify-js';
 
 // promised based timeout
 export const sleep = (ms = 2000) => new Promise<number>((r) => setTimeout(r, ms));
+
+export const millisToMinutesAndSeconds = (millis: number) => {
+	var minutes = Math.floor(millis / 60000);
+	var seconds = Number(((millis % 60000) / 1000).toFixed(0));
+	// return { minutes: minutes, seconds: (seconds < 10 ? '0' : '') + seconds };
+	return { minutes, seconds };
+};
 
 export const moveToCenterAnchor = (svg: SvgInHtml, x: number, y: number) => {
 	// Get the bounding box of the svg
@@ -13,7 +21,8 @@ export const moveToCenterAnchor = (svg: SvgInHtml, x: number, y: number) => {
 	const cy = bbox.y + bbox.height / 2;
 
 	// Translate the SVG to the new position
-	svg.setAttribute('transform', `translate(${x - cx}, ${y - cy})`);
+	gsap.set(svg, { x: x - cx, y: y - cy });
+	// svg.setAttribute('transform', `translate(${x - cx}, ${y - cy})`);
 };
 
 export const startFullscreen = () => {
@@ -55,7 +64,7 @@ export const exitFullscreen = () => {
 
 export const generateUserIdFilename = (prefix = 'matt', postfix = 'data', extension = 'json') => {
 	const day = new Date().toISOString().slice(0, 10);
-	const time = new Date().toISOString().slice(11, 19).split(':').join('-');
+	const time = new Date().toISOString().slice(11, 19).replaceAll(':', '-');
 	return `${prefix}-${data.id}-${day}-${time}-${postfix}.${extension}`;
 };
 

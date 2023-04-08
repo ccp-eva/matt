@@ -86,7 +86,7 @@ export const init = () => {
 		agegroup: urlParameters.agegroup,
 		input: urlParameters.input,
 		datatransfer: urlParameters.datatransfer,
-		initialTimestamp: new Date().toISOString(),
+		initialTimestamp: new Date(),
 		slideCounter: 0,
 		quitBeforeEnd: false,
 		procedure: {},
@@ -143,7 +143,7 @@ export const init = () => {
 	const pindaFo = document.getElementById('s-pv')! as SvgInHtml;
 	pindaFo.innerHTML = '<video id="player" autoplay playsinline style="height: 100%;" ></video>';
 	const pindaNeutralFo = document.getElementById('s-pv-neutral')! as SvgInHtml;
-	pindaNeutralFo.innerHTML = `<video id="pinda-neutral" autoply loop playsinline style="height: 100%; visibility: hidden" ></video>`;
+	pindaNeutralFo.innerHTML = `<video id="pinda-neutral" autoplay loop playsinline style="height: 100%; visibility: hidden" ></video>`;
 
 	// show warning when user tries to leave the page
 	if (!config.devmode.on) {
@@ -174,12 +174,6 @@ export const init = () => {
 		if (config.devmode.on) {
 			pinda.playbackRate = config.devmode.playbackRate;
 		}
-	});
-	pinda.addEventListener('ended', async () => {
-		console.log('ended');
-		gsap.to(pinda, { autoAlpha: 0 });
-		await sleep(500);
-		parent.setAttribute('visibility', 'hidden');
 	});
 
 	// blocking state slide
