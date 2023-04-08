@@ -47,61 +47,60 @@ procedure:
   # If you create a key with a sub array everything in the sub array will be randomized
   # You can nest only two levels deep
   de-urban:
-    # - s-introduction
-    # - s-intro-human-animals
-    # - animalOrder: [s-cow, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human]
-    # - s-mc-intro
-    # - s-ball-animation
-    # - s-ball-practice
-    # - s-task
-    # - s-meaning
-    # - s-intro-boats
-    # - s-practice-dilemma
-    # - s-dilemma-start
-    # - dilemmaOrder:
-    #     - companionOrder:
-    #         [
-    #           s-1-hu-1-ca,
-    #           s-2-hu-1-ca,
-    #           s-1-hu-2-ca,
-    #           s-10-hu-1-ca,
-    #           s-1-hu-10-ca,
-    #           s-100-hu-1-ca,
-    #           s-1-hu-100-ca,
-    #         ]
-    #     - foodOrder:
-    #         [
-    #           s-1-hu-1-co,
-    #           s-2-hu-1-co,
-    #           s-1-hu-2-co,
-    #           s-10-hu-1-co,
-    #           s-1-hu-10-co,
-    #           s-100-hu-1-co,
-    #           s-1-hu-100-co,
-    #         ]
-    #     - controlOrder: [s-c-1-hu-10-hu, s-c-1-hu-10-na, s-c-1-hu-10-sp, s-c-1-ca-1-co]
-    # - s-motivation-dilemma3
-    # - s-qu-thoughts
-    # - s-qu-feelings
-    # - s-qu-difference
-    # - s-intro-ranking
-    # - rankingOrder:
-    #     [
-    #       s-qu-ranking-intelligence,
-    #       s-qu-ranking-pain,
-    #       s-qu-ranking-feelings,
-    #       s-qu-ranking-similarity,
-    #     ]
-    # - s-motivation-questions
-    # - s-qu-ownership
-    # - s-qu-ranking-exposure
-    # - s-qu-meat-fish
-    # - s-qu-egg-cheese-milk
-    # - s-intro-reasoning
-    - s-reasoning-1-hu-1-co
+    - s-introduction
+    - s-intro-human-animals
+    - animalOrder: [s-cow, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human]
+    - s-mc-intro
+    - s-ball-animation
+    - s-ball-practice
+    - s-task
+    - s-meaning
+    - s-intro-boats
+    - s-practice-dilemma
+    - s-dilemma-start
+    - dilemmaOrder:
+        - companionOrder:
+            [
+              s-1-hu-1-ca,
+              s-2-hu-1-ca,
+              s-1-hu-2-ca,
+              s-10-hu-1-ca,
+              s-1-hu-10-ca,
+              s-100-hu-1-ca,
+              s-1-hu-100-ca,
+            ]
+        - foodOrder:
+            [
+              s-1-hu-1-co,
+              s-2-hu-1-co,
+              s-1-hu-2-co,
+              s-10-hu-1-co,
+              s-1-hu-10-co,
+              s-100-hu-1-co,
+              s-1-hu-100-co,
+            ]
+        - controlOrder: [s-c-1-hu-10-hu, s-c-1-hu-10-na, s-c-1-hu-10-sp, s-c-1-ca-1-co]
+    - s-motivation-dilemma3
+    - s-qu-thoughts
+    - s-qu-feelings
+    - s-qu-difference
+    - s-intro-ranking
+    - rankingOrder:
+        [
+          s-qu-ranking-intelligence,
+          s-qu-ranking-pain,
+          s-qu-ranking-feelings,
+          s-qu-ranking-similarity,
+        ]
+    - s-motivation-questions
+    - s-qu-ownership
+    - s-qu-ranking-exposure
+    - s-qu-meat-fish
+    - s-qu-egg-cheese-milk
+    - s-intro-reasoning
     - reasoningOrder: [s-reasoning-1-hu-1-co, s-reasoning-1-hu-1-ca, s-reasoning-1-ca-1-co]
-    # - s-resolve-dilemma
-    # - s-end
+    - s-resolve-dilemma
+    - s-end
 
   en-urban: [s-introduction, s-moral-circle, s-human]
   na-urban: [s-introduction, s-moral-circle, s-human]
