@@ -160,17 +160,13 @@ export default async ({ currentSlide, previousSlide }) => {
 
 			await playPromise(`./cultures/${data.culture}/audio/spdc-tenPencils.mp3`);
 
+			gsap.to(confirm1, { autoAlpha: 1 });
+			await playPromise(`./cultures/${data.culture}/audio/spdc.mp3`);
+
+			play(`./cultures/${data.culture}/audio/yes-no.mp3`);
 			await gsap
 				.timeline()
-				.to([cantDecideGroup, oneBikeGroup], {
-					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
-				})
-				.to(confirm1, { autoAlpha: 1 }, '<')
-				.to(pencilYesButton, {
-					autoAlpha: 0.5,
-					delay: 1,
-					onStart: () => play(`./cultures/${data.culture}/audio/yes-no.mp3`),
-				})
+				.to(pencilYesButton, { autoAlpha: 0.5 })
 				.to(pencilNoButton, { delay: 1, autoAlpha: 0.5 });
 
 			gsap.set([pencilYesButton, pencilNoButton], { pointerEvents: 'visible' });
@@ -188,17 +184,13 @@ export default async ({ currentSlide, previousSlide }) => {
 
 			await playPromise(`./cultures/${data.culture}/audio/spdc-cantDecide.mp3`);
 
+			gsap.to(confirm2, { autoAlpha: 1 });
+			await playPromise(`./cultures/${data.culture}/audio/spdc.mp3`);
+
+			play(`./cultures/${data.culture}/audio/yes-no.mp3`);
 			await gsap
 				.timeline()
-				.to([tenPencilsGroup, oneBikeGroup], {
-					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
-				})
-				.to(confirm2, { autoAlpha: 1 }, '<')
-				.to(cantDecideYesButton, {
-					autoAlpha: 0.5,
-					delay: 1,
-					onStart: () => play(`./cultures/${data.culture}/audio/yes-no.mp3`),
-				})
+				.to(cantDecideYesButton, { autoAlpha: 0.5 })
 				.to(cantDecideNoButton, { delay: 1, autoAlpha: 0.5 });
 
 			gsap.set([cantDecideYesButton, cantDecideNoButton], { pointerEvents: 'visible' });
@@ -215,17 +207,14 @@ export default async ({ currentSlide, previousSlide }) => {
 			gsap.to([tenPencilsGroup, cantDecideGroup], { autoAlpha: 0.25 });
 
 			await playPromise(`./cultures/${data.culture}/audio/spdc-oneBike.mp3`);
+
+			gsap.to(confirm3, { autoAlpha: 1 });
+			await playPromise(`./cultures/${data.culture}/audio/spdc.mp3`);
+
+			play(`./cultures/${data.culture}/audio/yes-no.mp3`);
 			await gsap
 				.timeline()
-				.to([tenPencilsGroup, cantDecideGroup], {
-					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
-				})
-				.to(confirm3, { autoAlpha: 1 }, '<')
-				.to(oneBikeYesButton, {
-					autoAlpha: 0.5,
-					delay: 1,
-					onStart: () => play(`./cultures/${data.culture}/audio/yes-no.mp3`),
-				})
+				.to(oneBikeYesButton, { autoAlpha: 0.5 })
 				.to(oneBikeNoButton, { delay: 1, autoAlpha: 0.5 });
 
 			gsap.set([oneBikeYesButton, oneBikeNoButton], { pointerEvents: 'visible' });
