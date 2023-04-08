@@ -284,9 +284,17 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	pinda.addEventListener('play', () => {
 		isPlaying = true;
+		textResponse.disabled = true;
+		gsap.to(checkLabel, { autoAlpha: 0.5 });
+		checkLabel.style.pointerEvents = 'none';
+		headphones.style.pointerEvents = 'none';
 	});
 	pinda.addEventListener('ended', () => {
 		isPlaying = false;
+		textResponse.disabled = false;
+		gsap.to(checkLabel, { autoAlpha: 1 });
+		checkLabel.style.pointerEvents = 'visible';
+		headphones.style.pointerEvents = 'visible';
 	});
 
 	// if userchoice-X landing block pinda videos
