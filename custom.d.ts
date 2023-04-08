@@ -70,9 +70,8 @@ declare var data: {
 	foodOrder: string[];
 	controlOrder: string[];
 	animalSlideCounter: number;
-	animalOrder: string[];
+	rankingSlideCounter: number;
 	reasoningSlideCounter: number;
-	reasoningOrder: string[];
 	procedure: {
 		sIntroduction: {
 			duration: number;

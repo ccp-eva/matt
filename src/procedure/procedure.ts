@@ -71,6 +71,7 @@ export const procedure = async () => {
 
 	data.animalSlideCounter = 0;
 	data.reasoningSlideCounter = 0;
+	data.rankingSlideCounter = 0;
 	data.dilemmaMotivationOnePlayed = false;
 	data.dilemmaMotivationTwoPlayed = false;
 
