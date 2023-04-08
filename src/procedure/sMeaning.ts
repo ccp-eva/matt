@@ -177,14 +177,14 @@ export default async ({ currentSlide, previousSlide }) => {
 		await gsap
 			.timeline()
 			.to(voiceResponseStart, {
-				filter: 'drop-shadow(0px 0px 20px #000)',
+				filter: 'drop-shadow(0px 0px 18px #000)',
 				delay: 8,
 				repeat: 3,
 				yoyo: true,
 				reversed: true,
 			})
 			.to(voiceResponseStop, {
-				filter: 'drop-shadow(0px 0px 20px #000)',
+				filter: 'drop-shadow(0px 0px 18px #000)',
 				delay: 1.5,
 				repeat: 3,
 				yoyo: true,
@@ -250,14 +250,14 @@ export default async ({ currentSlide, previousSlide }) => {
 				await gsap
 					.timeline()
 					.to(voiceResponseStart, {
-						filter: 'drop-shadow(0px 0px 20px #000)',
+						filter: 'drop-shadow(0px 0px 18px #000)',
 						delay: 8,
 						repeat: 3,
 						yoyo: true,
 						reversed: true,
 					})
 					.to(voiceResponseStop, {
-						filter: 'drop-shadow(0px 0px 20px #000)',
+						filter: 'drop-shadow(0px 0px 18px #000)',
 						delay: 1.5,
 						repeat: 3,
 						yoyo: true,

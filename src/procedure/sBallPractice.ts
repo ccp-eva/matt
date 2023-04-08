@@ -177,10 +177,12 @@ export default async ({ currentSlide, previousSlide }) => {
 					// SUCCESS
 					if (i === 2 && currentCircle === 'inner') {
 						repeat = false;
+						isPlaying = true;
 						play(`./cultures/${data.culture}/audio/sbp-resp3.mp3`);
 					}
 					if (i < 2 && currentCircle === 'inner') {
 						repeat = false;
+						isPlaying = true;
 						play(`./cultures/${data.culture}/audio/sbp-resp${_.random(1, 2)}.mp3`);
 					}
 					// FAIL
@@ -204,10 +206,12 @@ export default async ({ currentSlide, previousSlide }) => {
 					// SUCCESS
 					if (i === 2 && currentCircle === 'middle') {
 						repeat = false;
+						isPlaying = true;
 						play(`./cultures/${data.culture}/audio/sbp-resp3.mp3`);
 					}
 					if (i < 2 && currentCircle === 'middle') {
 						repeat = false;
+						isPlaying = true;
 						play(`./cultures/${data.culture}/audio/sbp-resp${_.random(1, 2)}.mp3`);
 					}
 					// FAIL
@@ -230,10 +234,12 @@ export default async ({ currentSlide, previousSlide }) => {
 					// SUCCESS
 					if (i === 2 && currentCircle === 'outer') {
 						repeat = false;
+						isPlaying = true;
 						play(`./cultures/${data.culture}/audio/sbp-resp3.mp3`);
 					}
 					if (i < 2 && currentCircle === 'outer') {
 						repeat = false;
+						isPlaying = true;
 						play(`./cultures/${data.culture}/audio/sbp-resp${_.random(1, 2)}.mp3`);
 					}
 					// FAIL

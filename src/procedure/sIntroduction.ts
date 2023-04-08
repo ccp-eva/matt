@@ -76,7 +76,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			.to(headphones, {
 				filter: 'drop-shadow(0px 0px 14px #000)',
 				delay: 1,
-				repeat: 3,
+				repeat: 4,
 				yoyo: true,
 				reversed: true,
 			})
