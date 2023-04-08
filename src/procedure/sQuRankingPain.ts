@@ -11,6 +11,7 @@ import { swapSlides } from '../util/slideVisibility';
 
 export default async ({ currentSlide, previousSlide }) => {
 	swapSlides(currentSlide, previousSlide);
+	data.rankingSlideCounter++;
 
 	const slidePrefix = 'sqrp';
 	const audioPrefix = 'sqrp-sqrf-resp';
@@ -119,7 +120,9 @@ export default async ({ currentSlide, previousSlide }) => {
 	await playPromise(`./cultures/${data.culture}/audio/${audioPrefix}.mp3`);
 
 	play(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`, headphones.id);
-	await playPromise(`./cultures/${data.culture}/audio/sqr-expl.mp3`);
+	if (data.rankingSlideCounter === 1) {
+		await playPromise(`./cultures/${data.culture}/audio/sqr-expl.mp3`);
+	}
 
 	gsap.to([entity1Element, entity2Element, entity3Element, headphones], { autoAlpha: 1 });
 	headphones.style.pointerEvents = 'visible';

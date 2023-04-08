@@ -118,7 +118,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-resp.mp3`);
 
 	play(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`, headphones.id);
-	await playPromise(`./cultures/${data.culture}/audio/sqre-expl.mp3`);
+	// await playPromise(`./cultures/${data.culture}/audio/sqre-expl.mp3`);
 
 	gsap.to([entity1Element, entity2Element, headphones], { autoAlpha: 1 });
 	headphones.style.pointerEvents = 'visible';
