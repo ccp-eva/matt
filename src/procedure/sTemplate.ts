@@ -4,9 +4,9 @@ import { getResponse } from '../util/getResponse';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
-export default async () => {
+export default async ({ currentSlide, previousSlide }) => {
 	// swap slides automatically (don’t touch this)
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
+	swapSlides(currentSlide, previousSlide);
 
 	// your expirimental logic goes here
 	await playPromise(`./cultures/${data.culture}/audio/s-cat.mp3`);
@@ -18,6 +18,4 @@ export default async () => {
 	data.procedure[data.currentSlide] = {
 		response: response.id,
 	};
-
-	await sleep(500);
 };

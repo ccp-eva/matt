@@ -3,12 +3,11 @@ import { gsap } from 'gsap';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
-import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
-export default async () => {
+export default async ({ currentSlide, previousSlide }) => {
 	// swap slides automatically (don’t touch this)
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
+	swapSlides(currentSlide, previousSlide);
 
 	data.procedure.sPracticeDilemma.completed = false;
 
@@ -81,13 +80,22 @@ export default async () => {
 			}
 		);
 
+		[
+			pencilYesButton,
+			pencilNoButton,
+			cantDecideYesButton,
+			cantDecideNoButton,
+			oneBikeYesButton,
+			oneBikeNoButton,
+		].forEach((el) => (el.style.pointerEvents = 'none'));
+
 		gsap.set([tenPencilsGroup, cantDecideGroup, oneBikeGroup], {
 			autoAlpha: 1,
 		});
 
 		await playPromise(`./cultures/${data.culture}/audio/s-practice-dilemma-intro.mp3`);
 
-		gsap
+		await gsap
 			.timeline()
 			.to([boatLeft, boatRight], {
 				autoAlpha: 1,
@@ -117,21 +125,9 @@ export default async () => {
 				reversed: true,
 				repeat: 1,
 			})
-			.to(
-				qm,
-				{
-					autoAlpha: 1,
-				},
-				'<'
-			)
-			.to([tenPencils, textLeft], {
-				autoAlpha: 1,
-				delay: 2,
-			})
-			.to([oneBike, textRight], {
-				autoAlpha: 1,
-				delay: 2,
-			})
+			.to(qm, { autoAlpha: 1 }, '<')
+			.to([tenPencils, textLeft], { autoAlpha: 1, delay: 2 })
+			.to([oneBike, textRight], { autoAlpha: 1, delay: 2 })
 			.to(oneBike, {
 				delay: 0.5,
 				onComplete: () => {
@@ -139,7 +135,6 @@ export default async () => {
 				},
 			});
 
-		await sleep(16000);
 		play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`, 'link-spd-headphones');
 
 		[tenPencilsGroup, cantDecideGroup, oneBikeGroup].forEach((el) => {
@@ -161,33 +156,25 @@ export default async () => {
 		console.log(response.id);
 
 		if (response.id.includes('tenPencils')) {
-			gsap.to([cantDecideGroup, oneBikeGroup], {
-				autoAlpha: 0.25,
-			});
+			gsap.to([cantDecideGroup, oneBikeGroup], { autoAlpha: 0.25 });
 
 			await playPromise(`./cultures/${data.culture}/audio/spdc-tenPencils.mp3`);
 
-			gsap
+			await gsap
 				.timeline()
 				.to([cantDecideGroup, oneBikeGroup], {
 					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
 				})
-				.to(
-					confirm1,
-					{
-						autoAlpha: 1,
-					},
-					'<'
-				)
+				.to(confirm1, { autoAlpha: 1 }, '<')
 				.to(pencilYesButton, {
-					autoAlpha: 1,
+					autoAlpha: 0.5,
 					delay: 1,
 					onStart: () => play(`./cultures/${data.culture}/audio/yes-no.mp3`),
 				})
-				.to(pencilNoButton, {
-					delay: 1,
-					autoAlpha: 1,
-				});
+				.to(pencilNoButton, { delay: 1, autoAlpha: 0.5 });
+
+			gsap.set([pencilYesButton, pencilNoButton], { pointerEvents: 'visible' });
+			gsap.to([pencilYesButton, pencilNoButton], { autoAlpha: 1 });
 
 			response = await getResponse(['link-b-tenPencils-yes', 'link-b-tenPencils-no']);
 
@@ -197,33 +184,25 @@ export default async () => {
 		}
 
 		if (response.id.includes('cantDecide')) {
-			gsap.to([tenPencilsGroup, oneBikeGroup], {
-				autoAlpha: 0.25,
-			});
+			gsap.to([tenPencilsGroup, oneBikeGroup], { autoAlpha: 0.25 });
 
 			await playPromise(`./cultures/${data.culture}/audio/spdc-cantDecide.mp3`);
 
-			gsap
+			await gsap
 				.timeline()
 				.to([tenPencilsGroup, oneBikeGroup], {
 					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
 				})
-				.to(
-					confirm2,
-					{
-						autoAlpha: 1,
-					},
-					'<'
-				)
+				.to(confirm2, { autoAlpha: 1 }, '<')
 				.to(cantDecideYesButton, {
-					autoAlpha: 1,
+					autoAlpha: 0.5,
 					delay: 1,
 					onStart: () => play(`./cultures/${data.culture}/audio/yes-no.mp3`),
 				})
-				.to(cantDecideNoButton, {
-					delay: 1,
-					autoAlpha: 1,
-				});
+				.to(cantDecideNoButton, { delay: 1, autoAlpha: 0.5 });
+
+			gsap.set([cantDecideYesButton, cantDecideNoButton], { pointerEvents: 'visible' });
+			gsap.to([cantDecideYesButton, cantDecideNoButton], { autoAlpha: 1 });
 
 			response = await getResponse(['link-b-cantDecide-yes', 'link-b-cantDecide-no']);
 
@@ -233,32 +212,24 @@ export default async () => {
 		}
 
 		if (response.id.includes('oneBike')) {
-			gsap.to([tenPencilsGroup, cantDecideGroup], {
-				autoAlpha: 0.25,
-			});
+			gsap.to([tenPencilsGroup, cantDecideGroup], { autoAlpha: 0.25 });
 
 			await playPromise(`./cultures/${data.culture}/audio/spdc-oneBike.mp3`);
-			gsap
+			await gsap
 				.timeline()
 				.to([tenPencilsGroup, cantDecideGroup], {
 					onStart: () => play(`./cultures/${data.culture}/audio/spdc.mp3`),
 				})
-				.to(
-					confirm3,
-					{
-						autoAlpha: 1,
-					},
-					'<'
-				)
+				.to(confirm3, { autoAlpha: 1 }, '<')
 				.to(oneBikeYesButton, {
-					autoAlpha: 1,
+					autoAlpha: 0.5,
 					delay: 1,
 					onStart: () => play(`./cultures/${data.culture}/audio/yes-no.mp3`),
 				})
-				.to(oneBikeNoButton, {
-					delay: 1,
-					autoAlpha: 1,
-				});
+				.to(oneBikeNoButton, { delay: 1, autoAlpha: 0.5 });
+
+			gsap.set([oneBikeYesButton, oneBikeNoButton], { pointerEvents: 'visible' });
+			gsap.to([oneBikeYesButton, oneBikeNoButton], { autoAlpha: 1 });
 
 			response = await getResponse(['link-b-oneBike-yes', 'link-b-oneBike-no']);
 
@@ -269,6 +240,4 @@ export default async () => {
 
 		data.procedure[data.currentSlide].response = response.id;
 	}
-
-	await sleep(500);
 };

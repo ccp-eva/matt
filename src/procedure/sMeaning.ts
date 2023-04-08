@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import _, { head } from 'lodash';
+import _ from 'lodash';
 import config from '../config.yaml';
 import RecordRTC from 'recordrtc';
 import { SvgInHtml } from '../types';
@@ -8,7 +8,53 @@ import { getResponse } from '../util/getResponse';
 import { generateUserIdFilename, sleep, uploadAudio } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
-export default async () => {
+export default async ({ currentSlide, previousSlide }) => {
+	// only prefetch required videos depending on input
+	const prefetchedVideos = {
+		transition: '',
+		neutral: '',
+		text: '',
+		audio: '',
+	};
+	prefetchedVideos.transition = `./cultures/${data.culture}/video/st-finish-meaning.webm`;
+	if (!data.pindaNeutralBlob) {
+		prefetchedVideos.neutral = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
+	}
+	if (!data.textIntroBlob && data.input === 'text') {
+		prefetchedVideos.text = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+	}
+	if (!data.audioIntroBlob && data.input === 'audio') {
+		prefetchedVideos.audio = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+	}
+	if (data.input === 'userchoice-audio' || data.input === 'userchoice-text') {
+		if (!data.textIntroBlob) {
+			prefetchedVideos.text = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+		}
+		if (!data.audioIntroBlob) {
+			prefetchedVideos.audio = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+		}
+	}
+
+	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
+	parentBlock.removeAttribute('visibility');
+	for (const [key, value] of Object.entries(prefetchedVideos)) {
+		if (value) {
+			const videoResp = await fetch(value);
+			const blob = await videoResp.blob();
+			prefetchedVideos[key] = URL.createObjectURL(blob);
+		}
+	}
+	// write blobs to data object
+	data.pindaNeutralBlob = data.pindaNeutralBlob || prefetchedVideos.neutral;
+	data.textIntroBlob = data.textIntroBlob || prefetchedVideos.text;
+	data.audioIntroBlob = data.audioIntroBlob || prefetchedVideos.audio;
+	// write blobs from data to prefetchedVideos if not already there
+	prefetchedVideos.neutral = prefetchedVideos.neutral || data.pindaNeutralBlob;
+	prefetchedVideos.text = prefetchedVideos.text || data.textIntroBlob;
+	prefetchedVideos.audio = prefetchedVideos.audio || data.audioIntroBlob;
+	parentBlock.setAttribute('visibility', 'hidden');
+	console.log(prefetchedVideos);
+
 	// insert HTML
 	{
 		// get svg rect element
@@ -21,20 +67,21 @@ export default async () => {
 		// create html content
 		fo.innerHTML = `
 	<div id="wrapper-smeaning" style="display: none;">
-		<div id="toggle" style="width: 9em; margin: 0 auto; margin-bottom: 10px">
-				<input id="chck" type="checkbox" />
-			<label for="chck" class="check-trail"><span class="check-handler"></span> </label>
+		<div id="toggle-smeaning" style="width: 9em; margin: 0 auto; margin-bottom: 10px">
+				<input id="chck-smeaning" type="checkbox" />
+			<label for="chck-smeaning" class="check-trail"><span class="check-handler"></span> </label>
 		</div>
 
 		<div>
 			<textarea
+			   rows="5"
 				disabled
-				id="text-response-meaning"
+				id="text-response-smeaning"
 				maxlength="2000"
 				style="display: block; pointer-events: auto;"
 			></textarea>
-			<div id="voice-response-meaning" style="display: flex;">
-				<button type="button" disabled id="voice-response-start-meaning" style="font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🎤 Start</button> <button type="button" disabled id="voice-response-stop-meaning" style="font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🛑 Stop</button>
+			<div id="voice-response-smeaning" style="display: flex;">
+				<button type="button" class="button" disabled id="voice-response-start-smeaning"><span>🎤&nbsp;Start</span></button> <button type="button" class="button" disabled id="voice-response-stop-smeaning"><span>🛑&nbsp;Stop</span></button>
 			</div>
 		</div>
 	</div>`;
@@ -43,27 +90,27 @@ export default async () => {
 	const headphones = document.getElementById('link-sm-headphones') as SvgInHtml;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pindaNeutral = document.getElementById('pinda-neutral') as HTMLVideoElement;
 	const nextButton = document.getElementById('link-sm-next') as SvgInHtml;
 
 	const wrapper = document.getElementById('wrapper-smeaning') as HTMLDivElement;
-	const textResponse = document.getElementById('text-response-meaning') as HTMLTextAreaElement;
-	const voiceResponse = document.getElementById('voice-response-meaning') as HTMLDivElement;
+	const textResponse = document.getElementById('text-response-smeaning') as HTMLTextAreaElement;
+	const voiceResponse = document.getElementById('voice-response-smeaning') as HTMLDivElement;
 	const voiceResponseStart = document.getElementById(
-		'voice-response-start-meaning'
+		'voice-response-start-smeaning'
 	) as HTMLButtonElement;
 	const voiceResponseStop = document.getElementById(
-		'voice-response-stop-meaning'
+		'voice-response-stop-smeaning'
 	) as HTMLButtonElement;
-	const toggle = document.getElementById('toggle') as HTMLDivElement;
+	const toggle = document.getElementById('toggle-smeaning') as HTMLDivElement;
 	const checkLabel = document.querySelector('.check-trail') as HTMLLabelElement;
-	const checkBox = document.getElementById('chck') as HTMLInputElement;
+	const checkBox = document.getElementById('chck-smeaning') as HTMLInputElement;
 
 	nextButton.style.pointerEvents = 'none';
 	checkLabel.style.pointerEvents = 'none';
 	gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
-	gsap.set(pinda, { autoAlpha: 0 });
 
-	data.procedure.sMeaning = {
+	data.procedure[data.currentSlide] = {
 		duration: 0,
 		input: data.input,
 		textInput: '',
@@ -104,11 +151,10 @@ export default async () => {
 	// show wrapper
 	wrapper.style.display = 'block';
 
-	data.procedure.sMeaning.voiceExplanation = checkBox.checked;
-	data.procedure.sMeaning.textExplanation = !checkBox.checked;
+	data.procedure[data.currentSlide].voiceExplanation = checkBox.checked;
+	data.procedure[data.currentSlide].textExplanation = !checkBox.checked;
 
 	let isPlaying = true;
-	let isExplaining = true;
 
 	pinda.addEventListener('play', () => {
 		isPlaying = true;
@@ -117,66 +163,45 @@ export default async () => {
 		isPlaying = false;
 	});
 
-	gsap
-		.timeline()
-		.to(pinda, {
-			autoAlpha: 1,
-			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/st-finish-meaning.webm`;
-			},
-		})
-		.to(pinda, {
-			delay: 7,
-			onStart: () => {
-				swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 1]);
-			},
-		});
+	pinda.src = prefetchedVideos.transition;
+	await sleep(5000);
+	swapSlides(currentSlide, previousSlide, [3, 2]);
 
 	while (isPlaying) {
 		await sleep(100);
 	}
 
-	gsap.timeline().to(pinda, {
-		autoAlpha: 1,
-		onStart: () => {
-			if (checkBox.checked) {
-				pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
-				gsap
-					.timeline()
-					.to(voiceResponseStart, {
-						filter: 'drop-shadow(0px 0px 20px #969696)',
-						delay: 8,
-						repeat: 3,
-						yoyo: true,
-						reversed: true,
-					})
-					.to(voiceResponseStop, {
-						filter: 'drop-shadow(0px 0px 20px #969696)',
-						delay: 1.5,
-						repeat: 3,
-						yoyo: true,
-						reversed: true,
-					});
-			}
-			if (!checkBox.checked) {
-				pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
-			}
-		},
-		onComplete: () => {
-			isExplaining = false;
-		},
-	});
+	// if userchoice-X landing block
+	if (checkBox.checked) {
+		pinda.src = prefetchedVideos.audio;
+		await gsap
+			.timeline()
+			.to(voiceResponseStart, {
+				filter: 'drop-shadow(0px 0px 20px #000)',
+				delay: 8,
+				repeat: 3,
+				yoyo: true,
+				reversed: true,
+			})
+			.to(voiceResponseStop, {
+				filter: 'drop-shadow(0px 0px 20px #000)',
+				delay: 1.5,
+				repeat: 3,
+				yoyo: true,
+				reversed: true,
+			});
+	}
+	if (!checkBox.checked) {
+		pinda.src = prefetchedVideos.text;
+		await sleep(500);
+	}
 
-	while (isPlaying || isExplaining) {
+	while (isPlaying) {
 		await sleep(100);
 	}
 
-	gsap.to(pinda, {
-		onStart: () => {
-			pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
-			pinda.loop = true;
-		},
-	});
+	pindaNeutral.src = prefetchedVideos.neutral!;
+	gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
 
 	gsap.to(checkLabel, { autoAlpha: 1 });
 	checkLabel.style.pointerEvents = 'auto';
@@ -212,42 +237,34 @@ export default async () => {
 			}
 
 			// play voice instruction if not already played yet
-			if (switchToVoice && !data.procedure.sMeaning.voiceExplanation) {
-				data.procedure.sMeaning.voiceExplanation = true;
+			if (switchToVoice && !data.procedure[data.currentSlide].voiceExplanation) {
+				data.procedure[data.currentSlide].voiceExplanation = true;
 
 				voiceResponseStart.disabled = true;
 				checkLabel.style.pointerEvents = 'none';
 				headphones.style.pointerEvents = 'none';
 				gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
 
-				let isExplaining = true;
-				gsap.timeline().to(pinda, {
-					onStart: () => {
-						pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
-						pinda.loop = false;
-						gsap
-							.timeline()
-							.to(voiceResponseStart, {
-								filter: 'drop-shadow(0px 0px 20px #969696)',
-								delay: 8,
-								repeat: 3,
-								yoyo: true,
-								reversed: true,
-							})
-							.to(voiceResponseStop, {
-								filter: 'drop-shadow(0px 0px 20px #969696)',
-								delay: 1.5,
-								repeat: 3,
-								yoyo: true,
-								reversed: true,
-							});
-					},
-					onComplete: () => {
-						isExplaining = false;
-					},
-				});
+				gsap.to(pindaNeutral, { autoAlpha: 0 });
+				pinda.src = prefetchedVideos.audio;
+				await gsap
+					.timeline()
+					.to(voiceResponseStart, {
+						filter: 'drop-shadow(0px 0px 20px #000)',
+						delay: 8,
+						repeat: 3,
+						yoyo: true,
+						reversed: true,
+					})
+					.to(voiceResponseStop, {
+						filter: 'drop-shadow(0px 0px 20px #000)',
+						delay: 1.5,
+						repeat: 3,
+						yoyo: true,
+						reversed: true,
+					});
 
-				while (isPlaying || isExplaining) {
+				while (isPlaying) {
 					await sleep(100);
 				}
 
@@ -256,41 +273,23 @@ export default async () => {
 				checkLabel.style.pointerEvents = 'auto';
 				headphones.style.pointerEvents = 'auto';
 
-				gsap
-					.timeline()
-					.to(pinda, {
-						autoAlpha: 0,
-					})
-					.to(pinda, {
-						autoAlpha: 1,
-						onStart: () => {
-							pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
-							pinda.loop = true;
-						},
-					});
+				gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
 			}
 
 			// play text instuction if not already played yet
-			if (switchToText && !data.procedure.sMeaning.textExplanation) {
-				data.procedure.sMeaning.textExplanation = true;
+			if (switchToText && !data.procedure[data.currentSlide].textExplanation) {
+				data.procedure[data.currentSlide].textExplanation = true;
 
 				textResponse.disabled = true;
 				checkLabel.style.pointerEvents = 'none';
 				headphones.style.pointerEvents = 'none';
 				gsap.set(checkLabel, { autoAlpha: 0.25 });
 
-				let isExplaining = true;
-				gsap.timeline().to(pinda, {
-					onStart: () => {
-						pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
-						pinda.loop = false;
-					},
-					onComplete: () => {
-						isExplaining = false;
-					},
-				});
+				gsap.to(pindaNeutral, { autoAlpha: 0 });
+				pinda.src = prefetchedVideos.text;
+				await sleep(500);
 
-				while (isPlaying || isExplaining) {
+				while (isPlaying) {
 					await sleep(100);
 				}
 
@@ -299,18 +298,7 @@ export default async () => {
 				checkLabel.style.pointerEvents = 'auto';
 				headphones.style.pointerEvents = 'auto';
 
-				gsap
-					.timeline()
-					.to(pinda, {
-						autoAlpha: 0,
-					})
-					.to(pinda, {
-						autoAlpha: 1,
-						onStart: () => {
-							pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
-							pinda.loop = true;
-						},
-					});
+				gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
 			}
 		});
 	}
@@ -318,8 +306,8 @@ export default async () => {
 	textResponse.addEventListener('input', () => {
 		// show next button if textarea hast at least n chars
 		if (textResponse.value.length >= config.globals.minimumTextInputLength) {
-			data.procedure.sMeaning.isText = true;
-			data.procedure.sMeaning.isVoice = false;
+			data.procedure[data.currentSlide].isText = true;
+			data.procedure[data.currentSlide].isVoice = false;
 			gsap.set(nextButton, { autoAlpha: 1 });
 			gsap.set(checkLabel, { autoAlpha: 0.25 });
 			nextButton.style.pointerEvents = 'visible';
@@ -333,8 +321,8 @@ export default async () => {
 	});
 
 	voiceResponseStart.addEventListener('click', async () => {
-		data.procedure.sMeaning.isText = false;
-		data.procedure.sMeaning.isVoice = true;
+		data.procedure[data.currentSlide].isText = false;
+		data.procedure[data.currentSlide].isVoice = true;
 		let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 		let recorder = new RecordRTC.RecordRTCPromisesHandler(stream, {
 			type: 'audio',
@@ -352,9 +340,12 @@ export default async () => {
 			let blob = await recorder.getBlob();
 
 			// upload blob to server
-			uploadAudio(blob, generateUserIdFilename('matt', 's-meaning', 'ogg'));
+			uploadAudio(blob, generateUserIdFilename('matt', `${data.currentSlide}`, 'ogg'));
 
-			RecordRTC.invokeSaveAsDialog(blob, `s-meaning-${data.id}`);
+			RecordRTC.invokeSaveAsDialog(
+				blob,
+				generateUserIdFilename('matt', `${data.currentSlide}`, 'ogg')
+			);
 
 			nextButton.style.pointerEvents = 'auto';
 			gsap.timeline().to(nextButton, {
@@ -372,12 +363,6 @@ export default async () => {
 	// save responses and store to response object
 	const response = await getResponse(nextButton.id);
 	console.log(response.id);
-	data.procedure.sMeaning.textInput = textResponse.value;
-	console.log(data.procedure.sMeaning.textInput);
-
-	pinda.loop = false;
-
-	await sleep(500);
-	// make sure wrapper is hidden
-	wrapper.style.display = 'none';
+	data.procedure[data.currentSlide].textInput = textResponse.value;
+	console.log(data.procedure[data.currentSlide].textInput);
 };

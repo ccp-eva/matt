@@ -1,6 +1,9 @@
 import _ from 'lodash';
+import { gsap } from 'gsap';
 import config from '../config.yaml';
 import { stop } from '../util/audio';
+import { downloadData, millisToMinutesAndSeconds, sleep, uploadData } from '../util/helpers';
+import { SvgInHtml } from '../types';
 
 export const procedure = async () => {
 	let currentProcedure = _.cloneDeep(config.procedure[data.culture]);
@@ -67,46 +70,125 @@ export const procedure = async () => {
 	}
 
 	data.animalSlideCounter = 0;
-	data.reasoningSlideCounter = 0;
+	data.reasoningSlideCounter = 2;
 	data.dilemmaMotivationOnePlayed = false;
 	data.dilemmaMotivationTwoPlayed = false;
 
 	currentProcedure = currentProcedure.map((e: string) => _.camelCase(e));
-	data.slideOrder = currentProcedure;
+	data.currentProcedure = currentProcedure;
 	console.table(currentProcedure);
 
 	data.totalSlides = currentProcedure.length;
+
+	// pinda video wrapper
+	const pindaWrapper = document.getElementById('s-pinda-video') as SvgInHtml;
+	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pindaNeutral = document.getElementById('pinda-neutral') as HTMLVideoElement;
 
 	// ================================================
 	// PROCEDURE LOOP
 	// ================================================
 	for (const [index, slide] of currentProcedure.entries()) {
-		// save slides in global data object
-		data.previousSlide = currentProcedure[index - 1];
-		data.currentSlide = slide;
-		data.nextSlide = currentProcedure[index + 1];
+		// get previous, current and next slide
+		const previousSlide = currentProcedure[index - 1];
+		const currentSlide = slide;
+		const nextSlide = currentProcedure[index + 1];
+		// kebab-cased version
+		const previousSlideKc = _.kebabCase(previousSlide);
+		const currentSlideKc = _.kebabCase(currentSlide);
+		// const nextSlideKc = _.kebabCase(nextSlide);
+
+		// store into data object
+		data.previousSlide = previousSlide;
+		data.currentSlide = currentSlide;
+		data.nextSlide = nextSlide;
 		data.slideCounter++;
 
 		// init default procedure response
-		data.procedure[slide] = {
+		data.procedure[currentSlide] = {
 			duration: 0,
 			response: '',
 		};
 
-		// track dilemma slides
+		// get possible response buttons (next buttons, yes/no buttons)
+		const responseButtons = document.querySelectorAll(
+			`#${currentSlideKc} [id^=link][id$=next], #${currentSlideKc} [id^=link][id$=yes], #${currentSlideKc} [id^=link][id$=no]`
+		);
 
 		// start time tracking
 		const startTime = new Date().getTime();
 
-		// iterate through the slides
-		await (await import(`./${slide}`)).default();
+		// ----------------------------------------------------------------------------
+		// ACTUAL LOOP
+		// camelCased in procedure directory (e.g., sIntroduction.ts)
+		// kebab-cased arguments, as required by Illustrator slide IDs
+		await (
+			await import(`./${currentSlide}`)
+		).default({ currentSlide: currentSlideKc, previousSlide: previousSlideKc });
+		// ----------------------------------------------------------------------------
 
-		// stop audio playback if it is still playing anything
-		stop();
-
+		// POST LOOP Actions (i.e., either an await button was clicked or video ended)
 		// save duration of each slide
-		data.procedure[slide].duration = new Date().getTime() - startTime;
+		data.procedure[currentSlide].duration = new Date().getTime() - startTime;
+
+		if (slide !== 'sEnd') {
+			// always hide all pinda video videos
+			gsap.to([pinda, pindaNeutral], { autoAlpha: 0 });
+
+			// always hide response buttons (next, yes, no) for nicer UX
+			if (responseButtons.length > 0) {
+				await gsap.timeline().to(responseButtons, {
+					autoAlpha: 0,
+					onComplete: () => {
+						// remove nodes from DOM since GSAP could have been used to animate them forever
+						responseButtons.forEach((e) => e.remove());
+					},
+				});
+			}
+
+			// apply default gap duration
+			await sleep(config.globals.slideGapDuration);
+
+			// always hide pinda parent wrapper
+			pindaWrapper.setAttribute('visibility', 'hidden');
+
+			// always hide div wrapper of text/audio feedback
+			const responseWrapper = document.querySelectorAll(
+				'div [id^=wrapper-s]'
+			) as NodeListOf<HTMLDivElement>;
+			responseWrapper.forEach((e) => {
+				e.style.display = 'none';
+			});
+
+			// stop any audio/video playback if it is still playing anything
+			stop();
+		}
 	}
+	data.endingTimestamp = new Date();
+	data.experimentPaceRawMs = data.endingTimestamp.getTime() - data.initialTimestamp.getTime();
+	const minutes = millisToMinutesAndSeconds(data.experimentPaceRawMs).minutes;
+	const seconds = millisToMinutesAndSeconds(data.experimentPaceRawMs).seconds;
+	data.experimentPaceHr = `${minutes}-${seconds}`;
+
+	if (data.datatransfer === 'both') {
+		uploadData();
+		downloadData();
+	}
+	if (data.datatransfer === 'server') {
+		uploadData();
+	}
+
+	// users can leave page now
+	window.onbeforeunload = null;
+
+	console.group(
+		'%cStudy Summary',
+		'background-color: #e0005a ; color: #ffffff ; font-weight: bold ; padding: 4px ;'
+	);
+	console.log(`The study took ${minutes} minutes and ${seconds} seconds.`);
+	console.log('Here is what we stored:');
+	console.log(data);
+	console.groupEnd();
 
 	console.log('Procedure loop done');
 };

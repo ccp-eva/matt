@@ -9,7 +9,7 @@ export const translations = {
 	},
 
 	meaning: {
-		'de-urban': '<h1 class="heading-em">Was heißt es für dich, wenn etwas sehr wichtig ist?</p>',
+		'de-urban': '<h1 class="heading">Was heißt es für dich, wenn etwas sehr wichtig ist?</p>',
 	},
 
 	saving: {

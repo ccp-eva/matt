@@ -1,39 +1,56 @@
-import _ from 'lodash';
 import { gsap } from 'gsap';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
-import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
+import { sleep } from '../util/helpers';
 
-export default async () => {
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
+export default async ({ currentSlide, previousSlide }) => {
+	swapSlides(currentSlide, previousSlide);
 
-	const yes = document.getElementById('link-sqmf-yes') as SvgInHtml;
-	const no = document.getElementById('link-sqmf-no') as SvgInHtml;
-	gsap.set([yes, no], { autoAlpha: 0 });
+	const audio = document.getElementById('audio') as HTMLMediaElement;
+	const slidePrefix = 'sqmf';
+	const headphones = document.getElementById(`link-${slidePrefix}-headphones`) as SvgInHtml;
+	const yesButton = document.getElementById(`link-${slidePrefix}-yes`) as SvgInHtml;
+	const noButton = document.getElementById(`link-${slidePrefix}-no`) as SvgInHtml;
 
-	play(`./cultures/${data.culture}/audio/sqmf.mp3`, 'link-sqmf-headphones');
-	await playPromise(`./cultures/${data.culture}/audio/sqmf.mp3`);
+	gsap.set([yesButton, noButton], { autoAlpha: 0, pointerEvents: 'none' });
+	gsap.set(headphones, { autoAlpha: 0.5, pointerEvents: 'none' });
 
-	gsap
+	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`);
+	play(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`, headphones.id);
+
+	play(`./cultures/${data.culture}/audio/yes-no.mp3`);
+	await gsap
 		.timeline()
-		.to(yes, {
-			autoAlpha: 1,
-			onStart: () => {
-				play(`./cultures/${data.culture}/audio/yes-no.mp3`);
-			},
-		})
-		.to(no, {
+		.to(yesButton, { autoAlpha: 0.5 })
+		.to(noButton, {
 			delay: 1,
-			autoAlpha: 1,
+			autoAlpha: 0.5,
+			onComplete: () => {
+				gsap.set([yesButton, noButton, headphones], { pointerEvents: 'visible' });
+				gsap.to([yesButton, noButton, headphones], { autoAlpha: 1 });
+			},
 		});
 
+	let isPlaying = false;
+	audio.addEventListener('play', () => {
+		isPlaying = true;
+		gsap.to([yesButton, noButton, headphones], { autoAlpha: 0.5, pointerEvents: 'none' });
+	});
+	audio.addEventListener('ended', () => {
+		isPlaying = false;
+		gsap.to([yesButton, noButton, headphones], { autoAlpha: 1, pointerEvents: 'visible' });
+	});
+
+	while (isPlaying) {
+		await sleep(100);
+	}
+
 	// save responses and store to response object
-	const response = await getResponse(['link-sqmf-yes', 'link-sqmf-no']);
+	const response = await getResponse([yesButton.id, noButton.id]);
 	console.log(response.id);
-
-	data.procedure[data.currentSlide].response = response.id;
-
-	await sleep(500);
+	data.procedure[data.currentSlide] = {
+		response: response.id,
+	};
 };

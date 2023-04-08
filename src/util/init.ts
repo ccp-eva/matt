@@ -1,3 +1,4 @@
+import { gsap } from 'gsap';
 import _ from 'lodash';
 import { SvgInHtml } from '../types';
 import svgPath from '../assets/experiment-voxified.svg';
@@ -5,7 +6,7 @@ import config from '../config.yaml';
 import { rectToForeignObject } from './rectToForeignObject';
 import { recycleObjects } from './recycleObjects';
 import { copyAttributes } from './copyAttributes';
-import { downloadData, uploadData, uploadAudio } from './helpers';
+import { downloadData, uploadData, uploadAudio, sleep } from './helpers';
 import { getUrlParameters } from './getUrlParameters';
 import { widowedKeyChecker } from './widowedKeyChecker';
 import {
@@ -85,7 +86,7 @@ export const init = () => {
 		agegroup: urlParameters.agegroup,
 		input: urlParameters.input,
 		datatransfer: urlParameters.datatransfer,
-		initialTimestamp: new Date().toISOString(),
+		initialTimestamp: new Date(),
 		slideCounter: 0,
 		quitBeforeEnd: false,
 		procedure: {},
@@ -118,11 +119,11 @@ export const init = () => {
 	setMousePointer();
 	setScaleOnHover();
 
-	if (config.devmode) {
+	if (config.devmode.on) {
 		Toastify({
 			escapeMarkup: false,
 			text: `⚙️ <strong>DEVMODE ON</strong>`,
-			duration: 5000,
+			duration: 0,
 			// destination: 'https://github.com/apvarun/toastify-js',
 			// newWindow: true,
 			// close: true,
@@ -139,14 +140,13 @@ export const init = () => {
 	}
 
 	// replace pinda
-	// insert HTML
-	// get pinda fo
 	const pindaFo = document.getElementById('s-pv')! as SvgInHtml;
-	pindaFo.parentElement!.removeAttribute('visibility');
-	pindaFo.innerHTML = '<video id="player" style="height: 100%;" autoplay playsinline></video>';
+	pindaFo.innerHTML = '<video id="player" autoplay playsinline style="height: 100%;" ></video>';
+	const pindaNeutralFo = document.getElementById('s-pv-neutral')! as SvgInHtml;
+	pindaNeutralFo.innerHTML = `<video id="pinda-neutral" autoplay loop playsinline style="height: 100%; visibility: hidden" ></video>`;
 
 	// show warning when user tries to leave the page
-	if (!config.devmode) {
+	if (!config.devmode.on) {
 		window.onbeforeunload = function (evt: BeforeUnloadEvent) {
 			evt.preventDefault();
 			global.data.quitBeforeEnd = true;
@@ -155,7 +155,48 @@ export const init = () => {
 		};
 	}
 
-	if (config.devmode) {
+	const pinda = document.getElementById('player')! as HTMLVideoElement;
+	const parent = document.getElementById('s-pinda-video')! as SvgInHtml;
+	const audio = document.getElementById('audio')! as HTMLAudioElement;
+
+	if (config.devmode.on) {
+		audio.addEventListener('play', () => {
+			audio.playbackRate = config.devmode.playbackRate;
+		});
+	}
+	pinda.addEventListener('play', (e: Event) => {
+		if (config.devmode.on) {
+			console.log((e.target as HTMLVideoElement).src);
+		}
+		parent.removeAttribute('visibility');
+		gsap.set(pinda, { autoAlpha: 0 });
+		gsap.to(pinda, { autoAlpha: 1 });
+		if (config.devmode.on) {
+			pinda.playbackRate = config.devmode.playbackRate;
+		}
+	});
+
+	// blocking state slide
+	const bsFo = document.getElementById('s-bs')! as SvgInHtml;
+	bsFo.innerHTML = `<div id="blocking-state" style="
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+	opacity: 0.75;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	backdrop-filter: blur(10px);"></div>`;
+
+	gsap.set('#link-ccp-orb', { transformOrigin: '50% 50%', scale: 0.5, filter: 'blur(5px)' });
+	gsap.to('#link-ccp-orb', {
+		duration: 0.3,
+		rotation: 360,
+		repeat: -1,
+		ease: 'none',
+	});
+
+	if (config.devmode.on) {
 		global.translations = translations;
 		global.showSingleSlide = showSingleSlide;
 		global.swapSlides = swapSlides;

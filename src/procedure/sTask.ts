@@ -1,15 +1,15 @@
 import { gsap } from 'gsap';
 import { Draggable } from 'gsap/Draggable';
+gsap.registerPlugin(Draggable);
 import _ from 'lodash';
 import { SvgInHtml } from '../types';
-gsap.registerPlugin(Draggable);
 import { play, playPromise, stop } from '../util/audio';
 import { getResponse } from '../util/getResponse';
 import { sleep, moveToCenterAnchor } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
-export default async () => {
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [0, 0]);
+export default async ({ currentSlide, previousSlide }) => {
+	swapSlides(currentSlide, previousSlide, [0, 0]);
 
 	data.procedure.sTask = {
 		duration: 0,
@@ -24,7 +24,6 @@ export default async () => {
 		cow: undefined,
 		rabbit: undefined,
 		cat: undefined,
-		assignedAnimals: 0,
 		comprehension: {
 			completed: false,
 			order: _.shuffle(['inner', 'middle', 'outer']),
@@ -36,30 +35,14 @@ export default async () => {
 
 	const nextButton = document.getElementById('link-st-next')! as SvgInHtml;
 	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const audio = document.getElementById('audio') as HTMLMediaElement;
+	const headphones = document.getElementById('link-st-headphones') as SvgInHtml;
+	const circle = document.getElementById('st-circle')! as SvgInHtml;
 	const inner = document.getElementById('st-inner')! as SvgInHtml;
 	const middle = document.getElementById('st-middle')! as SvgInHtml;
 	const outer = document.getElementById('st-outer')! as SvgInHtml;
-	const human = document.getElementById('link-st-human')! as SvgInHtml;
-	const chicken = document.getElementById('link-st-chicken')! as SvgInHtml;
-	const pig = document.getElementById('link-st-pig')! as SvgInHtml;
-	const dog = document.getElementById('link-st-dog')! as SvgInHtml;
-	const sheep = document.getElementById('link-st-sheep')! as SvgInHtml;
-	const goldfish = document.getElementById('link-st-goldfish')! as SvgInHtml;
-	const cow = document.getElementById('link-st-cow')! as SvgInHtml;
-	const rabbit = document.getElementById('link-st-rabbit')! as SvgInHtml;
-	const cat = document.getElementById('link-st-cat')! as SvgInHtml;
 
 	gsap.to([inner, middle, outer], { opacity: 0.5 });
-
-	[inner, middle, outer].forEach((circle) => {
-		circle.style.cursor = 'pointer';
-		circle.addEventListener('mouseenter', () => {
-			gsap.timeline().to(circle, { autoAlpha: 1 });
-		});
-		circle.addEventListener('mouseleave', () => {
-			gsap.timeline().to(circle, { autoAlpha: 0.5 });
-		});
-	});
 
 	// set position slots (taken from Illustrator boxes centered anchor)
 	const slots = {
@@ -111,6 +94,8 @@ export default async () => {
 
 	// hide unknownAnimals not in list
 	gsap.set(unknownAnimalElements, { autoAlpha: 0 });
+	gsap.set(knownAnimalElements, { autoAlpha: 0.5 });
+	gsap.set([nextButton, headphones], { autoAlpha: 0, pointerEvents: 'none' });
 
 	// // todo
 	// // put known animals in slots, so there are no gaps between them and store their positions
@@ -121,26 +106,36 @@ export default async () => {
 	// 	moveToCenterAnchor(animalElement, slots[index].x, slots[index].y);
 	// });
 
-	gsap.set(pinda, { autoAlpha: 0 });
-	gsap.set(nextButton, { autoAlpha: 0 });
+	let isPlaying = true;
+	pinda.addEventListener('play', () => {
+		isPlaying = true;
+	});
+	audio.addEventListener('play', () => {
+		isPlaying = true;
+	});
+	pinda.addEventListener('ended', () => {
+		isPlaying = false;
+		gsap.to(pinda, { autoAlpha: 0 });
+	});
+	audio.addEventListener('ended', () => {
+		isPlaying = false;
+	});
 
-	gsap
-		.timeline()
-		.to(pinda, {
-			autoAlpha: 1,
-			delay: 0.5,
-			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/s-task.webm`;
-			},
-		})
-		.to(pinda, {
-			autoAlpha: 0,
-			delay: 14,
-		});
+	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
+	parentBlock.removeAttribute('visibility');
+	const preloadVideo = await fetch(`./cultures/${data.culture}/video/s-task.webm`);
+	const blob = await preloadVideo.blob();
+	const url = URL.createObjectURL(blob);
+	parentBlock.setAttribute('visibility', 'hidden');
+	pinda.src = url;
 
-	await sleep(14000);
+	while (isPlaying) {
+		await sleep(100);
+	}
 
-	play(`./cultures/${data.culture}/audio/s-task-cut.mp3`, 'link-st-headphones');
+	gsap.to(knownAnimalElements, { autoAlpha: 1 });
+	play(`./cultures/${data.culture}/audio/s-task-cut.mp3`, headphones.id);
+	gsap.to(headphones, { autoAlpha: 1, pointerEvents: 'visible' });
 
 	// MORAL CIRCLE LOGIC
 	const innerRadius = inner.getBBox().width / 2;
@@ -150,13 +145,10 @@ export default async () => {
 	// get center of circles
 	const innerCx = inner.getBBox().x + innerRadius;
 	const innerCy = inner.getBBox().y + innerRadius;
-	const middleCx = middle.getBBox().x + middleRadius;
-	const middleCy = middle.getBBox().y + middleRadius;
-	const outerCx = outer.getBBox().x + outerRadius;
-	const outerCy = outer.getBBox().y + outerRadius;
 
-	Draggable.create(knownAnimalElements, {
+	const dragObjects = Draggable.create(knownAnimalElements, {
 		onPress: function () {
+			console.log(dragObjects);
 			// get current drag object
 			const currentId = this.target.id;
 			let currentObj = currentId.slice(8);
@@ -223,7 +215,6 @@ export default async () => {
 			// Check if the distance between the centers is less than or equal to the sum of the radii
 			if (circleDistance * 1.2 <= innerRadius + targetWidth) {
 				data.procedure.sTask[currentIdTrimmed] = 'inner';
-				data.procedure.sTask.assignedAnimals++;
 				gsap.to(inner, { opacity: 0.5, duration: 0.25 });
 			}
 
@@ -233,7 +224,6 @@ export default async () => {
 				circleDistance * 1.2 > innerRadius + targetWidth
 			) {
 				data.procedure.sTask[currentIdTrimmed] = 'middle';
-				data.procedure.sTask.assignedAnimals++;
 				gsap.to(middle, { opacity: 0.5, duration: 0.25 });
 			}
 
@@ -243,7 +233,6 @@ export default async () => {
 				circleDistance * 1.2 > middleRadius + targetWidth
 			) {
 				data.procedure.sTask[currentIdTrimmed] = 'outer';
-				data.procedure.sTask.assignedAnimals++;
 				gsap.to(outer, { opacity: 0.5, duration: 0.25 });
 			}
 
@@ -276,32 +265,96 @@ export default async () => {
 		return allPlaced;
 	};
 
-	while (data.procedure.sTask.assignedAnimals < Math.ceil(knownAnimals.length / 2)) {
+	const placedAnimalCount = () => {
+		let count = 0;
+		knownAnimals.forEach((animal) => {
+			if (data.procedure.sTask[animal]) {
+				count++;
+			}
+		});
+		return count;
+	};
+
+	while (placedAnimalCount() < Math.ceil(knownAnimals.length / 2)) {
 		await sleep(500);
 	}
 
 	// check circle comprehension
 	console.log('Comprehension check...');
+	const inCompCheck = true;
 
 	// hide all known animals
-	gsap.timeline().to(
-		knownAnimals.map((e) => `#link-st-${e}`),
-		{
-			autoAlpha: 0,
-		}
-	);
+	gsap.to([knownAnimalElements, inner, middle, outer], { opacity: 0.5 });
+	dragObjects.forEach((dragObject) => {
+		dragObject.disable();
+	});
 
-	for (const order of data.procedure.sTask.comprehension.order) {
-		play(`./cultures/${data.culture}/audio/s-comp-check-${order}.mp3`, 'link-st-headphones');
-		await playPromise(`./cultures/${data.culture}/audio/s-comp-check.mp3`);
+	while (isPlaying) {
+		await sleep(100);
+	}
+
+	function handleMouseEnterInner() {
+		gsap.timeline().to(inner, { autoAlpha: 1 });
+	}
+	function handleMouseLeaveInner() {
+		gsap.timeline().to(inner, { autoAlpha: 0.5 });
+	}
+	function handleMouseEnterMiddle() {
+		gsap.timeline().to(middle, { autoAlpha: 1 });
+	}
+	function handleMouseLeaveMiddle() {
+		gsap.timeline().to(middle, { autoAlpha: 0.5 });
+	}
+	function handleMouseEnterOuter() {
+		gsap.timeline().to(outer, { autoAlpha: 1 });
+	}
+	function handleMouseLeaveOuter() {
+		gsap.timeline().to(outer, { autoAlpha: 0.5 });
+	}
+
+	for (const [index, order] of data.procedure.sTask.comprehension.order.entries()) {
+		gsap.set(headphones, { opacity: 0.5, pointerEvents: 'none' });
+		play(`./cultures/${data.culture}/audio/s-comp-check-${order}.mp3`, headphones.id);
+		if (index === 0) {
+			await playPromise(`./cultures/${data.culture}/audio/s-comp-check.mp3`);
+		}
+
 		await playPromise(`./cultures/${data.culture}/audio/s-comp-check-${order}.mp3`);
-		await playPromise(`./cultures/${data.culture}/audio/s-comp-check-expl.mp3`);
+
+		if (index === 0) {
+			await playPromise(`./cultures/${data.culture}/audio/s-comp-check-expl.mp3`);
+		}
+		gsap.set(headphones, { opacity: 1, pointerEvents: 'visible' });
+
+		circle.style.cursor = 'pointer';
+		inner.addEventListener('mousemove', handleMouseEnterInner);
+		inner.addEventListener('mouseenter', handleMouseEnterInner);
+		inner.addEventListener('mouseleave', handleMouseLeaveInner);
+		middle.addEventListener('mousemove', handleMouseEnterMiddle);
+		middle.addEventListener('mouseenter', handleMouseEnterMiddle);
+		middle.addEventListener('mouseleave', handleMouseLeaveMiddle);
+		outer.addEventListener('mousemove', handleMouseEnterOuter);
+		outer.addEventListener('mouseenter', handleMouseEnterOuter);
+		outer.addEventListener('mouseleave', handleMouseLeaveOuter);
 
 		const response = await getResponse(['st-inner', 'st-middle', 'st-outer']);
+
+		circle.style.cursor = 'default';
+		inner.removeEventListener('mousemove', handleMouseEnterInner);
+		inner.removeEventListener('mouseenter', handleMouseEnterInner);
+		inner.removeEventListener('mouseleave', handleMouseLeaveInner);
+		middle.removeEventListener('mousemove', handleMouseEnterMiddle);
+		middle.removeEventListener('mouseenter', handleMouseEnterMiddle);
+		middle.removeEventListener('mouseleave', handleMouseLeaveMiddle);
+		outer.removeEventListener('mousemove', handleMouseEnterOuter);
+		outer.removeEventListener('mouseenter', handleMouseEnterOuter);
+		outer.removeEventListener('mouseleave', handleMouseLeaveOuter);
 
 		const responseOption = ['ok', 'alright', 'okThanks'];
 		const randomResponse = responseOption[Math.floor(Math.random() * responseOption.length)];
 		await playPromise(`./cultures/${data.culture}/audio/neutral-resp-${randomResponse}.mp3`);
+
+		gsap.to([inner, middle, outer], { autoAlpha: 0.5 });
 
 		if (response.id.slice(3) === order) {
 			data.procedure.sTask.comprehension[order] = true;
@@ -311,21 +364,27 @@ export default async () => {
 	data.procedure.sTask.comprehension.completed = true;
 
 	// show all known animals
-	gsap.timeline().to(
-		knownAnimals.map((e) => `#link-st-${e}`),
-		{
-			autoAlpha: 1,
-		}
-	);
+	gsap.to(knownAnimalElements, { opacity: 1 });
+	dragObjects.forEach((dragObject) => {
+		dragObject.enable();
+	});
 
 	while (checkAnimals().length > 0) {
 		await sleep(1000);
 	}
 
+	gsap.to([knownAnimalElements, inner, middle, outer], { opacity: 0.5 });
+	dragObjects.forEach((dragObject) => {
+		dragObject.disable();
+	});
+
+	isPlaying = true;
+	play(`./cultures/${data.culture}/audio/sqr-next-red.mp3`);
+
 	gsap
 		.timeline()
 		.to(nextButton, {
-			autoAlpha: 1,
+			autoAlpha: 0.5,
 		})
 		.to(nextButton, {
 			filter: 'drop-shadow(0px 0px 14px #a90707)',
@@ -335,7 +394,11 @@ export default async () => {
 			reversed: true,
 		});
 
+	while (isPlaying) {
+		await sleep(100);
+	}
+
+	gsap.to(nextButton, { autoAlpha: 1, pointerEvents: 'visible' });
+
 	await getResponse(nextButton.id);
-	// stop audio playback after next button is clicked
-	stop();
 };

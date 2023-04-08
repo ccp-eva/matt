@@ -39,15 +39,30 @@ declare var data: {
 	agegroup: 'child' | 'adult';
 	input: 'audio' | 'text' | 'userchoice-audio' | 'userchoice-text';
 	datatransfer: 'server' | 'both';
-	initialTimestamp: string;
-	endingTimestamp: string;
+	sex: 'female' | 'male' | 'other';
+	birthday: 'string';
+	preFetchedVideoBlobs: Array<{ [key: string]: string } | { keep: boolean }>;
+	pindaNeutralBlob: string;
+	textIntroBlob: string;
+	textIntroBlob2: string;
+	textIntroBlob3: string;
+	audioIntroBlob: string;
+	audioIntroBlob2: string;
+	audioIntroBlob3: string;
+	react1Blob: string;
+	react2Blob: string;
+	react3Blob: string;
+	initialTimestamp: Date;
+	endingTimestamp: Date;
+	experimentPaceRawMs: number;
+	experimentPaceHr: string;
 	quitBeforeEnd: boolean;
 	totalSlides: number;
 	slideCounter: number;
 	previousSlide: string;
 	currentSlide: string;
 	nextSlide: string;
-	slideOrder: string[];
+	currentProcedure: string[];
 	dilemmaOrder: string[];
 	dilemmaMotivationOnePlayed: boolean;
 	dilemmaMotivationTwoPlayed: boolean;
@@ -58,8 +73,6 @@ declare var data: {
 	animalOrder: string[];
 	reasoningSlideCounter: number;
 	reasoningOrder: string[];
-	gender: 'female' | 'male' | 'other';
-	birthday: 'string';
 	procedure: {
 		sIntroduction: {
 			duration: number;
@@ -133,7 +146,6 @@ declare var data: {
 			cow?: string;
 			rabbit?: string;
 			cat?: string;
-			assignedAnimals: number;
 			comprehension: {
 				completed: boolean;
 				order: string[];
@@ -178,35 +190,78 @@ declare var data: {
 			response: string;
 			duration: number;
 			order: string[];
-			cow: 0 | 1 | 2 | 3 | 4;
-			cat: 0 | 1 | 2 | 3 | 4;
-			human: 0 | 1 | 2 | 3 | 4;
+			cow: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			cat: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			human: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
 		};
 		sQuRankingPain: {
 			response: string;
 			duration: number;
-			cow: 0 | 1 | 2 | 3 | 4;
-			cat: 0 | 1 | 2 | 3 | 4;
-			human: 0 | 1 | 2 | 3 | 4;
+			order: string[];
+			cow: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			cat: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			human: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
 		};
 		sQuRankingFeelings: {
 			response: string;
 			duration: number;
-			cow: 0 | 1 | 2 | 3 | 4;
-			cat: 0 | 1 | 2 | 3 | 4;
-			human: 0 | 1 | 2 | 3 | 4;
+			order: string[];
+			cow: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			cat: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			human: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
 		};
 		sQuRankingSimilarity: {
 			response: string;
 			duration: number;
-			cow: 0 | 1 | 2 | 3 | 4;
-			cat: 0 | 1 | 2 | 3 | 4;
+			order: string[];
+			cow: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			cat: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
 		};
 		sQuRankingExposure: {
 			response: string;
 			duration: number;
-			cow: 0 | 1 | 2 | 3 | 4;
-			cat: 0 | 1 | 2 | 3 | 4;
+			order: string[];
+			cow: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			cat: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
 		};
 		sReasoning1Hu1Co: {
 			duration: number;

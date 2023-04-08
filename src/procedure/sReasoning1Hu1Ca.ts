@@ -8,63 +8,183 @@ import { getResponse } from '../util/getResponse';
 import { generateUserIdFilename, sleep, uploadAudio } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
-export default async () => {
+export default async ({ currentSlide, previousSlide }) => {
 	data.reasoningSlideCounter++;
-	// INSERT HTML
+	const slidePrefix = 'sr1h1cat';
+	const leftEntity = 'human';
+	const leftEntityOne = 'oneHuman';
+	const rightEntity = 'cat';
+
+	const videoStrings = {
+		neutral: `./cultures/${data.culture}/video/pinda-neutral-listening.webm`,
+		text1: `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`,
+		text2: `./cultures/${data.culture}/video/sr-promp-textInput.webm`,
+		text3: `./cultures/${data.culture}/video/text-input-3.webm`,
+		audio1: `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`,
+		audio2: `./cultures/${data.culture}/video/sr-prompt-audioInput.webm`,
+		audio3: `./cultures/${data.culture}/video/audio-input-3.webm`,
+		react1: `./cultures/${data.culture}/video/sr-react-1.webm`,
+		react2: `./cultures/${data.culture}/video/sr-react-2.webm`,
+		react3: `./cultures/${data.culture}/video/sr-react-3.webm`,
+	};
+
+	// only prefetch required videos depending on input
+	const prefetchedVideos = {
+		neutral: '',
+		text1: '',
+		text2: '',
+		text3: '',
+		audio1: '',
+		audio2: '',
+		audio3: '',
+		react1: '',
+		react2: '',
+		react3: '',
+	};
+	if (!data.pindaNeutralBlob) {
+		prefetchedVideos.neutral = videoStrings.neutral;
+	}
+	if (!data.react1Blob) {
+		prefetchedVideos.react1 = videoStrings.react1;
+	}
+	if (!data.react2Blob) {
+		prefetchedVideos.react2 = videoStrings.react2;
+	}
+	if (!data.react3Blob) {
+		prefetchedVideos.react3 = videoStrings.react3;
+	}
+	if (!data.textIntroBlob && data.input === 'text') {
+		prefetchedVideos.text1 = videoStrings.text1;
+	}
+	if (!data.textIntroBlob2 && data.input === 'text') {
+		prefetchedVideos.text2 = videoStrings.text2;
+	}
+	if (!data.textIntroBlob3 && data.input === 'text') {
+		prefetchedVideos.text3 = videoStrings.text3;
+	}
+	if (!data.audioIntroBlob && data.input === 'audio') {
+		prefetchedVideos.audio1 = videoStrings.audio1;
+	}
+	if (!data.audioIntroBlob2 && data.input === 'audio') {
+		prefetchedVideos.audio2 = videoStrings.audio2;
+	}
+	if (!data.audioIntroBlob3 && data.input === 'audio') {
+		prefetchedVideos.audio3 = videoStrings.audio3;
+	}
+	if (data.input === 'userchoice-audio' || data.input === 'userchoice-text') {
+		if (!data.textIntroBlob) {
+			prefetchedVideos.text1 = videoStrings.text1;
+		}
+		if (!data.textIntroBlob2) {
+			prefetchedVideos.text2 = videoStrings.text2;
+		}
+		if (!data.textIntroBlob3) {
+			prefetchedVideos.text3 = videoStrings.text3;
+		}
+		if (!data.audioIntroBlob) {
+			prefetchedVideos.audio1 = videoStrings.audio1;
+		}
+		if (!data.audioIntroBlob2) {
+			prefetchedVideos.audio2 = videoStrings.audio2;
+		}
+		if (!data.audioIntroBlob3) {
+			prefetchedVideos.audio3 = videoStrings.audio3;
+		}
+	}
+
+	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
+	parentBlock.removeAttribute('visibility');
+	for (const [key, value] of Object.entries(prefetchedVideos)) {
+		if (value) {
+			const videoResp = await fetch(value);
+			const blob = await videoResp.blob();
+			prefetchedVideos[key] = URL.createObjectURL(blob);
+		}
+	}
+	// write blobs to data object
+	data.pindaNeutralBlob = data.pindaNeutralBlob || prefetchedVideos.neutral;
+	data.textIntroBlob = data.textIntroBlob || prefetchedVideos.text1;
+	data.textIntroBlob2 = data.textIntroBlob2 || prefetchedVideos.text2;
+	data.textIntroBlob3 = data.textIntroBlob3 || prefetchedVideos.text3;
+	data.audioIntroBlob = data.audioIntroBlob || prefetchedVideos.audio1;
+	data.audioIntroBlob2 = data.audioIntroBlob2 || prefetchedVideos.audio2;
+	data.audioIntroBlob3 = data.audioIntroBlob3 || prefetchedVideos.audio3;
+	data.react1Blob = data.react1Blob || prefetchedVideos.react1;
+	data.react2Blob = data.react2Blob || prefetchedVideos.react2;
+	data.react3Blob = data.react3Blob || prefetchedVideos.react3;
+	// write blobs from data to prefetchedVideos if not already there
+	prefetchedVideos.neutral = prefetchedVideos.neutral || data.pindaNeutralBlob;
+	prefetchedVideos.text1 = prefetchedVideos.text1 || data.textIntroBlob;
+	prefetchedVideos.text2 = prefetchedVideos.text2 || data.textIntroBlob2;
+	prefetchedVideos.text3 = prefetchedVideos.text3 || data.textIntroBlob3;
+	prefetchedVideos.audio1 = prefetchedVideos.audio1 || data.audioIntroBlob;
+	prefetchedVideos.audio2 = prefetchedVideos.audio2 || data.audioIntroBlob2;
+	prefetchedVideos.audio3 = prefetchedVideos.audio3 || data.audioIntroBlob3;
+	prefetchedVideos.react1 = prefetchedVideos.react1 || data.react1Blob;
+	prefetchedVideos.react2 = prefetchedVideos.react2 || data.react2Blob;
+	prefetchedVideos.react3 = prefetchedVideos.react3 || data.react3Blob;
+	parentBlock.setAttribute('visibility', 'hidden');
+	console.log(prefetchedVideos);
+
+	// insert HTML
 	{
 		// get svg rect element
-		const rect = document.getElementById('sr1h1cat-wr')! as SvgInHtml;
+		const rect = document.getElementById(`${slidePrefix}-wr`)! as SvgInHtml;
 		// create new foreignObject
 		const fo = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
 		[...rect.attributes].map(({ name, value }) => fo.setAttribute(name, value));
 		fo.removeAttribute('fill');
 		rect.replaceWith(fo);
-		// create textarea
-
+		// create html content
 		fo.innerHTML = `
-			<div id="response-wrapper-reasoning-cat" style="margin-top: -5px;">
-			<div id="toggle-cat" style="width: 9em; margin: 0 auto; margin-bottom: 10px">
-				<input id="chck-cat" type="checkbox" />
-				<label for="chck-cat" class="check-trail" style="scale: 0.8;"><span class="check-handler"></span> </label>
-			</div>
-			<div>
-				<textarea
-					disabled
-					id="text-response-cat"
-					maxlength="2000"
-					rows="3"
-					style="display: block; pointer-events: auto; height: 100%"
-					></textarea>
-				<div id="voice-response-cat" style="display: flex;">
-					<button type="button" disabled id="voice-response-start-cat" style="font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🎤 Start</button> <button type="button" disabled id="voice-response-stop-cat" style="font-size: 2rem; margin: 7% auto; pointer-events: auto; opacity: 1; visibility: inherit;">🛑 Stop</button>
-				</div>
+	<div id="wrapper-${slidePrefix}" style="display: none;">
+		<div id="toggle-${slidePrefix}" style="width: 9em; margin: 0 auto; margin-bottom: 10px">
+				<input id="chck-${slidePrefix}" type="checkbox" />
+			<label for="chck-${slidePrefix}" class="check-trail"><span class="check-handler"></span> </label>
+		</div>
+
+		<div>
+			<textarea
+			   rows="3"
+				disabled
+				id="text-response-${slidePrefix}"
+				maxlength="2000"
+				style="display: block; pointer-events: auto;"
+			></textarea>
+			<div id="voice-response-${slidePrefix}" style="display: flex;">
+				<button type="button" class="button reasoning" disabled id="voice-response-start-${slidePrefix}"><span>🎤&nbsp;Start</span></button> <button type="button" class="button reasoning" disabled id="voice-response-stop-${slidePrefix}"><span>🛑&nbsp;Stop</span></button>
 			</div>
 		</div>
-	`;
+	</div>`;
 	}
 
-	const left = document.getElementById('sr1h1cat-oneHuman')! as SvgInHtml;
-	const center = document.getElementById('sr1h1cat-cantDecide')! as SvgInHtml;
-	const right = document.getElementById('sr1h1cat-oneCat')! as SvgInHtml;
-	const nextButton = document.getElementById('link-sr1h1cat-next') as SvgInHtml;
-	const headphones = document.getElementById('link-sr1h1cat-headphones') as SvgInHtml;
+	const headphones = document.getElementById(`link-${slidePrefix}-headphones`) as SvgInHtml;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pindaNeutral = document.getElementById('pinda-neutral') as HTMLVideoElement;
+	const nextButton = document.getElementById(`link-${slidePrefix}-next`) as SvgInHtml;
+	const left = document.getElementById(`${slidePrefix}-${leftEntityOne}`)! as SvgInHtml;
+	const center = document.getElementById(`${slidePrefix}-cantDecide`)! as SvgInHtml;
+	const right = document.getElementById(`${slidePrefix}-${leftEntityOne}`)! as SvgInHtml;
 
-	const textResponse = document.getElementById('text-response-cat') as HTMLTextAreaElement;
-	const voiceResponse = document.getElementById('voice-response-cat') as HTMLDivElement;
+	const wrapper = document.getElementById(`wrapper-${slidePrefix}`) as HTMLDivElement;
+	const textResponse = document.getElementById(
+		`text-response-${slidePrefix}`
+	) as HTMLTextAreaElement;
+	const voiceResponse = document.getElementById(`voice-response-${slidePrefix}`) as HTMLDivElement;
 	const voiceResponseStart = document.getElementById(
-		'voice-response-start-cat'
+		`voice-response-start-${slidePrefix}`
 	) as HTMLButtonElement;
-	const voiceResponseStop = document.getElementById('voice-response-stop-cat') as HTMLButtonElement;
-	const toggle = document.getElementById('toggle-cat') as HTMLDivElement;
+	const voiceResponseStop = document.getElementById(
+		`voice-response-stop-${slidePrefix}`
+	) as HTMLButtonElement;
+	const toggle = document.getElementById(`toggle-${slidePrefix}`) as HTMLDivElement;
 	const checkLabel = document.querySelector('.check-trail') as HTMLLabelElement;
-	const checkBox = document.getElementById('chck-cat') as HTMLInputElement;
+	const checkBox = document.getElementById(`chck-${slidePrefix}`) as HTMLInputElement;
 
 	nextButton.style.pointerEvents = 'none';
 	checkLabel.style.pointerEvents = 'none';
 	gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
-	gsap.set(pinda, { autoAlpha: 0 });
 
 	data.procedure[data.currentSlide] = {
 		duration: 0,
@@ -104,24 +224,20 @@ export default async () => {
 		voiceResponse.style.display = 'none';
 	}
 
-	data.procedure[data.currentSlide].voiceExplanation = checkBox.checked;
-	data.procedure[data.currentSlide].textExplanation = !checkBox.checked;
-
+	// ------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------
 	// default values
 	let wasHuman = true;
 	let wasCat = false;
 	let wasCantDecide = false;
-	// check actual responses from s1Hu1Ca and overwrite default values
-	if (data.procedure.s1Hu1Ca) {
-		wasHuman = data.procedure.s1Hu1Ca.response.toLowerCase().includes('-onehuman');
-		wasCat = data.procedure.s1Hu1Ca.response.toLowerCase().includes('-onecat');
-		wasCantDecide = data.procedure.s1Hu1Ca.response.toLowerCase().includes('-cantdecide');
+	// check actual responses from s1Hu1Co and overwrite default values
+	if (data.procedure.s1Hu1Co) {
+		wasHuman = data.procedure.s1Hu1Co.response.toLowerCase().includes(`-one${leftEntity}`);
+		wasCat = data.procedure.s1Hu1Co.response.toLowerCase().includes(`-one${rightEntity}`);
+		wasCantDecide = data.procedure.s1Hu1Co.response.toLowerCase().includes('-cantdecide');
 	}
-
-	// make text smaller for reasoning slides
-	document.querySelectorAll('g [id^=sr] foreignObject p.dilemma').forEach((el) => {
-		el.classList.add('dilemma__reasoning');
-	});
 
 	// add frame around prior selected card
 	if (wasHuman) {
@@ -134,77 +250,37 @@ export default async () => {
 		right.classList.add('dilemma-card-fix');
 	}
 
-	gsap.set('#response-wrapper-reasoning-cat', { autoAlpha: 0 });
+	swapSlides(currentSlide, previousSlide);
 
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
-
-	await playPromise(`./cultures/${data.culture}/audio/sr1h1cat-left.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
 
 	if (wasHuman) {
-		await playPromise(`./cultures/${data.culture}/audio/srw-human.mp3`);
-		play(`./cultures/${data.culture}/audio/srw-human.mp3`, headphones.id);
+		await playPromise(`./cultures/${data.culture}/audio/srw-${leftEntity}.mp3`);
+		play(`./cultures/${data.culture}/audio/srw-${leftEntity}.mp3`, headphones.id);
 	}
 	if (wasCantDecide) {
 		await playPromise(`./cultures/${data.culture}/audio/srw-cantDecide.mp3`);
 		play(`./cultures/${data.culture}/audio/srw-cantDecide.mp3`, headphones.id);
 	}
 	if (wasCat) {
-		await playPromise(`./cultures/${data.culture}/audio/srw-cat.mp3`);
-		play(`./cultures/${data.culture}/audio/srw-cat.mp3`, headphones.id);
+		await playPromise(`./cultures/${data.culture}/audio/srw-${leftEntity}.mp3`);
+		play(`./cultures/${data.culture}/audio/srw-${leftEntityOne}.mp3`, headphones.id);
 	}
 
-	gsap.to('#response-wrapper-reasoning-cat', { autoAlpha: 1 });
+	// ------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------------------------------------------
+
+	// show wrapper
+	gsap.set(wrapper, { autoAlpha: 0 });
+	wrapper.style.display = 'block';
+	gsap.to(wrapper, { autoAlpha: 1 });
+
+	data.procedure[data.currentSlide].voiceExplanation = checkBox.checked;
+	data.procedure[data.currentSlide].textExplanation = !checkBox.checked;
 
 	let isPlaying = true;
-	let isExplaining = true;
-	const timeline = gsap.timeline();
-	timeline.to(pinda, {
-		autoAlpha: 1,
-		onStart: () => {
-			isExplaining = true;
-			if (checkBox.checked) {
-				if (data.reasoningSlideCounter === 1) {
-					pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
-					gsap
-						.timeline()
-						.to(voiceResponseStart, {
-							filter: 'drop-shadow(0px 0px 20px #969696)',
-							delay: 8,
-							repeat: 3,
-							yoyo: true,
-							reversed: true,
-						})
-						.to(voiceResponseStop, {
-							filter: 'drop-shadow(0px 0px 20px #969696)',
-							delay: 1.5,
-							repeat: 3,
-							yoyo: true,
-							reversed: true,
-						});
-				}
-				if (data.reasoningSlideCounter === 2) {
-					pinda.src = `./cultures/${data.culture}/video/sr-prompt-audioInput.webm`;
-				}
-				if (data.reasoningSlideCounter === 3) {
-					pinda.src = `./cultures/${data.culture}/video/audio-input-3.webm`;
-				}
-			}
-			if (!checkBox.checked) {
-				if (data.reasoningSlideCounter === 1) {
-					pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
-				}
-				if (data.reasoningSlideCounter === 2) {
-					pinda.src = `./cultures/${data.culture}/video/sr-promp-textInput.webm`;
-				}
-				if (data.reasoningSlideCounter === 3) {
-					pinda.src = `./cultures/${data.culture}/video/text-input-3.webm`;
-				}
-			}
-		},
-		onComplete: () => {
-			isExplaining = false;
-		},
-	});
 
 	pinda.addEventListener('play', () => {
 		isPlaying = true;
@@ -213,16 +289,52 @@ export default async () => {
 		isPlaying = false;
 	});
 
-	while (isPlaying || isExplaining) {
+	// if userchoice-X landing block pinda videos
+	if (checkBox.checked) {
+		if (data.reasoningSlideCounter === 1) {
+			pinda.src = prefetchedVideos.audio1;
+			await gsap
+				.timeline()
+				.to(voiceResponseStart, {
+					filter: 'drop-shadow(0px 0px 15px #000)',
+					delay: 8,
+					repeat: 3,
+					yoyo: true,
+					reversed: true,
+				})
+				.to(voiceResponseStop, {
+					filter: 'drop-shadow(0px 0px 15px #000)',
+					delay: 1.5,
+					repeat: 3,
+					yoyo: true,
+					reversed: true,
+				});
+		}
+		if (data.reasoningSlideCounter === 2) {
+			pinda.src = prefetchedVideos.audio2;
+		}
+		if (data.reasoningSlideCounter === 3) {
+			pinda.src = prefetchedVideos.audio3;
+		}
+	}
+	if (!checkBox.checked) {
+		if (data.reasoningSlideCounter === 1) {
+			pinda.src = prefetchedVideos.text1;
+		}
+		if (data.reasoningSlideCounter === 2) {
+			pinda.src = prefetchedVideos.text2;
+		}
+		if (data.reasoningSlideCounter === 3) {
+			pinda.src = prefetchedVideos.text3;
+		}
+	}
+
+	while (isPlaying) {
 		await sleep(100);
 	}
 
-	gsap.to(pinda, {
-		onStart: () => {
-			pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
-			pinda.loop = true;
-		},
-	});
+	pindaNeutral.src = prefetchedVideos.neutral!;
+	gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
 
 	gsap.to(checkLabel, { autoAlpha: 1 });
 	checkLabel.style.pointerEvents = 'auto';
@@ -234,182 +346,108 @@ export default async () => {
 		gsap.set(checkLabel, { autoAlpha: 0.25 });
 	});
 	audio.addEventListener('ended', () => {
-		checkLabel.style.pointerEvents = 'auto';
+		checkLabel.style.pointerEvents = 'visible';
 		gsap.set(checkLabel, { autoAlpha: 1 });
 	});
 
 	// if userchoice part
-	checkBox.addEventListener('change', async () => {
-		const switchToVoice = checkBox.checked;
-		const switchToText = !checkBox.checked;
+	if (data.input === 'userchoice-audio' || data.input === 'userchoice-text') {
+		checkBox.addEventListener('change', async () => {
+			const switchToVoice = checkBox.checked;
+			const switchToText = !checkBox.checked;
 
-		// switch to voice
-		if (switchToVoice) {
-			textResponse.style.display = 'none';
-			voiceResponse.style.display = 'flex';
-		}
-
-		if (switchToText) {
-			textResponse.style.display = 'block';
-			voiceResponse.style.display = 'none';
-		}
-
-		// play voice instruction if not already played yet
-		if (switchToVoice && !data.procedure[data.currentSlide].voiceExplanation) {
-			data.procedure[data.currentSlide].voiceExplanation = true;
-
-			voiceResponseStart.disabled = true;
-			checkLabel.style.pointerEvents = 'none';
-			headphones.style.pointerEvents = 'none';
-			gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
-			pinda.loop = false;
-
-			let isExplaining = true;
-			gsap.timeline().to(pinda, {
-				onStart: () => {
-					if (data.reasoningSlideCounter === 1) {
-						pinda.src = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
-						gsap
-							.timeline()
-							.to(voiceResponseStart, {
-								filter: 'drop-shadow(0px 0px 20px #969696)',
-								delay: 8,
-								repeat: 3,
-								yoyo: true,
-								reversed: true,
-							})
-							.to(voiceResponseStop, {
-								filter: 'drop-shadow(0px 0px 20px #969696)',
-								delay: 1.5,
-								repeat: 3,
-								yoyo: true,
-								reversed: true,
-							});
-					}
-					if (data.reasoningSlideCounter === 2) {
-						pinda.src = `./cultures/${data.culture}/video/sr-prompt-audioInput.webm`;
-					}
-					if (data.reasoningSlideCounter === 3) {
-						pinda.src = `./cultures/${data.culture}/video/audio-input-3.webm`;
-					}
-				},
-				onComplete: () => {
-					isExplaining = false;
-				},
-			});
-
-			while (isPlaying || isExplaining) {
-				await sleep(100);
+			// switch to voice
+			if (switchToVoice) {
+				textResponse.style.display = 'none';
+				voiceResponse.style.display = 'flex';
 			}
 
-			voiceResponseStart.disabled = false;
-			gsap.to(checkLabel, { autoAlpha: 1 });
-			checkLabel.style.pointerEvents = 'auto';
-			headphones.style.pointerEvents = 'auto';
-
-			gsap
-				.timeline()
-				.to(pinda, {
-					autoAlpha: 0,
-				})
-				.to(pinda, {
-					autoAlpha: 1,
-					onStart: () => {
-						pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
-						pinda.loop = true;
-					},
-				});
-		}
-
-		// play text instuction if not already played yet
-		if (switchToText && !data.procedure[data.currentSlide].textExplanation) {
-			data.procedure[data.currentSlide].textExplanation = true;
-
-			textResponse.disabled = true;
-			checkLabel.style.pointerEvents = 'none';
-			headphones.style.pointerEvents = 'none';
-			gsap.set(checkLabel, { autoAlpha: 0.25 });
-
-			let isExplaining = true;
-			pinda.loop = false;
-			gsap.timeline().to(pinda, {
-				onStart: () => {
-					if (data.reasoningSlideCounter === 1) {
-						pinda.src = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
-					}
-					if (data.reasoningSlideCounter === 2) {
-						pinda.src = `./cultures/${data.culture}/video/sr-promp-textInput.webm`;
-					}
-					if (data.reasoningSlideCounter === 3) {
-						pinda.src = `./cultures/${data.culture}/video/text-input-3.webm`;
-					}
-				},
-				onComplete: () => {
-					isExplaining = false;
-				},
-			});
-
-			while (isPlaying || isExplaining) {
-				await sleep(100);
+			if (switchToText) {
+				textResponse.style.display = 'block';
+				voiceResponse.style.display = 'none';
 			}
 
-			textResponse.disabled = false;
-			gsap.to(checkLabel, { autoAlpha: 1 });
-			checkLabel.style.pointerEvents = 'auto';
-			headphones.style.pointerEvents = 'auto';
+			// play voice instruction if not already played yet
+			if (switchToVoice && !data.procedure[data.currentSlide].voiceExplanation) {
+				data.procedure[data.currentSlide].voiceExplanation = true;
 
-			gsap
-				.timeline()
-				.to(pinda, {
-					autoAlpha: 0,
-				})
-				.to(pinda, {
-					autoAlpha: 1,
-					onStart: () => {
-						pinda.src = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
-						pinda.loop = true;
-					},
-				});
-		}
-	});
+				voiceResponseStart.disabled = true;
+				checkLabel.style.pointerEvents = 'none';
+				headphones.style.pointerEvents = 'none';
+				gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
+
+				gsap.to(pindaNeutral, { autoAlpha: 0 });
+				pinda.src = prefetchedVideos.audio1;
+				await gsap
+					.timeline()
+					.to(voiceResponseStart, {
+						filter: 'drop-shadow(0px 0px 20px #000)',
+						delay: 8,
+						repeat: 3,
+						yoyo: true,
+						reversed: true,
+					})
+					.to(voiceResponseStop, {
+						filter: 'drop-shadow(0px 0px 20px #000)',
+						delay: 1.5,
+						repeat: 3,
+						yoyo: true,
+						reversed: true,
+					});
+
+				while (isPlaying) {
+					await sleep(100);
+				}
+
+				voiceResponseStart.disabled = false;
+				gsap.to(checkLabel, { autoAlpha: 1 });
+				checkLabel.style.pointerEvents = 'auto';
+				headphones.style.pointerEvents = 'auto';
+
+				gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
+			}
+
+			// play text instuction if not already played yet
+			if (switchToText && !data.procedure[data.currentSlide].textExplanation) {
+				data.procedure[data.currentSlide].textExplanation = true;
+
+				textResponse.disabled = true;
+				checkLabel.style.pointerEvents = 'none';
+				headphones.style.pointerEvents = 'none';
+				gsap.set(checkLabel, { autoAlpha: 0.25 });
+
+				gsap.to(pindaNeutral, { autoAlpha: 0 });
+				pinda.src = prefetchedVideos.text1;
+				await sleep(500);
+
+				while (isPlaying) {
+					await sleep(100);
+				}
+
+				textResponse.disabled = false;
+				gsap.to(checkLabel, { autoAlpha: 1 });
+				checkLabel.style.pointerEvents = 'auto';
+				headphones.style.pointerEvents = 'auto';
+
+				gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
+			}
+		});
+	}
 
 	textResponse.addEventListener('input', () => {
 		// show next button if textarea hast at least n chars
 		if (textResponse.value.length >= config.globals.minimumTextInputLength) {
 			data.procedure[data.currentSlide].isText = true;
 			data.procedure[data.currentSlide].isVoice = false;
-			nextButton.style.pointerEvents = 'auto';
+			gsap.set(nextButton, { autoAlpha: 1 });
+			gsap.set(checkLabel, { autoAlpha: 0.25 });
+			nextButton.style.pointerEvents = 'visible';
 			checkLabel.style.pointerEvents = 'none';
-			gsap
-				.timeline()
-				.to(nextButton, {
-					autoAlpha: 1,
-					duration: 0.25,
-				})
-				.to(
-					checkLabel,
-					{
-						autoAlpha: 0.25,
-						duration: 0.25,
-					},
-					'<'
-				);
 		} else {
+			gsap.set(checkLabel, { autoAlpha: 1 });
+			gsap.set(nextButton, { autoAlpha: 0.25 });
 			nextButton.style.pointerEvents = 'none';
-			checkLabel.style.pointerEvents = 'auto';
-			gsap
-				.timeline()
-				.to(nextButton, {
-					autoAlpha: 0.25,
-				})
-				.to(
-					checkLabel,
-					{
-						autoAlpha: 1,
-						duration: 0.25,
-					},
-					'<'
-				);
+			checkLabel.style.pointerEvents = 'visible';
 		}
 	});
 
@@ -433,9 +471,12 @@ export default async () => {
 			let blob = await recorder.getBlob();
 
 			// upload blob to server
-			uploadAudio(blob, generateUserIdFilename('matt', 's-reasoning-1ca-1co', 'ogg'));
+			uploadAudio(blob, generateUserIdFilename('matt', `${data.currentSlide}`, 'ogg'));
 
-			RecordRTC.invokeSaveAsDialog(blob, `${data.currentSlide}-${data.id}`);
+			RecordRTC.invokeSaveAsDialog(
+				blob,
+				generateUserIdFilename('matt', `${data.currentSlide}`, 'ogg')
+			);
 
 			nextButton.style.pointerEvents = 'auto';
 			gsap.timeline().to(nextButton, {
@@ -457,20 +498,23 @@ export default async () => {
 	console.log(data.procedure[data.currentSlide].textInput);
 	data.procedure[data.currentSlide].response = response.id;
 
-	pinda.loop = false;
-
 	// react to user response
-	gsap.to(pinda, {
-		onStart: () => {
-			pinda.src = `./cultures/${data.culture}/video/sr-react-${data.reasoningSlideCounter}.webm`;
-		},
-	});
+	isPlaying = true;
+	await gsap
+		.timeline()
+		.to('#s-reasoning-1-hu-1-ca', { autoAlpha: 0 })
+		.to(pindaNeutral, { autoAlpha: 0 });
+	if (data.reasoningSlideCounter === 1) {
+		pinda.src = prefetchedVideos.react1;
+	}
+	if (data.reasoningSlideCounter === 2) {
+		pinda.src = prefetchedVideos.react2;
+	}
+	if (data.reasoningSlideCounter === 3) {
+		pinda.src = prefetchedVideos.react3;
+	}
 
 	while (isPlaying) {
 		await sleep(100);
 	}
-
-	gsap.to(pinda, { autoAlpha: 0 });
-
-	await sleep(500);
 };

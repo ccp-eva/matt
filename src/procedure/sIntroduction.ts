@@ -1,66 +1,87 @@
 import { gsap } from 'gsap';
-import { play, stop } from '../util/audio';
+import { play } from '../util/audio';
 import { swapSlides } from '../util/slideVisibility';
 import { getResponse } from '../util/getResponse';
 import { startFullscreen } from '../util/helpers';
 import config from '../config.yaml';
-import _ from 'lodash';
 import { SvgInHtml } from '../types';
-import { sleep } from '../util/helpers';
+import { prefetchAssets } from '../util/prefechAssets';
 
-export default async () => {
+export default async ({ currentSlide, previousSlide }) => {
 	// show slide
-	swapSlides(_.kebabCase(data.currentSlide));
+	swapSlides(currentSlide, previousSlide);
 
-	// play([
-	// 	`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`,
-	// 	`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`,
-	// 	`./cultures/${data.culture}/audio/neutral-resp-ok.mp3`,
-	// ]);
 	const video = document.getElementById('player') as HTMLMediaElement;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 
 	const speaker = document.getElementById('link-si-speaker') as SvgInHtml;
 	const pinda = document.getElementById('player') as HTMLVideoElement;
-
-	const tl = gsap.timeline();
 	const headphones = document.getElementById('link-si-headphones') as SvgInHtml;
 	const nextButton = document.getElementById('link-si-next') as SvgInHtml;
+	gsap.set([headphones, nextButton], { autoAlpha: 0, pointerEvents: 'none' });
 
-	gsap.set([headphones, nextButton], { transformOrigin: '50% 50%', autoAlpha: 0 });
+	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
+	parentBlock.removeAttribute('visibility');
+	const preloadVideo = await fetch(`./cultures/${data.culture}/video/s-introduction.webm`);
+	const blob = await preloadVideo.blob();
+	const url = URL.createObjectURL(blob);
+	parentBlock.setAttribute('visibility', 'hidden');
 
-	let playingTimeline = false;
+	let playingTimeline = true;
 	speaker.addEventListener('click', () => {
-		if (!config.devmode) {
+		if (!config.devmode.on) {
 			startFullscreen();
 		}
+		gsap.to(speaker, { autoAlpha: 0 });
+		play(`./cultures/${data.culture}/audio/si-next-red.mp3`, headphones.id);
 
-		gsap.set(speaker, { autoAlpha: 0 });
-		// timeline start
-		tl.to(pinda, {
-			onStart: () => {
-				pinda.src = `./cultures/${data.culture}/video/s-introduction.webm`;
-				playingTimeline = true;
-			},
-		})
-			.to(
-				headphones,
-				{
-					delay: 17,
-					duration: 0.5,
-					opacity: 1,
-					visibility: 'visible',
-				},
-				'<'
-			)
+		audio.addEventListener('play', () => {
+			nextButton.style.pointerEvents = 'none';
+			headphones.style.pointerEvents = 'none';
+			gsap.set([nextButton, headphones], { autoAlpha: 0.25 });
+		});
+		video.addEventListener('play', () => {
+			nextButton.style.pointerEvents = 'none';
+			headphones.style.pointerEvents = 'none';
+			if (playingTimeline) {
+				gsap.set([nextButton, headphones], { autoAlpha: 0 });
+			} else {
+				gsap.set([nextButton, headphones], { autoAlpha: 0.5 });
+			}
+		});
+		audio.addEventListener('ended', () => {
+			nextButton.style.pointerEvents = 'visible';
+			headphones.style.pointerEvents = 'visible';
+			gsap.to([nextButton, headphones], { autoAlpha: 1 });
+		});
+		video.addEventListener('ended', () => {
+			nextButton.style.pointerEvents = 'visible';
+			headphones.style.pointerEvents = 'visible';
+			gsap.to([nextButton, headphones], { autoAlpha: 1 });
+			gsap.to(pinda, { autoAlpha: 0 });
+		});
+
+		// start pinda video
+		pinda.src = url;
+		// only start timeline when media can play through
+		gsap
+			.timeline()
 			.to(headphones, {
-				filter: 'drop-shadow(0px 0px 14px #c4c4c4)',
+				autoAlpha: 0.5,
+				delay: 16,
+				duration: 0.5,
+				opacity: 1,
+				visibility: 'visible',
+			})
+			.to(headphones, {
+				filter: 'drop-shadow(0px 0px 14px #000)',
 				delay: 1,
-				repeat: 2,
+				repeat: 3,
 				yoyo: true,
 				reversed: true,
 			})
 			.to(nextButton, {
+				autoAlpha: 0.5,
 				delay: 5,
 				opacity: 1,
 				visibility: 'visible',
@@ -71,45 +92,11 @@ export default async () => {
 				repeat: -1,
 				yoyo: true,
 				reversed: true,
-			})
-			.to(pinda, {
-				delay: 3,
-				autoAlpha: 0,
-				onStart: () => {
-					play(`./cultures/${data.culture}/audio/si-next-red.mp3`, 'link-si-headphones');
-				},
 				onComplete: () => {
 					playingTimeline = false;
 				},
 			});
 	});
 
-	audio.addEventListener('play', () => {
-		nextButton.style.pointerEvents = 'none';
-		gsap.set(nextButton, { autoAlpha: 0.25 });
-	});
-	video.addEventListener('play', () => {
-		nextButton.style.pointerEvents = 'none';
-		if (playingTimeline) {
-			gsap.set(nextButton, { autoAlpha: 0 });
-		} else {
-			gsap.set(nextButton, { autoAlpha: 0.25 });
-		}
-	});
-	audio.addEventListener('ended', () => {
-		nextButton.style.pointerEvents = 'auto';
-		gsap.to(nextButton, { autoAlpha: 1 });
-	});
-	video.addEventListener('ended', () => {
-		nextButton.style.pointerEvents = 'auto';
-		gsap.to(nextButton, { autoAlpha: 1 });
-	});
-
 	await getResponse(nextButton.id);
-
-	// kill timeline animations
-	tl.kill();
-
-	stop();
-	await sleep(500);
 };

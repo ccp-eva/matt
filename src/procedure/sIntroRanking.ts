@@ -1,14 +1,20 @@
-import { gsap } from 'gsap';
-import _ from 'lodash';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
+import { SvgInHtml } from '../types';
 
-export default async () => {
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide), [2, 2]);
+export default async ({ currentSlide, previousSlide }) => {
+	swapSlides(currentSlide, data.previousSlide, [2, 2]);
+
+	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
+	parentBlock.removeAttribute('visibility');
+	const preloadVideo = await fetch(`./cultures/${data.culture}/video/intro-ranking.webm`);
+	const blob = await preloadVideo.blob();
+	const url = URL.createObjectURL(blob);
+	parentBlock.setAttribute('visibility', 'hidden');
+
 	const pinda = document.getElementById('player') as HTMLVideoElement;
 
-	let isPlaying = true;
-
+	let isPlaying = false;
 	pinda.addEventListener('play', () => {
 		isPlaying = true;
 	});
@@ -16,23 +22,12 @@ export default async () => {
 		isPlaying = false;
 	});
 
-	gsap.set(pinda, { autoAlpha: 0 });
-
-	gsap.to(pinda, {
-		autoAlpha: 1,
-		duration: 2,
-		onStart: () => {
-			pinda.src = `./cultures/${data.culture}/video/intro-ranking.webm`;
-		},
-	});
+	isPlaying = true;
+	pinda.src = url;
 
 	while (isPlaying) {
 		await sleep(100);
 	}
-
-	gsap.to(pinda, {
-		autoAlpha: 0,
-	});
 
 	await sleep(500);
 };

@@ -1,50 +1,70 @@
-import _ from 'lodash';
 import { gsap } from 'gsap';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
-import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
+import { sleep } from '../util/helpers';
 
-export default async () => {
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
+export default async ({ currentSlide, previousSlide }) => {
+	swapSlides(currentSlide, previousSlide);
 
 	const childQuestion = document.getElementById('text-ownershipChild') as SvgInHtml;
 	const adultQuestion = document.getElementById('text-ownershipAdult') as SvgInHtml;
-	const yes = document.getElementById('link-sqo-yes') as SvgInHtml;
-	const no = document.getElementById('link-sqo-no') as SvgInHtml;
-	gsap.set([yes, no], { autoAlpha: 0 });
+	const audio = document.getElementById('audio') as HTMLMediaElement;
+	const slidePrefix = 'sqo';
+	const headphones = document.getElementById(`link-${slidePrefix}-headphones`) as SvgInHtml;
+	const yesButton = document.getElementById(`link-${slidePrefix}-yes`) as SvgInHtml;
+	const noButton = document.getElementById(`link-${slidePrefix}-no`) as SvgInHtml;
+
+	gsap.set([yesButton, noButton], { autoAlpha: 0, pointerEvents: 'none' });
+	gsap.set(headphones, { autoAlpha: 0.5, pointerEvents: 'none' });
 
 	if (data.agegroup === 'adult') {
 		gsap.set(childQuestion, { autoAlpha: 0 });
-		play(`./cultures/${data.culture}/audio/sqo-adult.mp3`, 'link-sqo-headphones');
-		await playPromise(`./cultures/${data.culture}/audio/sqo-adult.mp3`);
+		play(`./cultures/${data.culture}/audio/${slidePrefix}-adult.mp3`, headphones.id);
+		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-adult.mp3`);
 	} else {
 		// default to child version
 		gsap.set(adultQuestion, { autoAlpha: 0 });
-		play(`./cultures/${data.culture}/audio/sqo-child.mp3`, 'link-sqo-headphones');
-		await playPromise(`./cultures/${data.culture}/audio/sqo-child.mp3`);
+		play(`./cultures/${data.culture}/audio/${slidePrefix}-child.mp3`, headphones.id);
+		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-child.mp3`);
 	}
 
-	gsap
+	await gsap
 		.timeline()
-		.to(yes, {
-			autoAlpha: 1,
+		.to(yesButton, {
+			autoAlpha: 0.5,
 			onStart: () => {
 				play(`./cultures/${data.culture}/audio/yes-no.mp3`);
 			},
 		})
-		.to(no, {
+		.to(noButton, {
 			delay: 1,
-			autoAlpha: 1,
+			autoAlpha: 0.5,
+			onComplete: () => {
+				gsap.set([yesButton, noButton, headphones], { pointerEvents: 'visible' });
+				gsap.to([yesButton, noButton, headphones], { autoAlpha: 1 });
+			},
 		});
 
+	let isPlaying = true;
+	audio.addEventListener('play', () => {
+		isPlaying = true;
+		gsap.to([yesButton, noButton, headphones], { autoAlpha: 0.5, pointerEvents: 'none' });
+	});
+	audio.addEventListener('ended', () => {
+		isPlaying = false;
+		gsap.to([yesButton, noButton, headphones], { autoAlpha: 1, pointerEvents: 'visible' });
+	});
+
+	while (isPlaying) {
+		await sleep(100);
+	}
+
 	// save responses and store to response object
-	const response = await getResponse(['link-sqo-yes', 'link-sqo-no']);
+	const response = await getResponse([yesButton.id, noButton.id]);
 	console.log(response.id);
 	data.procedure[data.currentSlide] = {
 		response: response.id,
 	};
-
-	await sleep(500);
 };

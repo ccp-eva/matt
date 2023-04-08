@@ -1,13 +1,10 @@
 import { gsap } from 'gsap';
-import _ from 'lodash';
 import { SvgInHtml } from '../types';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
-export default async () => {
-	data.procedure.sMcIntro.completed = false;
-
-	swapSlides(_.kebabCase(data.currentSlide), _.kebabCase(data.previousSlide));
+export default async ({ currentSlide, previousSlide }) => {
+	swapSlides(currentSlide, previousSlide);
 
 	// circles
 	const inner = document.getElementById('smci-inner')! as SvgInHtml;
@@ -15,25 +12,27 @@ export default async () => {
 	const outer = document.getElementById('smci-outer')! as SvgInHtml;
 	gsap.set([inner, middle, outer], { autoAlpha: 0 });
 
+	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
+	parentBlock.removeAttribute('visibility');
+	const preloadVideo = await fetch(
+		`./cultures/${data.culture}/video/s-outro-animals-mc-intro.webm`
+	);
+	const blob = await preloadVideo.blob();
+	const url = URL.createObjectURL(blob);
+	parentBlock.setAttribute('visibility', 'hidden');
+
 	const pinda = document.getElementById('player') as HTMLVideoElement;
-	gsap.set(pinda, { autoAlpha: 0 });
-	const timeline = gsap.timeline();
-	timeline.to(pinda, {
-		autoAlpha: 1,
-		duration: 1,
-		onStart: () => {
-			pinda.src = `./cultures/${data.culture}/video/s-outro-animals-mc-intro.webm`;
-		},
-	});
 
-	timeline.to([inner, middle, outer], {
-		autoAlpha: 0.5,
-		delay: 3.5,
-	});
-
-	timeline
+	pinda.src = url;
+	data.procedure.sMcIntro.completed = false;
+	gsap
+		.timeline()
+		.to([inner, middle, outer], {
+			autoAlpha: 0.5,
+			delay: 3.5,
+		})
 		.to(inner, {
-			delay: 10.5,
+			delay: 11,
 			autoAlpha: 1,
 			repeat: 2,
 		})
@@ -41,7 +40,7 @@ export default async () => {
 			autoAlpha: 0.5,
 		})
 		.to(middle, {
-			delay: 2.5,
+			delay: 3,
 			autoAlpha: 1,
 			repeat: 2,
 		})
@@ -56,11 +55,6 @@ export default async () => {
 		})
 		.to(outer, {
 			autoAlpha: 0.5,
-		})
-		.to(pinda, {
-			delay: 2,
-			autoAlpha: 0,
-			duration: 2,
 			onComplete: () => {
 				data.procedure.sMcIntro.completed = true;
 			},
@@ -69,6 +63,4 @@ export default async () => {
 	while (!data.procedure.sMcIntro.completed) {
 		await sleep(100);
 	}
-
-	await sleep(1000);
 };

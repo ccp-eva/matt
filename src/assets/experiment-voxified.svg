@@ -915,11 +915,11 @@
 		<rect id="text-almostEveryDay" x="1391.5" y="837.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="284" height="65"/>
 	
 		<line id="sqre-line" fill="#FFFFFF" stroke="#050200" stroke-width="2" stroke-miterlimit="10" x1="510.5" y1="443" x2="1409.5" y2="447"/>
-	<rect id="ph-sqre-cow" x="757" y="213" opacity="0.6" fill="#4AE5D9" width="197" height="197"/>
+	<rect id="ph-sqre-cow" x="-98.5" y="-98.5" opacity="0.6" fill="#4AE5D9" width="197" height="197"/>
 	
 		<image overflow="visible" width="116" height="76" id="link-sqre-cow" xlink:href="assets/cow.svg"  transform="matrix(1 0 0 1 776.5146 266.2323)">
 	</image>
-	<rect id="ph-sqre-cat" x="1071" y="273" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
+	<rect id="ph-sqre-cat" x="-51" y="-51" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
 	
 		<image overflow="visible" width="89" height="67" id="link-sqre-cat" xlink:href="assets/cat.svg"  transform="matrix(0.7723 0 0 0.7723 1082.2614 302.5722)">
 	</image>
@@ -973,11 +973,11 @@
 		<rect id="text-aLotSimilar" x="1395" y="837" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="284" height="65"/>
 	
 		<line id="sqrs-line" fill="#FFFFFF" fill-opacity="0.1" stroke="#050200" stroke-width="0.5" stroke-miterlimit="10" x1="510.5" y1="443" x2="1409.5" y2="447"/>
-	<rect id="ph-sqrs-cow" x="757.1" y="213" opacity="0.6" fill="#4AE5D9" width="197" height="197"/>
+	<rect id="ph-sqrs-cow" x="-98.5" y="-98.5" opacity="0.6" fill="#4AE5D9" width="197" height="197"/>
 	
 		<image overflow="visible" width="116" height="76" id="link-sqrs-cow" xlink:href="assets/cow.svg"  transform="matrix(1 0 0 1 776.6158 266.2323)">
 	</image>
-	<rect id="ph-sqrs-cat" x="1071.1" y="273" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
+	<rect id="ph-sqrs-cat" x="-51" y="-51" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
 	
 		<image overflow="visible" width="89" height="67" id="link-sqrs-cat" xlink:href="assets/cat.svg"  transform="matrix(0.7723 0 0 0.7723 1082.3625 302.5722)">
 	</image>
@@ -1008,15 +1008,15 @@
 		<rect id="text-aLot_00000018951735761879263950000004873289751992755373_" x="1392.5" y="837" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="284" height="65"/>
 	
 		<line id="sqrf-line" fill="#FFFFFF" stroke="#050200" stroke-width="2" stroke-miterlimit="10" x1="510.5" y1="443" x2="1409.5" y2="447"/>
-	<rect id="ph-sqrf-cow" x="595" y="213" opacity="0.6" fill="#4AE5D9" width="197" height="197"/>
+	<rect id="ph-sqrf-cow" x="-98.5" y="-98.5" opacity="0.6" fill="#4AE5D9" width="197" height="197"/>
 	
 		<image overflow="visible" width="116" height="76" id="link-sqrf-cow" xlink:href="assets/cow.svg"  transform="matrix(1 0 0 1 614.5146 266.2323)">
 	</image>
-	<rect id="ph-sqrf-cat" x="909" y="273" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
+	<rect id="ph-sqrf-cat" x="-51" y="-51" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
 	
 		<image overflow="visible" width="89" height="67" id="link-sqrf-cat" xlink:href="assets/cat.svg"  transform="matrix(0.7723 0 0 0.7723 920.2614 302.5722)">
 	</image>
-	<rect id="ph-sqrf-human" x="1128" y="218" opacity="0.6" fill="#4AE5D9" width="190" height="190"/>
+	<rect id="ph-sqrf-human" x="-95" y="-95" opacity="0.6" fill="#4AE5D9" width="190" height="190"/>
 	
 		<image overflow="visible" width="130" height="246" id="link-sqrf-human" xlink:href="assets/human.svg"  transform="matrix(0.5366 0 0 0.5366 1179 247)">
 	</image>
@@ -1047,15 +1047,15 @@
 		<rect id="text-aLot" x="1395" y="837.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="284" height="65"/>
 	
 		<line id="sqrp-line" fill="#FFFFFF" stroke="#050200" stroke-width="2" stroke-miterlimit="10" x1="510.5" y1="443" x2="1409.5" y2="447"/>
-	<rect id="ph-sqrp-cow" x="595" y="213" opacity="0.6" fill="#4AE5D9" width="197" height="197"/>
+	<rect id="ph-sqrp-cow" x="-98.5" y="-98.5" opacity="0.6" fill="#4AE5D9" width="197" height="197"/>
 	
 		<image overflow="visible" width="116" height="76" id="link-sqrp-cow" xlink:href="assets/cow.svg"  transform="matrix(1 0 0 1 614.5146 266.2323)">
 	</image>
-	<rect id="ph-sqrp-cat" x="909" y="273" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
+	<rect id="ph-sqrp-cat" x="-51" y="-51" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
 	
 		<image overflow="visible" width="89" height="67" id="link-sqrp-cat" xlink:href="assets/cat.svg"  transform="matrix(0.7723 0 0 0.7723 920.2614 302.5722)">
 	</image>
-	<rect id="ph-sqrp-human" x="1128" y="218" opacity="0.6" fill="#4AE5D9" width="190" height="190"/>
+	<rect id="ph-sqrp-human" x="-95" y="-95" opacity="0.6" fill="#4AE5D9" width="190" height="190"/>
 	
 		<image overflow="visible" width="130" height="246" id="link-sqrp-human" xlink:href="assets/human.svg"  transform="matrix(0.5366 0 0 0.5366 1179 247)">
 	</image>
@@ -1086,15 +1086,15 @@
 		<rect id="text-aLotSmart" x="1395" y="837.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="284" height="65"/>
 	
 		<line id="sqri-line" fill="#FFFFFF" stroke="#050200" stroke-width="2" stroke-miterlimit="10" x1="510.5" y1="443" x2="1409.5" y2="447"/>
-	<rect id="ph-sqri-cow" x="595" y="213" opacity="0.6" fill="#4AE5D9" width="197" height="197"/>
+	<rect id="ph-sqri-cow" x="-98.5" y="-98.5" opacity="0.6" fill="#4AE5D9" width="197" height="197"/>
 	
 		<image overflow="visible" width="116" height="76" id="link-sqri-cow" xlink:href="assets/cow.svg"  transform="matrix(1 0 0 1 614.5146 266.2323)">
 	</image>
-	<rect id="ph-sqri-cat" x="909" y="273" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
+	<rect id="ph-sqri-cat" x="-51" y="-51" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
 	
 		<image overflow="visible" width="89" height="67" id="link-sqri-cat" xlink:href="assets/cat.svg"  transform="matrix(0.7723 0 0 0.7723 920.2614 302.5722)">
 	</image>
-	<rect id="ph-sqri-human" x="1128" y="218" opacity="0.6" fill="#4AE5D9" width="190" height="190"/>
+	<rect id="ph-sqri-human" x="-95" y="-95" opacity="0.6" fill="#4AE5D9" width="190" height="190"/>
 	
 		<image overflow="visible" width="130" height="246" id="link-sqri-human" xlink:href="assets/human.svg"  transform="matrix(0.5366 0 0 0.5366 1179 247)">
 	</image>
@@ -2244,7 +2244,7 @@
 <g id="s-meaning">
 	<rect id="sm-written-response" x="277" y="334" fill="#E5E5E5" width="1366" height="476"/>
 	
-		<rect id="text-meaning" x="415" y="188" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1096" height="54"/>
+		<rect id="text-meaning" y="100" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="1920" height="200"/>
 	<rect id="ph-sm-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	
 		<image overflow="visible" width="80" height="80" id="link-sm-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
@@ -2356,10 +2356,6 @@
 			S733.47,803.75,587.14,803.75z"/>
 		<circle id="smci-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="587.14" cy="538.81" r="264.95"/>
 	</g>
-	<rect id="ph-s-mci-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
-	
-		<image overflow="visible" width="80" height="80" id="link-s-mci-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
-	</image>
 </g>
 <g id="s-goldfish">
 	<rect id="ph-s-goldfish-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
@@ -2550,7 +2546,7 @@
 	
 		<image overflow="visible" width="80" height="81" id="link-si-next" xlink:href="assets/next.svg"  transform="matrix(1 0 0 0.9877 1815 981)">
 	</image>
-	<rect id="ph-si-matt-logo" x="1507" y="-17" fill="#B8846E" width="430" height="430"/>
+	<rect id="ph-si-matt-logo" x="1507" y="-17" fill="#AAAAAA" width="430" height="430"/>
 	
 		<image overflow="visible" width="430" height="431" id="link-si-matt-logo" xlink:href="assets/matt-logo.svg"  transform="matrix(0.5673 0 0 0.5673 1602 74)">
 	</image>
@@ -2564,6 +2560,14 @@
 		<rect id="text-beginning" x="140" y="35" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="765.98" height="110"/>
 </g>
 <g id="s-pinda-video">
+	<rect id="s-pv-neutral" y="645" fill="#FFFFFF" width="339" height="435"/>
 	<rect id="s-pv" y="645" fill="#FFFFFF" width="339" height="435"/>
+</g>
+<g id="s-blocking-state">
+	<rect id="s-bs" opacity="0.75" fill="#FFFFFF" width="1920" height="1080"/>
+	<rect id="ph-ccp-orb" x="845" y="425" fill="#AAAAAA" width="230" height="230"/>
+	
+		<image overflow="visible" width="172" height="172" id="link-ccp-orb" xlink:href="assets/ccp-orb.svg"  transform="matrix(1 0 0 1 874 454)">
+	</image>
 </g>
 </svg>
