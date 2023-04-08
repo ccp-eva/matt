@@ -17,7 +17,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById('link-s-bp-headphones') as HTMLMediaElement;
 
-	gsap.set([inner, middle, outer], { opacity: 0.5 });
+	gsap.set([inner, middle, outer, ball], { opacity: 0.5 });
 	gsap.set(headphones, { autoAlpha: 0 });
 
 	let isPlaying = false;
@@ -40,6 +40,8 @@ export default async ({ currentSlide, previousSlide }) => {
 		outer: '',
 	};
 
+	await playPromise(`./cultures/${data.culture}/audio/s-ball-practice.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/sbp-expl.mp3`);
 	let failed = false;
 	let repeat = false;
 	for (let i = 0; i < order.length; i++) {
