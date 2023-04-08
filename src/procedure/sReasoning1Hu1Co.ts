@@ -284,9 +284,17 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	pinda.addEventListener('play', () => {
 		isPlaying = true;
+		textResponse.disabled = true;
+		gsap.to(checkLabel, { autoAlpha: 0.5 });
+		checkLabel.style.pointerEvents = 'none';
+		headphones.style.pointerEvents = 'none';
 	});
 	pinda.addEventListener('ended', () => {
 		isPlaying = false;
+		textResponse.disabled = false;
+		gsap.to(checkLabel, { autoAlpha: 1 });
+		checkLabel.style.pointerEvents = 'visible';
+		headphones.style.pointerEvents = 'visible';
 	});
 
 	// if userchoice-X landing block pinda videos
@@ -337,7 +345,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
 
 	gsap.to(checkLabel, { autoAlpha: 1 });
-	checkLabel.style.pointerEvents = 'auto';
+	checkLabel.style.pointerEvents = 'visible';
 	textResponse.disabled = false;
 	voiceResponseStart.disabled = false;
 
@@ -401,8 +409,8 @@ export default async ({ currentSlide, previousSlide }) => {
 
 				voiceResponseStart.disabled = false;
 				gsap.to(checkLabel, { autoAlpha: 1 });
-				checkLabel.style.pointerEvents = 'auto';
-				headphones.style.pointerEvents = 'auto';
+				checkLabel.style.pointerEvents = 'visible';
+				headphones.style.pointerEvents = 'visible';
 
 				gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
 			}
@@ -426,8 +434,8 @@ export default async ({ currentSlide, previousSlide }) => {
 
 				textResponse.disabled = false;
 				gsap.to(checkLabel, { autoAlpha: 1 });
-				checkLabel.style.pointerEvents = 'auto';
-				headphones.style.pointerEvents = 'auto';
+				checkLabel.style.pointerEvents = 'visible';
+				headphones.style.pointerEvents = 'visible';
 
 				gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
 			}
@@ -478,7 +486,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				generateUserIdFilename('matt', `${data.currentSlide}`, 'ogg')
 			);
 
-			nextButton.style.pointerEvents = 'auto';
+			nextButton.style.pointerEvents = 'visible';
 			gsap.timeline().to(nextButton, {
 				autoAlpha: 1,
 			});
@@ -486,7 +494,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			voiceResponseStart.disabled = false;
 			voiceResponseStop.disabled = true;
 
-			checkLabel.style.pointerEvents = 'auto';
+			checkLabel.style.pointerEvents = 'visible';
 			gsap.set(checkLabel, { autoAlpha: 1 });
 		});
 	});

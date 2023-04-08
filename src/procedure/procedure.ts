@@ -70,7 +70,7 @@ export const procedure = async () => {
 	}
 
 	data.animalSlideCounter = 0;
-	data.reasoningSlideCounter = 2;
+	data.reasoningSlideCounter = 0;
 	data.dilemmaMotivationOnePlayed = false;
 	data.dilemmaMotivationTwoPlayed = false;
 

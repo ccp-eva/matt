@@ -3,7 +3,7 @@ import { swapSlides } from '../util/slideVisibility';
 import { SvgInHtml } from '../types';
 
 export default async ({ currentSlide, previousSlide }) => {
-	swapSlides(currentSlide, data.previousSlide, [2, 2]);
+	swapSlides(currentSlide, previousSlide, [2, 2]);
 
 	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
 	parentBlock.removeAttribute('visibility');
