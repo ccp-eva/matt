@@ -5,6 +5,8 @@ import Toastify from 'toastify-js';
 // promised based timeout
 export const sleep = (ms = 2000) => new Promise<number>((r) => setTimeout(r, ms));
 
+export const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
 export const millisToMinutesAndSeconds = (millis: number) => {
 	var minutes = Math.floor(millis / 60000);
 	var seconds = Number(((millis % 60000) / 1000).toFixed(0));
