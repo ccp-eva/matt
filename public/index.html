@@ -24,12 +24,10 @@
 				</p>
 
 				<form>
-					<h1>Moral Attitudes Study</h1>
+					<h1>Einstellung zu Tieren</h1>
 					<p style="text-align: center; margin-bottom: 30px">
-						Max Planck Institute for Evolutionary Anthropology, Comparative Cultural Psychology<br />
-						<span style="font-size: small"
-							><a href="mailto:noemi_thiede@eva.mpg.de">Thiede N., et al.</a></span
-						>
+						Max-Planck-Institut für evolutionäre Anthropologie, Vergleichende Kulturpsychologie<br />
+						<span style="font-size: small">Thiede N., et al.</span>
 					</p>
 					<hr />
 					<div id="form-id" class="form-group">
@@ -42,7 +40,7 @@
 							autocomplete="off"
 							onkeydown="return /[0-9a-zA-Z-_]/i.test(event.key)"
 						/>
-						<label for="input-id" class="control-label">ID (alphanumeric, max. 20 chars)</label
+						<label for="input-id" class="control-label">ID (max. 20 Zeichen)</label
 						><i class="bar"></i>
 					</div>
 					<div id="form-culture" class="form-group">
@@ -50,31 +48,36 @@
 							<option>de-urban</option>
 							<!-- <option>Value 2</option> -->
 						</select>
-						<label for="input-culture" class="control-label">Culture</label><i class="bar"></i>
+						<label for="input-culture" class="control-label">Kultur</label><i class="bar"></i>
+					</div>
+					<div>
+						<label for="birthday">Geburtstag:</label>
+						<input type="date" id="birthday" name="birthday" autocomplete="off" />
 					</div>
 					<div id="form-agegroup" class="form-group">
 						<select id="input-agegroup" title="Age group" autocomplete="off" required>
-							<option>child</option>
-							<option>adult</option>
+							<option>Kind</option>
+							<option>Erwachsener</option>
 						</select>
-						<label for="input-agegroup" class="control-label">Age group</label><i class="bar"></i>
+						<label for="input-agegroup" class="control-label">Altersgruppe</label
+						><i class="bar"></i>
 					</div>
 					<div id="form-response" class="form-group">
 						<select id="input-response" title="Response input" required autocomplete="off">
-							<option>Decide later (audio priority)</option>
-							<option>Decide later (keyboard priority)</option>
-							<option>Use microphone</option>
-							<option>Use keyboard</option>
+							<option>Später entscheiden (Sprachinput priorisiert)</option>
+							<option>Später entscheiden (Textinput priorisiert)</option>
+							<option>Sprachinput</option>
+							<option>Textinput</option>
 						</select>
-						<label for="input-response" class="control-label">Response input</label
+						<label for="input-response" class="control-label">Antwortformat</label
 						><i class="bar"></i>
 					</div>
 					<div id="form-datatransfer" class="form-group">
 						<select id="input-datatransfer" title="Data transfer" required autocomplete="off">
-							<option>Send to MPI Server & download a local copy</option>
-							<option>Only send to server</option>
+							<option>MPI Server & Download</option>
+							<option>MPI-server</option>
 						</select>
-						<label for="input-transfer" class="control-label">Data transfer</label
+						<label for="input-transfer" class="control-label">Datentransfer</label
 						><i class="bar"></i>
 					</div>
 					<!-- <div class="form-group">
@@ -82,12 +85,13 @@
 						<label for="textarea" class="control-label">Textarea</label><i class="bar"></i>
 					</div> -->
 					<p>
-						Your participation in this study is, of course, voluntary. All study data will be stored
-						in an anonymized form on a server at the Max Planck Institute in Leipzig, Germany, and
-						will not be passed on to third parties. You can cancel your participation at any time by
-						closing the window. If you wish to withdraw your data from the study at a later date,
-						please write to us, indicating the name and birthday of your child, at this e-mail
-						address: <a href="mailto:forschungsreise@eva.mpg.de">forschungsreise@eva.mpg.de</a>.
+						Ihre Teilnahme an der Sudie ist natürlich freiwillig. Alle in der Studie erhobenen Daten
+						werden anonymisiert auf einem Server am Max-Planck-Institut in Leipzig (Deutschland)
+						gespeichert und nicht an Dritte weitergegeben. Sie können Ihre Teilnahme zu jedem
+						Zeitpunkt abbrechen, indem sie das Browserfenster schließen. Wenn Sie zu einem späteren
+						Zeitpunkt Ihre erhobenen Daten löschen lassen möchten, kontaktieren Sie uns über
+						<a href="mailto:forschungsreise@eva.mpg.de">forschungsreise@eva.mpg.de</a> und geben Sie
+						dafür Name und Geburtsdatum Ihres Kindes bzw. bei eigener Teilnahme von Ihnen selbst an.
 					</p>
 					<!-- <div class="checkbox">
 						<label>

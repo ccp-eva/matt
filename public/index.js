@@ -4,6 +4,7 @@ const params = new URLSearchParams(url.search);
 
 let id = '';
 let culture = '';
+let birthday = '';
 let agegroup = '';
 let input = '';
 let datatransfer = '';
@@ -13,6 +14,9 @@ if (params.has('id')) {
 }
 if (params.has('culture')) {
 	culture = params.get('culture');
+}
+if (params.has('birthday')) {
+	culture = params.get('birthday');
 }
 if (params.has('agegroup')) {
 	agegroup = params.get('agegroup');
@@ -35,6 +39,11 @@ if (id) {
 }
 if (culture) {
 	const cultureElement = document.getElementById('input-culture');
+	cultureElement.required = false;
+	cultureElement.parentNode.style.display = 'none';
+}
+if (birthday) {
+	const cultureElement = document.getElementById('input-birthday');
 	cultureElement.required = false;
 	cultureElement.parentNode.style.display = 'none';
 }
@@ -61,6 +70,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
 	// use existing data if available, else use form data
 	id = id ? id : document.getElementById('input-id').value;
 	culture = culture ? culture : document.getElementById('input-culture').value;
+	birthday = birthday ? birthday : document.getElementById('input-birthday').value;
 	agegroup = agegroup ? agegroup : document.getElementById('input-agegroup').value;
 	let inputIndex = '';
 	if (!input) {
@@ -84,5 +94,5 @@ document.querySelector('form').addEventListener('submit', (e) => {
 	input = input ? input : inputMapping.get(inputIndex);
 	datatransfer = datatransfer ? datatransfer : datatransferMapping.get(datatransferIndex);
 
-	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&agegroup=${agegroup}&input=${input}&datatransfer=${datatransfer}`;
+	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&birthday=${birthday}&agegroup=${agegroup}&input=${input}&datatransfer=${datatransfer}`;
 });
