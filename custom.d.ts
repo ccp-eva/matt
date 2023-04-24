@@ -40,7 +40,7 @@ declare var data: {
 	input: 'audio' | 'text' | 'userchoice-audio' | 'userchoice-text';
 	datatransfer: 'server' | 'both';
 	gender: 'female' | 'male' | 'other';
-	birthday: 'string';
+	birthday: string;
 	age: number;
 	preFetchedVideoBlobs: Array<{ [key: string]: string } | { keep: boolean }>;
 	pindaNeutralBlob: string;
