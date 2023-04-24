@@ -83,7 +83,9 @@ export const init = () => {
 	global.data = {
 		id: urlParameters.id,
 		culture: urlParameters.culture,
+		birthday: urlParameters.birthday,
 		agegroup: urlParameters.agegroup,
+		gender: urlParameters.gender,
 		input: urlParameters.input,
 		datatransfer: urlParameters.datatransfer,
 		initialTimestamp: new Date(),

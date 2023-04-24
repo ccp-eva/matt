@@ -51,8 +51,8 @@
 						<label for="input-culture" class="control-label">Kultur</label><i class="bar"></i>
 					</div>
 					<div>
-						<label for="birthday">Geburtstag:</label>
-						<input type="date" id="birthday" name="birthday" autocomplete="off" />
+						<label for="input-birthday">Geburtstag:</label>
+						<input type="date" id="input-birthday" name="birthday" autocomplete="off" required />
 					</div>
 					<div id="form-agegroup" class="form-group">
 						<select id="input-agegroup" title="Age group" autocomplete="off" required>
@@ -60,6 +60,16 @@
 							<option>Erwachsener</option>
 						</select>
 						<label for="input-agegroup" class="control-label">Altersgruppe</label
+						><i class="bar"></i>
+					</div>
+					<div id="form-gender" class="form-group">
+						<select id="input-gender" title="Gender" autocomplete="off" required>
+							<option>weiblich</option>
+							<option>männlich</option>
+							<option>divers</option>
+						</select>
+						<label for="input-gender" id="input-gender-label" class="control-label"
+							>Geschlecht</label
 						><i class="bar"></i>
 					</div>
 					<div id="form-response" class="form-group">
@@ -129,8 +139,10 @@
 				</form>
 				<hr style="border-width: 0.1px" />
 				<p class="imprint">
-					<a href="http://www.eva.mpg.de/imprint.html">Impressum</a> /
-					<a href="http://www.eva.mpg.de/german/datenschutzhinweis.html">Datenschutz</a><br />
+					<a href="http://www.eva.mpg.de/imprint.html" target="_blank">Impressum</a> /
+					<a href="http://www.eva.mpg.de/german/datenschutzhinweis.html" target="_blank"
+						>Datenschutz</a
+					><br />
 				</p>
 			</div>
 		</div>

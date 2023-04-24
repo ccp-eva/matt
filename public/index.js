@@ -6,6 +6,7 @@ let id = '';
 let culture = '';
 let birthday = '';
 let agegroup = '';
+let gender = '';
 let input = '';
 let datatransfer = '';
 
@@ -20,6 +21,9 @@ if (params.has('birthday')) {
 }
 if (params.has('agegroup')) {
 	agegroup = params.get('agegroup');
+}
+if (params.has('gender')) {
+	agegroup = params.get('gender');
 }
 if (params.has('input')) {
 	input = params.get('input');
@@ -52,6 +56,11 @@ if (agegroup) {
 	agegroupElement.required = false;
 	agegroupElement.parentNode.style.display = 'none';
 }
+if (gender) {
+	const genderElement = document.getElementById('input-gender');
+	genderElement.required = false;
+	genderElement.parentNode.style.display = 'none';
+}
 if (input) {
 	const inputElement = document.getElementById('input-response');
 	inputElement.required = false;
@@ -72,6 +81,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
 	culture = culture ? culture : document.getElementById('input-culture').value;
 	birthday = birthday ? birthday : document.getElementById('input-birthday').value;
 	agegroup = agegroup ? agegroup : document.getElementById('input-agegroup').value;
+	gender = gender ? gender : document.getElementById('input-gender').value;
 	let inputIndex = '';
 	if (!input) {
 		inputIndex = document.getElementById('input-response').selectedIndex;
@@ -94,5 +104,5 @@ document.querySelector('form').addEventListener('submit', (e) => {
 	input = input ? input : inputMapping.get(inputIndex);
 	datatransfer = datatransfer ? datatransfer : datatransferMapping.get(datatransferIndex);
 
-	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&birthday=${birthday}&agegroup=${agegroup}&input=${input}&datatransfer=${datatransfer}`;
+	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&birthday=${birthday}&agegroup=${agegroup}&gender=${gender}&input=${input}&datatransfer=${datatransfer}`;
 });

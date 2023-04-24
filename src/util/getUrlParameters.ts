@@ -56,8 +56,8 @@ export const getUrlParameters = () => {
 				duration: 0,
 				className: 'toast-info',
 			}).showToast();
+			params.agegroup = config.globals.defaultAgeGroup;
 		}
-		params.culture = config.globals.defaultCulture;
 	} else {
 		params.agegroup = config.globals.defaultAgeGroup;
 	}
