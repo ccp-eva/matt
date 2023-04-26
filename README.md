@@ -19,6 +19,7 @@
   - [How To Add New Slide](#how-to-add-new-slide)
     - [❡ Adding Text](#-adding-text)
     - [♲ Recycle/Reuse Objects](#-recyclereuse-objects)
+  - [Adobe Character Animator Workflow](#adobe-character-animator-workflow)
   - [Global Objects](#global-objects)
     - [`data`](#data)
     - [`downloadData()`](#downloaddata)
@@ -34,25 +35,46 @@
 
 ## Study Overview
 
-todo
+![](./docs/matt-landing-page-hero-image.svg) <p align="right"><sup><sub>inspired by [unDraw](https://undraw.co/illustrations)</sub></sup></p>
 
 - Link to prereg
 - ...
 
 ## Development & Customization
 
+The experiment consists of two components: (1) a **landing page** and (2) the **experiment**. The landing page is vanilla HTML, CSS, JavaScript and is not part of the webpack setup. This landing page is located in the `public` directory:
+
+**Landing page** files:
+
+- `public/index.html`
+- `public/index.css`
+- `public/index.js`
+
+**The experiment** is located under `src` the root entry point is `app.ts`.
+
+If you build and deploy the web app. The landing page is: `yoururl.com/index.html`. By convention `index.html` can be omitted. That means going to `yoururl.com` will navigate you to the landing page. The experiment will be exposed via `yoururl.com/app.html`.
+
+**NOTES**
+
+- The primary purpose of the landing page is to provide a UI to ask the user for required properies that the expiment needs in order to run. If you provide no or incomplete URL parameters, defaults will be used (see table below).
+- All properties can also be controlled via URL parameters.
+- If you provide URL parameters for the landing page, the corresponding fields will be hidden
+- All URL parameters are identical for the landing and experiment page
+  - That means, you can skip the landing page entirely if you provide the required URL parameters for the experiment
+
 ### URL Parameters
 
 You can modify the experiment by attaching various URL parameters, for example:  
 https://ccp-eva.github.io/matt/app?id=johndoe&culture=de-urban&agegroup=child&input=text
 
-| Parameter      | Default            | Explanation                                                                                                                                                           | Restrictions                                                                                                            |
-| -------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `id`           | `demo`             | Participant id                                                                                                                                                        | Any value that is alphanumeric and ≤ 20 chars                                                                           |
-| `culture`      | `de-urban`         | Changes, text, audio, and visuals                                                                                                                                     | Any value defined with procedure key in [config.yaml](https://github.com/ccp-eva/matt/blob/develop/src/config.yaml#L45) |
-| `agegroup`     | `child`            | Loads a different set of text                                                                                                                                         | Either `child` or `adult`                                                                                               |
-| `input`        | `userchoice-audio` | Respond either by text or audio input, or leave it up the the user to decide. `userchoice-audio` will land on audio first. `userchoice-text` will land on text first. | Either `text`, `audio` or `userchoice-audio`, `userchoice-text`                                                         |
-| `datatransfer` | `both`             | The way where response data is sent to. `sever` will use the php endpoint. `both` calls `downloadData()` and you will also get a local copy of your data.             | Can either be: `both` (default) or `server`                                                                             |
+| Parameter      | Default (if no param provided)           | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                              | Restrictions                                                                                                            |
+| -------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `id`           | `demo`                                   | Participant name or id                                                                                                                                                                                                                                                                                                                                                                                                                   | Special Characters are disallowed. Input length is limited to ≤ 30 chars                                                |
+| `culture`      | `de-urban`                               | Changes, text, audio, and visuals                                                                                                                                                                                                                                                                                                                                                                                                        | Any value defined with procedure key in [config.yaml](https://github.com/ccp-eva/matt/blob/develop/src/config.yaml#L45) |
+| `birthday`     | `2100-01-01` (defaults to child version) | A year in the format YYYY-MM-DD. Depending on your age (threshold is 12 years of age), a different experiment version will be loaded (child or adult). If you don't want the user to enter a birthday but want them to navigate to play the child or adult version, just provide a date which doesn't make sense for you and is easy to detect in data analysis, for example:<br>**child:** `2100-01-01` or<br> **adult:** `1900-01-01`. | A string in the format `YYYY-MM-DD`.<br> `Y, M, D` need to be numbers                                                   |
+| `gender`       | `none`                                   | Participant’s gender.                                                                                                                                                                                                                                                                                                                                                                                                                    | Either `female`, `male`, `diverse`, or `none`                                                                           |
+| `input`        | `userchoice-audio`                       | Respond either by text or audio input, or leave it up the the user to decide. `userchoice-audio` will land on audio first. `userchoice-text` will land on text first.                                                                                                                                                                                                                                                                    | Either `text`, `audio` or `userchoice-audio`, `userchoice-text`                                                         |
+| `datatransfer` | `both`                                   | The way where response data is sent to. `sever` will use the php endpoint. `both` calls `downloadData()` and you will also get a local copy of your data.                                                                                                                                                                                                                                                                                | Can either be: `both` (default) or `server`                                                                             |
 
 Culture parameters are composed of a country code (i.e, [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), lowercased (e.g., de)) and an arbitrary suffix (i.e., rural or urban). For example: `de-urban`.
 
@@ -135,6 +157,21 @@ If you use an SVG object more than once, and your object is a more complex shape
 11. Profit
 
 For further (implementation) details, see this issue: [#53](https://github.com/ccp-eva/matt/issues/53).
+
+### Adobe Character Animator Workflow
+
+1. Edit your videos in Adobe Character Animator and export them using via: `File → Export → Video with Alpha via Adobe Media Encoder`
+
+2. This will open Media Encoder. Click the play button to start the rendering process.
+
+_Note, the export format must be **Apple ProRes 4444 with alpha**. As of Summer 2023, that is the only Safari-compliant alpha video format that can be post-processed with ffmpeg (H265 w/ alpha cannot be created using ffmpeg at the time of writing)._
+
+|           ![](docs/alpha-video-export-settings.png)           |
+| :-----------------------------------------------------------: |
+| _Adobe Media Encoder Export Settings from Character Animator_ |
+
+3. Once you have your \*.mov video files. Copy all of the video files to the folder: `character-animator`.
+4. Run `npm run alphapinda` in your terminal
 
 ### Global Objects
 

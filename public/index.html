@@ -18,10 +18,9 @@
 	<body>
 		<div id="root">
 			<div class="container">
-				<img id="hero-image" src="./matt-landing-page-hero-image.svg" alt="" />
-				<p class="copyright">
-					<a href="https://undraw.co/illustrations" target="_blank">inspired by unDraw</a>
-				</p>
+				<video controls width="100%" src="movie.mp4">
+					Your browser does not support the video tag.
+				</video>
 
 				<form>
 					<h1>Einstellung zu Tieren</h1>
@@ -30,50 +29,54 @@
 						<span style="font-size: small">Thiede N., et al.</span>
 					</p>
 					<hr />
+					<!-- regex to allow case insensitive alpha numeric inputs including spaces, ß and äöü: /[0-9a-z-_äöüß ]/i -->
 					<div id="form-id" class="form-group">
 						<input
 							id="input-id"
-							title="id"
 							type="text"
 							required
-							maxlength="20"
+							maxlength="30"
 							autocomplete="off"
-							onkeydown="return /[0-9a-zA-Z-_]/i.test(event.key)"
+							onkeydown="return /[0-9a-z-_äöüß ]/i.test(event.key)"
 						/>
-						<label for="input-id" class="control-label">ID (max. 20 Zeichen)</label
+						<label for="input-id" class="control-label">Vor- und Nachname oder ID</label
 						><i class="bar"></i>
 					</div>
 					<div id="form-culture" class="form-group">
-						<select id="input-culture" title="Culture" required autocomplete="off">
+						<select id="input-culture" required autocomplete="off">
 							<option>de-urban</option>
 							<!-- <option>Value 2</option> -->
 						</select>
 						<label for="input-culture" class="control-label">Kultur</label><i class="bar"></i>
 					</div>
-					<div>
-						<label for="input-birthday">Geburtstag:</label>
-						<input type="date" id="input-birthday" name="birthday" autocomplete="off" required />
-					</div>
-					<div id="form-agegroup" class="form-group">
-						<select id="input-agegroup" title="Age group" autocomplete="off" required>
-							<option>Kind</option>
-							<option>Erwachsener</option>
-						</select>
-						<label for="input-agegroup" class="control-label">Altersgruppe</label
-						><i class="bar"></i>
+					<div id="form-birthday" style="margin-top: -15px">
+						<label for="input-birthday" style="font-size: 0.8rem; color: gray">Geburtstag</label
+						><br />
+						<input
+							type="date"
+							id="input-birthday"
+							name="birthday"
+							autocomplete="off"
+							required
+							onchange="handleDate(event)"
+						/>
 					</div>
 					<div id="form-gender" class="form-group">
-						<select id="input-gender" title="Gender" autocomplete="off" required>
+						<select id="input-gender" autocomplete="off" required>
 							<option>weiblich</option>
 							<option>männlich</option>
 							<option>divers</option>
 						</select>
-						<label for="input-gender" id="input-gender-label" class="control-label"
+						<label
+							for="input-gender"
+							id="input-gender-label"
+							class="control-label"
+							autocomplete="off"
 							>Geschlecht</label
 						><i class="bar"></i>
 					</div>
 					<div id="form-response" class="form-group">
-						<select id="input-response" title="Response input" required autocomplete="off">
+						<select id="input-response" required autocomplete="off">
 							<option>Später entscheiden (Sprachinput priorisiert)</option>
 							<option>Später entscheiden (Textinput priorisiert)</option>
 							<option>Sprachinput</option>
@@ -83,7 +86,7 @@
 						><i class="bar"></i>
 					</div>
 					<div id="form-datatransfer" class="form-group">
-						<select id="input-datatransfer" title="Data transfer" required autocomplete="off">
+						<select id="input-datatransfer" required autocomplete="off">
 							<option>MPI Server & Download</option>
 							<option>MPI-server</option>
 						</select>
@@ -103,12 +106,7 @@
 						<a href="mailto:forschungsreise@eva.mpg.de">forschungsreise@eva.mpg.de</a> und geben Sie
 						dafür Name und Geburtsdatum Ihres Kindes bzw. bei eigener Teilnahme von Ihnen selbst an.
 					</p>
-					<!-- <div class="checkbox">
-						<label>
-							<input type="checkbox" checked="checked" /><i class="helper"></i>I'm the label from a
-							checkbox
-						</label>
-					</div>
+					<!-- 
 					<div class="checkbox">
 						<label>
 							<input type="checkbox" /><i class="helper"></i>I'm the label from a checkbox
@@ -133,6 +131,76 @@
 							<input type="checkbox" /><i class="helper"></i>I'm the label from a checkbox
 						</label>
 					</div>-->
+					<p id="consent"><a class="btn" href="#open-modal">🤝 Einwilligungserklärung</a></p>
+
+					<div id="open-modal" class="modal-window">
+						<div>
+							<a href="#consent" class="modal-close">Schließen</a>
+							<h1 id="consent-heading">Einwilligungserklärung</h1>
+							<p>
+								Thank you for your interest in our study. This consent form refers to the study data
+								collected with your help. Name and contact details of the data controller: Max
+								Planck Institute for Evolutionary Anthropology, Deutscher Platz 6, D- 04103 Leipzig
+								(MPI-EVA). Study details: You are invited to participate in our study on [topic,
+								describing study]. This is a research project conducted by social scientists in the
+								Department of Comparative Cultural Psychology, Max Planck Institute for Evolutionary
+								Anthropology (MPI-EVA), Leipzig, Germany. It should take approximately [x minutes]
+								to complete. If you have any questions about this research, please contact [Name] at
+								[email address]. Recipient of study data: The study data recipient is the Max Planck
+								Institute for Evolutionary Anthropology in Leipzig, Germany. Basic research such as
+								that conducted by the Max Planck Institute for Evolutionary Anthropology expands the
+								(cultural) knowledge of our society. This means the research projects of the
+								Institute constitute activities that are in the public interest and meet the
+								criteria laid down in Article 6 and 9 EU GDPR (= General Data Protection Regulations
+								issued by the European Union). Data protection: In this study, we will collect data
+								in the form of mouse click or keyboard responses to our study questions. The data
+								output we use for our data analysis is a json file. Your study contribution is
+								associated with your Prolific ID. We do not collect identifying information such as
+								your name, email address, or IP address. Your anonymity is assured; the researchers
+								who have requested your participation will not receive any personal information
+								about you, other than that already provided to prolific. Your data will be
+								anonymized and combined with other participants' data. All study results are based
+								on group analyses. In this way, your personal data will not be identifiable in the
+								results. Study results can be used as part of scientific contributions to research,
+								teaching, or information events and can be made available to other researchers
+								online. Contact details of the data protection officer: Heidi Schuster, Data
+								Protection Officer of the Max Planck Society. If you have any questions, please do
+								not hesitate to contact: Katharina Haberl, MPI-EVA, Deutscher Platz 6, D-04103
+								Leipzig, Tel.: +49-341-3550/157; e-mail: forschungsreise@eva.mpg.de. Data archive:
+								The study data will be stored in a password-protected electronic format. From the
+								date of study publication, the study data will be stored for ten years. Rights of
+								the data subject: You may at any time request information about your study data
+								stored with us or demand the rectification, blocking (restriction of processing),
+								and erasure of your stored study data and its processing. The erasure of your study
+								data is only possible when stating your Prolific ID. Insofar as there are not
+								scientific reasons for not erasing your study data, your study data will be blocked.
+								Scientifically relevant reasons are, for example, 10-year retention periods for
+								study data in anonymized form following scientific publication. Please send the
+								objection to: Katharina Haberl, MPI-EVA, Deutscher Platz 6, D-04103 Leipzig, Tel.:
+								0341-3550/157; e-mail: forschungsreise@eva.mpg.de Right to complain to the
+								supervisory authority: If you are of the opinion that the processing of your data is
+								unlawful, you have the right to complain to a supervisory authority (Art. 77 GDPR).
+								Provision of the data: Your participation and your answers to the tasks in this
+								study are completely voluntary. You can withdraw at any time by [insert study
+								closure method (e.g., closing the browser, pressing the escape key, etc]. You will
+								not be disadvantaged in any way if you choose to not participate. You may print a
+								copy of this consent form for your records. Clicking on the “Agree” button indicates
+								that You have read and understood the above information You voluntarily agree to
+								participate in this study You are 18 years of age or older
+							</p>
+							<div class="checkbox">
+								<label>
+									<input
+										id="input-consent"
+										type="checkbox"
+										autocomplete="off"
+										required
+										onclick="handleCheckbox(event)"
+									/><i class="helper"></i>Ich stimme zu (Fenster schließen)
+								</label>
+							</div>
+						</div>
+					</div>
 					<div class="button-container">
 						<button type="submit" class="button"><span>Start</span></button>
 					</div>
