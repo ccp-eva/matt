@@ -25,6 +25,11 @@ import 'toastify-js/src/toastify.css';
 export const init = () => {
 	const urlParameters = getUrlParameters();
 
+	// calculate agegroup based on birthday
+	const birthdayMs = Date.parse(urlParameters.birthday);
+	const ageDiffMs = Date.now() - birthdayMs;
+	const ageInYears = new Date(ageDiffMs).getUTCFullYear() - 1970;
+
 	const wrapper = document.getElementById('wrapper')! as HTMLDivElement;
 	// load initial SVG file
 	wrapper.innerHTML = svgPath;
@@ -83,7 +88,10 @@ export const init = () => {
 	global.data = {
 		id: urlParameters.id,
 		culture: urlParameters.culture,
-		agegroup: urlParameters.agegroup,
+		birthday: urlParameters.birthday,
+		age: ageInYears,
+		agegroup: ageInYears < config.globals.adultThresholdAge ? 'child' : 'adult',
+		gender: urlParameters.gender,
 		input: urlParameters.input,
 		datatransfer: urlParameters.datatransfer,
 		initialTimestamp: new Date(),

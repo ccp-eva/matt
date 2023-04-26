@@ -4,7 +4,8 @@ const params = new URLSearchParams(url.search);
 
 let id = '';
 let culture = '';
-let agegroup = '';
+let birthday = '';
+let gender = '';
 let input = '';
 let datatransfer = '';
 
@@ -14,8 +15,11 @@ if (params.has('id')) {
 if (params.has('culture')) {
 	culture = params.get('culture');
 }
-if (params.has('agegroup')) {
-	agegroup = params.get('agegroup');
+if (params.has('birthday')) {
+	birthday = params.get('birthday');
+}
+if (params.has('gender')) {
+	gender = params.get('gender');
 }
 if (params.has('input')) {
 	input = params.get('input');
@@ -38,10 +42,15 @@ if (culture) {
 	cultureElement.required = false;
 	cultureElement.parentNode.style.display = 'none';
 }
-if (agegroup) {
-	const agegroupElement = document.getElementById('input-agegroup');
-	agegroupElement.required = false;
-	agegroupElement.parentNode.style.display = 'none';
+if (birthday) {
+	const cultureElement = document.getElementById('input-birthday');
+	cultureElement.required = false;
+	cultureElement.parentNode.style.display = 'none';
+}
+if (gender) {
+	const genderElement = document.getElementById('input-gender');
+	genderElement.required = false;
+	genderElement.parentNode.style.display = 'none';
 }
 if (input) {
 	const inputElement = document.getElementById('input-response');
@@ -54,6 +63,36 @@ if (datatransfer) {
 	datatransferElement.parentElement.style.display = 'none';
 }
 
+const calculateAge = (birthday) => {
+	const ageDiffMs = Date.now() - birthday;
+	const ageDate = new Date(ageDiffMs);
+	return ageDate.getUTCFullYear() - 1970;
+};
+
+// show consent if adult
+const handleDate = (e) => {
+	const age = calculateAge(Date.parse(e.target.value));
+	consentText = document.getElementById('consent');
+	consentCheckbox = document.getElementById('input-consent');
+	if (age < 12) {
+		consentText.style.display = 'none';
+		consentCheckbox.required = false;
+	} else {
+		consentText.style.display = 'block';
+		consentCheckbox.required = true;
+	}
+};
+
+const handleCheckbox = (e) => {
+	if (e.target.checked) {
+		// close modal going to #
+		setTimeout(() => {
+			window.location.href = '#consent';
+			window.history.pushState({}, document.title, window.location.pathname);
+		}, 1000);
+	}
+};
+
 // handle submit button
 document.querySelector('form').addEventListener('submit', (e) => {
 	e.preventDefault();
@@ -61,7 +100,13 @@ document.querySelector('form').addEventListener('submit', (e) => {
 	// use existing data if available, else use form data
 	id = id ? id : document.getElementById('input-id').value;
 	culture = culture ? culture : document.getElementById('input-culture').value;
-	agegroup = agegroup ? agegroup : document.getElementById('input-agegroup').value;
+	birthday = birthday ? birthday : document.getElementById('input-birthday').value;
+
+	// use mappings since otherwise you may run intro translation issues when localizing landing page
+	let genderIndex = '';
+	if (!gender) {
+		genderIndex = document.getElementById('input-gender').selectedIndex;
+	}
 	let inputIndex = '';
 	if (!input) {
 		inputIndex = document.getElementById('input-response').selectedIndex;
@@ -71,18 +116,18 @@ document.querySelector('form').addEventListener('submit', (e) => {
 		datatransferIndex = document.getElementById('input-datatransfer').selectedIndex;
 	}
 
-	// mapping for input and datatransfer
-	// key value lookup
+	// mapping (key value lookup) for gender, input and datatransfer
+	const genderMapping = new Map().set(0, 'female').set(1, 'male').set(2, 'diverse');
 	const inputMapping = new Map()
 		.set(0, 'userchoice-audio')
 		.set(1, 'userchoice-text')
 		.set(2, 'audio')
 		.set(3, 'text');
-
 	const datatransferMapping = new Map().set(0, 'both').set(1, 'server');
 
+	gender = gender ? gender : genderMapping.get(genderIndex);
 	input = input ? input : inputMapping.get(inputIndex);
 	datatransfer = datatransfer ? datatransfer : datatransferMapping.get(datatransferIndex);
 
-	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&agegroup=${agegroup}&input=${input}&datatransfer=${datatransfer}`;
+	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&birthday=${birthday}&gender=${gender}&input=${input}&datatransfer=${datatransfer}`;
 });

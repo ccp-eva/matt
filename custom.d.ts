@@ -39,8 +39,9 @@ declare var data: {
 	agegroup: 'child' | 'adult';
 	input: 'audio' | 'text' | 'userchoice-audio' | 'userchoice-text';
 	datatransfer: 'server' | 'both';
-	sex: 'female' | 'male' | 'other';
-	birthday: 'string';
+	gender: 'female' | 'male' | 'other';
+	birthday: string;
+	age: number;
 	preFetchedVideoBlobs: Array<{ [key: string]: string } | { keep: boolean }>;
 	pindaNeutralBlob: string;
 	textIntroBlob: string;

@@ -31,9 +31,11 @@ css:
       '[id^=link][id$=no]',
     ]
 globals:
-  defaultCulture: de-urban # possible keys from
   defaultSubjectId: demo
-  defaultAgeGroup: child # or adult
+  defaultCulture: de-urban # possible keys from
+  defaultBirthday: '2100-01-01'
+  adultThresholdAge: 12 # 11 = child, 12 = adult
+  defaultGender: none
   defaultInput: userchoice-audio
   defaultDataTransfer: both
   slideGapDuration: 750 # delay for most slides before transitioning to next
