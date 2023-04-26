@@ -24,11 +24,6 @@ body {
 	background-image: linear-gradient(top, #f2f2f2, #e6e6e6);
 }
 
-#hero-image {
-	display: block;
-	margin: auto;
-}
-
 h1 {
 	font-family: cholla-sans, sans-serif;
 	font-size: 2rem;
@@ -286,16 +281,19 @@ fieldset {
 }
 
 .checkbox {
+	font-size: 1.3rem;
 	margin-top: 3rem;
 	margin-bottom: 1rem;
+	display: flex;
+	justify-content: center;
 }
 .checkbox .helper {
 	color: #999;
 	position: absolute;
-	top: 3px;
+	top: 4px;
 	left: 0;
-	width: 1rem;
-	height: 1rem;
+	width: 1.3rem;
+	height: 1.3rem;
 	z-index: 0;
 	border: 0.125rem solid currentColor;
 	border-radius: 0.0625rem;
@@ -318,14 +316,14 @@ fieldset {
 	opacity: 0;
 }
 .checkbox .helper::before {
-	top: 0.65rem;
+	top: 0.95rem;
 	left: 0.38rem;
 	-webkit-transform: rotate(-135deg);
 	transform: rotate(-135deg);
 	box-shadow: 0 0 0 0.0625rem #fff;
 }
 .checkbox .helper::after {
-	top: 0.3rem;
+	top: 0.6rem;
 	left: 0;
 	-webkit-transform: rotate(-45deg);
 	transform: rotate(-45deg);
@@ -382,7 +380,7 @@ fieldset {
 	border: 1px solid currentColor;
 	font-size: 1.1rem;
 	color: #006c66;
-	margin: 3rem 0;
+	margin: 1rem 0;
 	padding: 0.75rem 3rem;
 	cursor: pointer;
 	-webkit-transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
@@ -431,21 +429,82 @@ fieldset {
 	outline: none;
 }
 
+.modal-window {
+	position: fixed;
+	background-color: rgba(255, 255, 255, 0.75);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.3s;
+	/* overflow: auto; */
+}
+.modal-window:target {
+	visibility: visible;
+	opacity: 1;
+	pointer-events: auto;
+}
+.modal-window > div {
+	width: 90%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 1em;
+	background: white;
+}
+
+.modal-close {
+	color: #aaa;
+	line-height: 50px;
+	font-size: 80%;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	top: 0;
+	width: 70px;
+	text-decoration: none;
+}
+.modal-close:hover {
+	color: black;
+}
+
+.modal-window > div {
+	border-radius: 1rem;
+}
+.modal-window div:not(:last-of-type) {
+	margin-bottom: 15px;
+}
+
 .imprint {
 	text-align: center;
 	padding-bottom: 2rem;
 	font-size: smaller;
-}
-.copyright {
-	margin-top: 0;
-	text-align: right;
-	font-size: 0.7rem;
-	font-style: italic;
-	opacity: 0.5;
 }
 
 .copyright a:link,
 a:visited {
 	color: #000 !important;
 	text-decoration: none;
+}
+
+#consent {
+	text-align: center;
+	font-size: 1.5rem;
+	display: none;
+	opacity: 0;
+	animation: fadein 1s ease 0s 1 normal forwards;
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
