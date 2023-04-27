@@ -11,7 +11,6 @@ export default async ({ currentSlide, previousSlide }) => {
 	// show slide
 	swapSlides(currentSlide, previousSlide);
 
-	const video = document.getElementById('player') as HTMLMediaElement;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 
 	const speaker = document.getElementById('link-si-speaker') as SvgInHtml;
@@ -40,7 +39,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			headphones.style.pointerEvents = 'none';
 			gsap.set([nextButton, headphones], { autoAlpha: 0.25 });
 		});
-		video.addEventListener('play', () => {
+		pinda.addEventListener('play', () => {
 			nextButton.style.pointerEvents = 'none';
 			headphones.style.pointerEvents = 'none';
 			if (playingTimeline) {
@@ -54,7 +53,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			headphones.style.pointerEvents = 'visible';
 			gsap.to([nextButton, headphones], { autoAlpha: 1 });
 		});
-		video.addEventListener('ended', () => {
+		pinda.addEventListener('ended', () => {
 			nextButton.style.pointerEvents = 'visible';
 			headphones.style.pointerEvents = 'visible';
 			gsap.to([nextButton, headphones], { autoAlpha: 1 });
@@ -63,6 +62,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 		// start pinda video
 		pinda.src = url;
+		pinda.play();
 		// only start timeline when media can play through
 		gsap
 			.timeline()
