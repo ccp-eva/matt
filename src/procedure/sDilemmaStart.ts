@@ -7,7 +7,7 @@ import { SvgInHtml } from '../types';
 export default async ({ currentSlide, previousSlide }) => {
 	// show slide
 	swapSlides(currentSlide, previousSlide);
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 
 	let isPlaying = false;
 	pinda.addEventListener('play', () => {

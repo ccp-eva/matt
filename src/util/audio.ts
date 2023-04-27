@@ -58,7 +58,7 @@ export const play = (url: string | string[], elementId?: string, once = false) =
 
 export const stop = () => {
 	const audio = document.getElementById('audio') as HTMLAudioElement;
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 
 	// stop audio
 	audio.pause();

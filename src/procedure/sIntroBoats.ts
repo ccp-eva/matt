@@ -22,7 +22,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	console.log(prefetchedVideos);
 
 	swapSlides(currentSlide, previousSlide, [2, 2]);
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	const fsplayer = document.getElementById('fsplayer') as HTMLVideoElement;
 
 	let isPlaying = true;

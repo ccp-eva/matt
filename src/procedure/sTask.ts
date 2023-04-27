@@ -34,7 +34,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	};
 
 	const nextButton = document.getElementById('link-st-next')! as SvgInHtml;
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById('link-st-headphones') as SvgInHtml;
 	const circle = document.getElementById('st-circle')! as SvgInHtml;

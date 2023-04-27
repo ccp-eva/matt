@@ -14,7 +14,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const url = URL.createObjectURL(blob);
 	parentBlock.setAttribute('visibility', 'hidden');
 
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 
 	let isPlaying = true;
 	pinda.addEventListener('play', () => {

@@ -6,7 +6,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	// swap slides automatically (don’t touch this)
 	swapSlides(currentSlide, previousSlide);
 
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 
 	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
 	parentBlock.removeAttribute('visibility');

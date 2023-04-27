@@ -6,7 +6,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	// swap slides automatically (don’t touch this)
 	swapSlides(currentSlide, previousSlide);
 	exitFullscreen();
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	pinda.src = `./cultures/${data.culture}/video/s-end.webm`;
 
 	pinda.addEventListener('ended', () => {

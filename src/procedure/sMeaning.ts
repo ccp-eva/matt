@@ -89,7 +89,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	const headphones = document.getElementById('link-sm-headphones') as SvgInHtml;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	const pindaNeutral = document.getElementById('pinda-neutral') as HTMLVideoElement;
 	const nextButton = document.getElementById('link-sm-next') as SvgInHtml;
 

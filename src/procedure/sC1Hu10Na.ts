@@ -19,7 +19,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			return;
 		}
 	});
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	gsap.set(pinda, { autoAlpha: 0 });
 
 	const slidePrefix = 'sc1h10nails';
