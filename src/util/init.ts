@@ -212,6 +212,7 @@ export const init = () => {
 		global.hideAllChildSlides = hideAllChildSlides;
 		global.getChildrenFromParent = getChildrenFromParent;
 		global.removeDisplayNone = removeDisplayNone;
+		global.uploadAudio = uploadAudio;
 		global.svgChilds = svgChilds;
 		global.recycleObjects = recycleObjects;
 		global.copyAttributes = copyAttributes;
@@ -219,6 +220,5 @@ export const init = () => {
 	// always expose downloadData function
 	global.downloadData = downloadData;
 	global.uploadData = uploadData;
-	global.uploadAudio = uploadAudio;
 	global.config = config;
 };

@@ -3,17 +3,21 @@
 # MATT
 
 > **Moral Attitudes Study**  
-> A browser-based game that investigates todo ...
+> A browser-based game that investigates  
+> **TODO**
 >
 > **🚀 Demos:**
 >
-> - **https://ccp-eva.github.io/matt/** (Staging)
-> - **https://ccp-odc.eva.mpg.de/matt/** (Live)
+> - **https://ccp-eva.github.io/matt/**
+>   - <small>Automatically generated from main branch (no data will be send to any server, see here [how-to](#deploy-to-github-staging-site))</small>
+> - **https://ccp-odc.eva.mpg.de/matt/**
+>   - <small>Deployment site (data can be send to server, see here [how-to](#deploy-to-mpi-server))</small>
 
 ---
 
 - [Study Overview](#study-overview)
 - [Development \& Customization](#development--customization)
+  - [Gettting started](#gettting-started)
   - [URL Parameters](#url-parameters)
   - [How To Add A New Culture](#how-to-add-a-new-culture)
   - [How To Add New Slide](#how-to-add-new-slide)
@@ -22,14 +26,16 @@
   - [Adobe Character Animator Workflow](#adobe-character-animator-workflow)
   - [Global Objects](#global-objects)
     - [`data`](#data)
+    - [`config`](#config)
     - [`downloadData()`](#downloaddata)
+    - [`uploadData()`](#uploaddata)
   - [Deploy to GitHub Staging Site](#deploy-to-github-staging-site)
   - [Offline Usage](#offline-usage)
   - [Deploy to MPI Server](#deploy-to-mpi-server)
     - [Manual Steps](#manual-steps)
-    - [Using GitHub Actions](#using-github-actions)
 - [Contributions](#contributions)
-  - [Voice-over speakers](#voice-over-speakers)
+  - [Voice-over Speakers](#voice-over-speakers)
+  - [Localization Translators](#localization-translators)
 
 ---
 
@@ -41,6 +47,12 @@
 - ...
 
 ## Development & Customization
+
+### Gettting started
+
+1. `git clone git@github.com:ccp-eva/matt.git`
+2. `npm i`
+3. `npm start`
 
 The experiment consists of two components: (1) a **landing page** and (2) the **experiment**. The landing page is vanilla HTML, CSS, JavaScript and is not part of the webpack setup. This landing page is located in the `public` directory:
 
@@ -175,15 +187,28 @@ _Note, the export format must be **Apple ProRes 4444 with alpha**. As of Summer 
 
 ### Global Objects
 
-In the production build, there are four global objects (i.e., `data`, `downloadData()`, `uploadData()`, and the configuration file `config`), which can be accessed in your browser’s dev tools (Ctrl+Shift+I or Cmd+Shift+I).
+In the production build, 4 objects get exposed globally:
+
+- `data`
+- `config`
+- `downloadData()`
+- `uploadData()`
 
 #### `data`
 
-This object holds all response data and other client information. This objects gets downloaded in the last slide.
+This object holds all response data and other client information. This objects gets downloaded (and uploaded) in the last slide. You can inspect the current data object by entering `data` in your browser’s console.
+
+#### `config`
+
+This object prints the current experiment configuration file (i.e., [config.yaml](/src/config.yaml)) in JSON format.
 
 #### `downloadData()`
 
-Is called in the last slide, to download the the `data` object in JSON format. The function call be called any time to download intermediate states of the game.
+Transforms the `data` object into a JSON format, and downloads the file locally. The functions gets called on the last slide (depending on your `datatransfer` parameter). You can call the function at any time to download the current `data` object as JSON by entering `downloadData()` in your browser’s console.
+
+#### `uploadData()`
+
+Transforms the `data` object into a JSON format, and uploads the file the a given endpoint. The functions gets called on the last slide. You can call the function at any time to upload the current `data` object as JSON by entering `uploadData()` in your browser’s console.
 
 ### Deploy to GitHub Staging Site
 
@@ -210,18 +235,20 @@ Is called in the last slide, to download the the `data` object in JSON format. T
 
 1. Make your changes
 2. Test with npm start if you changes work
-3. Commit your changes into `develop` branch
-4. Merge your changes into main (this will rollout to GitHub Staging Site)
-   1. (`git switch main` → `git merge develop` → `git push`)
-5. Switch back to develop (`git switch develop`)
-6. Deploy to MPI server: `npm run deploy`
-
-#### Using GitHub Actions
-
-todo
+   1. Following steps are **optionally**:
+   2. Commit your changes into `develop` branch
+   3. Merge your changes into main (this will rollout to GitHub Staging Site, [see here](#deploy-to-github-staging-site))
+      1. (`git switch main` → `git merge develop` → `git push`)
+      2. Switch back to develop (`git switch develop`)
+3. Deploy to MPI server: `npm run deploy`
+   1. Make sure if have your a pre-configured ssh config, since the deploy script using ssh aliases
 
 ## Contributions
 
-### Voice-over speakers
+### Voice-over Speakers
 
-`de-urban`: _Wilma Weigelt_ (wiweit@googlemail.com)
+- `de-urban`: _Wilma Weigelt_ (wiweit@googlemail.com)
+
+### Localization Translators
+
+- `xy-xyz`: _Firstname Lastname_ (mail@example.com)
