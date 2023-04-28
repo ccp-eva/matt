@@ -21,7 +21,9 @@ export const prefetchAssets = async (videoObj: PrefetchVideoObject) => {
 		console.log(Object.values(video));
 	}
 
-	const preloadVideo = await fetch(`./cultures/${data.culture}/video/s-introduction.webm`);
+	const preloadVideo = await fetch(
+		`./cultures/${data.culture}/video/s-introduction.${data.meta.videoExtension}`
+	);
 	const blob = await preloadVideo.blob();
 	const url = URL.createObjectURL(blob);
 	parentBlock.setAttribute('visibility', 'hidden');

@@ -73,6 +73,9 @@ declare var data: {
 	animalSlideCounter: number;
 	rankingSlideCounter: number;
 	reasoningSlideCounter: number;
+	meta: {
+		[key: string]: string | boolean | number;
+	};
 	procedure: {
 		sIntroduction: {
 			duration: number;

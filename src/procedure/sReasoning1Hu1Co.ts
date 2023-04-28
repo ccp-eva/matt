@@ -16,16 +16,16 @@ export default async ({ currentSlide, previousSlide }) => {
 	const rightEntity = 'cow';
 
 	const videoStrings = {
-		neutral: `./cultures/${data.culture}/video/pinda-neutral-listening.webm`,
-		text1: `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`,
-		text2: `./cultures/${data.culture}/video/sr-promp-textInput.webm`,
-		text3: `./cultures/${data.culture}/video/text-input-3.webm`,
-		audio1: `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`,
-		audio2: `./cultures/${data.culture}/video/sr-prompt-audioInput.webm`,
-		audio3: `./cultures/${data.culture}/video/audio-input-3.webm`,
-		react1: `./cultures/${data.culture}/video/sr-react-1.webm`,
-		react2: `./cultures/${data.culture}/video/sr-react-2.webm`,
-		react3: `./cultures/${data.culture}/video/sr-react-3.webm`,
+		neutral: `./cultures/${data.culture}/video/pinda-neutral-listening.${data.meta.videoExtension}`,
+		text1: `./cultures/${data.culture}/video/s-ex-next-red-textInput.${data.meta.videoExtension}`,
+		text2: `./cultures/${data.culture}/video/sr-promp-textInput.${data.meta.videoExtension}`,
+		text3: `./cultures/${data.culture}/video/text-input-3.${data.meta.videoExtension}`,
+		audio1: `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.${data.meta.videoExtension}`,
+		audio2: `./cultures/${data.culture}/video/sr-prompt-audioInput.${data.meta.videoExtension}`,
+		audio3: `./cultures/${data.culture}/video/audio-input-3.${data.meta.videoExtension}`,
+		react1: `./cultures/${data.culture}/video/sr-react-1.${data.meta.videoExtension}`,
+		react2: `./cultures/${data.culture}/video/sr-react-2.${data.meta.videoExtension}`,
+		react3: `./cultures/${data.culture}/video/sr-react-3.${data.meta.videoExtension}`,
 	};
 
 	// only prefetch required videos depending on input
