@@ -3,7 +3,6 @@ import { gsap } from 'gsap';
 import config from '../config.yaml';
 import { stop } from '../util/audio';
 import { downloadData, millisToMinutesAndSeconds, sleep, uploadData } from '../util/helpers';
-import { SvgInHtml } from '../types';
 
 export const procedure = async () => {
 	let currentProcedure = _.cloneDeep(config.procedure[data.culture]);
