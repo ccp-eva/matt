@@ -16,7 +16,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		text: '',
 		audio: '',
 	};
-	prefetchedVideos.transition = `./cultures/${data.culture}/video/sr-finish-meaning.${data.meta.videoExtension}`;
+	prefetchedVideos.transition = `./cultures/${data.culture}/video/st-finish-meaning.${data.meta.videoExtension}`;
 	if (!data.pindaNeutralBlob) {
 		prefetchedVideos.neutral = `./cultures/${data.culture}/video/pinda-neutral-listening.${data.meta.videoExtension}`;
 	}

@@ -7,7 +7,7 @@ import { SvgInHtml } from '../types';
 
 export default async ({ currentSlide, previousSlide }) => {
 	const prefetchedVideos = {
-		transition: `./cultures/${data.culture}/video/sr-react2-intro-dilemmas.${data.meta.videoExtension}`,
+		transition: `./cultures/${data.culture}/video/st-react2-intro-dilemmas.${data.meta.videoExtension}`,
 		boat: `./cultures/${data.culture}/video/s-intro-combined-720p.mp4`,
 	};
 
