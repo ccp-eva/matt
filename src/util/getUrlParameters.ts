@@ -33,6 +33,7 @@ export const getUrlParameters = () => {
 	} else {
 		params.id = config.globals.defaultSubjectId;
 	}
+
 	if (params.culture) {
 		if (!Object.keys(config.procedure).includes(params.culture)) {
 			Toastify({
@@ -48,6 +49,7 @@ export const getUrlParameters = () => {
 	} else {
 		params.culture = config.globals.defaultCulture;
 	}
+
 	if (params.birthday) {
 		// exact regex for YYYY-MM-DD: https://stackoverflow.com/a/22061879/2258480
 		const yyyymmddRegex = /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
@@ -63,6 +65,7 @@ export const getUrlParameters = () => {
 	} else {
 		params.birthday = config.globals.defaultBirthday;
 	}
+
 	if (params.gender) {
 		if (
 			params.gender !== 'female' &&
@@ -95,8 +98,8 @@ export const getUrlParameters = () => {
 				duration: 0,
 				className: 'toast-info',
 			}).showToast();
+			params.input = config.globals.defaultInput;
 		}
-		params.input = config.globals.defaultInput;
 	} else {
 		params.input = config.globals.defaultInput;
 	}
@@ -109,8 +112,8 @@ export const getUrlParameters = () => {
 				duration: 0,
 				className: 'toast-info',
 			}).showToast();
+			params.datatransfer = config.globals.defaultDataTransfer;
 		}
-		params.datatransfer = config.globals.defaultDataTransfer;
 	} else {
 		params.datatransfer = config.globals.defaultDataTransfer;
 	}
