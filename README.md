@@ -172,11 +172,89 @@ For further (implementation) details, see this issue: [#53](https://github.com/c
 
 ### Adobe Character Animator Workflow
 
+---
+
+---
+
+<details>
+  <summary>The story of cross-browser support for videos with alpha channel</summary>
+  <br>
+  <b>TL;DR:</b> Safari sucks.
+
+**Problem**: We need transparent videos running in cross-browser.
+
+**Formats with alpha channel:**
+
+- Apple ProRes 4444 with alpha (Safari only)
+- H265/HEVC with alpha (Safari only)
+- WebM with alpha (FireFox, all Chromium-based browsers)
+
+As of mid 2023 Adobe Character Animator can only export _Apple ProRes 4444 with alpha_ (see screenshot below). This format works in Safari (WebKit) but not for FireFox (Gecko) and the rest of Chromium-based browsers (Blink). This format is also supported by ffmpeg, see here for a great article: https://ottverse.com/ffmpeg-convert-to-apple-prores-422-4444-hq/.
+
+However, ProRes isn’t great for video compression. Yet, for the web, we need to deliver small and still good looking videos:
+
+> ProRes is basically used as an intermediate compression format and is not to be used to compress videos with an intention of getting high compression efficiency. The goal of ProRes is to retain the video quality while attaining an agreeable amount of compression.
+
+**Solution for FireFox and Chromium-based browsers**
+
+**WebM** is great and ffmpeg support is superb for a transparent video input (e.g., ProRes):
+
+```bash
+ffmpeg -i in.mov -c:v libvpx-vp9 -b:v 500k -c:a libvorbis out.webm
+```
+
+**Solution for Safari**
+
+**H265/HEVC**
+
+Safari does support WebM but not WebM with not WebM w/ alpha channel. And since ProRes files are way to large, we need to use H265/HEVC with alpha. This format is supported by Safari, but not by ffmpeg, as of mid 2023: https://trac.ffmpeg.org/ticket/7965.
+
+There is a workaround, which only works on macOS devices using _VideoToolbox_ for ffmpeg: https://www.soft8soft.com/wiki/index.php/Video_textures_and_alpha_transparency
+
+```bash
+ffmpeg -c:v libvpx-vp9 -i movie-webm.webm -c:v hevc_videotoolbox -alpha_quality 0.75 -vtag hvc1 movie-hevc.mov
+```
+
+However, you need to have a special compiled version of ffmpeg. Not willing to go this path and expext others to follow.
+
+**Solution: avconvert** to get H265/HEVC with alpha channel
+
+You can eitehr use the UI or the CLI version of avconvert. The UI version is integrated into Mac’s Finder App:
+
+|           ![](docs/macos-finder-encode-selected-video-files.png)           |        ![](docs/macos-avconvert-encode-settings.png)         |
+| :------------------------------------------------------------------------: | :----------------------------------------------------------: |
+| _Select vidoe file(s), right click and select Encode Selected Video Files_ | _Select HEVC 1080p, and check the Preserve Transparency box_ |
+
+You can acomplish the same in the terminal:
+
+Single File:
+
+```bash
+avconvert --source input.mov --preset PresetHEVC1920x1080WithAlpha --verbose --replace --output output.mov
+```
+
+Multiple Files (make sure to have a `out` directory)
+
+```bash
+do avconvert --source "$i" --preset PresetHEVC1920x1080WithAlpha --verbose --replace --output "out/${i%.*}.mov"; done
+```
+
+You are done!
+
+- H265/HEVC/mov for Safari
+- WebM for FireFox and Chromium-based browsers
+
+</details>
+
+---
+
+---
+
 1. Edit your videos in Adobe Character Animator and export them using via: `File → Export → Video with Alpha via Adobe Media Encoder`
 
 2. This will open Media Encoder. Click the play button to start the rendering process.
 
-_Note, the export format must be **Apple ProRes 4444 with alpha**. As of Summer 2023, that is the only Safari-compliant alpha video format that can be post-processed with ffmpeg (H265 w/ alpha cannot be created using ffmpeg at the time of writing)._
+_Note, the export format must be **Apple ProRes 4444 with alpha**. As of Summer 2023._
 
 |           ![](docs/alpha-video-export-settings.png)           |
 | :-----------------------------------------------------------: |
@@ -184,6 +262,7 @@ _Note, the export format must be **Apple ProRes 4444 with alpha**. As of Summer 
 
 3. Once you have your \*.mov video files. Copy all of the video files to the folder: `character-animator`.
 4. Run `npm run alphapinda` in your terminal
+5. This will create a subdirectory `out` and you will find two files for every input file (mov for Safari, webm for all other browsers). Once the conversion is done, copy all the video files into your video folder of you culture.
 
 ### Global Objects
 
