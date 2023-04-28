@@ -5,7 +5,7 @@ import RecordRTC from 'recordrtc';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
-import { generateUserIdFilename, sleep, uploadAudio } from '../util/helpers';
+import { generateUserIdFilename, sleep, uploadAudio, uploadData } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async ({ currentSlide, previousSlide }) => {
@@ -365,4 +365,5 @@ export default async ({ currentSlide, previousSlide }) => {
 	console.log(response.id);
 	data.procedure[data.currentSlide].textInput = textResponse.value;
 	console.log(data.procedure[data.currentSlide].textInput);
+	uploadData();
 };
