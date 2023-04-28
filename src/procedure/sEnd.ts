@@ -7,7 +7,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	swapSlides(currentSlide, previousSlide);
 	exitFullscreen();
 	const pinda = document.getElementById('pinda') as HTMLVideoElement;
-	pinda.src = `./cultures/${data.culture}/video/s-end.webm`;
+	pinda.src = `./cultures/${data.culture}/video/s-end.${data.meta.videoExtension}`;
 
 	pinda.addEventListener('ended', () => {
 		gsap.to(pinda, { autoAlpha: 0, duration: 3 });

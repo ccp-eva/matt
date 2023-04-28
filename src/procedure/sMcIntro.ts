@@ -15,7 +15,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
 	parentBlock.removeAttribute('visibility');
 	const preloadVideo = await fetch(
-		`./cultures/${data.culture}/video/s-outro-animals-mc-intro.webm`
+		`./cultures/${data.culture}/video/s-outro-animals-mc-intro.${data.meta.videoExtension}`
 	);
 	const blob = await preloadVideo.blob();
 	const url = URL.createObjectURL(blob);

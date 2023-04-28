@@ -10,7 +10,9 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
 	parentBlock.removeAttribute('visibility');
-	const preloadVideo = await fetch(`./cultures/${data.culture}/video/s-motivation-dilemma3.webm`);
+	const preloadVideo = await fetch(
+		`./cultures/${data.culture}/video/s-motivation-dilemma3.${data.meta.videoExtension}`
+	);
 	const blob = await preloadVideo.blob();
 	const url = URL.createObjectURL(blob);
 	parentBlock.setAttribute('visibility', 'hidden');

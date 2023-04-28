@@ -20,6 +20,7 @@ import {
 import { translations } from '../translations';
 import { setMousePointer, setScaleOnHover } from './styleDefaults';
 import Toastify from 'toastify-js';
+import DetectRTC from 'detectrtc';
 import 'toastify-js/src/toastify.css';
 
 export const init = () => {
@@ -97,8 +98,32 @@ export const init = () => {
 		initialTimestamp: new Date(),
 		slideCounter: 0,
 		quitBeforeEnd: false,
+		userAgent: navigator.userAgent,
 		procedure: {},
+		meta: {},
 	};
+
+	// store device and browser information
+	DetectRTC.load(() => {
+		data.meta.hasWebcam = DetectRTC.hasWebcam;
+		data.meta.hasMicrophone = DetectRTC.hasMicrophone;
+		data.meta.hasSpeakers = DetectRTC.hasSpeakers;
+		data.meta.isMobileDevice = DetectRTC.isMobileDevice;
+		data.meta.osName = DetectRTC.osName;
+		data.meta.osVersion = DetectRTC.osVersion;
+		data.meta.browserName = DetectRTC.browser.name;
+		data.meta.browserVersion = DetectRTC.browser.version;
+		data.meta.isChrome = DetectRTC.browser.isChrome || false;
+		data.meta.isFirefox = DetectRTC.browser.isFirefox || false;
+		data.meta.isOpera = DetectRTC.browser.isOpera || false;
+		data.meta.isIE = DetectRTC.browser.isIE || false;
+		data.meta.isSafari = DetectRTC.browser.isSafari || false;
+		data.meta.isEdge = DetectRTC.browser.isEdge || false;
+		data.meta.isPrivateBrowsing = DetectRTC.browser.isPrivateBrowsing || false;
+		// Safari used .mov extension, other browsers use .webm
+		// Create dynamic extension depening on browser
+		data.meta.videoExtension = data.meta.isSafari ? 'mov' : 'webm';
+	});
 
 	// check if all translation keys have a matching foreignObject and vice versa
 	const textKeys = widowedKeyChecker();

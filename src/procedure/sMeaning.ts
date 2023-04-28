@@ -16,22 +16,22 @@ export default async ({ currentSlide, previousSlide }) => {
 		text: '',
 		audio: '',
 	};
-	prefetchedVideos.transition = `./cultures/${data.culture}/video/sr-finish-meaning.webm`;
+	prefetchedVideos.transition = `./cultures/${data.culture}/video/sr-finish-meaning.${data.meta.videoExtension}`;
 	if (!data.pindaNeutralBlob) {
-		prefetchedVideos.neutral = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
+		prefetchedVideos.neutral = `./cultures/${data.culture}/video/pinda-neutral-listening.${data.meta.videoExtension}`;
 	}
 	if (!data.textIntroBlob && data.input === 'text') {
-		prefetchedVideos.text = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+		prefetchedVideos.text = `./cultures/${data.culture}/video/s-ex-next-red-textInput.${data.meta.videoExtension}`;
 	}
 	if (!data.audioIntroBlob && data.input === 'audio') {
-		prefetchedVideos.audio = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+		prefetchedVideos.audio = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.${data.meta.videoExtension}`;
 	}
 	if (data.input === 'userchoice-audio' || data.input === 'userchoice-text') {
 		if (!data.textIntroBlob) {
-			prefetchedVideos.text = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+			prefetchedVideos.text = `./cultures/${data.culture}/video/s-ex-next-red-textInput.${data.meta.videoExtension}`;
 		}
 		if (!data.audioIntroBlob) {
-			prefetchedVideos.audio = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+			prefetchedVideos.audio = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.${data.meta.videoExtension}`;
 		}
 	}
 
