@@ -7,7 +7,7 @@ import { SvgInHtml } from '../types';
 
 export default async ({ currentSlide, previousSlide }) => {
 	const prefetchedVideos = {
-		transition: `./cultures/${data.culture}/video/sr-react2-intro-dilemmas.webm`,
+		transition: `./cultures/${data.culture}/video/sr-react2-intro-dilemmas.${data.meta.videoExtension}`,
 		boat: `./cultures/${data.culture}/video/s-intro-combined-720p.mp4`,
 	};
 
@@ -22,7 +22,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	console.log(prefetchedVideos);
 
 	swapSlides(currentSlide, previousSlide, [2, 2]);
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	const fsplayer = document.getElementById('fsplayer') as HTMLVideoElement;
 
 	let isPlaying = true;

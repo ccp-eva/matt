@@ -10,10 +10,30 @@ body {
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-svg {
+div#root {
+	position: relative;
 	--aspectRatio: 1.7777777;
 	width: min(100vw, (100vh * var(--aspectRatio)));
 	height: min(100vh, (100vw / var(--aspectRatio)));
+}
+
+#pinda,
+#pinda-neutral {
+	position: absolute;
+	height: 30%;
+	left: 0;
+	bottom: 0;
+}
+
+#fsplayer {
+	display: none;
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 .heading {
@@ -52,17 +72,6 @@ p {
 
 .toast-info {
 	background: linear-gradient(to bottom, #1cafe3, #1aaadf, #18a4db, #179fd7, #179ad3) !important;
-}
-
-#fsplayer {
-	display: none;
-	position: absolute;
-	width: 80%;
-	height: 80%;
-	left: 50%;
-	top: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
 }
 
 .dilemma {

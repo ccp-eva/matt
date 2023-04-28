@@ -20,6 +20,7 @@ import {
 import { translations } from '../translations';
 import { setMousePointer, setScaleOnHover } from './styleDefaults';
 import Toastify from 'toastify-js';
+import DetectRTC from 'detectrtc';
 import 'toastify-js/src/toastify.css';
 
 export const init = () => {
@@ -97,8 +98,32 @@ export const init = () => {
 		initialTimestamp: new Date(),
 		slideCounter: 0,
 		quitBeforeEnd: false,
+		userAgent: navigator.userAgent,
 		procedure: {},
+		meta: {},
 	};
+
+	// store device and browser information
+	DetectRTC.load(() => {
+		data.meta.hasWebcam = DetectRTC.hasWebcam;
+		data.meta.hasMicrophone = DetectRTC.hasMicrophone;
+		data.meta.hasSpeakers = DetectRTC.hasSpeakers;
+		data.meta.isMobileDevice = DetectRTC.isMobileDevice;
+		data.meta.osName = DetectRTC.osName;
+		data.meta.osVersion = DetectRTC.osVersion;
+		data.meta.browserName = DetectRTC.browser.name;
+		data.meta.browserVersion = DetectRTC.browser.version;
+		data.meta.isChrome = DetectRTC.browser.isChrome || false;
+		data.meta.isFirefox = DetectRTC.browser.isFirefox || false;
+		data.meta.isOpera = DetectRTC.browser.isOpera || false;
+		data.meta.isIE = DetectRTC.browser.isIE || false;
+		data.meta.isSafari = DetectRTC.browser.isSafari || false;
+		data.meta.isEdge = DetectRTC.browser.isEdge || false;
+		data.meta.isPrivateBrowsing = DetectRTC.browser.isPrivateBrowsing || false;
+		// Safari used .mov extension, other browsers use .webm
+		// Create dynamic extension depening on browser
+		data.meta.videoExtension = data.meta.isSafari ? 'mov' : 'webm';
+	});
 
 	// check if all translation keys have a matching foreignObject and vice versa
 	const textKeys = widowedKeyChecker();
@@ -147,12 +172,6 @@ export const init = () => {
 		}).showToast();
 	}
 
-	// replace pinda
-	const pindaFo = document.getElementById('s-pv')! as SvgInHtml;
-	pindaFo.innerHTML = '<video id="player" autoplay playsinline style="height: 100%;" ></video>';
-	const pindaNeutralFo = document.getElementById('s-pv-neutral')! as SvgInHtml;
-	pindaNeutralFo.innerHTML = `<video id="pinda-neutral" autoplay loop playsinline style="height: 100%; visibility: hidden" ></video>`;
-
 	// show warning when user tries to leave the page
 	if (!config.devmode.on) {
 		window.onbeforeunload = function (evt: BeforeUnloadEvent) {
@@ -163,9 +182,14 @@ export const init = () => {
 		};
 	}
 
-	const pinda = document.getElementById('player')! as HTMLVideoElement;
-	const parent = document.getElementById('s-pinda-video')! as SvgInHtml;
-	const audio = document.getElementById('audio')! as HTMLAudioElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
+	const audio = document.getElementById('audio') as HTMLAudioElement;
+
+	// set pinda global styles
+	pinda.style.position = 'absolute';
+	pinda.style.height = config.css.pinda.height;
+	pinda.style.left = config.css.pinda.left;
+	pinda.style.bottom = config.css.pinda.bottom;
 
 	if (config.devmode.on) {
 		audio.addEventListener('play', () => {
@@ -176,7 +200,6 @@ export const init = () => {
 		if (config.devmode.on) {
 			console.log((e.target as HTMLVideoElement).src);
 		}
-		parent.removeAttribute('visibility');
 		gsap.set(pinda, { autoAlpha: 0 });
 		gsap.to(pinda, { autoAlpha: 1 });
 		if (config.devmode.on) {
@@ -212,6 +235,7 @@ export const init = () => {
 		global.hideAllChildSlides = hideAllChildSlides;
 		global.getChildrenFromParent = getChildrenFromParent;
 		global.removeDisplayNone = removeDisplayNone;
+		global.uploadAudio = uploadAudio;
 		global.svgChilds = svgChilds;
 		global.recycleObjects = recycleObjects;
 		global.copyAttributes = copyAttributes;
@@ -219,6 +243,5 @@ export const init = () => {
 	// always expose downloadData function
 	global.downloadData = downloadData;
 	global.uploadData = uploadData;
-	global.uploadAudio = uploadAudio;
 	global.config = config;
 };

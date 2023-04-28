@@ -30,6 +30,11 @@ css:
       '[id^=link][id$=yes]',
       '[id^=link][id$=no]',
     ]
+  pinda: # applies for pinda and neutral pinda videos
+    height: '30%' # pinda height
+    left: '0' # offset from left SVG edge, use 0 for none offset, otherwise px,%, etc. (e.g., '10px')
+    bottom: '0' # offset from bottom SVG edge, use 0 for none offset, otherwise px,%, etc. (e.g., '10px')
+
 globals:
   defaultSubjectId: demo
   defaultCulture: de-urban # possible keys from

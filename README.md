@@ -3,17 +3,21 @@
 # MATT
 
 > **Moral Attitudes Study**  
-> A browser-based game that investigates todo ...
+> A browser-based game that investigates  
+> **TODO**
 >
 > **🚀 Demos:**
 >
-> - **https://ccp-eva.github.io/matt/** (Staging)
-> - **https://ccp-odc.eva.mpg.de/matt/** (Live)
+> - **https://ccp-eva.github.io/matt/**
+>   - <small>Automatically generated from main branch (no data will be send to any server, see here [how-to](#deploy-to-github-staging-site))</small>
+> - **https://ccp-odc.eva.mpg.de/matt/**
+>   - <small>Deployment site (data can be send to server, see here [how-to](#deploy-to-mpi-server))</small>
 
 ---
 
 - [Study Overview](#study-overview)
 - [Development \& Customization](#development--customization)
+  - [Gettting started](#gettting-started)
   - [URL Parameters](#url-parameters)
   - [How To Add A New Culture](#how-to-add-a-new-culture)
   - [How To Add New Slide](#how-to-add-new-slide)
@@ -22,14 +26,16 @@
   - [Adobe Character Animator Workflow](#adobe-character-animator-workflow)
   - [Global Objects](#global-objects)
     - [`data`](#data)
+    - [`config`](#config)
     - [`downloadData()`](#downloaddata)
+    - [`uploadData()`](#uploaddata)
   - [Deploy to GitHub Staging Site](#deploy-to-github-staging-site)
   - [Offline Usage](#offline-usage)
   - [Deploy to MPI Server](#deploy-to-mpi-server)
     - [Manual Steps](#manual-steps)
-    - [Using GitHub Actions](#using-github-actions)
 - [Contributions](#contributions)
-  - [Voice-over speakers](#voice-over-speakers)
+  - [Voice-over Speakers](#voice-over-speakers)
+  - [Localization Translators](#localization-translators)
 
 ---
 
@@ -41,6 +47,12 @@
 - ...
 
 ## Development & Customization
+
+### Gettting started
+
+1. `git clone git@github.com:ccp-eva/matt.git`
+2. `npm i`
+3. `npm start`
 
 The experiment consists of two components: (1) a **landing page** and (2) the **experiment**. The landing page is vanilla HTML, CSS, JavaScript and is not part of the webpack setup. This landing page is located in the `public` directory:
 
@@ -67,14 +79,14 @@ If you build and deploy the web app. The landing page is: `yoururl.com/index.htm
 You can modify the experiment by attaching various URL parameters, for example:  
 https://ccp-eva.github.io/matt/app?id=johndoe&culture=de-urban&agegroup=child&input=text
 
-| Parameter      | Default (if no param provided)           | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                              | Restrictions                                                                                                            |
-| -------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `id`           | `demo`                                   | Participant name or id                                                                                                                                                                                                                                                                                                                                                                                                                   | Special Characters are disallowed. Input length is limited to ≤ 30 chars                                                |
-| `culture`      | `de-urban`                               | Changes, text, audio, and visuals                                                                                                                                                                                                                                                                                                                                                                                                        | Any value defined with procedure key in [config.yaml](https://github.com/ccp-eva/matt/blob/develop/src/config.yaml#L45) |
-| `birthday`     | `2100-01-01` (defaults to child version) | A year in the format YYYY-MM-DD. Depending on your age (threshold is 12 years of age), a different experiment version will be loaded (child or adult). If you don't want the user to enter a birthday but want them to navigate to play the child or adult version, just provide a date which doesn't make sense for you and is easy to detect in data analysis, for example:<br>**child:** `2100-01-01` or<br> **adult:** `1900-01-01`. | A string in the format `YYYY-MM-DD`.<br> `Y, M, D` need to be numbers                                                   |
-| `gender`       | `none`                                   | Participant’s gender.                                                                                                                                                                                                                                                                                                                                                                                                                    | Either `female`, `male`, `diverse`, or `none`                                                                           |
-| `input`        | `userchoice-audio`                       | Respond either by text or audio input, or leave it up the the user to decide. `userchoice-audio` will land on audio first. `userchoice-text` will land on text first.                                                                                                                                                                                                                                                                    | Either `text`, `audio` or `userchoice-audio`, `userchoice-text`                                                         |
-| `datatransfer` | `both`                                   | The way where response data is sent to. `sever` will use the php endpoint. `both` calls `downloadData()` and you will also get a local copy of your data.                                                                                                                                                                                                                                                                                | Can either be: `both` (default) or `server`                                                                             |
+| Parameter key  | Explanation & Default value (if no param provided)                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Restrictions                                                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| `id`           | Participant name or id<br><br>**Default value** `demo`                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Special Characters are disallowed. Input length is limited to ≤ 30 chars                                                |
+| `culture`      | Changes, text, audio, and visuals<br><br>**Default value** `de-urban`                                                                                                                                                                                                                                                                                                                                                                                                                                  | Any value defined with procedure key in [config.yaml](https://github.com/ccp-eva/matt/blob/develop/src/config.yaml#L45) |
+| `birthday`     | A year in the format YYYY-MM-DD. Depending on the given age (threshold is configurabel [here](https://github.com/ccp-eva/matt/blob/develop/src/config.yaml#L37)), a different experiment version will be loaded (child or adult).<br>**Tip**: If you don't want the user to enter a birthday but want them to direct to the child or adult version, just provide a date which is easy to detect in data analysis, e.g.,<br>- **child:** `2100-01-01` (**default value**)<br>- **adult:** `1900-01-01`. | A string in the format `YYYY-MM-DD`. `Y, M, D` need to be numbers                                                       |
+| `gender`       | Participant’s gender.<br><br>**Default value** `none`                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Either `female`, `male`, `diverse`, or `none`                                                                           |
+| `input`        | Respond either by text or audio input, or leave it up the the user to decide. `userchoice-audio` (**default value**) will land on audio first. <br>`userchoice-text` will land on text first.                                                                                                                                                                                                                                                                                                          | Either `text`, `audio` or `userchoice-audio`, `userchoice-text`                                                         |
+| `datatransfer` | The way where response data is sent to. `sever` will use the php endpoint. `both` (**default value**) calls `downloadData()` and you will also get a local copy of your data.                                                                                                                                                                                                                                                                                                                          | Can either be: `both` (default) or `server`                                                                             |
 
 Culture parameters are composed of a country code (i.e, [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), lowercased (e.g., de)) and an arbitrary suffix (i.e., rural or urban). For example: `de-urban`.
 
@@ -160,11 +172,89 @@ For further (implementation) details, see this issue: [#53](https://github.com/c
 
 ### Adobe Character Animator Workflow
 
+---
+
+---
+
+<details>
+  <summary>The story of cross-browser support for videos with alpha channel</summary>
+  <br>
+  <b>TL;DR:</b> Safari sucks.
+
+**Problem**: We need transparent videos running in cross-browser.
+
+**Formats with alpha channel:**
+
+- Apple ProRes 4444 with alpha (Safari only)
+- H265/HEVC with alpha (Safari only)
+- WebM with alpha (FireFox, all Chromium-based browsers)
+
+As of mid 2023 Adobe Character Animator can only export _Apple ProRes 4444 with alpha_ (see screenshot below). This format works in Safari (WebKit) but not for FireFox (Gecko) and the rest of Chromium-based browsers (Blink). This format is also supported by ffmpeg, see here for a great article: https://ottverse.com/ffmpeg-convert-to-apple-prores-422-4444-hq/.
+
+However, ProRes isn’t great for video compression. Yet, for the web, we need to deliver small and still good looking videos:
+
+> ProRes is basically used as an intermediate compression format and is not to be used to compress videos with an intention of getting high compression efficiency. The goal of ProRes is to retain the video quality while attaining an agreeable amount of compression.
+
+**Solution for FireFox and Chromium-based browsers**
+
+**WebM** is great and ffmpeg support is superb for a transparent video input (e.g., ProRes):
+
+```bash
+ffmpeg -i in.mov -c:v libvpx-vp9 -b:v 500k -c:a libvorbis out.webm
+```
+
+**Solution for Safari**
+
+**H265/HEVC**
+
+Safari does support WebM but not WebM with not WebM w/ alpha channel. And since ProRes files are way to large, we need to use H265/HEVC with alpha. This format is supported by Safari, but not by ffmpeg, as of mid 2023: https://trac.ffmpeg.org/ticket/7965.
+
+There is a workaround, which only works on macOS devices using _VideoToolbox_ for ffmpeg: https://www.soft8soft.com/wiki/index.php/Video_textures_and_alpha_transparency
+
+```bash
+ffmpeg -c:v libvpx-vp9 -i movie-webm.webm -c:v hevc_videotoolbox -alpha_quality 0.75 -vtag hvc1 movie-hevc.mov
+```
+
+However, you need to have a special compiled version of ffmpeg. Not willing to go this path and expext others to follow.
+
+**Solution: avconvert** to get H265/HEVC with alpha channel
+
+You can eitehr use the UI or the CLI version of avconvert. The UI version is integrated into Mac’s Finder App:
+
+|           ![](docs/macos-finder-encode-selected-video-files.png)           |        ![](docs/macos-avconvert-encode-settings.png)         |
+| :------------------------------------------------------------------------: | :----------------------------------------------------------: |
+| _Select vidoe file(s), right click and select Encode Selected Video Files_ | _Select HEVC 1080p, and check the Preserve Transparency box_ |
+
+You can acomplish the same in the terminal:
+
+Single File:
+
+```bash
+avconvert --source input.mov --preset PresetHEVC1920x1080WithAlpha --verbose --replace --output output.mov
+```
+
+Multiple Files (make sure to have a `out` directory)
+
+```bash
+do avconvert --source "$i" --preset PresetHEVC1920x1080WithAlpha --verbose --replace --output "out/${i%.*}.mov"; done
+```
+
+You are done!
+
+- H265/HEVC/mov for Safari
+- WebM for FireFox and Chromium-based browsers
+
+</details>
+
+---
+
+---
+
 1. Edit your videos in Adobe Character Animator and export them using via: `File → Export → Video with Alpha via Adobe Media Encoder`
 
 2. This will open Media Encoder. Click the play button to start the rendering process.
 
-_Note, the export format must be **Apple ProRes 4444 with alpha**. As of Summer 2023, that is the only Safari-compliant alpha video format that can be post-processed with ffmpeg (H265 w/ alpha cannot be created using ffmpeg at the time of writing)._
+_Note, the export format must be **Apple ProRes 4444 with alpha**. As of Summer 2023._
 
 |           ![](docs/alpha-video-export-settings.png)           |
 | :-----------------------------------------------------------: |
@@ -172,18 +262,32 @@ _Note, the export format must be **Apple ProRes 4444 with alpha**. As of Summer 
 
 3. Once you have your \*.mov video files. Copy all of the video files to the folder: `character-animator`.
 4. Run `npm run alphapinda` in your terminal
+5. This will create a subdirectory `out` and you will find two files for every input file (mov for Safari, webm for all other browsers). Once the conversion is done, copy all the video files into your video folder of you culture.
 
 ### Global Objects
 
-In the production build, there are four global objects (i.e., `data`, `downloadData()`, `uploadData()`, and the configuration file `config`), which can be accessed in your browser’s dev tools (Ctrl+Shift+I or Cmd+Shift+I).
+In the production build, 4 objects get exposed globally:
+
+- `data`
+- `config`
+- `downloadData()`
+- `uploadData()`
 
 #### `data`
 
-This object holds all response data and other client information. This objects gets downloaded in the last slide.
+This object holds all response data and other client information. This objects gets downloaded (and uploaded) in the last slide. You can inspect the current data object by entering `data` in your browser’s console.
+
+#### `config`
+
+This object prints the current experiment configuration file (i.e., [config.yaml](/src/config.yaml)) in JSON format.
 
 #### `downloadData()`
 
-Is called in the last slide, to download the the `data` object in JSON format. The function call be called any time to download intermediate states of the game.
+Transforms the `data` object into a JSON format, and downloads the file locally. The functions gets called on the last slide (depending on your `datatransfer` parameter). You can call the function at any time to download the current `data` object as JSON by entering `downloadData()` in your browser’s console.
+
+#### `uploadData()`
+
+Transforms the `data` object into a JSON format, and uploads the file the a given endpoint. The functions gets called on the last slide. You can call the function at any time to upload the current `data` object as JSON by entering `uploadData()` in your browser’s console.
 
 ### Deploy to GitHub Staging Site
 
@@ -210,18 +314,20 @@ Is called in the last slide, to download the the `data` object in JSON format. T
 
 1. Make your changes
 2. Test with npm start if you changes work
-3. Commit your changes into `develop` branch
-4. Merge your changes into main (this will rollout to GitHub Staging Site)
-   1. (`git switch main` → `git merge develop` → `git push`)
-5. Switch back to develop (`git switch develop`)
-6. Deploy to MPI server: `npm run deploy`
-
-#### Using GitHub Actions
-
-todo
+   1. Following steps are **optionally**:
+   2. Commit your changes into `develop` branch
+   3. Merge your changes into main (this will rollout to GitHub Staging Site, [see here](#deploy-to-github-staging-site))
+      1. (`git switch main` → `git merge develop` → `git push`)
+      2. Switch back to develop (`git switch develop`)
+3. Deploy to MPI server: `npm run deploy`
+   1. Make sure if have your a pre-configured ssh config, since the deploy script using ssh aliases
 
 ## Contributions
 
-### Voice-over speakers
+### Voice-over Speakers
 
-`de-urban`: _Wilma Weigelt_ (wiweit@googlemail.com)
+- `de-urban`: _Wilma Weigelt_ (wiweit@googlemail.com)
+
+### Localization Translators
+
+- `xy-xyz`: _Firstname Lastname_ (mail@example.com)

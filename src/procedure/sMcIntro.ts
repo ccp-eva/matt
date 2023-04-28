@@ -15,13 +15,13 @@ export default async ({ currentSlide, previousSlide }) => {
 	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
 	parentBlock.removeAttribute('visibility');
 	const preloadVideo = await fetch(
-		`./cultures/${data.culture}/video/s-outro-animals-mc-intro.webm`
+		`./cultures/${data.culture}/video/s-outro-animals-mc-intro.${data.meta.videoExtension}`
 	);
 	const blob = await preloadVideo.blob();
 	const url = URL.createObjectURL(blob);
 	parentBlock.setAttribute('visibility', 'hidden');
 
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 
 	pinda.src = url;
 	data.procedure.sMcIntro.completed = false;

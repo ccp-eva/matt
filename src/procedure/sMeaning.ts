@@ -16,22 +16,22 @@ export default async ({ currentSlide, previousSlide }) => {
 		text: '',
 		audio: '',
 	};
-	prefetchedVideos.transition = `./cultures/${data.culture}/video/st-finish-meaning.webm`;
+	prefetchedVideos.transition = `./cultures/${data.culture}/video/sr-finish-meaning.${data.meta.videoExtension}`;
 	if (!data.pindaNeutralBlob) {
-		prefetchedVideos.neutral = `./cultures/${data.culture}/video/pinda-neutral-listening.webm`;
+		prefetchedVideos.neutral = `./cultures/${data.culture}/video/pinda-neutral-listening.${data.meta.videoExtension}`;
 	}
 	if (!data.textIntroBlob && data.input === 'text') {
-		prefetchedVideos.text = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+		prefetchedVideos.text = `./cultures/${data.culture}/video/s-ex-next-red-textInput.${data.meta.videoExtension}`;
 	}
 	if (!data.audioIntroBlob && data.input === 'audio') {
-		prefetchedVideos.audio = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+		prefetchedVideos.audio = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.${data.meta.videoExtension}`;
 	}
 	if (data.input === 'userchoice-audio' || data.input === 'userchoice-text') {
 		if (!data.textIntroBlob) {
-			prefetchedVideos.text = `./cultures/${data.culture}/video/s-ex-next-red-textInput.webm`;
+			prefetchedVideos.text = `./cultures/${data.culture}/video/s-ex-next-red-textInput.${data.meta.videoExtension}`;
 		}
 		if (!data.audioIntroBlob) {
-			prefetchedVideos.audio = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.webm`;
+			prefetchedVideos.audio = `./cultures/${data.culture}/video/prompt-audioInput-start-speaking-buttons.${data.meta.videoExtension}`;
 		}
 	}
 
@@ -89,7 +89,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	const headphones = document.getElementById('link-sm-headphones') as SvgInHtml;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	const pindaNeutral = document.getElementById('pinda-neutral') as HTMLVideoElement;
 	const nextButton = document.getElementById('link-sm-next') as SvgInHtml;
 

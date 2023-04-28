@@ -11,18 +11,19 @@ export default async ({ currentSlide, previousSlide }) => {
 	// show slide
 	swapSlides(currentSlide, previousSlide);
 
-	const video = document.getElementById('player') as HTMLMediaElement;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 
 	const speaker = document.getElementById('link-si-speaker') as SvgInHtml;
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	const headphones = document.getElementById('link-si-headphones') as SvgInHtml;
 	const nextButton = document.getElementById('link-si-next') as SvgInHtml;
 	gsap.set([headphones, nextButton], { autoAlpha: 0, pointerEvents: 'none' });
 
 	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
 	parentBlock.removeAttribute('visibility');
-	const preloadVideo = await fetch(`./cultures/${data.culture}/video/s-introduction.webm`);
+	const preloadVideo = await fetch(
+		`./cultures/${data.culture}/video/s-introduction.${data.meta.videoExtension}`
+	);
 	const blob = await preloadVideo.blob();
 	const url = URL.createObjectURL(blob);
 	parentBlock.setAttribute('visibility', 'hidden');
@@ -40,7 +41,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			headphones.style.pointerEvents = 'none';
 			gsap.set([nextButton, headphones], { autoAlpha: 0.25 });
 		});
-		video.addEventListener('play', () => {
+		pinda.addEventListener('play', () => {
 			nextButton.style.pointerEvents = 'none';
 			headphones.style.pointerEvents = 'none';
 			if (playingTimeline) {
@@ -54,7 +55,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			headphones.style.pointerEvents = 'visible';
 			gsap.to([nextButton, headphones], { autoAlpha: 1 });
 		});
-		video.addEventListener('ended', () => {
+		pinda.addEventListener('ended', () => {
 			nextButton.style.pointerEvents = 'visible';
 			headphones.style.pointerEvents = 'visible';
 			gsap.to([nextButton, headphones], { autoAlpha: 1 });
@@ -63,6 +64,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 		// start pinda video
 		pinda.src = url;
+		pinda.play();
 		// only start timeline when media can play through
 		gsap
 			.timeline()

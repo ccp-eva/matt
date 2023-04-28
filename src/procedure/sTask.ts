@@ -34,7 +34,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	};
 
 	const nextButton = document.getElementById('link-st-next')! as SvgInHtml;
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById('link-st-headphones') as SvgInHtml;
 	const circle = document.getElementById('st-circle')! as SvgInHtml;
@@ -123,7 +123,9 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
 	parentBlock.removeAttribute('visibility');
-	const preloadVideo = await fetch(`./cultures/${data.culture}/video/s-task.webm`);
+	const preloadVideo = await fetch(
+		`./cultures/${data.culture}/video/s-task.${data.meta.videoExtension}`
+	);
 	const blob = await preloadVideo.blob();
 	const url = URL.createObjectURL(blob);
 	parentBlock.setAttribute('visibility', 'hidden');

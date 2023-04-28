@@ -3,7 +3,6 @@ import { gsap } from 'gsap';
 import config from '../config.yaml';
 import { stop } from '../util/audio';
 import { downloadData, millisToMinutesAndSeconds, sleep, uploadData } from '../util/helpers';
-import { SvgInHtml } from '../types';
 
 export const procedure = async () => {
 	let currentProcedure = _.cloneDeep(config.procedure[data.culture]);
@@ -82,8 +81,7 @@ export const procedure = async () => {
 	data.totalSlides = currentProcedure.length;
 
 	// pinda video wrapper
-	const pindaWrapper = document.getElementById('s-pinda-video') as SvgInHtml;
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	const pindaNeutral = document.getElementById('pinda-neutral') as HTMLVideoElement;
 
 	// ================================================
@@ -149,9 +147,6 @@ export const procedure = async () => {
 
 			// apply default gap duration
 			await sleep(config.globals.slideGapDuration);
-
-			// always hide pinda parent wrapper
-			pindaWrapper.setAttribute('visibility', 'hidden');
 
 			// always hide div wrapper of text/audio feedback
 			const responseWrapper = document.querySelectorAll(

@@ -19,7 +19,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			return;
 		}
 	});
-	const pinda = document.getElementById('player') as HTMLVideoElement;
+	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	gsap.set(pinda, { autoAlpha: 0 });
 
 	const slidePrefix = 's1h100cats';
@@ -75,10 +75,10 @@ export default async ({ currentSlide, previousSlide }) => {
 		});
 		let isPlaying = true;
 		if (data.dilemmaMotivationOnePlayed === false) {
-			pinda.src = `./cultures/${data.culture}/video/motivation-dilemma1.webm`;
+			pinda.src = `./cultures/${data.culture}/video/motivation-dilemma1.${data.meta.videoExtension}`;
 			data.dilemmaMotivationOnePlayed = true;
 		} else {
-			pinda.src = `./cultures/${data.culture}/video/motivation-dilemma2.webm`;
+			pinda.src = `./cultures/${data.culture}/video/motivation-dilemma2.${data.meta.videoExtension}`;
 			data.dilemmaMotivationTwoPlayed = true;
 		}
 
