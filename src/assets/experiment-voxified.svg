@@ -355,17 +355,17 @@
 <g id="s-reasoning-1-ca-1-co">
 	<g id="sr1cat1cow-oneCat">
 		
-			<rect id="sr1cat1cow-r-oneCat" x="1229.97" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
-		<rect id="ph-sr1cat1cow-oneCat-reflect" x="1391" y="424" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
+			<rect id="sr1cat1cow-r-oneCat" x="277.35" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
+		<rect id="ph-sr1cat1cow-oneCat-reflect" x="438.38" y="424" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
 		
-			<image overflow="visible" width="89" height="67" id="link-sr1cat1cow-oneCat-reflect" xlink:href="assets/cat.svg"  transform="matrix(-0.8704 0 0 0.8704 1478.4653 428)">
+			<image overflow="visible" width="89" height="67" id="link-sr1cat1cow-oneCat-reflect" xlink:href="assets/cat.svg"  transform="matrix(-0.8704 0 0 0.8704 525.843 428)">
 		</image>
-		<rect id="ph-sr1cat1cow-boat-oneCat" x="1337" y="68" opacity="0.6" fill="#4AE5D9" width="199" height="199"/>
+		<rect id="ph-sr1cat1cow-boat-oneCat" x="384.38" y="68" opacity="0.6" fill="#4AE5D9" width="199" height="199"/>
 		
-			<image overflow="visible" width="260" height="245" id="link-sr1cat1cow-boat-oneCat" xlink:href="assets/boat.svg"  transform="matrix(0.3649 0 0 0.3649 1383 110)">
+			<image overflow="visible" width="260" height="245" id="link-sr1cat1cow-boat-oneCat" xlink:href="assets/boat.svg"  transform="matrix(0.3649 0 0 0.3649 430.3776 110)">
 		</image>
 		
-			<rect id="text-oneCat_00000183947976537786267040000003276071927370420891_" x="1230.67" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="411.33" height="50"/>
+			<rect id="text-oneCat_00000183947976537786267040000003276071927370420891_" x="278.05" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="411.33" height="50"/>
 	</g>
 	<g id="sr1cat1cow-cantDecide">
 		
@@ -377,17 +377,17 @@
 	</g>
 	<g id="sr1cat1cow-oneCow">
 		
-			<rect id="sr1cat1cow-r-oneCow" x="277.35" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
-		<rect id="ph-sr1cat1cow-oneCow" x="339" y="353" opacity="0.6" fill="#4AE5D9" width="292" height="292"/>
+			<rect id="sr1cat1cow-r-oneCow" x="1229.97" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
+		<rect id="ph-sr1cat1cow-oneCow" x="1291.62" y="353" opacity="0.6" fill="#4AE5D9" width="292" height="292"/>
 		
-			<image overflow="visible" width="116" height="76" id="link-sr1cat1cow-oneCow" xlink:href="assets/cow.svg"  transform="matrix(1 0 0 1 485.4515 431.9093)">
+			<image overflow="visible" width="116" height="76" id="link-sr1cat1cow-oneCow" xlink:href="assets/cow.svg"  transform="matrix(1 0 0 1 1438.0739 431.9093)">
 		</image>
-		<rect id="ph-sr1cat1cow-boat-oneCow" x="386" y="68" opacity="0.6" fill="#4AE5D9" width="199" height="199"/>
+		<rect id="ph-sr1cat1cow-boat-oneCow" x="1338.62" y="68" opacity="0.6" fill="#4AE5D9" width="199" height="199"/>
 		
-			<image overflow="visible" width="260" height="245" id="link-sr1cat1cow-boat-oneCow" xlink:href="assets/boat.svg"  transform="matrix(0.3649 0 0 0.3649 446.3549 127.891)">
+			<image overflow="visible" width="260" height="245" id="link-sr1cat1cow-boat-oneCow" xlink:href="assets/boat.svg"  transform="matrix(0.3649 0 0 0.3649 1398.9773 127.891)">
 		</image>
 		
-			<rect id="text-oneCow_00000016785600527252542950000016329240876665517476_" x="278.4" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.6" height="50"/>
+			<rect id="text-oneCow_00000016785600527252542950000016329240876665517476_" x="1231.03" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.6" height="50"/>
 	</g>
 	<rect id="sr1cat1cow-wr" x="277" y="809" fill="#E5E5E5" width="1366" height="250"/>
 	<rect id="ph-sr1cat1cow-next" x="1790" y="968" fill="#B8846E" width="90" height="90"/>
