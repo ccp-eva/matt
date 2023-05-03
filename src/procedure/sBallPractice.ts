@@ -45,6 +45,9 @@ export default async ({ currentSlide, previousSlide }) => {
 	let failed = false;
 	let repeat = false;
 	for (let i = 0; i < order.length; i++) {
+		if (data.procedure.sBallPractice.addExplanationCount > 3) {
+			break;
+		}
 		gsap.to([inner, middle, outer], { opacity: 0.5 });
 		gsap.to(ball, { x: 0, y: 0, duration: 0.25, scale: 1, opacity: 0.5 });
 		gsap.to(headphones, { autoAlpha: 0 });
