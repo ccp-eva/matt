@@ -350,7 +350,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
 
 	gsap.to(checkLabel, { autoAlpha: 1 });
-	checkLabel.style.pointerEvents = 'auto';
+	checkLabel.style.pointerEvents = 'visible';
 	textResponse.disabled = false;
 	voiceResponseStart.disabled = false;
 
@@ -390,23 +390,31 @@ export default async ({ currentSlide, previousSlide }) => {
 				gsap.set([nextButton, checkLabel], { autoAlpha: 0.25 });
 
 				gsap.to(pindaNeutral, { autoAlpha: 0 });
-				pinda.src = prefetchedVideos.audio1;
-				await gsap
-					.timeline()
-					.to(voiceResponseStart, {
-						filter: 'drop-shadow(0px 0px 20px #000)',
-						delay: 8,
-						repeat: 3,
-						yoyo: true,
-						reversed: true,
-					})
-					.to(voiceResponseStop, {
-						filter: 'drop-shadow(0px 0px 20px #000)',
-						delay: 1.5,
-						repeat: 3,
-						yoyo: true,
-						reversed: true,
-					});
+				if (data.reasoningSlideCounter === 1) {
+					pinda.src = prefetchedVideos.audio1;
+					await gsap
+						.timeline()
+						.to(voiceResponseStart, {
+							filter: 'drop-shadow(0px 0px 15px #000)',
+							delay: 8,
+							repeat: 3,
+							yoyo: true,
+							reversed: true,
+						})
+						.to(voiceResponseStop, {
+							filter: 'drop-shadow(0px 0px 15px #000)',
+							delay: 1.5,
+							repeat: 3,
+							yoyo: true,
+							reversed: true,
+						});
+				}
+				if (data.reasoningSlideCounter === 2) {
+					pinda.src = prefetchedVideos.audio2;
+				}
+				if (data.reasoningSlideCounter === 3) {
+					pinda.src = prefetchedVideos.audio3;
+				}
 
 				while (isPlaying) {
 					await sleep(100);
@@ -414,8 +422,8 @@ export default async ({ currentSlide, previousSlide }) => {
 
 				voiceResponseStart.disabled = false;
 				gsap.to(checkLabel, { autoAlpha: 1 });
-				checkLabel.style.pointerEvents = 'auto';
-				headphones.style.pointerEvents = 'auto';
+				checkLabel.style.pointerEvents = 'visible';
+				headphones.style.pointerEvents = 'visible';
 
 				gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
 			}
@@ -430,7 +438,15 @@ export default async ({ currentSlide, previousSlide }) => {
 				gsap.set(checkLabel, { autoAlpha: 0.25 });
 
 				gsap.to(pindaNeutral, { autoAlpha: 0 });
-				pinda.src = prefetchedVideos.text1;
+				if (data.reasoningSlideCounter === 1) {
+					pinda.src = prefetchedVideos.text1;
+				}
+				if (data.reasoningSlideCounter === 2) {
+					pinda.src = prefetchedVideos.text2;
+				}
+				if (data.reasoningSlideCounter === 3) {
+					pinda.src = prefetchedVideos.text3;
+				}
 				await sleep(500);
 
 				while (isPlaying) {
@@ -439,8 +455,8 @@ export default async ({ currentSlide, previousSlide }) => {
 
 				textResponse.disabled = false;
 				gsap.to(checkLabel, { autoAlpha: 1 });
-				checkLabel.style.pointerEvents = 'auto';
-				headphones.style.pointerEvents = 'auto';
+				checkLabel.style.pointerEvents = 'visible';
+				headphones.style.pointerEvents = 'visible';
 
 				gsap.timeline().to(pinda, { autoAlpha: 0 }).to(pindaNeutral, { autoAlpha: 1 }, '<');
 			}
@@ -491,7 +507,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				generateUserIdFilename('matt', `${data.currentSlide}`, 'ogg')
 			);
 
-			nextButton.style.pointerEvents = 'auto';
+			nextButton.style.pointerEvents = 'visible';
 			gsap.timeline().to(nextButton, {
 				autoAlpha: 1,
 			});
@@ -499,7 +515,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			voiceResponseStart.disabled = false;
 			voiceResponseStop.disabled = true;
 
-			checkLabel.style.pointerEvents = 'auto';
+			checkLabel.style.pointerEvents = 'visible';
 			gsap.set(checkLabel, { autoAlpha: 1 });
 		});
 	});
