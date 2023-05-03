@@ -2266,15 +2266,15 @@
 	</g>
 	<rect x="1204" y="150" fill="#EAEAEA" width="670" height="780"/>
 	<rect id="ph-st-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
-	<rect id="ph-st-human" x="1477" y="192" opacity="0.6" fill="#4AE5D9" width="124" height="228"/>
-	<rect id="ph-st-chicken" x="1283.5" y="251" opacity="0.6" fill="#4AE5D9" width="93" height="110"/>
-	<rect id="ph-st-pig" x="1677.5" y="255.75" opacity="0.6" fill="#4AE5D9" width="141" height="100.5"/>
-	<rect id="ph-st-dog" x="1255.75" y="484.5" opacity="0.6" fill="#4AE5D9" width="148.5" height="117"/>
-	<rect id="ph-st-sheep" x="1688" y="486" opacity="0.6" fill="#4AE5D9" width="120" height="114"/>
-	<rect id="ph-st-rabbit" x="1695.5" y="728.25" opacity="0.6" fill="#4AE5D9" width="105" height="91.5"/>
-	<rect id="ph-st-goldfish" x="1270" y="732" opacity="0.6" fill="#4AE5D9" width="120" height="84"/>
-	<rect id="ph-st-cow" x="1452" y="717" opacity="0.6" fill="#4AE5D9" width="174" height="114"/>
-	<rect id="ph-st-cat" x="1472.25" y="492.75" opacity="0.6" fill="#4AE5D9" width="133.5" height="100.5"/>
+	<rect id="ph-st-human" x="-62" y="-114" opacity="0.6" fill="#4AE5D9" width="124" height="228"/>
+	<rect id="ph-st-chicken" x="-46.5" y="-55" opacity="0.6" fill="#4AE5D9" width="93" height="110"/>
+	<rect id="ph-st-pig" x="-70.5" y="-50.25" opacity="0.6" fill="#4AE5D9" width="141" height="100.5"/>
+	<rect id="ph-st-dog" x="-74.25" y="-58.5" opacity="0.6" fill="#4AE5D9" width="148.5" height="117"/>
+	<rect id="ph-st-sheep" x="-60" y="-57" opacity="0.6" fill="#4AE5D9" width="120" height="114"/>
+	<rect id="ph-st-rabbit" x="-52.5" y="-45.75" opacity="0.6" fill="#4AE5D9" width="105" height="91.5"/>
+	<rect id="ph-st-goldfish" x="-60" y="-42" opacity="0.6" fill="#4AE5D9" width="120" height="84"/>
+	<rect id="ph-st-cow" x="-87" y="-57" opacity="0.6" fill="#4AE5D9" width="174" height="114"/>
+	<rect id="ph-st-cat" x="-66.75" y="-50.25" opacity="0.6" fill="#4AE5D9" width="133.5" height="100.5"/>
 	<rect id="ph-st-next" x="1083" y="951" opacity="0.5" fill="#B8846E" width="80" height="80"/>
 	
 		<image overflow="visible" width="80" height="80" id="link-st-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
