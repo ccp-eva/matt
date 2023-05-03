@@ -64,6 +64,7 @@ declare var data: {
 	currentSlide: string;
 	nextSlide: string;
 	currentProcedure: string[];
+	animalOrder: string[];
 	dilemmaOrder: string[];
 	dilemmaMotivationOnePlayed: boolean;
 	dilemmaMotivationTwoPlayed: boolean;
@@ -140,15 +141,43 @@ declare var data: {
 			duration: number;
 			knownAnimals: string[];
 			unknownAnimals: string[];
-			human: string;
-			chicken?: string;
-			pig?: string;
-			dog?: string;
-			sheep?: string;
-			goldfish?: string;
-			cow?: string;
-			rabbit?: string;
-			cat?: string;
+			human: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			chicken?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			pig?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			dog?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			sheep?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			goldfish?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			cow?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			rabbit?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			cat?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			knownAnimalOrder: string[];
 			comprehension: {
 				completed: boolean;
 				order: string[];
