@@ -81,7 +81,7 @@
 							id="input-response"
 							required
 							autocomplete="off"
-							onchange="handleMicrophoneConsentButton(e)"
+							onchange="handleInputResponse(event)"
 						>
 							<option>Später entscheiden (Sprachinput priorisiert)</option>
 							<option>Später entscheiden (Textinput priorisiert)</option>
@@ -90,10 +90,15 @@
 						</select>
 						<label for="input-response" class="control-label">Antwortformat</label
 						><i class="bar"></i>
-						<div class="button-container">
-							<button type="button" class="button-microphone">
-								<span>Mikrofongenehmigung</span>
-							</button>
+						<div class="checkbox-microphone">
+							<label>
+								<input
+									id="input-checkbox-microphone"
+									type="checkbox"
+									disabled
+									autocomplete="off"
+								/><i class="helper"></i>Mikrofongenehmigung
+							</label>
 						</div>
 					</div>
 					<div id="form-datatransfer" class="form-group">
@@ -104,36 +109,7 @@
 						<label for="input-transfer" class="control-label">Datentransfer</label
 						><i class="bar"></i>
 					</div>
-					<!-- <div class="form-group">
-						<textarea required="required"></textarea>
-						<label for="textarea" class="control-label">Textarea</label><i class="bar"></i>
-					</div> -->
 					<p id="childConsent"></p>
-					<!-- 
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" /><i class="helper"></i>I'm the label from a checkbox
-						</label>
-					</div>
-					<div class="form-radio">
-						<div class="radio">
-							<label>
-								<input type="radio" name="radio" checked="checked" /><i class="helper"></i>I'm the
-								label from a radio button
-							</label>
-						</div>
-						<div class="radio">
-							<label>
-								<input type="radio" name="radio" /><i class="helper"></i>I'm the label from a radio
-								button
-							</label>
-						</div>
-					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" /><i class="helper"></i>I'm the label from a checkbox
-						</label>
-					</div>-->
 					<p id="consent"><a class="btn" href="#open-modal">🤝 Einwilligungserklärung</a></p>
 
 					<div id="open-modal" class="modal-window">
@@ -205,7 +181,9 @@
 						</div>
 					</div>
 					<div class="button-container">
-						<button type="submit" class="button"><span>Start</span></button>
+						<button id="start-button" style="opacity: 0.5" type="submit" class="button">
+							<span>Start</span>
+						</button>
 					</div>
 				</form>
 				<hr style="border-width: 0.1px" />

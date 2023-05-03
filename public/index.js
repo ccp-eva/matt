@@ -93,6 +93,36 @@ const handleCheckbox = (e) => {
 	}
 };
 
+const startButton = document.getElementById('start-button');
+startButton.style.pointerEvents = 'none';
+const microphoneCheckbox = document.getElementById('input-checkbox-microphone');
+const handleInputResponse = (e) => {
+	if (e.target.selectedIndex === 3) {
+		document.getElementById('input-checkbox-microphone').parentNode.style.display = 'none';
+		startButton.style.pointerEvents = 'visible';
+		startButton.style.opacity = '1';
+	} else {
+		document.getElementById('input-checkbox-microphone').parentNode.style.display = 'block';
+		if (!microphoneCheckbox.checked) {
+			startButton.style.pointerEvents = 'none';
+			startButton.style.opacity = '0.5';
+		}
+	}
+};
+
+microphoneCheckbox.parentNode.addEventListener('click', () => {
+	navigator.mediaDevices
+		.getUserMedia({ audio: true })
+		.then(function (stream) {
+			microphoneCheckbox.checked = true;
+			startButton.style.pointerEvents = 'auto';
+			startButton.style.opacity = '1';
+		})
+		.catch(function (err) {
+			console.log('No mic for you!');
+		});
+});
+
 // handle submit button
 document.querySelector('form').addEventListener('submit', (e) => {
 	e.preventDefault();
