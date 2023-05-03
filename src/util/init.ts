@@ -98,7 +98,6 @@ export const init = () => {
 		initialTimestamp: new Date(),
 		slideCounter: 0,
 		quitBeforeEnd: false,
-		userAgent: navigator.userAgent,
 		procedure: {},
 		meta: {
 			// store device and browser information
@@ -118,6 +117,7 @@ export const init = () => {
 			isSafari: DetectRTC.browser.isSafari || false,
 			isEdge: DetectRTC.browser.isEdge || false,
 			isPrivateBrowsing: DetectRTC.browser.isPrivateBrowsing || false,
+			userAgent: navigator.userAgent,
 		},
 	};
 	// Safari used .mov extension, other browsers use .webm
