@@ -262,10 +262,18 @@ export default async ({ currentSlide, previousSlide }) => {
 
 			// NONE
 			if (circleDistance * 1.2 > outerRadius + targetWidth) {
-				gsap.to(currentTarget, {
-					x: slotPositions.get(originalPosition).x,
-					y: slotPositions.get(originalPosition).y,
-				});
+				if (data.procedure.sTask[currentIdTrimmed].circle === undefined) {
+					gsap.to(currentTarget, {
+						x: slotPositions.get(originalPosition).x,
+						y: slotPositions.get(originalPosition).y,
+					});
+				} else {
+					gsap.to(currentTarget, {
+						x: data.procedure.sTask[currentIdTrimmed].coords.x,
+						y: data.procedure.sTask[currentIdTrimmed].coords.y,
+						scale: 0.5,
+					});
+				}
 			}
 		},
 	});
