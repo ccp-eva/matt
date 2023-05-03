@@ -229,6 +229,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 			// Check if the distance between the centers is less than or equal to the sum of the radii
 			if (circleDistance * 1.2 <= innerRadius + targetWidth) {
+				play(`./cultures/${data.culture}/audio/inner.mp3`);
 				data.procedure.sTask[currentIdTrimmed].circle = 'inner';
 				data.procedure.sTask[currentIdTrimmed].coords.x = droppedX;
 				data.procedure.sTask[currentIdTrimmed].coords.y = droppedY;
@@ -240,6 +241,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				circleDistance * 1.2 <= middleRadius + targetWidth &&
 				circleDistance * 1.2 > innerRadius + targetWidth
 			) {
+				play(`./cultures/${data.culture}/audio/middle.mp3`);
 				data.procedure.sTask[currentIdTrimmed].circle = 'middle';
 				data.procedure.sTask[currentIdTrimmed].coords.x = droppedX;
 				data.procedure.sTask[currentIdTrimmed].coords.y = droppedY;
@@ -251,6 +253,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				circleDistance * 1.2 <= outerRadius + targetWidth &&
 				circleDistance * 1.2 > middleRadius + targetWidth
 			) {
+				play(`./cultures/${data.culture}/audio/outer.mp3`);
 				data.procedure.sTask[currentIdTrimmed].circle = 'outer';
 				data.procedure.sTask[currentIdTrimmed].coords.x = droppedX;
 				data.procedure.sTask[currentIdTrimmed].coords.y = droppedY;
