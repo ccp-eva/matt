@@ -14,6 +14,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const leftEntity = 'human';
 	const leftEntityOne = 'oneHuman';
 	const rightEntity = 'cow';
+	const rightEntityOne = 'oneCow';
 
 	const videoStrings = {
 		neutral: `./cultures/${data.culture}/video/pinda-neutral-listening.${data.meta.videoExtension}`,
@@ -165,7 +166,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const nextButton = document.getElementById(`link-${slidePrefix}-next`) as SvgInHtml;
 	const left = document.getElementById(`${slidePrefix}-${leftEntityOne}`)! as SvgInHtml;
 	const center = document.getElementById(`${slidePrefix}-cantDecide`)! as SvgInHtml;
-	const right = document.getElementById(`${slidePrefix}-${leftEntityOne}`)! as SvgInHtml;
+	const right = document.getElementById(`${slidePrefix}-${rightEntityOne}`)! as SvgInHtml;
 
 	const wrapper = document.getElementById(`wrapper-${slidePrefix}`) as HTMLDivElement;
 	const textResponse = document.getElementById(
@@ -229,14 +230,18 @@ export default async ({ currentSlide, previousSlide }) => {
 	// ------------------------------------------------------------------------------------------------------------------------
 	// ------------------------------------------------------------------------------------------------------------------------
 	// default values
-	let wasHuman = true;
-	let wasCow = false;
+	let wasHuman = false;
 	let wasCantDecide = false;
+	let wasCow = false;
 	// check actual responses from s1Hu1Co and overwrite default values
 	if (data.procedure.s1Hu1Co) {
 		wasHuman = data.procedure.s1Hu1Co.response.toLowerCase().includes(`-one${leftEntity}`);
-		wasCow = data.procedure.s1Hu1Co.response.toLowerCase().includes(`-one${rightEntity}`);
 		wasCantDecide = data.procedure.s1Hu1Co.response.toLowerCase().includes('-cantdecide');
+		wasCow = data.procedure.s1Hu1Co.response.toLowerCase().includes(`-one${rightEntity}`);
+	} else {
+		wasHuman = false;
+		wasCantDecide = true;
+		wasCow = false;
 	}
 
 	// add frame around prior selected card
@@ -263,8 +268,8 @@ export default async ({ currentSlide, previousSlide }) => {
 		play(`./cultures/${data.culture}/audio/srw-cantDecide.mp3`, headphones.id);
 	}
 	if (wasCow) {
-		await playPromise(`./cultures/${data.culture}/audio/srw-${leftEntity}.mp3`);
-		play(`./cultures/${data.culture}/audio/srw-${leftEntityOne}.mp3`, headphones.id);
+		await playPromise(`./cultures/${data.culture}/audio/srw-${rightEntity}.mp3`);
+		play(`./cultures/${data.culture}/audio/srw-${rightEntityOne}.mp3`, headphones.id);
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------

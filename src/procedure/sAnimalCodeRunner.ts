@@ -19,7 +19,6 @@ export const sAnimalCodeRunner = async (
 	const yesButton = document.getElementById(`link-${animalPrefix}-yes`) as SvgInHtml;
 	const noButton = document.getElementById(`link-${animalPrefix}-no`) as SvgInHtml;
 
-	console.log(animalPrefix, yesButton, noButton);
 	gsap.set([yesButton, noButton], { pointerEvents: 'none' });
 
 	if (data.animalSlideCounter <= config.globals.playAnimalYesNoAudio) {

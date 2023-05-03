@@ -11,9 +11,10 @@ import { swapSlides } from '../util/slideVisibility';
 export default async ({ currentSlide, previousSlide }) => {
 	data.reasoningSlideCounter++;
 	const slidePrefix = 'sr1cat1cow';
-	const leftEntity = 'cow';
-	const leftEntityOne = 'oneCow';
-	const rightEntity = 'cat';
+	const leftEntity = 'cat';
+	const leftEntityOne = 'oneCat';
+	const rightEntity = 'cow';
+	const rightEntityOne = 'oneCow';
 
 	const videoStrings = {
 		neutral: `./cultures/${data.culture}/video/pinda-neutral-listening.${data.meta.videoExtension}`,
@@ -165,7 +166,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const nextButton = document.getElementById(`link-${slidePrefix}-next`) as SvgInHtml;
 	const left = document.getElementById(`${slidePrefix}-${leftEntityOne}`)! as SvgInHtml;
 	const center = document.getElementById(`${slidePrefix}-cantDecide`)! as SvgInHtml;
-	const right = document.getElementById(`${slidePrefix}-${leftEntityOne}`)! as SvgInHtml;
+	const right = document.getElementById(`${slidePrefix}-${rightEntityOne}`)! as SvgInHtml;
 
 	const wrapper = document.getElementById(`wrapper-${slidePrefix}`) as HTMLDivElement;
 	const textResponse = document.getElementById(
@@ -229,42 +230,47 @@ export default async ({ currentSlide, previousSlide }) => {
 	// ------------------------------------------------------------------------------------------------------------------------
 	// ------------------------------------------------------------------------------------------------------------------------
 	// default values
-	let wasCow = true;
 	let wasCat = false;
 	let wasCantDecide = false;
-	// check actual responses from s1Hu1Co and overwrite default values
-	if (data.procedure.s1Hu1Co) {
-		wasCow = data.procedure.s1Hu1Co.response.toLowerCase().includes(`-one${leftEntity}`);
-		wasCat = data.procedure.s1Hu1Co.response.toLowerCase().includes(`-one${rightEntity}`);
-		wasCantDecide = data.procedure.s1Hu1Co.response.toLowerCase().includes('-cantdecide');
+	let wasCow = false;
+	// check actual responses from s1Ca1Co and overwrite default values
+	if (data.procedure.sC1Ca1Co) {
+		wasCat = data.procedure.sC1Ca1Co.response.toLowerCase().includes(`-one${leftEntity}`);
+		wasCantDecide = data.procedure.sC1Ca1Co.response.toLowerCase().includes('-cantdecide');
+		wasCow = data.procedure.sC1Ca1Co.response.toLowerCase().includes(`-one${rightEntity}`);
+	} else {
+		wasCat = false;
+		wasCantDecide = true;
+		wasCow = false;
 	}
 
 	// add frame around prior selected card
-	if (wasCow) {
+	if (wasCat) {
 		left.classList.add('dilemma-card-fix');
 	}
 	if (wasCantDecide) {
 		center.classList.add('dilemma-card-fix');
 	}
-	if (wasCat) {
+
+	if (wasCow) {
 		right.classList.add('dilemma-card-fix');
 	}
 
 	swapSlides(currentSlide, previousSlide);
 
-	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-cat-right.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-cat-left.mp3`);
 
-	if (wasCow) {
+	if (wasCat) {
 		await playPromise(`./cultures/${data.culture}/audio/srw-${leftEntity}.mp3`);
-		play(`./cultures/${data.culture}/audio/srw-${leftEntity}.mp3`, headphones.id);
+		play(`./cultures/${data.culture}/audio/srw-${leftEntityOne}.mp3`, headphones.id);
 	}
 	if (wasCantDecide) {
 		await playPromise(`./cultures/${data.culture}/audio/srw-cantDecide.mp3`);
 		play(`./cultures/${data.culture}/audio/srw-cantDecide.mp3`, headphones.id);
 	}
-	if (wasCat) {
-		await playPromise(`./cultures/${data.culture}/audio/srw-${leftEntity}.mp3`);
-		play(`./cultures/${data.culture}/audio/srw-${leftEntityOne}.mp3`, headphones.id);
+	if (wasCow) {
+		await playPromise(`./cultures/${data.culture}/audio/srw-${rightEntity}.mp3`);
+		play(`./cultures/${data.culture}/audio/srw-${rightEntityOne}.mp3`, headphones.id);
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------

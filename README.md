@@ -51,8 +51,9 @@
 ### Gettting started
 
 1. `git clone git@github.com:ccp-eva/matt.git`
-2. `npm i`
-3. `npm start`
+2. `cd matt`
+3. `npm i`
+4. `npm start`
 
 The experiment consists of two components: (1) a **landing page** and (2) the **experiment**. The landing page is vanilla HTML, CSS, JavaScript and is not part of the webpack setup. This landing page is located in the `public` directory:
 
@@ -77,7 +78,7 @@ If you build and deploy the web app. The landing page is: `yoururl.com/index.htm
 ### URL Parameters
 
 You can modify the experiment by attaching various URL parameters, for example:  
-https://ccp-eva.github.io/matt/app?id=johndoe&culture=de-urban&agegroup=child&input=text
+https://ccp-eva.github.io/matt/app?id=johndoe&culture=de-urban&birthday=1987-02-22&gender=male&input=text&datatransfer=server
 
 | Parameter key  | Explanation & Default value (if no param provided)                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Restrictions                                                                                                            |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
@@ -86,7 +87,7 @@ https://ccp-eva.github.io/matt/app?id=johndoe&culture=de-urban&agegroup=child&in
 | `birthday`     | A year in the format YYYY-MM-DD. Depending on the given age (threshold is configurabel [here](https://github.com/ccp-eva/matt/blob/develop/src/config.yaml#L37)), a different experiment version will be loaded (child or adult).<br>**Tip**: If you don't want the user to enter a birthday but want them to direct to the child or adult version, just provide a date which is easy to detect in data analysis, e.g.,<br>- **child:** `2100-01-01` (**default value**)<br>- **adult:** `1900-01-01`. | A string in the format `YYYY-MM-DD`. `Y, M, D` need to be numbers                                                       |
 | `gender`       | Participant’s gender.<br><br>**Default value** `none`                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Either `female`, `male`, `diverse`, or `none`                                                                           |
 | `input`        | Respond either by text or audio input, or leave it up the the user to decide. `userchoice-audio` (**default value**) will land on audio first. <br>`userchoice-text` will land on text first.                                                                                                                                                                                                                                                                                                          | Either `text`, `audio` or `userchoice-audio`, `userchoice-text`                                                         |
-| `datatransfer` | The way where response data is sent to. `sever` will use the php endpoint. `both` (**default value**) calls `downloadData()` and you will also get a local copy of your data.                                                                                                                                                                                                                                                                                                                          | Can either be: `both` (default) or `server`                                                                             |
+| `datatransfer` | The way where response data is sent to. `server` will use the php endpoint. `both` (**default value**) calls `downloadData()` and you will also get a local copy of your data.                                                                                                                                                                                                                                                                                                                         | Can either be: `both` (default) or `server`                                                                             |
 
 Culture parameters are composed of a country code (i.e, [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), lowercased (e.g., de)) and an arbitrary suffix (i.e., rural or urban). For example: `de-urban`.
 
@@ -261,7 +262,7 @@ _Note, the export format must be **Apple ProRes 4444 with alpha**. As of Summer 
 | _Adobe Media Encoder Export Settings from Character Animator_ |
 
 3. Once you have your \*.mov video files. Copy all of the video files to the folder: `character-animator`.
-4. Run `npm run alphapinda` in your terminal
+4. Run `npm run alphaPinda` in your terminal
 5. This will create a subdirectory `out` and you will find two files for every input file (mov for Safari, webm for all other browsers). Once the conversion is done, copy all the video files into your video folder of you culture.
 
 ### Global Objects
@@ -321,6 +322,7 @@ Transforms the `data` object into a JSON format, and uploads the file the a give
       2. Switch back to develop (`git switch develop`)
 3. Deploy to MPI server: `npm run deploy`
    1. Make sure if have your a pre-configured ssh config, since the deploy script using ssh aliases
+4. You see the transfer progress in your terminal, if that is complete the website is live here: http://ccp-odc.eva.mpg.de/matt/
 
 ## Contributions
 
