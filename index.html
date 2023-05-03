@@ -13,6 +13,7 @@
 		<link rel="manifest" href="site.webmanifest" />
 		<title>Moral Attitudes Study</title>
 		<link rel="stylesheet" href="index.css" />
+		<script defer src="./translations.js"></script>
 		<script defer src="./index.js"></script>
 	</head>
 	<body>
@@ -23,8 +24,8 @@
 				</video>
 
 				<form>
-					<h1>Einstellung zu Tieren</h1>
-					<p style="text-align: center; margin-bottom: 30px">
+					<h1 id="heading">Einstellung zu Tieren</h1>
+					<p id="mpi" style="text-align: center; margin-bottom: 30px">
 						Max-Planck-Institut für evolutionäre Anthropologie, Vergleichende Kulturpsychologie<br />
 						<span style="font-size: small">Thiede N., et al.</span>
 					</p>
@@ -63,7 +64,7 @@
 					</div>
 					<div id="form-gender" class="form-group">
 						<select id="input-gender" autocomplete="off" required>
-							<option>weiblich</option>
+							<option id="female">weiblich</option>
 							<option>männlich</option>
 							<option>divers</option>
 						</select>
@@ -76,7 +77,12 @@
 						><i class="bar"></i>
 					</div>
 					<div id="form-response" class="form-group">
-						<select id="input-response" required autocomplete="off">
+						<select
+							id="input-response"
+							required
+							autocomplete="off"
+							onchange="handleInputResponse(event)"
+						>
 							<option>Später entscheiden (Sprachinput priorisiert)</option>
 							<option>Später entscheiden (Textinput priorisiert)</option>
 							<option>Sprachinput</option>
@@ -84,6 +90,16 @@
 						</select>
 						<label for="input-response" class="control-label">Antwortformat</label
 						><i class="bar"></i>
+						<div class="checkbox-microphone">
+							<label>
+								<input
+									id="input-checkbox-microphone"
+									type="checkbox"
+									disabled
+									autocomplete="off"
+								/><i class="helper"></i>Mikrofongenehmigung
+							</label>
+						</div>
 					</div>
 					<div id="form-datatransfer" class="form-group">
 						<select id="input-datatransfer" required autocomplete="off">
@@ -93,44 +109,7 @@
 						<label for="input-transfer" class="control-label">Datentransfer</label
 						><i class="bar"></i>
 					</div>
-					<!-- <div class="form-group">
-						<textarea required="required"></textarea>
-						<label for="textarea" class="control-label">Textarea</label><i class="bar"></i>
-					</div> -->
-					<p>
-						Ihre Teilnahme an der Sudie ist natürlich freiwillig. Alle in der Studie erhobenen Daten
-						werden anonymisiert auf einem Server am Max-Planck-Institut in Leipzig (Deutschland)
-						gespeichert und nicht an Dritte weitergegeben. Sie können Ihre Teilnahme zu jedem
-						Zeitpunkt abbrechen, indem sie das Browserfenster schließen. Wenn Sie zu einem späteren
-						Zeitpunkt Ihre erhobenen Daten löschen lassen möchten, kontaktieren Sie uns über
-						<a href="mailto:forschungsreise@eva.mpg.de">forschungsreise@eva.mpg.de</a> und geben Sie
-						dafür Name und Geburtsdatum Ihres Kindes bzw. bei eigener Teilnahme von Ihnen selbst an.
-					</p>
-					<!-- 
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" /><i class="helper"></i>I'm the label from a checkbox
-						</label>
-					</div>
-					<div class="form-radio">
-						<div class="radio">
-							<label>
-								<input type="radio" name="radio" checked="checked" /><i class="helper"></i>I'm the
-								label from a radio button
-							</label>
-						</div>
-						<div class="radio">
-							<label>
-								<input type="radio" name="radio" /><i class="helper"></i>I'm the label from a radio
-								button
-							</label>
-						</div>
-					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" /><i class="helper"></i>I'm the label from a checkbox
-						</label>
-					</div>-->
+					<p id="childConsent"></p>
 					<p id="consent"><a class="btn" href="#open-modal">🤝 Einwilligungserklärung</a></p>
 
 					<div id="open-modal" class="modal-window">
@@ -202,7 +181,9 @@
 						</div>
 					</div>
 					<div class="button-container">
-						<button type="submit" class="button"><span>Start</span></button>
+						<button id="start-button" style="opacity: 0.5" type="submit" class="button">
+							<span>Start</span>
+						</button>
 					</div>
 				</form>
 				<hr style="border-width: 0.1px" />
