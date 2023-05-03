@@ -81,9 +81,10 @@ export default async ({ currentSlide, previousSlide }) => {
 	// always show human
 	knownAnimals = [...knownAnimals, 'human'];
 
-	const animalOrder =
-		data.animalOrder.map((animal) => animal.slice(2)) ??
-		_.shuffle(['cow', 'pig', 'sheep', 'chicken', 'cat', 'dog', 'rabbit', 'goldfish', 'human']);
+	let animalOrder = _.shuffle(knownAnimals); // fallback for developement
+	if (data.animalOrder) {
+		animalOrder = data.animalOrder.map((animal) => animal.slice(2));
+	}
 
 	// known animal order (= only known animals and in the order they were presented)
 	const knownAnimalOrder = _.intersection(animalOrder, knownAnimals);
@@ -160,7 +161,6 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	const dragObjects = Draggable.create(knownAnimalElements, {
 		onPress: function () {
-			console.log(dragObjects);
 			// get current drag object
 			const currentId = this.target.id;
 			let currentObj = currentId.slice(8);
