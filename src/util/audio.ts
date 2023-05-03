@@ -1,20 +1,11 @@
-export const playPromise = (url: string, elementId?: string) => {
+export const playPromise = (url: string) => {
 	const audio = document.getElementById('audio') as HTMLAudioElement;
-
 	return new Promise(function (resolve, reject) {
-		if (elementId) {
-			document.getElementById(elementId)!.addEventListener('click', () => {
-				audio.autoplay = true;
-				audio.src = url;
-				audio.onerror = reject;
-				audio.onended = resolve;
-			});
-		} else {
-			audio.autoplay = true;
-			audio.src = url;
-			audio.onerror = reject;
-			audio.onended = resolve;
-		}
+		audio.autoplay = true;
+		audio.src = url;
+		audio.play();
+		audio.onerror = reject;
+		audio.onended = resolve;
 	});
 };
 
@@ -51,8 +42,8 @@ export const play = (url: string | string[], elementId?: string, once = false) =
 			{ once }
 		);
 	} else {
-		audio.autoplay = true; // autoplay when loaded
 		audio.setAttribute('src', url);
+		audio.play();
 	}
 };
 
