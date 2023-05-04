@@ -12,13 +12,15 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	// check if current slide is last slide in any of the orders
 	let isLast = false;
-	[data.companionOrder, data.foodOrder, data.controlOrder].forEach((order) => {
-		const orderLength = order.length - 1;
-		if (order.indexOf(_.kebabCase(data.currentSlide)) === orderLength) {
-			isLast = true;
-			return;
-		}
-	});
+	if (data.companionOrder && data.foodOrder && data.controlOrder) {
+		[data.companionOrder, data.foodOrder, data.controlOrder].forEach((order) => {
+			const orderLength = order.length - 1;
+			if (order.indexOf(_.kebabCase(data.currentSlide)) === orderLength) {
+				isLast = true;
+				return;
+			}
+		});
+	}
 	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	gsap.set(pinda, { autoAlpha: 0 });
 
