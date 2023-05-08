@@ -282,7 +282,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const checkAnimals = () => {
 		let allPlaced: boolean[] = [];
 		knownAnimals.forEach((animal) => {
-			if (!data.procedure.sTask[animal]) {
+			if (!data.procedure.sTask[animal].circle) {
 				allPlaced.push(false);
 			}
 		});
