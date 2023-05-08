@@ -1,6 +1,5 @@
 import { gsap } from 'gsap';
 import _ from 'lodash';
-import config from '../config.yaml';
 import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 import { SvgInHtml } from '../types';
@@ -57,6 +56,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			autoAlpha: 1,
 			onStart: () => {
 				fsplayer.src = prefetchedVideos.boat;
+				fsplayer.play();
 			},
 		});
 
