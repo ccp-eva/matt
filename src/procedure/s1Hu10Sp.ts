@@ -24,9 +24,9 @@ export default async ({ currentSlide, previousSlide }) => {
 	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	gsap.set(pinda, { autoAlpha: 0 });
 
-	const slidePrefix = 'sc1h10nails';
+	const slidePrefix = 's1h10sponges';
 	const leftPostfix = 'oneHuman';
-	const rightPostfix = 'tenNails';
+	const rightPostfix = 'tenSponges';
 	const headphones = document.getElementById(`link-${slidePrefix}-headphones`)! as SvgInHtml;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const left = document.getElementById(`${slidePrefix}-${leftPostfix}`)! as SvgInHtml;
@@ -35,7 +35,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	gsap.set([left, center, right, headphones], { opacity: 0.5, pointerEvents: 'none' });
 
-	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-h-left.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
 	await playPromise(`./cultures/${data.culture}/audio/saving.mp3`);
 
 	gsap.set([left, center, right, headphones], { opacity: 1, pointerEvents: 'visible' });
@@ -47,7 +47,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		gsap.to([headphones, left, center, right], { autoAlpha: 1, pointerEvents: 'visible' });
 	});
 
-	play(`./cultures/${data.culture}/audio/${slidePrefix}-h-left.mp3`, headphones.id);
+	play(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`, headphones.id);
 
 	[left, center, right].forEach((el) => {
 		el.classList.add('dilemma-card');
