@@ -86,7 +86,7 @@ procedure:
               s-100-hu-1-co,
               s-1-hu-100-co,
             ]
-        - controlOrder: [s-c-1-hu-10-hu, s-c-1-hu-10-na, s-c-1-hu-10-sp, s-c-1-ca-1-co]
+        - controlOrder: [s-1-hu-10-hu, s-1-hu-10-na, s-1-hu-10-sp, s-1-ca-1-co]
     - s-motivation-dilemma3
     - s-qu-thoughts
     - s-qu-feelings

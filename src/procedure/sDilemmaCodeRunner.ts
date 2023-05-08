@@ -1,30 +1,35 @@
 import { gsap } from 'gsap';
+import { moveToCenterAnchor, sleep } from '../util/helpers';
 import _ from 'lodash';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
-import { sleep } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
-export default async ({ currentSlide, previousSlide }) => {
-	// swap slides automatically (don’t touch this)
+export const sDilemmaCodeRunner = async (
+	currentSlide: string,
+	previousSlide: string,
+	slidePrefix: string,
+	leftPostfix: string,
+	rightPostfix: string,
+	swapLeftRight: boolean
+) => {
 	swapSlides(currentSlide, previousSlide);
 
 	// check if current slide is last slide in any of the orders
 	let isLast = false;
-	[data.companionOrder, data.foodOrder, data.controlOrder].forEach((order) => {
-		const orderLength = order.length - 1;
-		if (order.indexOf(_.kebabCase(data.currentSlide)) === orderLength) {
-			isLast = true;
-			return;
-		}
-	});
+	if (data.companionOrder && data.foodOrder && data.controlOrder) {
+		[data.companionOrder, data.foodOrder, data.controlOrder].forEach((order) => {
+			const orderLength = order.length - 1;
+			if (order.indexOf(_.kebabCase(data.currentSlide)) === orderLength) {
+				isLast = true;
+				return;
+			}
+		});
+	}
 	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	gsap.set(pinda, { autoAlpha: 0 });
 
-	const slidePrefix = 'sc1h10nails';
-	const leftPostfix = 'oneHuman';
-	const rightPostfix = 'tenNails';
 	const headphones = document.getElementById(`link-${slidePrefix}-headphones`)! as SvgInHtml;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const left = document.getElementById(`${slidePrefix}-${leftPostfix}`)! as SvgInHtml;
@@ -33,7 +38,16 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	gsap.set([left, center, right, headphones], { opacity: 0.5, pointerEvents: 'none' });
 
-	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-h-left.mp3`);
+	// swap left box with right box if swapLeftRight is true
+	data.procedure[data.currentSlide].swapLeftRight = swapLeftRight;
+	if (swapLeftRight) {
+		moveToCenterAnchor(left, 1580);
+		moveToCenterAnchor(right, 340);
+		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+	} else {
+		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+	}
+
 	await playPromise(`./cultures/${data.culture}/audio/saving.mp3`);
 
 	gsap.set([left, center, right, headphones], { opacity: 1, pointerEvents: 'visible' });
@@ -45,7 +59,11 @@ export default async ({ currentSlide, previousSlide }) => {
 		gsap.to([headphones, left, center, right], { autoAlpha: 1, pointerEvents: 'visible' });
 	});
 
-	play(`./cultures/${data.culture}/audio/${slidePrefix}-h-left.mp3`, headphones.id);
+	if (swapLeftRight) {
+		play(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`, headphones.id);
+	} else {
+		play(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`, headphones.id);
+	}
 
 	[left, center, right].forEach((el) => {
 		el.classList.add('dilemma-card');

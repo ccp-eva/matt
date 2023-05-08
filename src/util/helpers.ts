@@ -14,17 +14,30 @@ export const millisToMinutesAndSeconds = (millis: number) => {
 	return { minutes, seconds };
 };
 
-export const moveToCenterAnchor = (svg: SvgInHtml, x: number, y: number) => {
+export const moveToCenterAnchor = (svg: SvgInHtml, x?: number, y?: number) => {
 	// Get the bounding box of the svg
 	const bbox = svg.getBBox();
 
 	// Calculate the center coordinates
-	const cx = bbox.x + bbox.width / 2;
-	const cy = bbox.y + bbox.height / 2;
+	let cx = 0;
+	if (x) {
+		cx = bbox.x + bbox.width / 2;
+	}
+	let cy = 0;
+	if (y) {
+		cy = bbox.y + bbox.height / 2;
+	}
 
 	// Translate the SVG to the new position
-	gsap.set(svg, { x: x - cx, y: y - cy });
-	// svg.setAttribute('transform', `translate(${x - cx}, ${y - cy})`);
+	if (x && y) {
+		gsap.set(svg, { x: x - cx, y: y - cy });
+	}
+	if (x && !y) {
+		gsap.set(svg, { x: x - cx });
+	}
+	if (!x && y) {
+		gsap.set(svg, { y: y - cy });
+	}
 };
 
 export const startFullscreen = () => {

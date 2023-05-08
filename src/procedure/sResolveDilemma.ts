@@ -29,6 +29,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			autoAlpha: 1,
 			onStart: () => {
 				fsplayer.src = `./cultures/${data.culture}/video/s-resolve-dilemma-720p.mp4`;
+				fsplayer.play();
 			},
 		});
 
