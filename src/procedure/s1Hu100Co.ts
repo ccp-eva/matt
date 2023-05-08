@@ -7,6 +7,6 @@ export default async ({ currentSlide, previousSlide }) => {
 		's1h100cows',
 		'oneHuman',
 		'hundredCows',
-		false
+		Math.random() < 0.5
 	);
 };

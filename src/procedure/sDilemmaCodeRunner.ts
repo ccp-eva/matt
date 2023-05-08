@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { sleep } from '../util/helpers';
+import { moveToCenterAnchor, sleep } from '../util/helpers';
 import _ from 'lodash';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
@@ -12,7 +12,7 @@ export const sDilemmaCodeRunner = async (
 	slidePrefix: string,
 	leftPostfix: string,
 	rightPostfix: string,
-	swap: boolean
+	swapLeftRight: boolean
 ) => {
 	swapSlides(currentSlide, previousSlide);
 
@@ -38,7 +38,16 @@ export const sDilemmaCodeRunner = async (
 
 	gsap.set([left, center, right, headphones], { opacity: 0.5, pointerEvents: 'none' });
 
-	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+	// swap left box with right box if swapLeftRight is true
+	data.procedure[data.currentSlide].swapLeftRight = swapLeftRight;
+	if (swapLeftRight) {
+		moveToCenterAnchor(left, 1580);
+		moveToCenterAnchor(right, 340);
+		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+	} else {
+		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+	}
+
 	await playPromise(`./cultures/${data.culture}/audio/saving.mp3`);
 
 	gsap.set([left, center, right, headphones], { opacity: 1, pointerEvents: 'visible' });
@@ -50,7 +59,11 @@ export const sDilemmaCodeRunner = async (
 		gsap.to([headphones, left, center, right], { autoAlpha: 1, pointerEvents: 'visible' });
 	});
 
-	play(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`, headphones.id);
+	if (swapLeftRight) {
+		play(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`, headphones.id);
+	} else {
+		play(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`, headphones.id);
+	}
 
 	[left, center, right].forEach((el) => {
 		el.classList.add('dilemma-card');
