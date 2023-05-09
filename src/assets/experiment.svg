@@ -355,39 +355,39 @@
 <g id="s-reasoning-1-ca-1-co">
 	<g id="sr1cat1cow-oneCat">
 		
-			<rect id="sr1cat1cow-r-oneCat" x="277.35" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
-		<rect id="ph-sr1cat1cow-oneCat-reflect" x="438.38" y="424" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
+			<rect id="sr1cat1cow-r-oneCat" x="263.5" y="59.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="413" height="711"/>
+		<rect id="ph-sr1cat1cow-oneCat-reflect" x="424.65" y="422.74" opacity="0.6" fill="#4AE5D9" width="102.08" height="101.93"/>
 		
-			<image overflow="visible" width="89" height="67" id="link-sr1cat1cow-oneCat-reflect" xlink:href="cat.png"  transform="matrix(-0.8704 0 0 0.8704 525.843 428)">
+			<image overflow="visible" width="89" height="67" id="link-sr1cat1cow-oneCat-reflect" xlink:href="cat.png"  transform="matrix(-0.8711 0 0 0.8698 512.1863 426.7417)">
 		</image>
-		<rect id="ph-sr1cat1cow-boat-oneCat" x="384.38" y="68" opacity="0.6" fill="#4AE5D9" width="199" height="199"/>
+		<rect id="ph-sr1cat1cow-boat-oneCat" x="370.61" y="66.99" opacity="0.6" fill="#4AE5D9" width="199.15" height="198.86"/>
 		
-			<image overflow="visible" width="260" height="245" id="link-sr1cat1cow-boat-oneCat" xlink:href="boat.png"  transform="matrix(0.3649 0 0 0.3649 430.3776 110)">
+			<image overflow="visible" width="260" height="245" id="link-sr1cat1cow-boat-oneCat" xlink:href="boat.png"  transform="matrix(0.3652 0 0 0.3646 416.6482 108.9652)">
 		</image>
 		
-			<rect id="text-oneCat_00000183947976537786267040000003276071927370420891_" x="278.05" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="411.33" height="50"/>
+			<rect id="text-oneCat_00000183947976537786267040000003276071927370420891_" x="264.2" y="693.55" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="411.64" height="49.96"/>
 	</g>
 	<g id="sr1cat1cow-cantDecide">
 		
-			<rect id="sr1cat1cow-r-cantDecide" x="753.66" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
+			<rect id="sr1cat1cow-r-cantDecide" x="753.5" y="59.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="413" height="711"/>
 		
-			<rect id="text-cantDecide_00000055695789145965758280000008584233490798433467_" x="754.74" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.51" height="50"/>
+			<rect id="text-cantDecide_00000055695789145965758280000008584233490798433467_" x="754.59" y="693.55" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.83" height="49.96"/>
 		
-			<rect id="text-questionMark_00000098934054976601051050000001365533798107579833_" x="755.73" y="247" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="408.53" height="289"/>
+			<rect id="text-questionMark_00000098934054976601051050000001365533798107579833_" x="755.58" y="245.87" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="408.85" height="288.8"/>
 	</g>
 	<g id="sr1cat1cow-oneCow">
 		
-			<rect id="sr1cat1cow-r-oneCow" x="1229.97" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
-		<rect id="ph-sr1cat1cow-oneCow" x="1291.62" y="353" opacity="0.6" fill="#4AE5D9" width="292" height="292"/>
+			<rect id="sr1cat1cow-r-oneCow" x="1243.5" y="59.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="413" height="711"/>
+		<rect id="ph-sr1cat1cow-oneCow" x="1305.2" y="351.79" opacity="0.6" fill="#4AE5D9" width="292.22" height="291.79"/>
 		
-			<image overflow="visible" width="116" height="76" id="link-sr1cat1cow-oneCow" xlink:href="cow.png"  transform="matrix(1 0 0 1 1438.0739 431.9093)">
+			<image overflow="visible" width="116" height="76" id="link-sr1cat1cow-oneCow" xlink:href="cow.png"  transform="matrix(1.0008 0 0 0.9993 1451.764 430.6483)">
 		</image>
-		<rect id="ph-sr1cat1cow-boat-oneCow" x="1338.62" y="68" opacity="0.6" fill="#4AE5D9" width="199" height="199"/>
+		<rect id="ph-sr1cat1cow-boat-oneCow" x="1352.24" y="66.99" opacity="0.6" fill="#4AE5D9" width="199.15" height="198.86"/>
 		
-			<image overflow="visible" width="260" height="245" id="link-sr1cat1cow-boat-oneCow" xlink:href="boat.png"  transform="matrix(0.3649 0 0 0.3649 1398.9773 127.891)">
+			<image overflow="visible" width="260" height="245" id="link-sr1cat1cow-boat-oneCow" xlink:href="boat.png"  transform="matrix(0.3652 0 0 0.3646 1412.6377 126.8437)">
 		</image>
 		
-			<rect id="text-oneCow_00000016785600527252542950000016329240876665517476_" x="1231.03" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.6" height="50"/>
+			<rect id="text-oneCow_00000016785600527252542950000016329240876665517476_" x="1244.56" y="693.55" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.91" height="49.96"/>
 	</g>
 	<rect id="sr1cat1cow-wr" x="277" y="809" fill="#E5E5E5" width="1366" height="250"/>
 	<rect id="ph-sr1cat1cow-next" x="1790" y="968" fill="#B8846E" width="90" height="90"/>
@@ -402,39 +402,39 @@
 <g id="s-reasoning-1-hu-1-ca">
 	<g id="sr1h1cat-oneCat">
 		
-			<rect id="sr1h1cat-r-oneCat" x="1229.97" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
-		<rect id="ph-sr1h1cat-oneCat-reflect" x="1390" y="407" opacity="0.6" fill="#4AE5D9" width="102" height="102"/>
+			<rect id="sr1h1cat-r-oneCat" x="1243.5" y="59.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="413" height="711"/>
+		<rect id="ph-sr1h1cat-oneCat-reflect" x="1403.65" y="405.76" opacity="0.6" fill="#4AE5D9" width="102.08" height="101.93"/>
 		
-			<image overflow="visible" width="89" height="67" id="link-sr1h1cat-oneCat-reflect" xlink:href="cat.png"  transform="matrix(-0.8704 0 0 0.8704 1478.4653 428)">
+			<image overflow="visible" width="89" height="67" id="link-sr1h1cat-oneCat-reflect" xlink:href="cat.png"  transform="matrix(-0.8711 0 0 0.8698 1492.1864 426.7417)">
 		</image>
-		<rect id="ph-sr1h1cat-boat-oneCat" x="1337" y="68" opacity="0.6" fill="#4AE5D9" width="199" height="199"/>
+		<rect id="ph-sr1h1cat-boat-oneCat" x="1350.61" y="66.99" opacity="0.6" fill="#4AE5D9" width="199.15" height="198.86"/>
 		
-			<image overflow="visible" width="260" height="245" id="link-sr1h1cat-boat-oneCat" xlink:href="boat.png"  transform="matrix(0.3649 0 0 0.3649 1383 110)">
+			<image overflow="visible" width="260" height="245" id="link-sr1h1cat-boat-oneCat" xlink:href="boat.png"  transform="matrix(0.3652 0 0 0.3646 1396.6482 108.9652)">
 		</image>
 		
-			<rect id="text-oneCat_00000087395032572343618070000011536717537332320414_" x="1230.67" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="411.33" height="50"/>
+			<rect id="text-oneCat_00000087395032572343618070000011536717537332320414_" x="1244.2" y="693.55" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="411.64" height="49.96"/>
 	</g>
 	<g id="sr1h1cat-cantDecide">
 		
-			<rect id="sr1h1cat-r-cantDecide" x="753.66" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
+			<rect id="sr1h1cat-r-cantDecide" x="753.5" y="59.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="413" height="711"/>
 		
-			<rect id="text-cantDecide_00000140015703045880102260000006942737438688065174_" x="754.74" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.51" height="50"/>
+			<rect id="text-cantDecide_00000140015703045880102260000006942737438688065174_" x="754.59" y="693.55" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.83" height="49.96"/>
 		
-			<rect id="text-questionMark_00000104684558802458160320000014462162326877138107_" x="755.73" y="247" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="408.53" height="289"/>
+			<rect id="text-questionMark_00000104684558802458160320000014462162326877138107_" x="755.58" y="245.87" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="408.85" height="288.8"/>
 	</g>
 	<g id="sr1h1cat-oneHuman">
 		
-			<rect id="sr1h1cat-r-oneHuman" x="277.35" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
-		<rect id="ph-sr1h1cat-oneHuman" x="370" y="364" opacity="0.6" fill="#4AE5D9" width="229" height="229"/>
+			<rect id="sr1h1cat-r-oneHuman" x="263.5" y="59.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="413" height="711"/>
+		<rect id="ph-sr1h1cat-oneHuman" x="356.22" y="362.79" opacity="0.6" fill="#4AE5D9" width="229.17" height="228.84"/>
 		
-			<image overflow="visible" width="130" height="246" id="link-sr1h1cat-oneHuman" xlink:href="human.png"  transform="matrix(0.5077 0 0 0.5077 441 432)">
+			<image overflow="visible" width="130" height="246" id="link-sr1h1cat-oneHuman" xlink:href="human.png"  transform="matrix(0.5081 0 0 0.5073 427.2786 430.7389)">
 		</image>
-		<rect id="ph-sr1h1cat-boat-oneHuman" x="386" y="68" opacity="0.6" fill="#4AE5D9" width="199" height="199"/>
+		<rect id="ph-sr1h1cat-boat-oneHuman" x="372.24" y="66.99" opacity="0.6" fill="#4AE5D9" width="199.15" height="198.86"/>
 		
-			<image overflow="visible" width="260" height="245" id="link-sr1h1cat-boat-oneHuman" xlink:href="boat.png"  transform="matrix(0.3649 0 0 0.3649 446.3549 127.891)">
+			<image overflow="visible" width="260" height="245" id="link-sr1h1cat-boat-oneHuman" xlink:href="boat.png"  transform="matrix(0.3652 0 0 0.3646 432.6377 126.8437)">
 		</image>
 		
-			<rect id="text-oneHuman_00000126286940317943006420000007330785264777530755_" x="278.4" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.6" height="50"/>
+			<rect id="text-oneHuman_00000126286940317943006420000007330785264777530755_" x="264.56" y="693.55" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.91" height="49.96"/>
 	</g>
 	<rect id="sr1h1cat-wr" x="277" y="809" fill="#E5E5E5" width="1366" height="250"/>
 	<rect id="ph-sr1h1cat-next" x="1790" y="968" fill="#B8846E" width="90" height="90"/>
@@ -449,39 +449,39 @@
 <g id="s-reasoning-1-hu-1-co">
 	<g id="sr1h1cow-oneCow">
 		
-			<rect id="sr1h1cow-r-oneCow" x="1229.97" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
-		<rect id="ph-sr1h1cow-oneCow-reflect" x="1292" y="325" opacity="0.6" fill="#4AE5D9" width="292" height="292"/>
+			<rect id="sr1h1cow-r-oneCow" x="1243.5" y="59.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.33" height="711"/>
+		<rect id="ph-sr1h1cow-oneCow-reflect" x="1305.48" y="323.81" opacity="0.6" fill="#4AE5D9" width="291.75" height="291.79"/>
 		
-			<image overflow="visible" width="116" height="76" id="link-sr1h1cow-oneCow-reflect" xlink:href="cow.png"  transform="matrix(-1 0 0 1 1549.4213 440.7053)">
+			<image overflow="visible" width="116" height="76" id="link-sr1h1cow-oneCow-reflect" xlink:href="cow.png"  transform="matrix(-0.9991 0 0 0.9993 1562.6792 439.4381)">
 		</image>
-		<rect id="ph-sr1h1cow-boat-oneCow" x="1337" y="68" opacity="0.6" fill="#4AE5D9" width="199" height="199"/>
+		<rect id="ph-sr1h1cow-boat-oneCow" x="1350.44" y="66.99" opacity="0.6" fill="#4AE5D9" width="198.83" height="198.86"/>
 		
-			<image overflow="visible" width="260" height="245" id="link-sr1h1cow-boat-oneCow" xlink:href="boat.png"  transform="matrix(0.3649 0 0 0.3649 1383 110)">
+			<image overflow="visible" width="260" height="245" id="link-sr1h1cow-boat-oneCow" xlink:href="boat.png"  transform="matrix(0.3646 0 0 0.3646 1396.4004 108.9652)">
 		</image>
 		
-			<rect id="text-oneCow_00000024705363447097493980000002579685783740181437_" x="1231.99" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="411.33" height="50"/>
+			<rect id="text-oneCow_00000024705363447097493980000002579685783740181437_" x="1245.52" y="693.55" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.98" height="49.96"/>
 	</g>
 	<g id="sr1h1cow-cantDecide">
 		
-			<rect id="sr1h1cow-r-cantDecide" x="753.66" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
+			<rect id="sr1h1cow-r-cantDecide" x="753.5" y="59.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="413" height="711"/>
 		
-			<rect id="text-cantDecide_00000114774721705606553580000010613117163385124227_" x="754.74" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.51" height="50"/>
+			<rect id="text-cantDecide_00000114774721705606553580000010613117163385124227_" x="754.59" y="693.55" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.83" height="49.96"/>
 		
-			<rect id="text-questionMark_00000134952445987012336510000005621197938480011943_" x="755.73" y="247" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="408.53" height="289"/>
+			<rect id="text-questionMark_00000134952445987012336510000005621197938480011943_" x="755.58" y="245.87" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="408.85" height="288.8"/>
 	</g>
 	<g id="sr1h1cow-oneHuman">
 		
-			<rect id="sr1h1cow-r-oneHuman" x="277.35" y="60.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="412.69" height="711.5"/>
-		<rect id="ph-sr1h1cow-oneHuman" x="359" y="338" opacity="0.6" fill="#4AE5D9" width="245" height="245"/>
+			<rect id="sr1h1cow-r-oneHuman" x="263.5" y="59.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="413" height="711"/>
+		<rect id="ph-sr1h1cow-oneHuman" x="345.22" y="336.8" opacity="0.6" fill="#4AE5D9" width="245.19" height="244.83"/>
 		
-			<image overflow="visible" width="130" height="246" id="link-sr1h1cow-oneHuman" xlink:href="human.png"  transform="matrix(0.5077 0 0 0.5077 441 432)">
+			<image overflow="visible" width="130" height="246" id="link-sr1h1cow-oneHuman" xlink:href="human.png"  transform="matrix(0.5081 0 0 0.5073 427.2786 430.7389)">
 		</image>
-		<rect id="ph-sr1h1cow-boat-oneHuman" x="386" y="68" opacity="0.6" fill="#4AE5D9" width="199" height="199"/>
+		<rect id="ph-sr1h1cow-boat-oneHuman" x="372.24" y="66.99" opacity="0.6" fill="#4AE5D9" width="199.15" height="198.86"/>
 		
-			<image overflow="visible" width="260" height="245" id="link-sr1h1cow-boat-oneHuman" xlink:href="boat.png"  transform="matrix(0.3649 0 0 0.3649 446.3549 127.891)">
+			<image overflow="visible" width="260" height="245" id="link-sr1h1cow-boat-oneHuman" xlink:href="boat.png"  transform="matrix(0.3652 0 0 0.3646 432.6377 126.8437)">
 		</image>
 		
-			<rect id="text-oneHuman_00000177486688293706920800000008931663284154733205_" x="277.73" y="695" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.6" height="50"/>
+			<rect id="text-oneHuman_00000177486688293706920800000008931663284154733205_" x="263.88" y="693.55" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="410.91" height="49.96"/>
 	</g>
 	<rect id="sr1h1cow-wr" x="277" y="809" fill="#E5E5E5" width="1366" height="250"/>
 	<rect id="ph-sr1h1cow-next" x="1790" y="968" fill="#B8846E" width="90" height="90"/>
