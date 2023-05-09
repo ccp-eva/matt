@@ -234,10 +234,10 @@ export default async ({ currentSlide, previousSlide }) => {
 	let wasCantDecide = false;
 	let wasCow = false;
 	// check actual responses from s1Ca1Co and overwrite default values
-	if (data.procedure.sC1Ca1Co) {
-		wasCat = data.procedure.sC1Ca1Co.response.toLowerCase().includes(`-one${leftEntity}`);
-		wasCantDecide = data.procedure.sC1Ca1Co.response.toLowerCase().includes('-cantdecide');
-		wasCow = data.procedure.sC1Ca1Co.response.toLowerCase().includes(`-one${rightEntity}`);
+	if (data.procedure.s1Ca1Co) {
+		wasCat = data.procedure.s1Ca1Co.response.toLowerCase().includes(`-one${leftEntity}`);
+		wasCantDecide = data.procedure.s1Ca1Co.response.toLowerCase().includes('-cantdecide');
+		wasCow = data.procedure.s1Ca1Co.response.toLowerCase().includes(`-one${rightEntity}`);
 	} else {
 		wasCat = false;
 		wasCantDecide = true;
