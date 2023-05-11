@@ -52,7 +52,11 @@ export default async ({ currentSlide, previousSlide }) => {
 			}
 		});
 		audio.addEventListener('ended', () => {
-			if (!playingTimeline) {
+			if (playingTimeline) {
+				nextButton.style.pointerEvents = 'none';
+				headphones.style.pointerEvents = 'none';
+				gsap.to([nextButton, headphones], { autoAlpha: 0 });
+			} else {
 				nextButton.style.pointerEvents = 'visible';
 				headphones.style.pointerEvents = 'visible';
 				gsap.to([nextButton, headphones], { autoAlpha: 1 });

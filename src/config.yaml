@@ -55,11 +55,11 @@ procedure:
   # You can nest only two levels deep
   de-urban:
     - s-introduction
-    - s-intro-human-animals
-    - animalOrder: [s-cow, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human]
-    - s-mc-intro
-    - s-ball-animation
-    - s-ball-practice
+    # - s-intro-human-animals
+    # - animalOrder: [s-cow, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human]
+    # - s-mc-intro
+    # - s-ball-animation
+    # - s-ball-practice
     - s-task
     - s-meaning
     - s-intro-boats
