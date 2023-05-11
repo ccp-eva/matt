@@ -33,6 +33,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		if (!config.devmode.on) {
 			startFullscreen();
 		}
+		play(`./cultures/${data.culture}/audio/pop.mp3`);
 		gsap.to(speaker, { autoAlpha: 0 });
 		play(`./cultures/${data.culture}/audio/si-next-red.mp3`, headphones.id);
 
