@@ -94,6 +94,9 @@ export default async ({ currentSlide, previousSlide }) => {
 				delay: 5,
 				opacity: 1,
 				visibility: 'visible',
+				onComplete: () => {
+					playingTimeline = false;
+				},
 			})
 			.to(nextButton, {
 				filter: 'drop-shadow(0px 0px 14px #a90707)',
@@ -101,9 +104,6 @@ export default async ({ currentSlide, previousSlide }) => {
 				repeat: -1,
 				yoyo: true,
 				reversed: true,
-				onComplete: () => {
-					playingTimeline = false;
-				},
 			});
 	});
 
