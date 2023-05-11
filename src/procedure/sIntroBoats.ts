@@ -55,6 +55,10 @@ export default async ({ currentSlide, previousSlide }) => {
 		.to(fsplayer, {
 			autoAlpha: 1,
 			onStart: () => {
+				// show controls for safari the first time
+				if (data.meta.isSafari && data.meta.isMobileDevice) {
+					fsplayer.controls = true;
+				}
 				fsplayer.src = prefetchedVideos.boat;
 				fsplayer.play();
 			},
