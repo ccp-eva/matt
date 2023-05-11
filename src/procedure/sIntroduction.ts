@@ -33,6 +33,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		if (!config.devmode.on) {
 			startFullscreen();
 		}
+		play(`./cultures/${data.culture}/audio/pop.mp3`);
 		gsap.to(speaker, { autoAlpha: 0 });
 		play(`./cultures/${data.culture}/audio/si-next-red.mp3`, headphones.id);
 
@@ -51,9 +52,11 @@ export default async ({ currentSlide, previousSlide }) => {
 			}
 		});
 		audio.addEventListener('ended', () => {
-			nextButton.style.pointerEvents = 'visible';
-			headphones.style.pointerEvents = 'visible';
-			gsap.to([nextButton, headphones], { autoAlpha: 1 });
+			if (!playingTimeline) {
+				nextButton.style.pointerEvents = 'visible';
+				headphones.style.pointerEvents = 'visible';
+				gsap.to([nextButton, headphones], { autoAlpha: 1 });
+			}
 		});
 		pinda.addEventListener('ended', () => {
 			nextButton.style.pointerEvents = 'visible';

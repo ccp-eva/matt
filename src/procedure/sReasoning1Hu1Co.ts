@@ -5,7 +5,7 @@ import RecordRTC from 'recordrtc';
 import { SvgInHtml } from '../types';
 import { play, playPromise } from '../util/audio';
 import { getResponse } from '../util/getResponse';
-import { generateUserIdFilename, sleep, uploadAudio } from '../util/helpers';
+import { generateUserIdFilename, moveToCenterAnchor, sleep, uploadAudio } from '../util/helpers';
 import { swapSlides } from '../util/slideVisibility';
 
 export default async ({ currentSlide, previousSlide }) => {
@@ -238,6 +238,13 @@ export default async ({ currentSlide, previousSlide }) => {
 		wasHuman = data.procedure.s1Hu1Co.response.toLowerCase().includes(`-one${leftEntity}`);
 		wasCantDecide = data.procedure.s1Hu1Co.response.toLowerCase().includes('-cantdecide');
 		wasCow = data.procedure.s1Hu1Co.response.toLowerCase().includes(`-one${rightEntity}`);
+		// check if order was swapped, if so swap boxes
+		if (data.procedure.s1Hu1Co.swapLeftRight) {
+			const left = document.getElementById(`${slidePrefix}-${leftEntityOne}`)! as SvgInHtml;
+			const right = document.getElementById(`${slidePrefix}-${rightEntityOne}`)! as SvgInHtml;
+			moveToCenterAnchor(left, 1450);
+			moveToCenterAnchor(right, 470);
+		}
 	} else {
 		wasHuman = false;
 		wasCantDecide = true;
@@ -269,7 +276,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	}
 	if (wasCow) {
 		await playPromise(`./cultures/${data.culture}/audio/srw-${rightEntity}.mp3`);
-		play(`./cultures/${data.culture}/audio/srw-${rightEntityOne}.mp3`, headphones.id);
+		play(`./cultures/${data.culture}/audio/srw-${rightEntity}.mp3`, headphones.id);
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------

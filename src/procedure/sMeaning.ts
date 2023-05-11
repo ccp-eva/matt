@@ -150,6 +150,9 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	// show wrapper
 	wrapper.style.display = 'block';
+	if (data.meta.isSafari && data.meta.isMobileDevice) {
+		wrapper.style.display = 'inline-block';
+	}
 
 	data.procedure[data.currentSlide].voiceExplanation = checkBox.checked;
 	data.procedure[data.currentSlide].textExplanation = !checkBox.checked;

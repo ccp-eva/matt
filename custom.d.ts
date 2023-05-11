@@ -203,14 +203,17 @@ declare var data: {
 		s1Hu1Co: {
 			duration: number;
 			response: string;
+			swapLeftRight: boolean;
 		};
 		s1Hu1Ca: {
 			duration: number;
 			response: string;
+			swapLeftRight: boolean;
 		};
-		sC1Ca1Co: {
+		s1Ca1Co: {
 			duration: number;
 			response: string;
+			swapLeftRight: boolean;
 		};
 		sQuThoughtsComp: {
 			response: string;
