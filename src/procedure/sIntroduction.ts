@@ -52,9 +52,11 @@ export default async ({ currentSlide, previousSlide }) => {
 			}
 		});
 		audio.addEventListener('ended', () => {
-			nextButton.style.pointerEvents = 'visible';
-			headphones.style.pointerEvents = 'visible';
-			gsap.to([nextButton, headphones], { autoAlpha: 1 });
+			if (!playingTimeline) {
+				nextButton.style.pointerEvents = 'visible';
+				headphones.style.pointerEvents = 'visible';
+				gsap.to([nextButton, headphones], { autoAlpha: 1 });
+			}
 		});
 		pinda.addEventListener('ended', () => {
 			nextButton.style.pointerEvents = 'visible';
