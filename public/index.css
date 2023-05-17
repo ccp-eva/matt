@@ -31,6 +31,13 @@ h1 {
 	margin: 20px 0;
 }
 
+h2 {
+	font-family: cholla-sans, sans-serif;
+	font-size: 1rem;
+	text-align: left;
+	margin: 20px 0;
+}
+
 .container {
 	position: relative;
 	max-width: 40rem;
@@ -281,11 +288,11 @@ fieldset {
 }
 
 .checkbox {
-	font-size: 1.3rem;
+	font-size: 1rem;
 	margin-top: 3rem;
 	margin-bottom: 1rem;
 	display: flex;
-	justify-content: center;
+	justify-content: left;
 }
 .checkbox .helper {
 	color: #999;
@@ -580,8 +587,8 @@ a:visited {
 }
 
 #consent {
-	text-align: center;
-	font-size: 1.5rem;
+	text-align: left;
+	font-size: 1rem;
 	display: none;
 	opacity: 0;
 	animation: fadein 1s ease 0s 1 normal forwards;
