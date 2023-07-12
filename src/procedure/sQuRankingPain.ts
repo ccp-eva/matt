@@ -15,9 +15,9 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	const slidePrefix = 'sqrp';
 	const audioPrefix = 'sqrp-sqrf-resp';
-	const entity1 = 'cow';
-	const entity2 = 'cat';
-	const entity3 = 'human';
+	const entity1 = 'chicken';
+	const entity2 = 'dog';
+	const entity3 = 'human-pe';
 	const box1TextId = 'notAtAll_00000144333075724770840860000006036766900575541144_';
 	const box2TextId = 'aLittle_00000082329354004964724180000014787339172979543196_';
 	const box3TextId = 'aMediumAmount_00000001666297148117219360000002345841604038765216_';

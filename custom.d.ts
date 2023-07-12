@@ -85,6 +85,18 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
+		sHumanNam: {
+			duration: number;
+			response: string;
+		};
+		sHumanPe: {
+			duration: number;
+			response: string;
+		};
+		sHumanIdj: {
+			duration: number;
+			response: string;
+		};
 		sCow: {
 			duration: number;
 			response: string;
@@ -118,6 +130,34 @@ declare var data: {
 			response: string;
 		};
 		sGoldfish: {
+			duration: number;
+			response: string;
+		};
+		sGoat: {
+			duration: number;
+			response: string;
+		};
+		sDuiker: {
+			duration: number;
+			response: string;
+		};
+		sKudu: {
+			duration: number;
+			response: string;
+		};
+		sJackal: {
+			duration: number;
+			response: string;
+		};
+		sParrot: {
+			duration: number;
+			response: string;
+		};
+		sTurkey: {
+			duration: number;
+			response: string;
+		};
+		sCatfish: {
 			duration: number;
 			response: string;
 		};
@@ -186,6 +226,153 @@ declare var data: {
 				outer: boolean;
 			};
 		};
+		sTaskPe: {
+			duration: number;
+			knownAnimals: string[];
+			unknownAnimals: string[];
+			humanPe: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			chicken?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			pig?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			dog?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			turkey?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			parrot?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			cow?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			rabbit?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			cat?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			knownAnimalOrder: string[];
+			comprehension: {
+				completed: boolean;
+				order: string[];
+				inner: boolean;
+				middle: boolean;
+				outer: boolean;
+			};
+		};
+		sTaskIdj: {
+			duration: number;
+			knownAnimals: string[];
+			unknownAnimals: string[];
+			humanIdj: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			chicken?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			catfish?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			dog?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			goat?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			parrot?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			cow?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			goldfish?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			cat?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			knownAnimalOrder: string[];
+			comprehension: {
+				completed: boolean;
+				order: string[];
+				inner: boolean;
+				middle: boolean;
+				outer: boolean;
+			};
+		};
+		sTaskNam: {
+			duration: number;
+			knownAnimals: string[];
+			unknownAnimals: string[];
+			humanNam: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			chicken?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			duiker?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			dog?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			goat?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			kudu?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			jackal?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			giraffe?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			cat?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			knownAnimalOrder: string[];
+			comprehension: {
+				completed: boolean;
+				order: string[];
+				inner: boolean;
+				middle: boolean;
+				outer: boolean;
+			};
+		};
 		sMeaning: {
 			duration: number;
 			input: 'text' | 'audio' | 'userchoice-audio' | 'userchoice-text';
@@ -238,6 +425,57 @@ declare var data: {
 				coords: { x: number; y: number };
 			};
 		};
+		sQuRankingIntelligenceIdj: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			humanIdj: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingIntelligencePe: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			humanPe: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingIntelligenceNam: {
+			response: string;
+			duration: number;
+			order: string[];
+			duiker: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			humanNam: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
 		sQuRankingPain: {
 			response: string;
 			duration: number;
@@ -251,6 +489,74 @@ declare var data: {
 				coords: { x: number; y: number };
 			};
 			human: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingPain: {
+			response: string;
+			duration: number;
+			order: string[];
+			cow: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			cat: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			human: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingPainIdj: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			cat: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			humanIdj: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingPainPe: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			humanPe: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingPainNam: {
+			response: string;
+			duration: number;
+			order: string[];
+			duiker: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			humanNam: {
 				position: 0 | 1 | 2 | 3 | 4;
 				coords: { x: number; y: number };
 			};
@@ -272,6 +578,57 @@ declare var data: {
 				coords: { x: number; y: number };
 			};
 		};
+		sQuRankingFeelingsPe: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			humanPe: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingFeelingsNam: {
+			response: string;
+			duration: number;
+			order: string[];
+			duiker: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			humanNam: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingFeelingsIdj: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			cat: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			humanIdj: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
 		sQuRankingSimilarity: {
 			response: string;
 			duration: number;
@@ -281,6 +638,45 @@ declare var data: {
 				coords: { x: number; y: number };
 			};
 			cat: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingSimilarityPe: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingSimilarityIdj: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			cat: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingSimilarityNam: {
+			response: string;
+			duration: number;
+			order: string[];
+			duiker: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
 				position: 0 | 1 | 2 | 3 | 4;
 				coords: { x: number; y: number };
 			};
@@ -298,7 +694,73 @@ declare var data: {
 				coords: { x: number; y: number };
 			};
 		};
+		sQuRankingExposureIdj: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			cat: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingExposurePe: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingExposureNam: {
+			response: string;
+			duration: number;
+			order: string[];
+			duiker: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
 		sReasoning1Hu1Co: {
+			duration: number;
+			input: 'text' | 'audio' | 'userchoice-audio' | 'userchoice-text';
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+			textExplanation: boolean;
+		};
+		sReasoning1Nm1Du: {
+			duration: number;
+			input: 'text' | 'audio' | 'userchoice-audio' | 'userchoice-text';
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+			textExplanation: boolean;
+		};
+		sReasoning1Pe1Ch: {
+			duration: number;
+			input: 'text' | 'audio' | 'userchoice-audio' | 'userchoice-text';
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+			textExplanation: boolean;
+		};
+		sReasoning1Ij1Ch: {
 			duration: number;
 			input: 'text' | 'audio' | 'userchoice-audio' | 'userchoice-text';
 			textInput: string;
@@ -315,7 +777,55 @@ declare var data: {
 			isVoice: boolean;
 			voiceExplanation: boolean;
 		};
+		sReasoning1Ij1Ca: {
+			response: string;
+			duration: number;
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+		};
+		sReasoning1Pe1Do: {
+			response: string;
+			duration: number;
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+		};
+		sReasoning1Nm1Do: {
+			response: string;
+			duration: number;
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+		};
 		sReasoning1Ca1Co: {
+			response: string;
+			duration: number;
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+		};
+		sReasoning1Ca1Ch: {
+			response: string;
+			duration: number;
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+		};
+		sReasoning1Do1Ch: {
+			response: string;
+			duration: number;
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+		};
+		sReasoning1Do1Du: {
 			response: string;
 			duration: number;
 			textInput: string;
