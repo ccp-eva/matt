@@ -79,7 +79,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	});
 
 	// always show human
-	knownAnimals = [...knownAnimals, 'humanPe'];
+	knownAnimals = [...knownAnimals, 'human-pe'];
 
 	let animalOrder = _.shuffle(knownAnimals); // fallback for developement
 	if (data.animalOrder) {

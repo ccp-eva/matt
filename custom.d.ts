@@ -392,12 +392,57 @@ declare var data: {
 			response: string;
 			swapLeftRight: boolean;
 		};
+		s1Pe1Ch: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
+		s1Nm1Du: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
+		s1Ij1Ch: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
 		s1Hu1Ca: {
 			duration: number;
 			response: string;
 			swapLeftRight: boolean;
 		};
+		s1Ij1Ca: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
+		s1Nm1Do: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
+		s1Pe1Do: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
 		s1Ca1Co: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
+		s1Ca1Ch: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
+		s1Do1Ch: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
+		s1Do1Du: {
 			duration: number;
 			response: string;
 			swapLeftRight: boolean;

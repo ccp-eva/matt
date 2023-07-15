@@ -169,7 +169,7 @@ procedure:
   idj-urban:
     - s-introduction
     - s-intro-human-animals
-    - animalOrder: [s-cow, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human]
+    - animalOrder: [s-cow, s-catfish, s-goat, s-chicken, s-cat, s-dog, s-parrot, s-goldfish, s-human-idj]
     - s-mc-intro
     - s-ball-animation
     - s-ball-practice
@@ -191,13 +191,13 @@ procedure:
             ]
         - foodOrder:
             [
-              s-1-ij-1-co,
-              s-2-ij-1-co,
-              s-1-ij-2-co,
-              s-10-ij-1-co,
-              s-1-ij-10-co,
-              s-100-ij-1-co,
-              s-1-ij-100-co,
+              s-1-ij-1-ch,
+              s-2-ij-1-ch,
+              s-1-ij-2-ch,
+              s-10-ij-1-ch,
+              s-1-ij-10-ch,
+              s-100-ij-1-ch,
+              s-1-ij-100-ch,
             ]
         - controlOrder: [s-1-ij-10-ij, s-1-ij-10-na, s-1-ij-10-sp, s-1-ca-1-ch]
     - s-motivation-dilemma3
@@ -222,4 +222,58 @@ procedure:
     - s-resolve-dilemma
     - s-end
 
-  na-rural: [s-introduction, s-moral-circle, s-human]
+ nam-rural:
+    - s-introduction
+    - s-intro-human-animals
+    - animalOrder: [s-duiker, s-kudu, s-giraffe, s-jackal, s-cat, s-dog, s-chicken, s-goat, s-human-nam]
+    - s-mc-intro
+    - s-ball-animation
+    - s-ball-practice
+    - s-task-nam
+    - s-meaning
+    - s-intro-boats
+    - s-practice-dilemma
+    - s-dilemma-start
+    - dilemmaOrder:
+        - companionOrder:
+            [
+              s-1-nm-1-do,
+              s-2-nm-1-do,
+              s-1-nm-2-do,
+              s-10-nm-1-do,
+              s-1-nm-10-do,
+              s-100-nm-1-do,
+              s-1-nm-100-do,
+            ]
+        - foodOrder:
+            [
+              s-1-nm-1-du,
+              s-2-nm-1-du,
+              s-1-nm-2-du,
+              s-10-nm-1-du,
+              s-1-nm-10-du,
+              s-100-nm-1-du,
+              s-1-nm-100-du,
+            ]
+        - controlOrder: [s-1-nm-10-nm, s-1-nm-10-na, s-1-nm-10-sp, s-1-ca-1-ch]
+    - s-motivation-dilemma3
+    - s-qu-thoughts
+    - s-qu-feelings
+    - s-qu-difference
+    - s-intro-ranking
+    - rankingOrder:
+        [
+          s-qu-ranking-intelligence-nam,
+          s-qu-ranking-pain-nam,
+          s-qu-ranking-feelings-nam,
+          s-qu-ranking-similarity-nam,
+        ]
+    - s-motivation-questions
+    - s-qu-ownership
+    - s-qu-ranking-exposure-nam
+    - s-qu-meat-fish
+    - s-qu-egg-cheese-milk
+    - s-intro-reasoning
+    - reasoningOrder: [s-reasoning-1-nm-1-ch, s-reasoning-1-nm-1-ca, s-reasoning-1-ca-1-ch]
+    - s-resolve-dilemma
+    - s-end

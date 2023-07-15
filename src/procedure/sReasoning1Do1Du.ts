@@ -233,13 +233,13 @@ export default async ({ currentSlide, previousSlide }) => {
 	let wasDog = false;
 	let wasCantDecide = false;
 	let wasDuiker = false;
-	// check actual responses from s1Ca1Co and overwrite default values
-	if (data.procedure.s1Ca1Co) {
-		wasDog = data.procedure.s1Ca1Co.response.toLowerCase().includes(`-one${leftEntity}`);
-		wasCantDecide = data.procedure.s1Ca1Co.response.toLowerCase().includes('-cantdecide');
-		wasDuiker = data.procedure.s1Ca1Co.response.toLowerCase().includes(`-one${rightEntity}`);
+	// check actual responses from s1Do1Du and overwrite default values
+	if (data.procedure.s1Do1Du) {
+		wasDog = data.procedure.s1Do1Du.response.toLowerCase().includes(`-one${leftEntity}`);
+		wasCantDecide = data.procedure.s1Do1Du.response.toLowerCase().includes('-cantdecide');
+		wasDuiker = data.procedure.s1Do1Du.response.toLowerCase().includes(`-one${rightEntity}`);
 		// check if order was swapped, if so swap boxes
-		if (data.procedure.s1Ca1Co.swapLeftRight) {
+		if (data.procedure.s1Do1Du.swapLeftRight) {
 			const left = document.getElementById(`${slidePrefix}-${leftEntityOne}`)! as SvgInHtml;
 			const right = document.getElementById(`${slidePrefix}-${rightEntityOne}`)! as SvgInHtml;
 			moveToCenterAnchor(left, 1450);
@@ -539,7 +539,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	isPlaying = true;
 	await gsap
 		.timeline()
-		.to('#s-reasoning-1-ca-1-co', { autoAlpha: 0 })
+		.to('#s-reasoning-1-do-1-du', { autoAlpha: 0 })
 		.to(pindaNeutral, { autoAlpha: 0 });
 	if (data.reasoningSlideCounter === 1) {
 		pinda.src = prefetchedVideos.react1;

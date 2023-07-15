@@ -10,11 +10,11 @@ import { swapSlides } from '../util/slideVisibility';
 
 export default async ({ currentSlide, previousSlide }) => {
 	data.reasoningSlideCounter++;
-	const slidePrefix = 'sr1h1cat';
-	const leftEntity = 'human';
+	const slidePrefix = 'sr1pe1dog';
+	const leftEntity = 'human-pe';
 	const leftEntityOne = 'oneHuman';
-	const rightEntity = 'cat';
-	const rightEntityOne = 'oneCat';
+	const rightEntity = 'dog';
+	const rightEntityOne = 'oneDog';
 
 	const videoStrings = {
 		neutral: `./cultures/${data.culture}/video/pinda-neutral-listening.${data.meta.videoExtension}`,
@@ -232,14 +232,14 @@ export default async ({ currentSlide, previousSlide }) => {
 	// default values
 	let wasHuman = false;
 	let wasCantDecide = false;
-	let wasCat = false;
-	// check actual responses from s1Hu1Ca and overwrite default values
-	if (data.procedure.s1Hu1Ca) {
-		wasHuman = data.procedure.s1Hu1Ca.response.toLowerCase().includes(`-one${leftEntity}`);
-		wasCantDecide = data.procedure.s1Hu1Ca.response.toLowerCase().includes('-cantdecide');
-		wasCat = data.procedure.s1Hu1Ca.response.toLowerCase().includes(`-one${rightEntity}`);
+	let wasDog = false;
+	// check actual responses from s1Pe1Do and overwrite default values
+	if (data.procedure.s1Pe1Do) {
+		wasHuman = data.procedure.s1Pe1Do.response.toLowerCase().includes(`-one${leftEntity}`);
+		wasCantDecide = data.procedure.s1Pe1Do.response.toLowerCase().includes('-cantdecide');
+		wasDog = data.procedure.s1Pe1Do.response.toLowerCase().includes(`-one${rightEntity}`);
 		// check if order was swapped, if so swap boxes
-		if (data.procedure.s1Hu1Ca.swapLeftRight) {
+		if (data.procedure.s1Pe1Do.swapLeftRight) {
 			const left = document.getElementById(`${slidePrefix}-${leftEntityOne}`)! as SvgInHtml;
 			const right = document.getElementById(`${slidePrefix}-${rightEntityOne}`)! as SvgInHtml;
 			moveToCenterAnchor(left, 1450);
@@ -248,7 +248,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	} else {
 		wasHuman = false;
 		wasCantDecide = true;
-		wasCat = false;
+		wasDog = false;
 	}
 
 	// add frame around prior selected card
@@ -258,13 +258,13 @@ export default async ({ currentSlide, previousSlide }) => {
 	if (wasCantDecide) {
 		center.classList.add('dilemma-card-fix');
 	}
-	if (wasCat) {
+	if (wasDog) {
 		right.classList.add('dilemma-card-fix');
 	}
 
 	swapSlides(currentSlide, previousSlide);
 
-	if (data.procedure.s1Hu1Ca.swapLeftRight) {
+	if (data.procedure.s1Pe1Do.swapLeftRight) {
 		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
 	} else {
 		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
@@ -278,7 +278,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		await playPromise(`./cultures/${data.culture}/audio/srw-cantDecide.mp3`);
 		play(`./cultures/${data.culture}/audio/srw-cantDecide.mp3`, headphones.id);
 	}
-	if (wasCat) {
+	if (wasDog) {
 		await playPromise(`./cultures/${data.culture}/audio/srw-${rightEntity}.mp3`);
 		play(`./cultures/${data.culture}/audio/srw-${rightEntity}.mp3`, headphones.id);
 	}
@@ -542,7 +542,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	isPlaying = true;
 	await gsap
 		.timeline()
-		.to('#s-reasoning-1-hu-1-ca', { autoAlpha: 0 })
+		.to('#s-reasoning-1-pe-1-do', { autoAlpha: 0 })
 		.to(pindaNeutral, { autoAlpha: 0 });
 	if (data.reasoningSlideCounter === 1) {
 		pinda.src = prefetchedVideos.react1;
