@@ -4,9 +4,9 @@ export default async ({ currentSlide, previousSlide }) => {
 	await sDilemmaCodeRunner(
 		currentSlide,
 		previousSlide,
-		's1nm10sponges',
+		's1nm10sandpiles',
 		'oneHuman',
-		'tenSponges',
+		'tenSandpiles',
 		Math.random() < 0.5
 	);
 };

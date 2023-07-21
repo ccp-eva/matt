@@ -15,7 +15,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		duration: 0,
 		knownAnimals: [],
 		unknownAnimals: [],
-		humanNam: { circle: undefined, coords: { x: 0, y: 0 } },
+		human: { circle: undefined, coords: { x: 0, y: 0 } },
 		chicken: { circle: undefined, coords: { x: 0, y: 0 } },
 		giraffe: { circle: undefined, coords: { x: 0, y: 0 } },
 		dog: { circle: undefined, coords: { x: 0, y: 0 } },

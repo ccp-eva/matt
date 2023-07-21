@@ -230,7 +230,7 @@ declare var data: {
 			duration: number;
 			knownAnimals: string[];
 			unknownAnimals: string[];
-			humanPe: {
+			human: {
 				circle: 'inner' | 'middle' | 'outer' | undefined;
 				coords: { x: number; y: number };
 			};
@@ -279,7 +279,7 @@ declare var data: {
 			duration: number;
 			knownAnimals: string[];
 			unknownAnimals: string[];
-			humanIdj: {
+			human: {
 				circle: 'inner' | 'middle' | 'outer' | undefined;
 				coords: { x: number; y: number };
 			};
@@ -328,7 +328,7 @@ declare var data: {
 			duration: number;
 			knownAnimals: string[];
 			unknownAnimals: string[];
-			humanNam: {
+			human: {
 				circle: 'inner' | 'middle' | 'outer' | undefined;
 				coords: { x: number; y: number };
 			};

@@ -110,9 +110,8 @@ procedure:
     - s-end
 
   pe-rural:
-    # - s-introduction
-    # - s-intro-human-animals
-    - s-human-pe
+    - s-introduction
+    - s-intro-human-animals
     - animalOrder: [s-cow, s-pig, s-chicken, s-cat, s-dog, s-rabbit, s-turkey, s-parrot, s-human-pe]
     - s-mc-intro
     - s-ball-animation
@@ -167,9 +166,12 @@ procedure:
     - s-end
 
   idj-urban:
+    - s-cat
+    - s-catfish
     - s-introduction
     - s-intro-human-animals
-    - animalOrder: [s-cow, s-catfish, s-goat, s-chicken, s-cat, s-dog, s-parrot, s-goldfish, s-human-idj]
+    - animalOrder:
+        [s-cow, s-catfish, s-goat, s-chicken, s-cat, s-dog, s-parrot, s-goldfish, s-human-idj]
     - s-mc-intro
     - s-ball-animation
     - s-ball-practice
@@ -222,17 +224,18 @@ procedure:
     - s-resolve-dilemma
     - s-end
 
- nam-rural:
+  nam-rural:
     - s-introduction
     - s-intro-human-animals
-    - animalOrder: [s-duiker, s-kudu, s-giraffe, s-jackal, s-cat, s-dog, s-chicken, s-goat, s-human-nam]
+    - animalOrder:
+        [s-duiker, s-kudu, s-giraffe, s-jackal, s-cat, s-dog, s-chicken, s-goat, s-human-nam]
     - s-mc-intro
     - s-ball-animation
     - s-ball-practice
     - s-task-nam
     - s-meaning
     - s-intro-boats
-    - s-practice-dilemma
+    - s-practice-dilemma-nam
     - s-dilemma-start
     - dilemmaOrder:
         - companionOrder:
@@ -255,7 +258,7 @@ procedure:
               s-100-nm-1-du,
               s-1-nm-100-du,
             ]
-        - controlOrder: [s-1-nm-10-nm, s-1-nm-10-na, s-1-nm-10-sp, s-1-ca-1-ch]
+        - controlOrder: [s-1-nm-10-nm, s-1-nm-10-st, s-1-nm-10-sa, s-1-ca-1-ch]
     - s-motivation-dilemma3
     - s-qu-thoughts
     - s-qu-feelings
