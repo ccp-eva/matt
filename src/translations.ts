@@ -197,10 +197,6 @@ export const translations = {
 		'nam-rural': '<p class="dilemma">10 /gui-ti</p>',
 	},
 
-	tenSticks: {
-		'nam-rural': '<p class="dilemma">10 haiku</p>',
-	},
-
 	tenSandpiles: {
 		'nam-rural': '<p class="dilemma">10 !hu hopi ti</p>',
 	},
