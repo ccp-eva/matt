@@ -166,8 +166,6 @@ procedure:
     - s-end
 
   idj-urban:
-    - s-cat
-    - s-catfish
     - s-introduction
     - s-intro-human-animals
     - animalOrder:
