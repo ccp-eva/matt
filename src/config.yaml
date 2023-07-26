@@ -110,6 +110,8 @@ procedure:
     - s-end
 
   pe-rural:
+    - s-practice-dilemma
+    - s-1-pe-1-do
     - s-introduction
     - s-intro-human-animals
     - animalOrder: [s-cow, s-pig, s-chicken, s-cat, s-dog, s-rabbit, s-turkey, s-parrot, s-human-pe]
