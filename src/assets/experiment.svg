@@ -2719,7 +2719,7 @@
 		
 			<rect id="ph-s1nm10sandpiles-tenSandpiles" x="1414.5" y="483" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="331" height="331"/>
 		
-			<image overflow="visible" enable-background="new    " width="332" height="296" id="link-s1nm10sandpiles-tenSandpiles" xlink:href="10nails.png"  transform="matrix(0.5016 0 0 0.5016 1519 592)">
+			<image overflow="visible" width="111" height="98" id="link-s1nm10sandpiles-tenSandpiles" xlink:href="10sandpiles.png"  transform="matrix(1 0 0 1 1584.463 551.6535)">
 		</image>
 		
 			<rect id="ph-s1nm10sandpiles-boat-tenSandpiles" x="1451" y="114" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="258" height="258"/>
@@ -7237,22 +7237,24 @@
 	</image>
 </g>
 <g id="s-human-idj">
-	<rect id="ph-s-humanidj-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-humanidj-headphones" x="19" y="21" display="none" fill="#B8846E" width="80" height="80"/>
 	
-		<image overflow="visible" enable-background="new    " width="80" height="80" id="link-s-humanidj-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
-	</image>
-	<rect id="ph-s-humanidj-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
-	
-		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-humanidj-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
-	</image>
-	<rect id="ph-s-humanidj-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
-	
-		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-humanidj-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+		<image display="none" overflow="visible" enable-background="new    " width="80" height="80" id="link-s-humanidj-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 	
-		<rect id="ph-s-humanidj-humanidj" x="815.36" y="247.05" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="313" height="313"/>
+		<rect id="ph-s-humanidj-no" x="1246" y="730" display="none" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
 	
-		<image overflow="visible" enable-background="new    " width="25" height="44" id="link-s-humanidj-humanidj" xlink:href="humanidj.png"  transform="matrix(1 0 0 1 989.2072 373.888)">
+		<image display="none" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-humanidj-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<rect id="ph-s-humanidj-yes" x="584" y="730" display="none" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+	
+		<image display="none" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-humanidj-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+	
+		<rect id="ph-s-humanidj-humanidj" x="815.36" y="247.05" display="none" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="313" height="313"/>
+	
+		<image display="none" overflow="visible" enable-background="new    " width="25" height="44" id="link-s-humanidj-humanidj" xlink:href="humanidj.png"  transform="matrix(1 0 0 1 989.2072 373.888)">
 	</image>
 </g>
 <g id="s-rabbit">
