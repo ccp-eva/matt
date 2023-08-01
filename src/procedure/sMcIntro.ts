@@ -24,31 +24,49 @@ export default async ({ currentSlide, previousSlide }) => {
 	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 
 	pinda.src = url;
+	const cultureDelay = {
+		fadeIn: {
+			'de-urban': 3.5,
+			'pe-rural': 3.5,
+		},
+		highlightInner: {
+			'de-urban': 11,
+			'pe-rural': 11,
+		},
+		highlightMiddle: {
+			'de-urban': 3,
+			'pe-rural': 4,
+		},
+		highlightOuter: {
+			'de-urban': 1.5,
+			'pe-rural': 3,
+		},
+	};
 	await gsap
 		.timeline()
 		.to([inner, middle, outer], {
 			autoAlpha: 0.5,
-			delay: 3.5,
+			delay: cultureDelay.fadeIn[data.culture],
 		})
 		.to(inner, {
-			delay: 11,
 			autoAlpha: 1,
+			delay: cultureDelay.highlightInner[data.culture],
 			repeat: 2,
 		})
 		.to(inner, {
 			autoAlpha: 0.5,
 		})
 		.to(middle, {
-			delay: 3,
 			autoAlpha: 1,
+			delay: cultureDelay.highlightMiddle[data.culture],
 			repeat: 2,
 		})
 		.to(middle, {
 			autoAlpha: 0.5,
 		})
 		.to(outer, {
-			delay: 1.5,
 			autoAlpha: 1,
+			delay: cultureDelay.highlightOuter[data.culture],
 			repeat: 2,
 			reversed: true,
 		})
