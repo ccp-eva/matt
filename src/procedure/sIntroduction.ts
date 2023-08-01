@@ -73,11 +73,17 @@ export default async ({ currentSlide, previousSlide }) => {
 		pinda.src = url;
 		pinda.play();
 		// only start timeline when media can play through
+		const cultureDelay = {
+			headphones: {
+				'de-urban': 16,
+				'pe-rural': 5,
+			},
+		};
 		gsap
 			.timeline()
 			.to(headphones, {
 				autoAlpha: 0.5,
-				delay: 16,
+				delay: cultureDelay.headphones[data.culture],
 				duration: 0.5,
 				opacity: 1,
 				visibility: 'visible',
