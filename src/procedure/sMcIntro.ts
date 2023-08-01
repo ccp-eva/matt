@@ -24,8 +24,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 
 	pinda.src = url;
-	data.procedure.sMcIntro.completed = false;
-	gsap
+	await gsap
 		.timeline()
 		.to([inner, middle, outer], {
 			autoAlpha: 0.5,
@@ -55,12 +54,5 @@ export default async ({ currentSlide, previousSlide }) => {
 		})
 		.to(outer, {
 			autoAlpha: 0.5,
-			onComplete: () => {
-				data.procedure.sMcIntro.completed = true;
-			},
 		});
-
-	while (!data.procedure.sMcIntro.completed) {
-		await sleep(100);
-	}
 };
