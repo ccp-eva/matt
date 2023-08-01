@@ -26,12 +26,14 @@ export default async ({ currentSlide, previousSlide }) => {
 	const boatRight = document.getElementById('link-spd-boat-oneBike')! as SvgInHtml;
 	const oneBike = document.getElementById('link-spd-oneBike')! as SvgInHtml;
 	const buttonRight = document.getElementById('spd-b-oneBike')! as SvgInHtml;
-	const textRight = document.getElementById(
-		'text-oneBike_00000045577191060881134930000013313987683261151118_'
+	const textRight = document.getElementById('text-oneBike')! as SvgInHtml;
+	const qm = document.getElementById(
+		'text-questionMark_00000155127853693399251650000009331183858803794561_'
 	)! as SvgInHtml;
-	const qm = document.getElementById('text-questionMark')! as SvgInHtml;
 	const buttonCenter = document.getElementById('spd-b-cantDecide')! as SvgInHtml;
-	const textCenter = document.getElementById('text-cantDecide')! as SvgInHtml;
+	const textCenter = document.getElementById(
+		'text-cantDecide_00000034056727285669922990000017223503196478564235_'
+	)! as SvgInHtml;
 
 	const pencilYesButton = document.getElementById('link-b-tenPencils-yes')! as SvgInHtml;
 	const pencilNoButton = document.getElementById('link-b-tenPencils-no')! as SvgInHtml;
@@ -41,14 +43,12 @@ export default async ({ currentSlide, previousSlide }) => {
 	const oneBikeNoButton = document.getElementById('link-b-oneBike-no')! as SvgInHtml;
 
 	const confirm1 = document.getElementById(
-		'text-confirm_00000034811373726967630570000006256181144808529834_'
+		'text-confirm_00000023995390546384149650000012972362905572281273_'
 	);
 	const confirm2 = document.getElementById(
-		'text-confirm_00000142136083963970369070000006815839807686652318_'
+		'text-confirm_00000023989285641362536010000011733819505523217558_'
 	);
-	const confirm3 = document.getElementById(
-		'text-confirm_00000101822596987739090480000015423414397412023998_'
-	);
+	const confirm3 = document.getElementById('text-confirm');
 
 	while (!data.procedure.sPracticeDilemma.completed) {
 		// hide card contents
