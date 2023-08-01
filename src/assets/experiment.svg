@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 27.7.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 27.6.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1920 1080" enable-background="new 0 0 1920 1080" xml:space="preserve">
 <g id="s-end">
@@ -6704,9 +6704,9 @@
 		
 			<rect id="spd-r-cantDecide" x="690" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
 		
-			<rect id="text-cantDecide_00000034073303008685398650000004407549635250354870_" x="690" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="80"/>
+			<rect id="text-cantDecide_00000034056727285669922990000017223503196478564235_" x="690" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="80"/>
 		
-			<rect id="text-questionMark_00000176028395754792316540000006003337852733478549_" x="690" y="387" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="382"/>
+			<rect id="text-questionMark_00000155127853693399251650000009331183858803794561_" x="690" y="387" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="382"/>
 		
 			<rect id="ph-b-cantDecide-no" x="1029.93" y="866" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="59.94" height="60"/>
 		
@@ -6718,7 +6718,7 @@
 			<image overflow="visible" enable-background="new    " width="90" height="90" id="link-b-cantDecide-yes" xlink:href="yes.png"  transform="matrix(0.666 0 0 0.6667 830.637 866)">
 		</image>
 		
-			<rect id="text-confirm_00000062176238469017059880000004242852683470539675_" x="690" y="784" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="50"/>
+			<rect id="text-confirm_00000023989285641362536010000011733819505523217558_" x="690" y="784" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="50"/>
 	</g>
 	<g id="spd-tenPencils">
 		
@@ -7140,8 +7140,7 @@
 		<circle id="sba-inner" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="587.14" cy="538.81" r="264.95"/>
 		<circle id="sba-inner-anchor" fill="none" cx="587.14" cy="538.81" r="0.05"/>
 		<circle id="sba-middle-anchor" fill="none" cx="912" cy="539" r="0.05"/>
-		<path id="sba-outer-anchor" fill="none" d="M1024,538.95c0.03,0,0.05,0.02,0.05,0.05s-0.02,0.05-0.05,0.05s-0.05-0.02-0.05-0.05
-			S1023.97,538.95,1024,538.95z"/>
+		<circle id="sba-outer-anchor" fill="none" cx="1024" cy="539" r="0.05"/>
 	</g>
 	<rect id="ph-sba-ball" x="1411" y="470" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="140" height="140"/>
 	
