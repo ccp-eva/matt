@@ -7198,22 +7198,22 @@
 	</image>
 </g>
 <g id="s-human-pe">
-	<rect id="ph-s-humanpe-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
-	<rect id="ph-s-humanpe-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
-	<rect id="ph-s-humanpe-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+	<rect id="ph-s-human-pe-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-human-pe-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+	<rect id="ph-s-human-pe-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
 	
-		<image overflow="visible" enable-background="new    " width="80" height="80" id="link-s-humanpe-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+		<image overflow="visible" enable-background="new    " width="80" height="80" id="link-s-human-pe-headphones" xlink:href="assets/headphones.svg"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 	
-		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-humanpe-no" xlink:href="assets/no.svg"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-human-pe-no" xlink:href="assets/no.svg"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
 	</image>
 	
-		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-humanpe-yes" xlink:href="assets/yes.svg"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-human-pe-yes" xlink:href="assets/yes.svg"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 	</image>
 	
-		<rect id="ph-s-humanpe-humanpe" x="815.36" y="247.05" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="313" height="313"/>
+		<rect id="ph-s-human-pe-humanpe" x="815.36" y="247.05" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="313" height="313"/>
 	
-		<image overflow="visible" enable-background="new    " width="25" height="47" id="link-s-humanpe-humanpe" xlink:href="assets/humanpe.svg"  transform="matrix(1 0 0 1 872.2444 392.6316)">
+		<image overflow="visible" enable-background="new    " width="25" height="47" id="link-s-human-pe-humanpe" xlink:href="assets/humanpe.svg"  transform="matrix(1 0 0 1 872.2444 392.6316)">
 	</image>
 </g>
 <g id="s-human-nam">
