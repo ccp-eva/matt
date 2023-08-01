@@ -305,7 +305,6 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	// check circle comprehension
 	console.log('Comprehension check...');
-	const inCompCheck = true;
 
 	// hide all known animals
 	gsap.to([knownAnimalElements, inner, middle, outer], { opacity: 0.5 });
