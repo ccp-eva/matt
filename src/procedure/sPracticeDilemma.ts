@@ -95,17 +95,25 @@ export default async ({ currentSlide, previousSlide }) => {
 
 		await playPromise(`./cultures/${data.culture}/audio/s-practice-dilemma-intro.mp3`);
 
+		const cultureDelay = {
+			boatsDisplay: {
+				'de-urban': 0,
+				'pe-rural': 0,
+			},
+			tenPencilsRect: {
+				'de-urban': 2.5,
+				'pe-rural': 2.5,
+			},
+		};
+		play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`);
 		await gsap
 			.timeline()
 			.to([boatLeft, boatRight], {
 				autoAlpha: 1,
-				delay: 1,
-				onStart: () => {
-					play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`);
-				},
+				delay: cultureDelay.boatsDisplay[data.culture],
 			})
 			.to(tenPencilsRect, {
-				delay: 2.5,
+				delay: cultureDelay.tenPencilsRect[data.culture],
 				stroke: '#006c66',
 				strokeWidth: 10,
 				reversed: true,
