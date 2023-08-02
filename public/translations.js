@@ -112,7 +112,7 @@ const translations = {
 		es: `Declaración de consentimiento`,
 	},
 	consentID: {
-		de: `Ihre Teilnahme an der Sudie ist natürlich freiwillig. Alle in der Studie erhobenen Daten
+		de: `Ihre Teilnahme an der Studie ist natürlich freiwillig. Alle in der Studie erhobenen Daten
 		werden anonymisiert auf einem Server am Max-Planck-Institut in Leipzig (Deutschland)
 		gespeichert und nicht an Dritte weitergegeben. Sie können Ihre Teilnahme zu jedem
 		Zeitpunkt abbrechen, indem sie das Browserfenster schließen. Wenn Sie zu einem späteren
