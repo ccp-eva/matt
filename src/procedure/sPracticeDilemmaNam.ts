@@ -25,30 +25,30 @@ export default async ({ currentSlide, previousSlide }) => {
 	const textLeft = document.getElementById('text-tenPencils')! as SvgInHtml;
 	const boatRight = document.getElementById('link-spdnam-boat-onePot')! as SvgInHtml;
 	const onePot = document.getElementById('link-spdnam-onePot')! as SvgInHtml;
-	const buttonRight = document.getElementById('spdnam-b-onePot')! as SvgInHtml;
-	const textRight = document.getElementById(
-		'text-onePot_00000045577191060881134930000013313987683261151118_'
+	const buttonRight = document.getElementById('b-onePot')! as SvgInHtml;
+	const textRight = document.getElementById('text-onePot')! as SvgInHtml;
+	const qm = document.getElementById(
+		'text-questionMark_00000155127853693399251650000009331183858803794561_'
 	)! as SvgInHtml;
-	const qm = document.getElementById('text-questionMark')! as SvgInHtml;
 	const buttonCenter = document.getElementById('spdnam-b-cantDecide')! as SvgInHtml;
-	const textCenter = document.getElementById('text-cantDecide')! as SvgInHtml;
+	const textCenter = document.getElementById(
+		'text-cantDecide_00000034056727285669922990000017223503196478564235_'
+	)! as SvgInHtml;
 
-	const pencilYesButton = document.getElementById('link-b-tenPencils-yes')! as SvgInHtml;
-	const pencilNoButton = document.getElementById('link-b-tenPencils-no')! as SvgInHtml;
-	const cantDecideYesButton = document.getElementById('link-b-cantDecide-yes')! as SvgInHtml;
-	const cantDecideNoButton = document.getElementById('link-b-cantDecide-no')! as SvgInHtml;
+	const pencilYesButton = document.getElementById('link-b-spdnam-tenPencils-yes')! as SvgInHtml;
+	const pencilNoButton = document.getElementById('link-b-spdnam-tenPencils-no')! as SvgInHtml;
+	const cantDecideYesButton = document.getElementById('link-b-spdnam-cantDecide-yes')! as SvgInHtml;
+	const cantDecideNoButton = document.getElementById('link-b-spdnam-cantDecide-no')! as SvgInHtml;
 	const onePotYesButton = document.getElementById('link-b-onePot-yes')! as SvgInHtml;
 	const onePotNoButton = document.getElementById('link-b-onePot-no')! as SvgInHtml;
 
 	const confirm1 = document.getElementById(
-		'text-confirm_00000034811373726967630570000006256181144808529834_'
+		'text-confirm_00000023995390546384149650000012972362905572281273_'
 	);
 	const confirm2 = document.getElementById(
-		'text-confirm_00000142136083963970369070000006815839807686652318_'
+		'text-confirm_00000023989285641362536010000011733819505523217558_'
 	);
-	const confirm3 = document.getElementById(
-		'text-confirm_00000101822596987739090480000015423414397412023998_'
-	);
+	const confirm3 = document.getElementById('text-confirm');
 
 	while (!data.procedure.sPracticeDilemma.completed) {
 		// hide card contents
@@ -95,17 +95,15 @@ export default async ({ currentSlide, previousSlide }) => {
 
 		await playPromise(`./cultures/${data.culture}/audio/s-practice-dilemma-intro.mp3`);
 
+		play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`);
 		await gsap
 			.timeline()
 			.to([boatLeft, boatRight], {
 				autoAlpha: 1,
-				delay: 1,
-				onStart: () => {
-					play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`);
-				},
+				delay: 3,
 			})
 			.to(tenPencilsRect, {
-				delay: 2.5,
+				delay: 3,
 				stroke: '#006c66',
 				strokeWidth: 10,
 				reversed: true,
@@ -172,7 +170,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			gsap.set([pencilYesButton, pencilNoButton], { pointerEvents: 'visible' });
 			gsap.to([pencilYesButton, pencilNoButton], { autoAlpha: 1 });
 
-			response = await getResponse(['link-b-tenPencils-yes', 'link-b-tenPencils-no']);
+			response = await getResponse(['link-b-spdnam-tenPencils-yes', 'link-b-spdnam-tenPencils-no']);
 
 			if (response.id.includes('yes')) {
 				data.procedure.sPracticeDilemma.completed = true;
@@ -196,7 +194,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			gsap.set([cantDecideYesButton, cantDecideNoButton], { pointerEvents: 'visible' });
 			gsap.to([cantDecideYesButton, cantDecideNoButton], { autoAlpha: 1 });
 
-			response = await getResponse(['link-b-cantDecide-yes', 'link-b-cantDecide-no']);
+			response = await getResponse(['link-b-spdnam-cantDecide-yes', 'link-b-sdnam-cantDecide-no']);
 
 			if (response.id.includes('yes')) {
 				data.procedure.sPracticeDilemma.completed = true;
