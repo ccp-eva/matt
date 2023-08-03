@@ -264,7 +264,11 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	swapSlides(currentSlide, previousSlide);
 
-	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+	if (wasCow) {
+		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+	} else {
+		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+	}
 
 	if (wasHuman) {
 		await playPromise(`./cultures/${data.culture}/audio/srw-${leftEntity}.mp3`);
