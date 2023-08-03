@@ -76,7 +76,8 @@ export default async ({ currentSlide, previousSlide }) => {
 		const cultureDelay = {
 			headphones: {
 				'de-urban': 16,
-				'pe-rural': 5,
+				'pe-rural': 16,
+				'idj-urban': 21,
 			},
 		};
 		gsap

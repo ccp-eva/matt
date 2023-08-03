@@ -99,10 +99,35 @@ export default async ({ currentSlide, previousSlide }) => {
 			boatsDisplay: {
 				'de-urban': 0,
 				'pe-rural': 0,
+				'idj-urban': 0,
 			},
 			tenPencilsRect: {
 				'de-urban': 2.5,
 				'pe-rural': 2.5,
+				'idj-urban': 4.5,
+			},
+			oneBikeRect: {
+				'de-urban': 0.1,
+				'pe-rural': 0.1,
+				'idj-urban': 0.5,
+			},
+			cantDecideRect,
+			textCenter: {
+				'de-urban': 2,
+				'pe-rural': 2,
+				'idj-urban': 11,
+			},
+			tenPencils,
+			textLeft: {
+				'de-urban': 2,
+				'pe-rural': 1,
+				'idj-urban': 3,
+			},
+			oneBike,
+			textRight: {
+				'de-urban': 2,
+				'pe-rural': 0,
+				'idj-urban': 3,
 			},
 		};
 		play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`);
@@ -120,7 +145,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				repeat: 1,
 			})
 			.to(oneBikeRect, {
-				delay: 0.1,
+				delay: cultureDelay.oneBikeRect[data.culture],
 				stroke: '#006c66',
 				strokeWidth: 10,
 				reversed: true,
@@ -134,8 +159,14 @@ export default async ({ currentSlide, previousSlide }) => {
 				repeat: 1,
 			})
 			.to(qm, { autoAlpha: 1 }, '<')
-			.to([tenPencils, textLeft], { autoAlpha: 1, delay: 2 })
-			.to([oneBike, textRight], { autoAlpha: 1, delay: 2 })
+			.to([tenPencils, textLeft], {
+				autoAlpha: 1,
+				delay: 2,
+			})
+			.to([oneBike, textRight], {
+				autoAlpha: 1,
+				delay: 2,
+			})
 			.to(oneBike, {
 				delay: 0.5,
 				onComplete: () => {

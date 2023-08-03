@@ -28,18 +28,22 @@ export default async ({ currentSlide, previousSlide }) => {
 		fadeIn: {
 			'de-urban': 3.5,
 			'pe-rural': 3.5,
+			'idj-urban': 3.5,
 		},
 		highlightInner: {
 			'de-urban': 11,
-			'pe-rural': 11,
+			'pe-rural': 12,
+			'idj-urban': 20,
 		},
 		highlightMiddle: {
 			'de-urban': 3,
 			'pe-rural': 4,
+			'idj-urban': 4.5,
 		},
 		highlightOuter: {
 			'de-urban': 1.5,
 			'pe-rural': 3,
+			'idj-urban': 4,
 		},
 	};
 	await gsap
