@@ -148,7 +148,6 @@ procedure:
     # - s-qu-feelings
     # - s-qu-difference
     # - s-intro-ranking
-    - s-qu-ranking-similarity-pe
     - rankingOrder:
         [
           s-qu-ranking-intelligence-pe,
@@ -170,14 +169,14 @@ procedure:
     # - s-end
 
   idj-urban:
-    - s-introduction
-    - s-intro-human-animals
-    - animalOrder:
-        [s-cow, s-catfish, s-goat, s-chicken, s-cat, s-dog, s-parrot, s-goldfish, s-human-idj]
-    - s-mc-intro
-    - s-ball-animation
-    - s-ball-practice
-    - s-task-idj
+    # - s-introduction
+    # - s-intro-human-animals
+    # - animalOrder:
+    #     [s-cow, s-catfish, s-goat, s-chicken, s-cat, s-dog, s-parrot, s-goldfish, s-human-idj]
+    # - s-mc-intro
+    # - s-ball-animation
+    # - s-ball-practice
+    # - s-task-idj
     - s-meaning
     - s-intro-boats
     - s-practice-dilemma
