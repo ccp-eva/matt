@@ -23,7 +23,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const box3TextId = 'aMediumAmount_00000071550076289007727210000017364507279236760757_';
 	const box4TextId = 'aLot_00000127005118413491902830000000162000732757077388_';
 	const audio = document.getElementById('audio') as HTMLMediaElement;
-	const headphones = document.getElementById(`link-${slidePrefix}-headphones`) as SvgInHtml;
+	const headphones = document.getElementById(`link-${slidePrefix}-pe-headphones`) as SvgInHtml;
 	const box1TextElement = document.getElementById(`text-${box1TextId}`)!
 		.children[0] as HTMLParagraphElement;
 	const box2TextElement = document.getElementById(`text-${box2TextId}`)!

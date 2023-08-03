@@ -17,13 +17,13 @@ export default async ({ currentSlide, previousSlide }) => {
 	const audioPrefix = 'sqrp-sqrf-resp';
 	const entity1 = 'chicken';
 	const entity2 = 'dog';
-	const entity3 = 'human-pe';
-	const box1TextId = 'notAtAll_00000147213433856283154040000006735830243338541734_';
-	const box2TextId = 'aLittle_00000025430878852348260520000004039673202140875675_';
-	const box3TextId = 'aMediumAmount_00000112610087464687340070000004088322447390357936_';
-	const box4TextId = 'aLot_00000018951735761879263950000004873289751992755373_';
+	const entity3 = 'humanpe';
+	const box1TextId = 'notAtAll_00000144308893751551804520000007677008384086491558_';
+	const box2TextId = 'aLittle_00000114072666696678671120000004468836285674685839_';
+	const box3TextId = 'aMediumAmount_00000040568777752929506880000000905726058807650971_';
+	const box4TextId = 'aLot_00000144315842350771099340000003576806454473712056_';
 	const audio = document.getElementById('audio') as HTMLMediaElement;
-	const headphones = document.getElementById(`link-${slidePrefix}-headphones`) as SvgInHtml;
+	const headphones = document.getElementById(`link-${slidePrefix}-pe-headphones`) as SvgInHtml;
 	const box1TextElement = document.getElementById(`text-${box1TextId}`)!
 		.children[0] as HTMLParagraphElement;
 	const box2TextElement = document.getElementById(`text-${box2TextId}`)!
@@ -32,7 +32,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		.children[0] as HTMLParagraphElement;
 	const box4TextElement = document.getElementById(`text-${box4TextId}`)!
 		.children[0] as HTMLParagraphElement;
-	const box1Rect = document.getElementById(`${slidePrefix}-1`) as SvgInHtml;
+	const box1Rect = document.getElementById(`${slidePrefix}-pe-1`) as SvgInHtml;
 	const box1Fill = box1Rect.getAttribute('fill')!;
 	const box2Rect = document.getElementById(`${slidePrefix}-2`) as SvgInHtml;
 	const box2Fill = box2Rect.getAttribute('fill')!;
@@ -40,10 +40,10 @@ export default async ({ currentSlide, previousSlide }) => {
 	const box3Fill = box3Rect.getAttribute('fill')!;
 	const box4Rect = document.getElementById(`${slidePrefix}-4`) as SvgInHtml;
 	const box4Fill = box4Rect.getAttribute('fill')!;
-	const entity1Element = document.getElementById(`link-${slidePrefix}-${entity1}`) as SvgInHtml;
-	const entity2Element = document.getElementById(`link-${slidePrefix}-${entity2}`) as SvgInHtml;
-	const entity3Element = document.getElementById(`link-${slidePrefix}-${entity3}`) as SvgInHtml;
-	const nextButton = document.getElementById(`link-${slidePrefix}-next`) as SvgInHtml;
+	const entity1Element = document.getElementById(`link-${slidePrefix}-pe-${entity1}`) as SvgInHtml;
+	const entity2Element = document.getElementById(`link-${slidePrefix}-pe-${entity2}`) as SvgInHtml;
+	const entity3Element = document.getElementById(`link-${slidePrefix}-pe-${entity3}`) as SvgInHtml;
+	const nextButton = document.getElementById(`link-${slidePrefix}-pe-next`) as SvgInHtml;
 
 	// centered slots (from Illustrator)
 	// POSITION 0 = LEFT
