@@ -110,44 +110,44 @@ procedure:
     - s-end
 
   pe-rural:
-    - s-introduction
-    - s-intro-human-animals
-    - animalOrder: [s-cow, s-pig, s-chicken, s-cat, s-dog, s-rabbit, s-turkey, s-parrot, s-human-pe]
-    - s-mc-intro
-    - s-ball-animation
-    - s-ball-practice
-    - s-task-pe
-    - s-meaning
-    - s-intro-boats
-    - s-practice-dilemma
-    - s-dilemma-start
-    - dilemmaOrder:
-        - companionOrder:
-            [
-              s-1-pe-1-do,
-              s-2-pe-1-do,
-              s-1-pe-2-do,
-              s-10-pe-1-do,
-              s-1-pe-10-do,
-              s-100-pe-1-do,
-              s-1-pe-100-do,
-            ]
-        - foodOrder:
-            [
-              s-1-pe-1-ch,
-              s-2-pe-1-ch,
-              s-1-pe-2-ch,
-              s-10-pe-1-ch,
-              s-1-pe-10-ch,
-              s-100-pe-1-ch,
-              s-1-pe-100-ch,
-            ]
-        - controlOrder: [s-1-pe-10-pe, s-1-pe-10-na, s-1-pe-10-sp, s-1-do-1-ch]
-    - s-motivation-dilemma3
-    - s-qu-thoughts
-    - s-qu-feelings
-    - s-qu-difference
-    - s-intro-ranking
+    # - s-introduction
+    # - s-intro-human-animals
+    # - animalOrder: [s-cow, s-pig, s-chicken, s-cat, s-dog, s-rabbit, s-turkey, s-parrot, s-human-pe]
+    # - s-mc-intro
+    # - s-ball-animation
+    # - s-ball-practice
+    # - s-task-pe
+    # - s-meaning
+    # - s-intro-boats
+    # - s-practice-dilemma
+    # - s-dilemma-start
+    # - dilemmaOrder:
+    #     - companionOrder:
+    #         [
+    #           s-1-pe-1-do,
+    #           s-2-pe-1-do,
+    #           s-1-pe-2-do,
+    #           s-10-pe-1-do,
+    #           s-1-pe-10-do,
+    #           s-100-pe-1-do,
+    #           s-1-pe-100-do,
+    #         ]
+    #     - foodOrder:
+    #         [
+    #           s-1-pe-1-ch,
+    #           s-2-pe-1-ch,
+    #           s-1-pe-2-ch,
+    #           s-10-pe-1-ch,
+    #           s-1-pe-10-ch,
+    #           s-100-pe-1-ch,
+    #           s-1-pe-100-ch,
+    #         ]
+    #     - controlOrder: [s-1-pe-10-pe, s-1-pe-10-na, s-1-pe-10-sp, s-1-do-1-ch]
+    # - s-motivation-dilemma3
+    # - s-qu-thoughts
+    # - s-qu-feelings
+    # - s-qu-difference
+    # - s-intro-ranking
     - rankingOrder:
         [
           s-qu-ranking-intelligence-pe,
