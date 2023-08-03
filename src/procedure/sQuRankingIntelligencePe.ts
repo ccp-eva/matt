@@ -14,13 +14,13 @@ export default async ({ currentSlide, previousSlide }) => {
 	data.rankingSlideCounter++;
 
 	const slidePrefix = 'sqri';
-	const entity1 = 'chicken';
-	const entity2 = 'dog';
-	const entity3 = 'human-pe';
-	const box1TextId = 'notAtAll';
-	const box2TextId = 'aLittle';
-	const box3TextId = 'aMediumAmount';
-	const box4TextId = 'aLotSmart';
+	const entity1 = 'pe-chicken';
+	const entity2 = 'pe-dog';
+	const entity3 = 'pe-human';
+	const box1TextId = 'notAtAll_00000170270857380199292470000001612251196399254434_';
+	const box2TextId = 'aLittle_00000031908228447303300920000016380405160959154100_';
+	const box3TextId = 'aMediumAmount_00000096779308969031739490000013012779915952579743_';
+	const box4TextId = 'aLotSmart_00000130608847632530047920000017216911335299502256_';
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById(`link-${slidePrefix}-headphones`) as SvgInHtml;
 	const box1TextElement = document.getElementById(`text-${box1TextId}`)!
@@ -31,18 +31,18 @@ export default async ({ currentSlide, previousSlide }) => {
 		.children[0] as HTMLParagraphElement;
 	const box4TextElement = document.getElementById(`text-${box4TextId}`)!
 		.children[0] as HTMLParagraphElement;
-	const box1Rect = document.getElementById(`${slidePrefix}-1`) as SvgInHtml;
+	const box1Rect = document.getElementById(`${slidePrefix}-pe-1`) as SvgInHtml;
 	const box1Fill = box1Rect.getAttribute('fill')!;
-	const box2Rect = document.getElementById(`${slidePrefix}-2`) as SvgInHtml;
+	const box2Rect = document.getElementById(`${slidePrefix}-pe-2`) as SvgInHtml;
 	const box2Fill = box2Rect.getAttribute('fill')!;
-	const box3Rect = document.getElementById(`${slidePrefix}-3`) as SvgInHtml;
+	const box3Rect = document.getElementById(`${slidePrefix}-pe-3`) as SvgInHtml;
 	const box3Fill = box3Rect.getAttribute('fill')!;
-	const box4Rect = document.getElementById(`${slidePrefix}-4`) as SvgInHtml;
+	const box4Rect = document.getElementById(`${slidePrefix}-pe-4`) as SvgInHtml;
 	const box4Fill = box4Rect.getAttribute('fill')!;
 	const entity1Element = document.getElementById(`link-${slidePrefix}-${entity1}`) as SvgInHtml;
 	const entity2Element = document.getElementById(`link-${slidePrefix}-${entity2}`) as SvgInHtml;
 	const entity3Element = document.getElementById(`link-${slidePrefix}-${entity3}`) as SvgInHtml;
-	const nextButton = document.getElementById(`link-${slidePrefix}-next`) as SvgInHtml;
+	const nextButton = document.getElementById(`link-${slidePrefix}-pe-next`) as SvgInHtml;
 
 	// centered slots (from Illustrator)
 	// POSITION 0 = LEFT
@@ -110,10 +110,16 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`);
 
+	const delay = {
+		box2: {
+			'de-urban': 1.5,
+			'pe-rural': 1.5,
+		},
+	};
 	gsap
 		.timeline()
 		.to([box1Rect, box1TextElement], { autoAlpha: 1 })
-		.to([box2Rect, box2TextElement], { delay: 1.5, autoAlpha: 1 })
+		.to([box2Rect, box2TextElement], { delay: delay.box2[data.culture], autoAlpha: 1 })
 		.to([box3Rect, box3TextElement], { delay: 1.5, autoAlpha: 1 })
 		.to([box4Rect, box4TextElement], { delay: 1.5, autoAlpha: 1 });
 	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-resp.mp3`);
