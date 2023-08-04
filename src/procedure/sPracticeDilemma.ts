@@ -111,11 +111,15 @@ export default async ({ currentSlide, previousSlide }) => {
 				'pe-rural': 0.1,
 				'idj-urban': 0.5,
 			},
-			cantDecideRect,
-			textCenter: {
+			cantDecideRect: {
 				'de-urban': 2,
 				'pe-rural': 2,
-				'idj-urban': 11,
+				'idj-urban': 3,
+			},
+			textCenter: {
+				'de-urban': 0,
+				'pe-rural': 0,
+				'idj-urban': 0,
 			},
 			tenPencils,
 			textLeft: {
@@ -151,8 +155,15 @@ export default async ({ currentSlide, previousSlide }) => {
 				reversed: true,
 				repeat: 1,
 			})
-			.to([cantDecideRect, textCenter], {
-				delay: 2,
+			.to([cantDecideRect], {
+				delay: cultureDelay.cantDecideRect[data.culture],
+				stroke: '#006c66',
+				strokeWidth: 10,
+				reversed: true,
+				repeat: 1,
+			})
+			.to([textCenter], {
+				delay: cultureDelay.textCenter[data.culture],
 				stroke: '#006c66',
 				strokeWidth: 10,
 				reversed: true,
