@@ -235,7 +235,11 @@ export default async ({ currentSlide, previousSlide }) => {
 	let wasChicken = false;
 	// check actual responses from s1Pe1Ch and overwrite default values
 	if (data.procedure.s1Pe1Ch) {
-		wasHuman = data.procedure.s1Pe1Ch.response.toLowerCase().includes(`-one${leftEntity}`);
+		console.log({ leftEntity });
+		console.log({ leftEntityOne });
+		wasHuman = data.procedure.s1Pe1Ch.response
+			.toLowerCase()
+			.includes(`-one${leftEntity.slice(0, -3)}`);
 		wasCantDecide = data.procedure.s1Pe1Ch.response.toLowerCase().includes('-cantdecide');
 		wasChicken = data.procedure.s1Pe1Ch.response.toLowerCase().includes(`-one${rightEntity}`);
 		// check if order was swapped, if so swap boxes
@@ -250,6 +254,13 @@ export default async ({ currentSlide, previousSlide }) => {
 		wasCantDecide = true;
 		wasChicken = false;
 	}
+
+	console.log({ left });
+	console.log({ center });
+	console.log({ right });
+	console.log({ wasHuman });
+	console.log({ wasCantDecide });
+	console.log({ wasChicken });
 
 	// add frame around prior selected card
 	if (wasHuman) {
