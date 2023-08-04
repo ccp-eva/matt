@@ -13,7 +13,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	swapSlides(currentSlide, previousSlide);
 	data.rankingSlideCounter++;
 
-	const slidePrefix = 'sqrp';
+	const slidePrefix = 'sqrp-idj';
 	const audioPrefix = 'sqrp-sqrf-resp';
 	const entity1 = 'chicken';
 	const entity2 = 'cat';
@@ -23,7 +23,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const box3TextId = 'aMediumAmount_00000137125115672897659450000008808210556419740075_';
 	const box4TextId = 'aLot_00000072272015046592470870000018401034605519497634_';
 	const audio = document.getElementById('audio') as HTMLMediaElement;
-	const headphones = document.getElementById(`link-${slidePrefix}-idj-headphones`) as SvgInHtml;
+	const headphones = document.getElementById(`link-${slidePrefix}-headphones`) as SvgInHtml;
 	const box1TextElement = document.getElementById(`text-${box1TextId}`)!
 		.children[0] as HTMLParagraphElement;
 	const box2TextElement = document.getElementById(`text-${box2TextId}`)!
@@ -32,18 +32,18 @@ export default async ({ currentSlide, previousSlide }) => {
 		.children[0] as HTMLParagraphElement;
 	const box4TextElement = document.getElementById(`text-${box4TextId}`)!
 		.children[0] as HTMLParagraphElement;
-	const box1Rect = document.getElementById(`${slidePrefix}-idj-1`) as SvgInHtml;
+	const box1Rect = document.getElementById(`${slidePrefix}-1`) as SvgInHtml;
 	const box1Fill = box1Rect.getAttribute('fill')!;
-	const box2Rect = document.getElementById(`${slidePrefix}-idj-2`) as SvgInHtml;
+	const box2Rect = document.getElementById(`${slidePrefix}-2`) as SvgInHtml;
 	const box2Fill = box2Rect.getAttribute('fill')!;
-	const box3Rect = document.getElementById(`${slidePrefix}-idj-3`) as SvgInHtml;
+	const box3Rect = document.getElementById(`${slidePrefix}-3`) as SvgInHtml;
 	const box3Fill = box3Rect.getAttribute('fill')!;
-	const box4Rect = document.getElementById(`${slidePrefix}-idj-4`) as SvgInHtml;
+	const box4Rect = document.getElementById(`${slidePrefix}-4`) as SvgInHtml;
 	const box4Fill = box4Rect.getAttribute('fill')!;
-	const entity1Element = document.getElementById(`link-${slidePrefix}-idj-${entity1}`) as SvgInHtml;
-	const entity2Element = document.getElementById(`link-${slidePrefix}-idj-${entity2}`) as SvgInHtml;
-	const entity3Element = document.getElementById(`link-${slidePrefix}-idj-${entity3}`) as SvgInHtml;
-	const nextButton = document.getElementById(`link-${slidePrefix}-idj-next`) as SvgInHtml;
+	const entity1Element = document.getElementById(`link-${slidePrefix}-${entity1}`) as SvgInHtml;
+	const entity2Element = document.getElementById(`link-${slidePrefix}-${entity2}`) as SvgInHtml;
+	const entity3Element = document.getElementById(`link-${slidePrefix}-${entity3}`) as SvgInHtml;
+	const nextButton = document.getElementById(`link-${slidePrefix}-next`) as SvgInHtml;
 
 	// centered slots (from Illustrator)
 	// POSITION 0 = LEFT
@@ -57,7 +57,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const order = _.shuffle([entity1, entity2, entity3]);
 
 	const orderElements = order.map(
-		(animal) => document.getElementById(`link-${slidePrefix}-idj-${animal}`) as SvgInHtml
+		(animal) => document.getElementById(`link-${slidePrefix}-${animal}`) as SvgInHtml
 	);
 
 	data.procedure[data.currentSlide] = {

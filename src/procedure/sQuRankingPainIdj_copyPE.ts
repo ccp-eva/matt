@@ -11,22 +11,19 @@ import { swapSlides } from '../util/slideVisibility';
 
 export default async ({ currentSlide, previousSlide }) => {
 	swapSlides(currentSlide, previousSlide);
+	data.rankingSlideCounter++;
 
-	const slidePrefix = 'sqre-idj';
-	const entity1 = 'chicken';
-	const entity2 = 'cat';
-	const box1TextId = 'never_00000159454220129989858550000001375297701738414239_';
-	const box2TextId = 'sometimes_00000001630237278386361920000009036172772237808030_';
-	const box3TextId = 'often_00000015351985222776920910000013020835106319304627_';
-	const box4TextId = 'almostEveryDay_00000114059192849056578920000007999935564562165905_';
-	const childQuestion = document.getElementById(
-		'text-exposureChild_00000060752944269229936390000014470658461525088168_'
-	) as SvgInHtml;
-	const adultQuestion = document.getElementById(
-		'text-exposureAdult_00000097491172204638105950000012093391322656104067_'
-	) as SvgInHtml;
+	const slidePrefix = 'sqrp';
+	const audioPrefix = 'sqrp-sqrf-resp';
+	const entity1 = 'idj-chicken';
+	const entity2 = 'idj-cat';
+	const entity3 = 'idj-human';
+	const box1TextId = 'notAtAll_00000121977947037880567170000015540948394790495397_';
+	const box2TextId = 'aLittle_00000063628583501350625870000006722170793863511459_';
+	const box3TextId = 'aMediumAmount_00000137125115672897659450000008808210556419740075_';
+	const box4TextId = 'aLot_00000072272015046592470870000018401034605519497634_';
 	const audio = document.getElementById('audio') as HTMLMediaElement;
-	const headphones = document.getElementById(`link-${slidePrefix}-headphones`) as SvgInHtml;
+	const headphones = document.getElementById(`link-${slidePrefix}-idj-headphones`) as SvgInHtml;
 	const box1TextElement = document.getElementById(`text-${box1TextId}`)!
 		.children[0] as HTMLParagraphElement;
 	const box2TextElement = document.getElementById(`text-${box2TextId}`)!
@@ -35,25 +32,29 @@ export default async ({ currentSlide, previousSlide }) => {
 		.children[0] as HTMLParagraphElement;
 	const box4TextElement = document.getElementById(`text-${box4TextId}`)!
 		.children[0] as HTMLParagraphElement;
-	const box1Rect = document.getElementById(`${slidePrefix}-1`) as SvgInHtml;
+	const box1Rect = document.getElementById(`${slidePrefix}-idj-1`) as SvgInHtml;
 	const box1Fill = box1Rect.getAttribute('fill')!;
-	const box2Rect = document.getElementById(`${slidePrefix}-2`) as SvgInHtml;
+	const box2Rect = document.getElementById(`${slidePrefix}-idj-2`) as SvgInHtml;
 	const box2Fill = box2Rect.getAttribute('fill')!;
-	const box3Rect = document.getElementById(`${slidePrefix}-3`) as SvgInHtml;
+	const box3Rect = document.getElementById(`${slidePrefix}-idj-3`) as SvgInHtml;
 	const box3Fill = box3Rect.getAttribute('fill')!;
-	const box4Rect = document.getElementById(`${slidePrefix}-4`) as SvgInHtml;
+	const box4Rect = document.getElementById(`${slidePrefix}-idj-4`) as SvgInHtml;
 	const box4Fill = box4Rect.getAttribute('fill')!;
 	const entity1Element = document.getElementById(`link-${slidePrefix}-${entity1}`) as SvgInHtml;
 	const entity2Element = document.getElementById(`link-${slidePrefix}-${entity2}`) as SvgInHtml;
-	const nextButton = document.getElementById(`link-${slidePrefix}-next`) as SvgInHtml;
+	const entity3Element = document.getElementById(`link-${slidePrefix}-${entity3}`) as SvgInHtml;
+	const nextButton = document.getElementById(`link-${slidePrefix}-idj-next`) as SvgInHtml;
 
 	// centered slots (from Illustrator)
 	// POSITION 0 = LEFT
 	// POSITION 1 = MIDDLE
 	// POSITION 2 = RIGHT
-	const slotPositions = new Map().set(0, { x: 800, y: 330 }).set(1, { x: 1120, y: 330 });
+	const slotPositions = new Map()
+		.set(0, { x: 700, y: 330 })
+		.set(1, { x: 960, y: 330 })
+		.set(2, { x: 1220, y: 330 });
 
-	const order = _.shuffle([entity1, entity2]);
+	const order = _.shuffle([entity1, entity2, entity3]);
 
 	const orderElements = order.map(
 		(animal) => document.getElementById(`link-${slidePrefix}-${animal}`) as SvgInHtml
@@ -71,16 +72,22 @@ export default async ({ currentSlide, previousSlide }) => {
 			position: 0, // position 0 means not assigned in any box yet
 			coords: { x: 0, y: 0 },
 		},
+		[entity3]: {
+			position: 0, // position 0 means not assigned in any box yet
+			coords: { x: 0, y: 0 },
+		},
 	};
 
 	const animalOrderIndexLookup = {
 		[entity1]: order.indexOf(entity1),
 		[entity2]: order.indexOf(entity2),
+		[entity3]: order.indexOf(entity3),
 	};
 
 	// move objects to their target location
 	moveToCenterAnchor(orderElements[0], slotPositions.get(0).x, slotPositions.get(0).y);
 	moveToCenterAnchor(orderElements[1], slotPositions.get(1).x, slotPositions.get(1).y);
+	moveToCenterAnchor(orderElements[2], slotPositions.get(2).x, slotPositions.get(2).y);
 
 	gsap.set(
 		[
@@ -102,29 +109,22 @@ export default async ({ currentSlide, previousSlide }) => {
 	gsap.set([orderElements, headphones], { autoAlpha: 0.5 });
 	headphones.style.pointerEvents = 'none';
 
-	if (data.agegroup === 'adult') {
-		gsap.set(childQuestion, { autoAlpha: 0 });
-		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-adult.mp3`);
-		play(`./cultures/${data.culture}/audio/${slidePrefix}-adult.mp3`, headphones.id);
-	} else {
-		// default to child version
-		gsap.set(adultQuestion, { autoAlpha: 0 });
-		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`);
-		play(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`, headphones.id);
-	}
+	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`);
 
 	gsap
 		.timeline()
 		.to([box1Rect, box1TextElement], { autoAlpha: 1 })
-		.to([box2Rect, box2TextElement], { delay: 1, autoAlpha: 1 })
-		.to([box3Rect, box3TextElement], { delay: 1, autoAlpha: 1 })
-		.to([box4Rect, box4TextElement], { delay: 0.7, autoAlpha: 1 });
-	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-resp.mp3`);
+		.to([box2Rect, box2TextElement], { delay: 1.5, autoAlpha: 1 })
+		.to([box3Rect, box3TextElement], { delay: 1.5, autoAlpha: 1 })
+		.to([box4Rect, box4TextElement], { delay: 1, autoAlpha: 1 });
+	await playPromise(`./cultures/${data.culture}/audio/${audioPrefix}.mp3`);
 
 	play(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`, headphones.id);
-	// await playPromise(`./cultures/${data.culture}/audio/sqre-expl.mp3`);
+	if (data.rankingSlideCounter === 1) {
+		await playPromise(`./cultures/${data.culture}/audio/sqr-expl.mp3`);
+	}
 
-	gsap.to([entity1Element, entity2Element, headphones], { autoAlpha: 1 });
+	gsap.to([entity1Element, entity2Element, entity3Element, headphones], { autoAlpha: 1 });
 	headphones.style.pointerEvents = 'visible';
 
 	let isPlaying = false;
@@ -132,7 +132,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		isPlaying = true;
 		// only fire if headphones are clicked not on animals
 		if (!(e.target as HTMLVideoElement).src.includes(`${slidePrefix}-`)) {
-			gsap.to([entity1Element, entity2Element, headphones], {
+			gsap.to([entity1Element, entity2Element, entity3Element, headphones], {
 				autoAlpha: 0.5,
 				pointerEvents: 'none',
 			});
@@ -140,7 +140,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	});
 	audio.addEventListener('ended', () => {
 		isPlaying = false;
-		gsap.to([entity1Element, entity2Element, headphones], {
+		gsap.to([entity1Element, entity2Element, entity3Element, headphones], {
 			autoAlpha: 1,
 			pointerEvents: 'visible',
 		});
@@ -148,7 +148,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	[box1Rect, box2Rect, box3Rect, box4Rect].forEach((rect, i) => {
 		rect.addEventListener('click', () => {
-			play(`./cultures/${data.culture}/audio/${slidePrefix}-resp-${i}.mp3`);
+			play(`./cultures/${data.culture}/audio/${audioPrefix}-${i}.mp3`);
 		});
 	});
 	[box1Rect, box2Rect, box3Rect, box4Rect].forEach((rect) => {
@@ -175,7 +175,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		box4Rect.setAttribute('fill', box4Fill);
 	});
 
-	Draggable.create([entity1Element, entity2Element], {
+	Draggable.create([entity1Element, entity2Element, entity3Element], {
 		onPress: function () {
 			// get current drag object
 			const currentId = this.target.id;
@@ -235,7 +235,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				data.procedure[data.currentSlide][currentIdTrimmed].coords.x = droppedX;
 				data.procedure[data.currentSlide][currentIdTrimmed].coords.y = droppedY;
 				box1Rect.setAttribute('fill', box1Fill);
-				play(`./cultures/${data.culture}/audio/${slidePrefix}-resp-0.mp3`);
+				play(`./cultures/${data.culture}/audio/${audioPrefix}-0.mp3`);
 			}
 
 			if (this.hitTest(box2Rect, '70%')) {
@@ -243,7 +243,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				data.procedure[data.currentSlide][currentIdTrimmed].coords.x = droppedX;
 				data.procedure[data.currentSlide][currentIdTrimmed].coords.y = droppedY;
 				box2Rect.setAttribute('fill', box2Fill);
-				play(`./cultures/${data.culture}/audio/${slidePrefix}-resp-1.mp3`);
+				play(`./cultures/${data.culture}/audio/${audioPrefix}-1.mp3`);
 			}
 
 			if (this.hitTest(box3Rect, '70%')) {
@@ -251,7 +251,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				data.procedure[data.currentSlide][currentIdTrimmed].coords.x = droppedX;
 				data.procedure[data.currentSlide][currentIdTrimmed].coords.y = droppedY;
 				box3Rect.setAttribute('fill', box3Fill);
-				play(`./cultures/${data.culture}/audio/${slidePrefix}-resp-2.mp3`);
+				play(`./cultures/${data.culture}/audio/${audioPrefix}-2.mp3`);
 			}
 
 			if (this.hitTest(box4Rect, '70%')) {
@@ -259,7 +259,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				data.procedure[data.currentSlide][currentIdTrimmed].coords.x = droppedX;
 				data.procedure[data.currentSlide][currentIdTrimmed].coords.y = droppedY;
 				box4Rect.setAttribute('fill', box4Fill);
-				play(`./cultures/${data.culture}/audio/${slidePrefix}-resp-3.mp3`);
+				play(`./cultures/${data.culture}/audio/${audioPrefix}-3.mp3`);
 			}
 
 			if (

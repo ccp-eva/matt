@@ -148,13 +148,13 @@ procedure:
     # - s-qu-feelings
     # - s-qu-difference
     # - s-intro-ranking
-    - rankingOrder:
-        [
-          s-qu-ranking-intelligence-pe,
-          s-qu-ranking-pain-pe,
-          s-qu-ranking-feelings-pe,
-          s-qu-ranking-similarity-pe,
-        ]
+    # - rankingOrder:
+    #     [
+    #       s-qu-ranking-intelligence-pe,
+    #       s-qu-ranking-pain-pe,
+    #       s-qu-ranking-feelings-pe,
+    #       s-qu-ranking-similarity-pe,
+    #     ]
     # - s-motivation-questions
     # - s-qu-ownership
     # - s-qu-ranking-exposure-pe
@@ -177,50 +177,56 @@ procedure:
     # - s-ball-animation
     # - s-ball-practice
     # - s-task-idj
-    - s-meaning
-    - s-intro-boats
-    - s-practice-dilemma
-    - s-dilemma-start
-    - dilemmaOrder:
-        - companionOrder:
-            [
-              s-1-ij-1-ca,
-              s-2-ij-1-ca,
-              s-1-ij-2-ca,
-              s-10-ij-1-ca,
-              s-1-ij-10-ca,
-              s-100-ij-1-ca,
-              s-1-ij-100-ca,
-            ]
-        - foodOrder:
-            [
-              s-1-ij-1-ch,
-              s-2-ij-1-ch,
-              s-1-ij-2-ch,
-              s-10-ij-1-ch,
-              s-1-ij-10-ch,
-              s-100-ij-1-ch,
-              s-1-ij-100-ch,
-            ]
-        - controlOrder: [s-1-ij-10-ij, s-1-ij-10-na, s-1-ij-10-sp, s-1-ca-1-ch]
-    - s-motivation-dilemma3
-    - s-qu-thoughts
-    - s-qu-feelings
-    - s-qu-difference
-    - s-intro-ranking
-    - rankingOrder:
-        [
-          s-qu-ranking-intelligence-idj,
-          s-qu-ranking-pain-idj,
-          s-qu-ranking-feelings-idj,
-          s-qu-ranking-similarity-idj,
-        ]
-    - s-motivation-questions
-    - s-qu-ownership
-    - s-qu-ranking-exposure-idj
-    - s-qu-meat-fish
-    - s-qu-egg-cheese-milk
-    - s-intro-reasoning
+    # - s-meaning
+    # - s-intro-boats
+    # - s-practice-dilemma
+    # - s-dilemma-start
+    # - dilemmaOrder:
+    #     - companionOrder:
+    #         [
+    #           s-1-ij-1-ca,
+    #           s-2-ij-1-ca,
+    #           s-1-ij-2-ca,
+    #           s-10-ij-1-ca,
+    #           s-1-ij-10-ca,
+    #           s-100-ij-1-ca,
+    #           s-1-ij-100-ca,
+    #         ]
+    #     - foodOrder:
+    #         [
+    #           s-1-ij-1-ch,
+    #           s-2-ij-1-ch,
+    #           s-1-ij-2-ch,
+    #           s-10-ij-1-ch,
+    #           s-1-ij-10-ch,
+    #           s-100-ij-1-ch,
+    #           s-1-ij-100-ch,
+    #         ]
+    #     - controlOrder: [s-1-ij-10-ij, s-1-ij-10-na, s-1-ij-10-sp, s-1-ca-1-ch]
+    # - s-motivation-dilemma3
+    # - s-qu-thoughts
+    # - s-qu-feelings
+    # - s-qu-difference
+    # - s-intro-ranking
+    # - rankingOrder:
+    #     [
+    #       s-qu-ranking-intelligence-idj,
+    #       s-qu-ranking-pain-idj,
+    #       s-qu-ranking-feelings-idj,
+    #       s-qu-ranking-similarity-idj,
+    #     ]
+    # - s-motivation-questions
+    # - s-qu-ownership
+    # - s-qu-ranking-exposure-idj
+    # - s-qu-meat-fish
+    # - s-qu-egg-cheese-milk
+    # - s-intro-reasoning
+    # - s-1-ca-1-ch
+    # - s-reasoning-1-ca-1-ch
+    # - s-1-ij-1-ch
+    # - s-reasoning-1-ij-1-ch
+    - s-1-ij-1-ca
+    - s-reasoning-1-ij-1-ca
     - reasoningOrder: [s-reasoning-1-ij-1-ch, s-reasoning-1-ij-1-ca, s-reasoning-1-ca-1-ch]
     - s-resolve-dilemma
     - s-end
