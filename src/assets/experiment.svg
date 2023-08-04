@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 27.6.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 27.8.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1920 1080" enable-background="new 0 0 1920 1080" xml:space="preserve">
 <g id="s-end">
@@ -6443,7 +6443,7 @@
 			<image overflow="visible" enable-background="new    " width="260" height="245" id="link-s2pe1dog-boat-twoHumans" xlink:href="boat.png"  transform="matrix(0.4184 0 0 0.4192 300.5846 192)">
 		</image>
 		
-			<rect id="text-oneHuman_00000050638210549737164150000011053114466102807688_" x="70.47" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="539.07" height="80"/>
+			<rect id="text-twoHumans_00000062167182216622917940000017313835829765612193_" x="70.47" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="539.07" height="80"/>
 	</g>
 	<g id="s2pe1dog-cantDecide">
 		
@@ -7217,43 +7217,43 @@
 	</image>
 </g>
 <g id="s-human-nam">
-	<rect id="ph-s-humannam-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-human-nam-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
 	
-		<image overflow="visible" enable-background="new    " width="80" height="80" id="link-s-humannam-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+		<image overflow="visible" enable-background="new    " width="80" height="80" id="link-s-human-nam-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
-	<rect id="ph-s-humannam-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+	<rect id="ph-s-human-nam-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
 	
-		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-humannam-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-human-nam-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 	</image>
-	<rect id="ph-s-humannam-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+	<rect id="ph-s-human-nam-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
 	
-		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-humannam-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-human-nam-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
 	</image>
 	
-		<rect id="ph-s-humannam-humannam" x="815.36" y="247.05" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="313" height="313"/>
+		<rect id="ph-s-human-nam-humannam" x="815.36" y="247.05" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="313" height="313"/>
 	
-		<image overflow="visible" enable-background="new    " width="23" height="42" id="link-s-humannam-humannam" xlink:href="humannam.png"  transform="matrix(1 0 0 1 884.4908 341.1488)">
+		<image overflow="visible" enable-background="new    " width="23" height="42" id="link-s-human-nam-humannam" xlink:href="humannam.png"  transform="matrix(1 0 0 1 884.4908 341.1488)">
 	</image>
 </g>
 <g id="s-human-idj">
-	<rect id="ph-s-humanidj-headphones" x="19" y="21" display="none" fill="#B8846E" width="80" height="80"/>
+	<rect id="ph-s-human-idj-headphones" x="19" y="21" display="none" fill="#B8846E" width="80" height="80"/>
 	
-		<image display="none" overflow="visible" enable-background="new    " width="80" height="80" id="link-s-humanidj-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+		<image display="none" overflow="visible" enable-background="new    " width="80" height="80" id="link-s-human-idj-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 	
-		<rect id="ph-s-humanidj-no" x="1246" y="730" display="none" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+		<rect id="ph-s-human-idj-no" x="1246" y="730" display="none" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
 	
-		<image display="none" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-humanidj-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+		<image display="none" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-human-idj-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
 	</image>
 	
-		<rect id="ph-s-humanidj-yes" x="584" y="730" display="none" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+		<rect id="ph-s-human-idj-yes" x="584" y="730" display="none" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
 	
-		<image display="none" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-humanidj-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+		<image display="none" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-human-idj-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 	</image>
 	
-		<rect id="ph-s-humanidj-humanidj" x="815.36" y="247.05" display="none" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="313" height="313"/>
+		<rect id="ph-s-human-idj-humanidj" x="815.36" y="247.05" display="none" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="313" height="313"/>
 	
-		<image display="none" overflow="visible" enable-background="new    " width="25" height="44" id="link-s-humanidj-humanidj" xlink:href="humanidj.png"  transform="matrix(1 0 0 1 989.2072 373.888)">
+		<image display="none" overflow="visible" enable-background="new    " width="25" height="44" id="link-s-human-idj-humanidj" xlink:href="humanidj.png"  transform="matrix(1 0 0 1 989.2072 373.888)">
 	</image>
 </g>
 <g id="s-rabbit">

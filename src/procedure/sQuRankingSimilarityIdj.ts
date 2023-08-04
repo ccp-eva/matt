@@ -19,7 +19,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const box1TextId = 'notAtAll_00000181077235414643669070000007534180645725931444_';
 	const box2TextId = 'aLittle_00000140703112196460740660000017012435304514240394_';
 	const box3TextId = 'aMediumAmount_00000062173616712733668220000006037470562555163269_';
-	const box4TextId = 'text-aLotSimilar_00000037679055330304298250000013189285339730141346_';
+	const box4TextId = 'aLotSimilar_00000037679055330304298250000013189285339730141346_';
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById(`link-${slidePrefix}-idj-headphones`) as SvgInHtml;
 	const box1TextElement = document.getElementById(`text-${box1TextId}`)!
@@ -105,7 +105,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		.to([box2Rect, box2TextElement], { delay: 1.5, autoAlpha: 1 })
 		.to([box3Rect, box3TextElement], { delay: 1.5, autoAlpha: 1 })
 		.to([box4Rect, box4TextElement], { delay: 1, autoAlpha: 1 });
-	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-resp.mp3`);
+	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-idj-resp.mp3`);
 
 	play(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`, headphones.id);
 	if (data.rankingSlideCounter === 1) {

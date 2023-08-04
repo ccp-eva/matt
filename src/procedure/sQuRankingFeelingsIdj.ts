@@ -13,15 +13,15 @@ export default async ({ currentSlide, previousSlide }) => {
 	swapSlides(currentSlide, previousSlide);
 	data.rankingSlideCounter++;
 
-	const slidePrefix = 'sqrf';
+	const slidePrefix = 'sqrf-idj';
 	const audioPrefix = 'sqrp-sqrf-resp';
 	const entity1 = 'chicken';
 	const entity2 = 'cat';
 	const entity3 = 'human-idj';
-	const box1TextId = 'notAtAll_00000147213433856283154040000006735830243338541734_';
-	const box2TextId = 'aLittle_00000025430878852348260520000004039673202140875675_';
-	const box3TextId = 'aMediumAmount_00000112610087464687340070000004088322447390357936_';
-	const box4TextId = 'aLot_00000018951735761879263950000004873289751992755373_';
+	const box1TextId = 'notAtAll_00000034086607361783012620000016937234837571816583_';
+	const box2TextId = 'aLittle_00000079484795470931998930000007177168248432206496_';
+	const box3TextId = 'aMediumAmount_00000055687162818100924840000012724335636348725684_';
+	const box4TextId = 'aLot_00000178204565529490187320000005512947286619289774_';
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById(`link-${slidePrefix}-headphones`) as SvgInHtml;
 	const box1TextElement = document.getElementById(`text-${box1TextId}`)!
