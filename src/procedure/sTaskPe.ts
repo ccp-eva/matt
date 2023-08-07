@@ -111,7 +111,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	// hide unknownAnimalElements, show knownAnimalElements
 	gsap.set(unknownAnimalElements, { autoAlpha: 0 });
 	gsap.set(knownAnimalElements, { autoAlpha: 0.5 });
-	// gsap.set([nextButton, headphones], { autoAlpha: 0, pointerEvents: 'none' });
+	gsap.set([nextButton, headphones], { autoAlpha: 0, pointerEvents: 'none' });
 
 	// put known animals in slots, so there are no gaps between them and store their positions
 	knownAnimalElements.forEach((animal, i) => {
@@ -320,10 +320,9 @@ export default async ({ currentSlide, previousSlide }) => {
 		dragObject.disable();
 	});
 
-	// TODO Uncomment the lines as soon you have the inner, middle, outer PE audio files
-	// while (isPlaying) {
-	// 	await sleep(100);
-	// }
+	while (isPlaying) {
+		await sleep(100);
+	}
 
 	function handleMouseEnterInner() {
 		gsap.timeline().to(inner, { autoAlpha: 1 });
@@ -369,7 +368,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		outer.addEventListener('mouseenter', handleMouseEnterOuter);
 		outer.addEventListener('mouseleave', handleMouseLeaveOuter);
 
-		const response = await getResponse([inner.id, middle.id, outer.id]);
+		const response = await getResponse(['inner', 'middle', 'outer']);
 
 		circle.style.cursor = 'default';
 		inner.removeEventListener('mousemove', handleMouseEnterInner);

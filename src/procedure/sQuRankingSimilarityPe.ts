@@ -14,8 +14,8 @@ export default async ({ currentSlide, previousSlide }) => {
 	data.rankingSlideCounter++;
 
 	const slidePrefix = 'sqrs';
-	const entity1 = 'chicken';
-	const entity2 = 'dog';
+	const entity1 = 'pe-chicken';
+	const entity2 = 'pe-dog';
 	const box1TextId = 'notAtAll_00000165945813434150552420000002456009385466860452_';
 	const box2TextId = 'aLittle_00000011010344375217120240000006025831347572244884_';
 	const box3TextId = 'aMediumAmount_00000041255724186093153480000003944706942339978645_';
@@ -38,8 +38,8 @@ export default async ({ currentSlide, previousSlide }) => {
 	const box3Fill = box3Rect.getAttribute('fill')!;
 	const box4Rect = document.getElementById(`${slidePrefix}-pe-4`) as SvgInHtml;
 	const box4Fill = box4Rect.getAttribute('fill')!;
-	const entity1Element = document.getElementById(`link-${slidePrefix}-pe-${entity1}`) as SvgInHtml;
-	const entity2Element = document.getElementById(`link-${slidePrefix}-pe-${entity2}`) as SvgInHtml;
+	const entity1Element = document.getElementById(`link-${slidePrefix}-${entity1}`) as SvgInHtml;
+	const entity2Element = document.getElementById(`link-${slidePrefix}-${entity2}`) as SvgInHtml;
 	const nextButton = document.getElementById(`link-${slidePrefix}-pe-next`) as SvgInHtml;
 
 	// centered slots (from Illustrator)

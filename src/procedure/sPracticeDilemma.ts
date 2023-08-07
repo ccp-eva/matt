@@ -121,15 +121,19 @@ export default async ({ currentSlide, previousSlide }) => {
 				'pe-rural': 0,
 				'idj-urban': 0,
 			},
-			tenPencils,
+			tenPencils: {
+				'de-urban': 0.5,
+				'pe-rural': 1,
+				'idj-urban': 3,
+			},
 			textLeft: {
-				'de-urban': 2,
+				'de-urban': 0,
 				'pe-rural': 1,
 				'idj-urban': 3,
 			},
 			oneBike,
 			textRight: {
-				'de-urban': 2,
+				'de-urban': 0.1,
 				'pe-rural': 0,
 				'idj-urban': 3,
 			},
@@ -172,7 +176,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			.to(qm, { autoAlpha: 1 }, '<')
 			.to([tenPencils, textLeft], {
 				autoAlpha: 1,
-				delay: 2,
+				delay: cultureDelay.tenPencils[data.culture],
 			})
 			.to([oneBike, textRight], {
 				autoAlpha: 1,

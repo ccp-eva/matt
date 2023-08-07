@@ -34,11 +34,11 @@ export default async ({ currentSlide, previousSlide }) => {
 		},
 	};
 
-	const nextButton = document.getElementById('link-stij-next')! as SvgInHtml;
+	const nextButton = document.getElementById('link-stidj-next')! as SvgInHtml;
 	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
-	const headphones = document.getElementById('link-stij-headphones') as SvgInHtml;
-	const circle = document.getElementById('stij-circle')! as SvgInHtml;
+	const headphones = document.getElementById('link-stidj-headphones') as SvgInHtml;
+	const circle = document.getElementById('stidj-circle')! as SvgInHtml;
 	const inner = document.getElementById(
 		'st-inner_00000137851898872019742480000005807525445235371402_'
 	)! as SvgInHtml;
@@ -102,16 +102,16 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	// use the ordered version
 	const knownAnimalElements = knownAnimalOrder.map(
-		(animal) => document.getElementById(`link-stij-${animal}`)! as SvgInHtml
+		(animal) => document.getElementById(`link-stidj-${animal}`)! as SvgInHtml
 	);
 	const unknownAnimalElements = unknownAnimals.map(
-		(animal) => document.getElementById(`link-stij-${animal}`)! as SvgInHtml
+		(animal) => document.getElementById(`link-stidj-${animal}`)! as SvgInHtml
 	);
 
 	// hide unknownAnimalElements, show knownAnimalElements
 	gsap.set(unknownAnimalElements, { autoAlpha: 0 });
 	gsap.set(knownAnimalElements, { autoAlpha: 0.5 });
-	// gsap.set([nextButton, headphones], { autoAlpha: 0, pointerEvents: 'none' });
+	gsap.set([nextButton, headphones], { autoAlpha: 0, pointerEvents: 'none' });
 
 	// put known animals in slots, so there are no gaps between them and store their positions
 	knownAnimalElements.forEach((animal, i) => {
@@ -169,7 +169,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		onPress: function () {
 			// get current drag object
 			const currentId = this.target.id;
-			let currentObj = currentId.slice(10);
+			let currentObj = currentId.slice(11);
 			console.log(currentId);
 			console.log(currentObj);
 			play(`./cultures/${data.culture}/audio/st-${currentObj}.mp3`);
@@ -220,7 +220,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			const currentTarget = this.target;
 			const currentId = currentTarget.id;
 			console.log(currentId);
-			const currentIdTrimmed = currentId.slice(10);
+			const currentIdTrimmed = currentId.slice(11);
 			const targetBBox = currentTarget.getBBox();
 			const targetHeight = currentTarget.getBBox().height / 2;
 			const targetWidth = currentTarget.getBBox().width / 2;
@@ -290,16 +290,17 @@ export default async ({ currentSlide, previousSlide }) => {
 	const checkAnimals = () => {
 		let allPlaced: boolean[] = [];
 		knownAnimals.forEach((animal) => {
-			if (!data.procedure.sTaskPe[animal].circle) {
+			if (!data.procedure.sTaskIdj[animal].circle) {
 				allPlaced.push(false);
 			}
 		});
 		return allPlaced;
 	};
+
 	const placedAnimalCount = () => {
 		let count = 0;
 		knownAnimals.forEach((animal) => {
-			if (data.procedure.sTaskPe[animal].circle) {
+			if (data.procedure.sTaskIdj[animal].circle) {
 				count++;
 			}
 		});
@@ -320,10 +321,9 @@ export default async ({ currentSlide, previousSlide }) => {
 		dragObject.disable();
 	});
 
-	// TODO Uncomment the lines as soon you have the inner, middle, outer PE audio files
-	// while (isPlaying) {
-	// 	await sleep(100);
-	// }
+	while (isPlaying) {
+		await sleep(100);
+	}
 
 	function handleMouseEnterInner() {
 		gsap.timeline().to(inner, { autoAlpha: 1 });
@@ -344,7 +344,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		gsap.timeline().to(outer, { autoAlpha: 0.5 });
 	}
 
-	for (const [index, order] of data.procedure.sTaskPe.comprehension.order.entries()) {
+	for (const [index, order] of data.procedure.sTaskIdj.comprehension.order.entries()) {
 		gsap.set(headphones, { opacity: 0.5, pointerEvents: 'none' });
 		play(`./cultures/${data.culture}/audio/s-comp-check-${order}.mp3`, headphones.id);
 		if (index === 0) {
@@ -369,7 +369,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		outer.addEventListener('mouseenter', handleMouseEnterOuter);
 		outer.addEventListener('mouseleave', handleMouseLeaveOuter);
 
-		const response = await getResponse([inner.id, middle.id, outer.id]);
+		const response = await getResponse(['inner', 'middle', 'outer']);
 
 		circle.style.cursor = 'default';
 		inner.removeEventListener('mousemove', handleMouseEnterInner);
@@ -389,11 +389,11 @@ export default async ({ currentSlide, previousSlide }) => {
 		gsap.to([inner, middle, outer], { autoAlpha: 0.5 });
 
 		if (response.id.slice(3) === order) {
-			data.procedure.sTaskPe.comprehension[order] = true;
+			data.procedure.sTaskIdj.comprehension[order] = true;
 		}
 	}
 
-	data.procedure.sTaskPe.comprehension.completed = true;
+	data.procedure.sTaskIdj.comprehension.completed = true;
 
 	// show all known animals
 	gsap.to(knownAnimalElements, { opacity: 1 });

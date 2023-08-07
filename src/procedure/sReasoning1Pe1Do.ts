@@ -235,7 +235,9 @@ export default async ({ currentSlide, previousSlide }) => {
 	let wasDog = false;
 	// check actual responses from s1Pe1Do and overwrite default values
 	if (data.procedure.s1Pe1Do) {
-		wasHuman = data.procedure.s1Pe1Do.response.toLowerCase().includes(`-one${leftEntity}`);
+		wasHuman = data.procedure.s1Pe1Do.response
+			.toLowerCase()
+			.includes(`-one${leftEntity.slice(0, -3)}`);
 		wasCantDecide = data.procedure.s1Pe1Do.response.toLowerCase().includes('-cantdecide');
 		wasDog = data.procedure.s1Pe1Do.response.toLowerCase().includes(`-one${rightEntity}`);
 		// check if order was swapped, if so swap boxes
@@ -264,7 +266,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	swapSlides(currentSlide, previousSlide);
 
-	if (data.procedure.s1Pe1Do.swapLeftRight) {
+	if (wasDog) {
 		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
 	} else {
 		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);

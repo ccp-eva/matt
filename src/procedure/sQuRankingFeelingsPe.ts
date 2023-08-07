@@ -15,9 +15,9 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	const slidePrefix = 'sqrf';
 	const audioPrefix = 'sqrp-sqrf-resp';
-	const entity1 = 'chicken';
-	const entity2 = 'dog';
-	const entity3 = 'humanpe';
+	const entity1 = 'pe-chicken';
+	const entity2 = 'pe-dog';
+	const entity3 = 'pe-human';
 	const box1TextId = 'notAtAll_00000144308893751551804520000007677008384086491558_';
 	const box2TextId = 'aLittle_00000114072666696678671120000004468836285674685839_';
 	const box3TextId = 'aMediumAmount_00000040568777752929506880000000905726058807650971_';
@@ -34,15 +34,15 @@ export default async ({ currentSlide, previousSlide }) => {
 		.children[0] as HTMLParagraphElement;
 	const box1Rect = document.getElementById(`${slidePrefix}-pe-1`) as SvgInHtml;
 	const box1Fill = box1Rect.getAttribute('fill')!;
-	const box2Rect = document.getElementById(`${slidePrefix}-2`) as SvgInHtml;
+	const box2Rect = document.getElementById(`${slidePrefix}-pe-2`) as SvgInHtml;
 	const box2Fill = box2Rect.getAttribute('fill')!;
-	const box3Rect = document.getElementById(`${slidePrefix}-3`) as SvgInHtml;
+	const box3Rect = document.getElementById(`${slidePrefix}-pe-3`) as SvgInHtml;
 	const box3Fill = box3Rect.getAttribute('fill')!;
-	const box4Rect = document.getElementById(`${slidePrefix}-4`) as SvgInHtml;
+	const box4Rect = document.getElementById(`${slidePrefix}-pe-4`) as SvgInHtml;
 	const box4Fill = box4Rect.getAttribute('fill')!;
-	const entity1Element = document.getElementById(`link-${slidePrefix}-pe-${entity1}`) as SvgInHtml;
-	const entity2Element = document.getElementById(`link-${slidePrefix}-pe-${entity2}`) as SvgInHtml;
-	const entity3Element = document.getElementById(`link-${slidePrefix}-pe-${entity3}`) as SvgInHtml;
+	const entity1Element = document.getElementById(`link-${slidePrefix}-${entity1}`) as SvgInHtml;
+	const entity2Element = document.getElementById(`link-${slidePrefix}-${entity2}`) as SvgInHtml;
+	const entity3Element = document.getElementById(`link-${slidePrefix}-${entity3}`) as SvgInHtml;
 	const nextButton = document.getElementById(`link-${slidePrefix}-pe-next`) as SvgInHtml;
 
 	// centered slots (from Illustrator)
