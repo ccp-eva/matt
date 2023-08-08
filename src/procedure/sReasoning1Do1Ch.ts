@@ -258,7 +258,6 @@ export default async ({ currentSlide, previousSlide }) => {
 	if (wasCantDecide) {
 		center.classList.add('dilemma-card-fix');
 	}
-
 	if (wasChicken) {
 		right.classList.add('dilemma-card-fix');
 	}
@@ -330,7 +329,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				.timeline()
 				.to(voiceResponseStart, {
 					filter: 'drop-shadow(0px 0px 15px #000)',
-					delay: 8,
+					delay: 9.5,
 					repeat: 3,
 					yoyo: true,
 					reversed: true,

@@ -110,18 +110,12 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`);
 
-	const delay = {
-		box2: {
-			'de-urban': 1.5,
-			'pe-rural': 1.5,
-		},
-	};
 	gsap
 		.timeline()
 		.to([box1Rect, box1TextElement], { autoAlpha: 1 })
-		.to([box2Rect, box2TextElement], { delay: delay.box2[data.culture], autoAlpha: 1 })
-		.to([box3Rect, box3TextElement], { delay: 1.5, autoAlpha: 1 })
-		.to([box4Rect, box4TextElement], { delay: 1.5, autoAlpha: 1 });
+		.to([box2Rect, box2TextElement], { delay: 1.5, autoAlpha: 1 })
+		.to([box3Rect, box3TextElement], { delay: 0.8, autoAlpha: 1 })
+		.to([box4Rect, box4TextElement], { delay: 0.7, autoAlpha: 1 });
 	await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-resp.mp3`);
 
 	play(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`, headphones.id);

@@ -312,7 +312,6 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	// check circle comprehension
 	console.log('Comprehension check...');
-	const inCompCheck = true;
 
 	// hide all known animals
 	gsap.to([knownAnimalElements, inner, middle, outer], { opacity: 0.5 });
@@ -368,7 +367,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		outer.addEventListener('mouseenter', handleMouseEnterOuter);
 		outer.addEventListener('mouseleave', handleMouseLeaveOuter);
 
-		const response = await getResponse(['inner', 'middle', 'outer']);
+		const response = await getResponse(['st-inner', 'st-middle', 'st-outer']);
 
 		circle.style.cursor = 'default';
 		inner.removeEventListener('mousemove', handleMouseEnterInner);
