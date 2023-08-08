@@ -316,7 +316,7 @@ export const translations = {
 		'nam-rural': '<p class="question__capion">//Aegub !nậ /nob</p>',
 	},
 
-	aLotSmart: {
+	verySmart: {
 		'de-urban': '<p class="question__capion">Sehr schlau</p>',
 		'idj-urban': '<p class="question__capion">Sangat pintar</p>',
 		'pe-rural': '<p class="question__capion">Muy inteligente</p>',

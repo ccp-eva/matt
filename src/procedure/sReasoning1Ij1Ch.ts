@@ -235,7 +235,11 @@ export default async ({ currentSlide, previousSlide }) => {
 	let wasChicken = false;
 	// check actual responses from s1Ij1Ch and overwrite default values
 	if (data.procedure.s1Ij1Ch) {
-		wasHuman = data.procedure.s1Ij1Ch.response.toLowerCase().includes(`-one${leftEntity}`);
+		console.log({ leftEntity });
+		console.log({ leftEntityOne });
+		wasHuman = data.procedure.s1Ij1Ch.response
+			.toLowerCase()
+			.includes(`-one${leftEntity.slice(0, -4)}`);
 		wasCantDecide = data.procedure.s1Ij1Ch.response.toLowerCase().includes('-cantdecide');
 		wasChicken = data.procedure.s1Ij1Ch.response.toLowerCase().includes(`-one${rightEntity}`);
 		// check if order was swapped, if so swap boxes
@@ -251,6 +255,13 @@ export default async ({ currentSlide, previousSlide }) => {
 		wasChicken = false;
 	}
 
+	console.log({ left });
+	console.log({ center });
+	console.log({ right });
+	console.log({ wasHuman });
+	console.log({ wasCantDecide });
+	console.log({ wasChicken });
+
 	// add frame around prior selected card
 	if (wasHuman) {
 		left.classList.add('dilemma-card-fix');
@@ -264,18 +275,10 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	swapSlides(currentSlide, previousSlide);
 
-	if (wasHuman) {
-		if (data?.procedure?.s1Ij1Ch?.swapLeftRight) {
-			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-cat-right.mp3`);
-		} else {
-			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-cat-left.mp3`);
-		}
+	if (wasChicken) {
+		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
 	} else {
-		if (data?.procedure?.s1Ij1Ch?.swapLeftRight) {
-			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-cat-right.mp3`);
-		} else {
-			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-cat-left.mp3`);
-		}
+		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
 	}
 
 	if (wasHuman) {
@@ -329,14 +332,14 @@ export default async ({ currentSlide, previousSlide }) => {
 				.timeline()
 				.to(voiceResponseStart, {
 					filter: 'drop-shadow(0px 0px 15px #000)',
-					delay: 8,
+					delay: 13.5,
 					repeat: 3,
 					yoyo: true,
 					reversed: true,
 				})
 				.to(voiceResponseStop, {
 					filter: 'drop-shadow(0px 0px 15px #000)',
-					delay: 1.5,
+					delay: 2.5,
 					repeat: 3,
 					yoyo: true,
 					reversed: true,
@@ -415,14 +418,14 @@ export default async ({ currentSlide, previousSlide }) => {
 						.timeline()
 						.to(voiceResponseStart, {
 							filter: 'drop-shadow(0px 0px 15px #000)',
-							delay: 8,
+							delay: 13.5,
 							repeat: 3,
 							yoyo: true,
 							reversed: true,
 						})
 						.to(voiceResponseStop, {
 							filter: 'drop-shadow(0px 0px 15px #000)',
-							delay: 1.5,
+							delay: 2.5,
 							repeat: 3,
 							yoyo: true,
 							reversed: true,

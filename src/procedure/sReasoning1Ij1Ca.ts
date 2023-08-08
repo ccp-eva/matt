@@ -235,7 +235,9 @@ export default async ({ currentSlide, previousSlide }) => {
 	let wasCat = false;
 	// check actual responses from s1Ij1Ca and overwrite default values
 	if (data.procedure.s1Ij1Ca) {
-		wasHuman = data.procedure.s1Ij1Ca.response.toLowerCase().includes(`-one${leftEntity}`);
+		wasHuman = data.procedure.s1Ij1Ca.response
+			.toLowerCase()
+			.includes(`-one${leftEntity.slice(0, -4)}`);
 		wasCantDecide = data.procedure.s1Ij1Ca.response.toLowerCase().includes('-cantdecide');
 		wasCat = data.procedure.s1Ij1Ca.response.toLowerCase().includes(`-one${rightEntity}`);
 		// check if order was swapped, if so swap boxes
@@ -264,7 +266,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	swapSlides(currentSlide, previousSlide);
 
-	if (data.procedure.s1Ij1Ca.swapLeftRight) {
+	if (wasCat) {
 		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
 	} else {
 		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
@@ -321,14 +323,14 @@ export default async ({ currentSlide, previousSlide }) => {
 				.timeline()
 				.to(voiceResponseStart, {
 					filter: 'drop-shadow(0px 0px 15px #000)',
-					delay: 8,
+					delay: 13.5,
 					repeat: 3,
 					yoyo: true,
 					reversed: true,
 				})
 				.to(voiceResponseStop, {
 					filter: 'drop-shadow(0px 0px 15px #000)',
-					delay: 1.5,
+					delay: 2.5,
 					repeat: 3,
 					yoyo: true,
 					reversed: true,
@@ -407,14 +409,14 @@ export default async ({ currentSlide, previousSlide }) => {
 						.timeline()
 						.to(voiceResponseStart, {
 							filter: 'drop-shadow(0px 0px 15px #000)',
-							delay: 8,
+							delay: 13.5,
 							repeat: 3,
 							yoyo: true,
 							reversed: true,
 						})
 						.to(voiceResponseStop, {
 							filter: 'drop-shadow(0px 0px 15px #000)',
-							delay: 1.5,
+							delay: 2.5,
 							repeat: 3,
 							yoyo: true,
 							reversed: true,
