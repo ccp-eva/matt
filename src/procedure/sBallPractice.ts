@@ -72,10 +72,27 @@ export default async ({ currentSlide, previousSlide }) => {
 			await playPromise(`./cultures/${data.culture}/audio/sbp-fail.mp3`);
 
 			play(`./cultures/${data.culture}/audio/sbp-repeat-rules.mp3`);
+			const cultureDelay = {
+				inner: {
+					'de-urban': 3,
+					'pe-rural': 4,
+					'idj-urban': 4,
+				},
+				middle: {
+					'de-urban': 2.1,
+					'pe-rural': 3.5,
+					'idj-urban': 3.5,
+				},
+				outer: {
+					'de-urban': 2,
+					'pe-rural': 2.75,
+					'idj-urban': 3,
+				},
+			};
 			await gsap
 				.timeline()
 				.to(inner, {
-					delay: 3,
+					delay: cultureDelay.inner[data.culture],
 					autoAlpha: 1,
 					repeat: 2,
 				})
@@ -83,7 +100,7 @@ export default async ({ currentSlide, previousSlide }) => {
 					autoAlpha: 0.5,
 				})
 				.to(middle, {
-					delay: 2.5,
+					delay: cultureDelay.middle[data.culture],
 					autoAlpha: 1,
 					repeat: 2,
 				})
@@ -91,7 +108,7 @@ export default async ({ currentSlide, previousSlide }) => {
 					autoAlpha: 0.5,
 				})
 				.to(outer, {
-					delay: 1.75,
+					delay: cultureDelay.outer[data.culture],
 					autoAlpha: 1,
 					repeat: 2,
 					reversed: true,
