@@ -89,7 +89,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	let animalOrder = _.shuffle(knownAnimals); // fallback for developement
 	if (data.animalOrder) {
-		animalOrder = data.animalOrder.map((animal) => animal.slice(2));
+		animalOrder = data.animalOrder.map((animal) => animal.slice(2).replaceAll('-', ''));
 	}
 
 	// known animal order (= only known animals and in the order they were presented)
