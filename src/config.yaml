@@ -110,17 +110,17 @@ procedure:
     - s-end
 
   pe-rural:
-    # - s-introduction
-    # - s-intro-human-animals
-    # - animalOrder: [s-cow, s-pig, s-chicken, s-cat, s-dog, s-rabbit, s-turkey, s-parrot, s-human-pe]
-    # - s-mc-intro
-    # - s-ball-animation
-    # - s-ball-practice
-    # - s-task-pe
-    # - s-meaning
-    # - s-intro-boats
-    # - s-practice-dilemma
-    # - s-dilemma-start
+    - s-introduction
+    - s-intro-human-animals
+    - animalOrder: [s-cow, s-pig, s-chicken, s-cat, s-dog, s-rabbit, s-turkey, s-parrot, s-human-pe]
+    - s-mc-intro
+    - s-ball-animation
+    - s-ball-practice
+    - s-task-pe
+    - s-meaning
+    - s-intro-boats
+    - s-practice-dilemma
+    - s-dilemma-start
     - dilemmaOrder:
         - companionOrder:
             [
