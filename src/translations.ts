@@ -16,7 +16,7 @@ export const translations = {
 
 	introAdult: {
 		'de-urban':
-			'<p class="intro-text">Durch einen Klick auf das Lautsprecher-Symbol hören Sie eine kurze Begrüßung. Nachdem die Sprachaufnahme vollständig abgespielt ist, erscheint unten ein “weiter“-Knopf. Klicken Sie diesen, wenn Sie die Studie starten möchten.<br><br>In der Studie werden Sie Dinge sortieren und Entscheidungen treffen. Außerdem stellen wir Ihnen verschiedene Fragen.<br>Bei den offenen Fragen, können Sie entweder über eine Sprachaufnahme mit dem Mikrofon Ihres Gerätes antworten oder indem Sie die Antwort in ein Textfeld schreiben.<br><br>Bitte Klicken Sie nun auf das Lautsprecher-Symbol.</p>',
+			'<p class="intro-text">Durch einen Klick auf das Lautsprecher-Symbol hören Sie eine kurze Begrüßung. Nachdem die Sprachaufnahme vollständig abgespielt ist, erscheint unten ein “weiter“-Knopf. Klicken Sie diesen, wenn Sie die Studie starten möchten.<br><br>In der Studie werden Sie Dinge sortieren und Entscheidungen treffen. Außerdem stellen wir Ihnen verschiedene Fragen.<br>Bei den offenen Fragen, können Sie entweder über eine Sprachaufnahme mit dem Mikrofon Ihres Gerätes antworten oder Ihre Antwort in ein Textfeld schreiben.<br><br>Bitte Klicken Sie nun auf das Lautsprecher-Symbol.</p>',
 		'idj-urban': '<h1 class="heading">Selamat datang dan senang bertemu kamu disini!</h1>',
 		'pe-rural': '<h1 class="heading">¡Bienvenido y encantado de tenerte con nosotros!</h1>',
 		'nam-rural': '<h1 class="heading">Kaise a !gậi !khais ge satsa nēpa ūhậ sa!</h1>',
