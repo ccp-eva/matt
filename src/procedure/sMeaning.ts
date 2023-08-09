@@ -262,18 +262,30 @@ export default async ({ currentSlide, previousSlide }) => {
 
 				gsap.to(pindaNeutral, { autoAlpha: 0 });
 				pinda.src = prefetchedVideos.audio;
+				const cultureDelay = {
+					voiceResponseStart: {
+						'de-urban': 8,
+						'pe-rural': 9.5,
+						'idj-urban': 13.5,
+					},
+					voiceResponseStop: {
+						'de-urban': 1.5,
+						'pe-rural': 1.5,
+						'idj-urban': 2.5,
+					},
+				};
 				await gsap
 					.timeline()
 					.to(voiceResponseStart, {
 						filter: 'drop-shadow(0px 0px 18px #000)',
-						delay: 8,
+						delay: cultureDelay.voiceResponseStart[data.culture],
 						repeat: 3,
 						yoyo: true,
 						reversed: true,
 					})
 					.to(voiceResponseStop, {
 						filter: 'drop-shadow(0px 0px 18px #000)',
-						delay: 1.5,
+						delay: cultureDelay.voiceResponseStop[data.culture],
 						repeat: 3,
 						yoyo: true,
 						reversed: true,

@@ -6,9 +6,17 @@ export const translations = {
 		'nam-rural': '<h1 class="heading"></h1>',
 	},
 
-	introParents: {
+	introChild: {
 		'de-urban':
 			'<p class="intro-text">Durch einen Klick auf das Lautsprecher-Symbol hören Sie eine kurze Begrüßung. Nachdem die Sprachaufnahme vollständig abgespielt ist, erscheint ein „weiter“-Knopf unten auf der Seite. Diesen drücken Sie bitte, wenn Sie mit Ihrem Kind die Spiele starten möchten.<br><br>In den Spielen wird Ihr Kind Dinge sortieren und Entscheidungen treffen. Außerdem stellen wir Ihrem Kind verschiedene Fragen. Lassen Sie dafür Ihr Kind selbst auf den Bildschirm tippen bzw. mit der Maus klicken. Wenn nötig, helfen Sie ihrem Kind beim Navigieren der Maus.<br><br>An einigen Stellen hat Ihr Kind die Möglichkeit, verbal auf Fragen zu antworten. Das funktioniert entweder über eine Aufnahme mit dem Mikrofon Ihres Gerätes oder indem Sie oder Ihr Kind die Antwort Ihres Kindes in ein Textfeld schreiben. Geben Sie Ihrem Kind während der gesamten Studie bitte keinerlei Hinweise.<br><br>Bitte Klicken Sie nun auf das Lautsprecher-Symbol.</p>',
+		'idj-urban': '<h1 class="heading">Selamat datang dan senang bertemu kamu disini!</h1>',
+		'pe-rural': '<h1 class="heading">¡Bienvenido y encantado de tenerte con nosotros!</h1>',
+		'nam-rural': '<h1 class="heading">Kaise a !gậi !khais ge satsa nēpa ūhậ sa!</h1>',
+	},
+
+	introAdult: {
+		'de-urban':
+			'<p class="intro-text">Durch einen Klick auf das Lautsprecher-Symbol hören Sie eine kurze Begrüßung. Nachdem die Sprachaufnahme vollständig abgespielt ist, erscheint ein “weiter“-Knopf unten auf der Seite. Diesen drücken Sie bitte, wenn Sie die Studie starten möchten.<br><br>In der Studie werden Sie Dinge sortieren und Entscheidungen treffen. Außerdem stellen wir Ihnen verschiedene Fragen.<br>An einigen Stellen haben Sie die Möglichkeit, verbal auf Fragen zu antworten. Das funktioniert entweder über eine Aufnahme mit dem Mikrofon Ihres Gerätes oder indem Sie die Antwort in ein Textfeld schreiben.<br><br>Bitte Klicken Sie nun auf das Lautsprecher-Symbol.</p>',
 		'idj-urban': '<h1 class="heading">Selamat datang dan senang bertemu kamu disini!</h1>',
 		'pe-rural': '<h1 class="heading">¡Bienvenido y encantado de tenerte con nosotros!</h1>',
 		'nam-rural': '<h1 class="heading">Kaise a !gậi !khais ge satsa nēpa ūhậ sa!</h1>',
@@ -351,8 +359,8 @@ export const translations = {
 	ownershipAdult: {
 		'de-urban':
 			'<p class="question">Haben oder hatten du und deine Familie Tiere<br>bzw. gibt oder gab es Tiere bei dir zuhause?</p>',
-		'idj-urbann':
-			'<p class="question">Apakah saat ini kamu tinggal dengan hewan,<br>apakah kamu dan keluargamu memiliki hewan, atau pernahkah ada hewan di rumahmu sebelumnya?</p>',
+		'idj-urban':
+			'<p class="question">Apakah saat ini kamu tinggal dengan hewan,<br>apakah kamu dan keluargamu memiliki hewan,<br>atau pernahkah ada hewan di rumahmu sebelumnya?</p>',
 		'pe-rural':
 			'<p class="question">¿Tu y tu familia tienen o han tenido animales,<br>o hay o ha habido animales en su casa?</p>',
 		'nam-rural':
