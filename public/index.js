@@ -41,6 +41,10 @@ if (culture) {
 	const cultureElement = document.getElementById('input-culture');
 	cultureElement.required = false;
 	cultureElement.parentNode.style.display = 'none';
+	// hide video if culture is not german
+	if (culture !== 'de-urban') {
+		document.querySelector('video').style.display = 'none';
+	}
 }
 if (birthday) {
 	const cultureElement = document.getElementById('input-birthday');

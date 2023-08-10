@@ -20,15 +20,18 @@ export default async ({ currentSlide, previousSlide }) => {
 	const box1TextId = 'notAtAll';
 	const box2TextId = 'aLittle';
 	const box3TextId = 'aMediumAmount';
-	const box4TextId = 'aLotSmart';
+	const box4TextId = 'verySmart_00000106848989119816061490000000795778659446956459_';
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById(`link-${slidePrefix}-headphones`) as SvgInHtml;
-	const box1TextElement = document.getElementById(`text-${box1TextId}`)!
-		.children[0] as HTMLParagraphElement;
-	const box2TextElement = document.getElementById(`text-${box2TextId}`)!
-		.children[0] as HTMLParagraphElement;
-	const box3TextElement = document.getElementById(`text-${box3TextId}`)!
-		.children[0] as HTMLParagraphElement;
+	const box1TextElement = document.getElementById(
+		`text-${box1TextId}_00000003089736934514304890000008583771398747363204_`
+	)!.children[0] as HTMLParagraphElement;
+	const box2TextElement = document.getElementById(
+		`text-${box2TextId}_00000092417426050386984190000000451211499880757436_`
+	)!.children[0] as HTMLParagraphElement;
+	const box3TextElement = document.getElementById(
+		`text-${box3TextId}_00000013189715498450712000000005955945043925622931_`
+	)!.children[0] as HTMLParagraphElement;
 	const box4TextElement = document.getElementById(`text-${box4TextId}`)!
 		.children[0] as HTMLParagraphElement;
 	const box1Rect = document.getElementById(`${slidePrefix}-1`) as SvgInHtml;

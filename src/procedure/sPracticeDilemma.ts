@@ -26,12 +26,14 @@ export default async ({ currentSlide, previousSlide }) => {
 	const boatRight = document.getElementById('link-spd-boat-oneBike')! as SvgInHtml;
 	const oneBike = document.getElementById('link-spd-oneBike')! as SvgInHtml;
 	const buttonRight = document.getElementById('spd-b-oneBike')! as SvgInHtml;
-	const textRight = document.getElementById(
-		'text-oneBike_00000045577191060881134930000013313987683261151118_'
+	const textRight = document.getElementById('text-oneBike')! as SvgInHtml;
+	const qm = document.getElementById(
+		'text-questionMark_00000155127853693399251650000009331183858803794561_'
 	)! as SvgInHtml;
-	const qm = document.getElementById('text-questionMark')! as SvgInHtml;
 	const buttonCenter = document.getElementById('spd-b-cantDecide')! as SvgInHtml;
-	const textCenter = document.getElementById('text-cantDecide')! as SvgInHtml;
+	const textCenter = document.getElementById(
+		'text-cantDecide_00000034056727285669922990000017223503196478564235_'
+	)! as SvgInHtml;
 
 	const pencilYesButton = document.getElementById('link-b-tenPencils-yes')! as SvgInHtml;
 	const pencilNoButton = document.getElementById('link-b-tenPencils-no')! as SvgInHtml;
@@ -41,14 +43,12 @@ export default async ({ currentSlide, previousSlide }) => {
 	const oneBikeNoButton = document.getElementById('link-b-oneBike-no')! as SvgInHtml;
 
 	const confirm1 = document.getElementById(
-		'text-confirm_00000034811373726967630570000006256181144808529834_'
+		'text-confirm_00000023995390546384149650000012972362905572281273_'
 	);
 	const confirm2 = document.getElementById(
-		'text-confirm_00000142136083963970369070000006815839807686652318_'
+		'text-confirm_00000023989285641362536010000011733819505523217558_'
 	);
-	const confirm3 = document.getElementById(
-		'text-confirm_00000101822596987739090480000015423414397412023998_'
-	);
+	const confirm3 = document.getElementById('text-confirm');
 
 	while (!data.procedure.sPracticeDilemma.completed) {
 		// hide card contents
@@ -95,41 +95,107 @@ export default async ({ currentSlide, previousSlide }) => {
 
 		await playPromise(`./cultures/${data.culture}/audio/s-practice-dilemma-intro.mp3`);
 
+		const cultureDelay = {
+			boatsDisplay: {
+				'de-urban': 0,
+				'pe-rural': 0,
+				'idj-urban': 0,
+			},
+			tenPencilsRect: {
+				'de-urban': 2.5,
+				'pe-rural': 2.5,
+				'idj-urban': 4.5,
+			},
+			oneBikeRect: {
+				'de-urban': 0.1,
+				'pe-rural': 0.1,
+				'idj-urban': 0.5,
+			},
+			cantDecideRect: {
+				'de-urban': 2,
+				'pe-rural': 2,
+				'idj-urban': 3,
+			},
+			textCenter: {
+				'de-urban': 0,
+				'pe-rural': 0,
+				'idj-urban': 0,
+			},
+			tenPencils: {
+				'de-urban': 0.1,
+				'pe-rural': 0.8,
+				'idj-urban': 1.5,
+			},
+			textLeft: {
+				'de-urban': 0,
+				'pe-rural': 0,
+				'idj-urban': 0,
+			},
+			oneBike: {
+				'de-urban': 0.1,
+				'pe-rural': 0.1,
+				'idj-urban': 0.1,
+			},
+			textRight: {
+				'de-urban': 1,
+				'pe-rural': 1,
+				'idj-urban': 1.3,
+			},
+		};
+		play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`);
 		await gsap
 			.timeline()
 			.to([boatLeft, boatRight], {
 				autoAlpha: 1,
-				delay: 1,
-				onStart: () => {
-					play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`);
-				},
+				delay: cultureDelay.boatsDisplay[data.culture],
 			})
 			.to(tenPencilsRect, {
-				delay: 2.5,
+				delay: cultureDelay.tenPencilsRect[data.culture],
 				stroke: '#006c66',
 				strokeWidth: 10,
 				reversed: true,
 				repeat: 1,
 			})
 			.to(oneBikeRect, {
-				delay: 0.1,
+				delay: cultureDelay.oneBikeRect[data.culture],
 				stroke: '#006c66',
 				strokeWidth: 10,
 				reversed: true,
 				repeat: 1,
 			})
-			.to([cantDecideRect, textCenter], {
-				delay: 2,
+			.to([cantDecideRect], {
+				delay: cultureDelay.cantDecideRect[data.culture],
+				stroke: '#006c66',
+				strokeWidth: 10,
+				reversed: true,
+				repeat: 1,
+			})
+			.to([textCenter], {
+				delay: cultureDelay.textCenter[data.culture],
 				stroke: '#006c66',
 				strokeWidth: 10,
 				reversed: true,
 				repeat: 1,
 			})
 			.to(qm, { autoAlpha: 1 }, '<')
-			.to([tenPencils, textLeft], { autoAlpha: 1, delay: 2 })
-			.to([oneBike, textRight], { autoAlpha: 1, delay: 2 })
+			.to([tenPencils], {
+				autoAlpha: 1,
+				delay: cultureDelay.tenPencils[data.culture],
+			})
+			.to([textLeft], {
+				autoAlpha: 1,
+				delay: cultureDelay.textLeft[data.culture],
+			})
+			.to([textRight], {
+				autoAlpha: 1,
+				delay: cultureDelay.textRight[data.culture],
+			})
+			.to([oneBike], {
+				autoAlpha: 1,
+				delay: cultureDelay.oneBike[data.culture],
+			})
 			.to(oneBike, {
-				delay: 0.5,
+				delay: 1,
 				onComplete: () => {
 					play(`./cultures/${data.culture}/audio/saving.mp3`);
 				},

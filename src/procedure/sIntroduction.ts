@@ -17,6 +17,8 @@ export default async ({ currentSlide, previousSlide }) => {
 	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	const headphones = document.getElementById('link-si-headphones') as SvgInHtml;
 	const nextButton = document.getElementById('link-si-next') as SvgInHtml;
+	const childQuestion = document.getElementById('text-introChild') as SvgInHtml;
+	const adultQuestion = document.getElementById('text-introAdult') as SvgInHtml;
 	gsap.set([headphones, nextButton], { autoAlpha: 0, pointerEvents: 'none' });
 
 	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
@@ -27,6 +29,13 @@ export default async ({ currentSlide, previousSlide }) => {
 	const blob = await preloadVideo.blob();
 	const url = URL.createObjectURL(blob);
 	parentBlock.setAttribute('visibility', 'hidden');
+
+	if (data.agegroup === 'adult') {
+		gsap.set(childQuestion, { autoAlpha: 0 });
+	} else {
+		// default to child version
+		gsap.set(adultQuestion, { autoAlpha: 0 });
+	}
 
 	let playingTimeline = true;
 	speaker.addEventListener('click', () => {
@@ -73,11 +82,18 @@ export default async ({ currentSlide, previousSlide }) => {
 		pinda.src = url;
 		pinda.play();
 		// only start timeline when media can play through
+		const cultureDelay = {
+			headphones: {
+				'de-urban': 16,
+				'pe-rural': 16,
+				'idj-urban': 21,
+			},
+		};
 		gsap
 			.timeline()
 			.to(headphones, {
 				autoAlpha: 0.5,
-				delay: 16,
+				delay: cultureDelay.headphones[data.culture],
 				duration: 0.5,
 				opacity: 1,
 				visibility: 'visible',
