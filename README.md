@@ -320,9 +320,10 @@ Transforms the `data` object into a JSON format, and uploads the file the a give
    3. Merge your changes into main (this will rollout to GitHub Staging Site, [see here](#deploy-to-github-staging-site))
       1. (`git switch main` → `git merge develop` → `git push`)
       2. Switch back to develop (`git switch develop`)
-3. Deploy to MPI server: `npm run deploy`
+3. Make sure you are connected to the MPI network (VPN)
+4. Deploy to MPI server: `npm run deploy`
    1. Make sure if have your a pre-configured ssh config, since the deploy script using ssh aliases
-4. You see the transfer progress in your terminal, if that is complete the website is live here: http://ccp-odc.eva.mpg.de/matt/
+5. You see the transfer progress in your terminal, if that is complete the website is live here: http://ccp-odc.eva.mpg.de/matt/
 
 ## Contributions
 
