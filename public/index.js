@@ -8,6 +8,7 @@ let birthday = '';
 let gender = '';
 let input = '';
 let datatransfer = '';
+let coupon = '';
 
 if (params.has('id')) {
 	id = params.get('id');
@@ -26,6 +27,9 @@ if (params.has('input')) {
 }
 if (params.has('datatransfer')) {
 	datatransfer = params.get('datatransfer');
+}
+if (params.has('coupon')) {
+	datatransfer = params.get('coupon');
 }
 
 // remove all params from URL
@@ -135,6 +139,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
 	id = id ? id : document.getElementById('input-id').value;
 	culture = culture ? culture : document.getElementById('input-culture').value;
 	birthday = birthday ? birthday : document.getElementById('input-birthday').value;
+	coupon = new URL(document.location.href).searchParams.get('coupon');
 
 	// use mappings since otherwise you may run intro translation issues when localizing landing page
 	let genderIndex = '';
@@ -163,5 +168,5 @@ document.querySelector('form').addEventListener('submit', (e) => {
 	input = input ? input : inputMapping.get(inputIndex);
 	datatransfer = datatransfer ? datatransfer : datatransferMapping.get(datatransferIndex);
 
-	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&birthday=${birthday}&gender=${gender}&input=${input}&datatransfer=${datatransfer}`;
+	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&birthday=${birthday}&gender=${gender}&input=${input}&datatransfer=${datatransfer}&coupon=${coupon}`;
 });
