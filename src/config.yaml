@@ -39,6 +39,7 @@ globals:
   defaultSubjectId: demo
   defaultCulture: de-urban # possible keys from
   defaultBirthday: '2100-01-01'
+  defaultCoupon: TESTCODE
   adultThresholdAge: 12 # 11 = child, 12 = adult
   defaultGender: none
   defaultInput: userchoice-audio

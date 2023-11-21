@@ -95,6 +95,7 @@ export const init = () => {
 		gender: urlParameters.gender,
 		input: urlParameters.input,
 		datatransfer: urlParameters.datatransfer,
+		coupon: urlParameters.coupon,
 		initialTimestamp: new Date(),
 		slideCounter: 0,
 		quitBeforeEnd: false,

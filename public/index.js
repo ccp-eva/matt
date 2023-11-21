@@ -29,7 +29,7 @@ if (params.has('datatransfer')) {
 	datatransfer = params.get('datatransfer');
 }
 if (params.has('coupon')) {
-	datatransfer = params.get('coupon');
+	coupon = params.get('coupon');
 }
 
 // remove all params from URL
@@ -139,7 +139,6 @@ document.querySelector('form').addEventListener('submit', (e) => {
 	id = id ? id : document.getElementById('input-id').value;
 	culture = culture ? culture : document.getElementById('input-culture').value;
 	birthday = birthday ? birthday : document.getElementById('input-birthday').value;
-	coupon = new URL(document.location.href).searchParams.get('coupon');
 
 	// use mappings since otherwise you may run intro translation issues when localizing landing page
 	let genderIndex = '';
