@@ -118,6 +118,10 @@ export const getUrlParameters = () => {
 		params.datatransfer = config.globals.defaultDataTransfer;
 	}
 
+	if (!params.coupon) {
+		params.coupon = config.globals.defaultCoupon;
+	}
+
 	// if not in devmode, remove all params from URL
 	if (!config.devmode.on) {
 		// remove all params from URL

@@ -26,7 +26,7 @@ export const translations = {
 		'de-urban': '<h1 class="heading">Was heißt es für dich, wenn etwas sehr wichtig ist?</p>',
 		'idj-urban':
 			'<h1 class="heading">Apa artinya bagimu ketika kamu sangat peduli tentang sesuatu?</p>',
-		'pe-rural': '<h1 class="heading">¿Qué significa para ti caundo algo sea muy importante?</p>',
+		'pe-rural': '<h1 class="heading">¿Qué significa para ti cuando algo sea muy importante?</p>',
 		'nam-rural': '<h1 class="heading">Tae˗e i satsa ra ≠ậibasenba kaisets ga xu˗i xa //ae o?</p>',
 	},
 

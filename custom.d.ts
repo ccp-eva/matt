@@ -36,6 +36,7 @@ declare module '*.webm' {
 declare var data: {
 	id: string;
 	culture: string;
+	coupon: string;
 	agegroup: 'child' | 'adult';
 	input: 'audio' | 'text' | 'userchoice-audio' | 'userchoice-text';
 	datatransfer: 'server' | 'both';

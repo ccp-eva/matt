@@ -8,6 +8,7 @@ let birthday = '';
 let gender = '';
 let input = '';
 let datatransfer = '';
+let coupon = '';
 
 if (params.has('id')) {
 	id = params.get('id');
@@ -26,6 +27,9 @@ if (params.has('input')) {
 }
 if (params.has('datatransfer')) {
 	datatransfer = params.get('datatransfer');
+}
+if (params.has('coupon')) {
+	coupon = params.get('coupon');
 }
 
 // remove all params from URL
@@ -163,5 +167,5 @@ document.querySelector('form').addEventListener('submit', (e) => {
 	input = input ? input : inputMapping.get(inputIndex);
 	datatransfer = datatransfer ? datatransfer : datatransferMapping.get(datatransferIndex);
 
-	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&birthday=${birthday}&gender=${gender}&input=${input}&datatransfer=${datatransfer}`;
+	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&birthday=${birthday}&gender=${gender}&input=${input}&datatransfer=${datatransfer}&coupon=${coupon}`;
 });

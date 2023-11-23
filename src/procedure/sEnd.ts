@@ -11,5 +11,10 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	pinda.addEventListener('ended', () => {
 		gsap.to(pinda, { autoAlpha: 0, duration: 3 });
+
+		// for german setting, forward to goodbye.html with coupon
+		if (data.culture === 'de-urban') {
+			window.location.href = `./goodbye.html?coupon=${data.coupon}`;
+		}
 	});
 };

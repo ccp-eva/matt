@@ -367,7 +367,11 @@ export default async ({ currentSlide, previousSlide }) => {
 		outer.addEventListener('mouseenter', handleMouseEnterOuter);
 		outer.addEventListener('mouseleave', handleMouseLeaveOuter);
 
-		const response = await getResponse([inner.id, middle.id, outer.id]);
+		const response = await getResponse([
+			'st-inner_00000149358907631687098160000000388489300815861414_',
+			'st-middle_00000095308684437936268590000010908509682477369781_',
+			'st-outer_00000039100846412417604700000003552565995381353088_',
+		]);
 
 		circle.style.cursor = 'default';
 		inner.removeEventListener('mousemove', handleMouseEnterInner);
