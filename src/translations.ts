@@ -4,6 +4,7 @@ export const translations = {
 		'idj-urban': '<h1 class="heading"></h1>',
 		'pe-rural': '<h1 class="heading"></h1>',
 		'nam-rural': '<h1 class="heading"></h1>',
+		'zm-rural': '<h1 class="heading"></h1>',
 	},
 
 	introChild: {
