@@ -39,15 +39,14 @@ export default async ({ currentSlide, previousSlide }) => {
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById('link-stpe-headphones') as SvgInHtml;
 	const circle = document.getElementById('stpe-circle')! as SvgInHtml;
-	const inner = document.getElementById(
-		'st-inner_00000149358907631687098160000000388489300815861414_'
-	)! as SvgInHtml;
-	const middle = document.getElementById(
-		'st-middle_00000095308684437936268590000010908509682477369781_'
-	)! as SvgInHtml;
-	const outer = document.getElementById(
-		'st-outer_00000039100846412417604700000003552565995381353088_'
-	)! as SvgInHtml;
+	var circles_id = [
+		'st-inner_00000149358907631687098160000000388489300815861414_',
+		'st-middle_00000095308684437936268590000010908509682477369781_',
+		'st-outer_00000039100846412417604700000003552565995381353088_',
+	];
+	const inner = document.getElementById(circles_id[0])! as SvgInHtml;
+	const middle = document.getElementById(circles_id[1])! as SvgInHtml;
+	const outer = document.getElementById(circles_id[2])! as SvgInHtml;
 
 	gsap.to([inner, middle, outer], { opacity: 0.5 });
 
@@ -89,7 +88,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	let animalOrder = _.shuffle(knownAnimals); // fallback for developement
 	if (data.animalOrder) {
-		animalOrder = data.animalOrder.map((animal) => animal.slice(2).replaceAll('-', ''));
+		animalOrder = data.animalOrder.map((animal) => animal.slice(2));
 	}
 
 	// known animal order (= only known animals and in the order they were presented)
@@ -170,8 +169,6 @@ export default async ({ currentSlide, previousSlide }) => {
 			// get current drag object
 			const currentId = this.target.id;
 			let currentObj = currentId.slice(10);
-			console.log(currentId);
-			console.log(currentObj);
 			play(`./cultures/${data.culture}/audio/st-${currentObj}.mp3`);
 		},
 		onDrag: function () {
@@ -296,6 +293,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		});
 		return allPlaced;
 	};
+
 	const placedAnimalCount = () => {
 		let count = 0;
 		knownAnimals.forEach((animal) => {
@@ -367,11 +365,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		outer.addEventListener('mouseenter', handleMouseEnterOuter);
 		outer.addEventListener('mouseleave', handleMouseLeaveOuter);
 
-		const response = await getResponse([
-			'st-inner_00000149358907631687098160000000388489300815861414_',
-			'st-middle_00000095308684437936268590000010908509682477369781_',
-			'st-outer_00000039100846412417604700000003552565995381353088_',
-		]);
+		const response = await getResponse(circles_id);
 
 		circle.style.cursor = 'default';
 		inner.removeEventListener('mousemove', handleMouseEnterInner);
@@ -390,10 +384,11 @@ export default async ({ currentSlide, previousSlide }) => {
 
 		gsap.to([inner, middle, outer], { autoAlpha: 0.5 });
 
-		if (response.id.slice(3) === order) {
+		if (response.id.split('_')[0].split('-')[1] === order) {
 			data.procedure.sTaskPe.comprehension[order] = true;
 		}
 	}
+	console.log(data.procedure.sTaskPe.comprehension);
 
 	data.procedure.sTaskPe.comprehension.completed = true;
 

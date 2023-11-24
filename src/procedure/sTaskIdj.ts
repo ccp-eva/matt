@@ -39,15 +39,14 @@ export default async ({ currentSlide, previousSlide }) => {
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById('link-stidj-headphones') as SvgInHtml;
 	const circle = document.getElementById('stidj-circle')! as SvgInHtml;
-	const inner = document.getElementById(
-		'st-inner_00000137851898872019742480000005807525445235371402_'
-	)! as SvgInHtml;
-	const middle = document.getElementById(
-		'st-middle_00000087372448472840983920000011585739100693453957_'
-	)! as SvgInHtml;
-	const outer = document.getElementById(
-		'st-outer_00000149365794259480069290000012905892062090138803_'
-	)! as SvgInHtml;
+	var circles_id = [
+		'st-inner_00000137851898872019742480000005807525445235371402_',
+		'st-middle_00000087372448472840983920000011585739100693453957_',
+		'st-outer_00000149365794259480069290000012905892062090138803_',
+	];
+	const inner = document.getElementById(circles_id[0])! as SvgInHtml;
+	const middle = document.getElementById(circles_id[1])! as SvgInHtml;
+	const outer = document.getElementById(circles_id[2])! as SvgInHtml;
 
 	gsap.to([inner, middle, outer], { opacity: 0.5 });
 
@@ -89,7 +88,7 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	let animalOrder = _.shuffle(knownAnimals); // fallback for developement
 	if (data.animalOrder) {
-		animalOrder = data.animalOrder.map((animal) => animal.slice(2).replaceAll('-', ''));
+		animalOrder = data.animalOrder.map((animal) => animal.slice(2));
 	}
 
 	// known animal order (= only known animals and in the order they were presented)
@@ -170,8 +169,6 @@ export default async ({ currentSlide, previousSlide }) => {
 			// get current drag object
 			const currentId = this.target.id;
 			let currentObj = currentId.slice(11);
-			console.log(currentId);
-			console.log(currentObj);
 			play(`./cultures/${data.culture}/audio/st-${currentObj}.mp3`);
 		},
 		onDrag: function () {
@@ -313,7 +310,6 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	// check circle comprehension
 	console.log('Comprehension check...');
-	const inCompCheck = true;
 
 	// hide all known animals
 	gsap.to([knownAnimalElements, inner, middle, outer], { opacity: 0.5 });
@@ -369,11 +365,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		outer.addEventListener('mouseenter', handleMouseEnterOuter);
 		outer.addEventListener('mouseleave', handleMouseLeaveOuter);
 
-		const response = await getResponse([
-			'st-inner_00000137851898872019742480000005807525445235371402_',
-			'st-middle_00000087372448472840983920000011585739100693453957_',
-			'st-outer_00000149365794259480069290000012905892062090138803_',
-		]);
+		const response = await getResponse(circles_id);
 
 		circle.style.cursor = 'default';
 		inner.removeEventListener('mousemove', handleMouseEnterInner);
@@ -392,10 +384,11 @@ export default async ({ currentSlide, previousSlide }) => {
 
 		gsap.to([inner, middle, outer], { autoAlpha: 0.5 });
 
-		if (response.id.slice(3) === order) {
+		if (response.id.split('_')[0].split('-')[1] === order) {
 			data.procedure.sTaskIdj.comprehension[order] = true;
 		}
 	}
+	console.log(data.procedure.sTaskIdj.comprehension);
 
 	data.procedure.sTaskIdj.comprehension.completed = true;
 
