@@ -67,6 +67,7 @@ export const translations = {
 
 	onePot: {
 		'nam-rural': '<p class="dilemma">1 sus</p>',
+		'zm-rural': '<p class="dilemma"></p>',
 	},
 
 	confirm: {
@@ -204,6 +205,11 @@ export const translations = {
 
 	tenStones: {
 		'nam-rural': '<p class="dilemma">10 /gui-ti</p>',
+		'zm-rural': '<p class="dilemma"></p>',
+	},
+
+	tenSpoons: {
+		'zm-rural': '<p class="dilemma"></p>',
 	},
 
 	tenSandpiles: {
