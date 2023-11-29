@@ -1491,6 +1491,45 @@
 		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-sqre-pe-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
+<g id="s-qu-ranking-exposure-zm" display="none">
+	<rect id="ph-sqre-zm-next" x="1790" y="968" display="inline" fill="#B8846E" width="90" height="90"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="81" id="link-sqre-zm-next" xlink:href="next.png"  transform="matrix(0.8375 0 0 0.8272 1800 977)">
+	</image>
+	
+		<rect id="sqre-zm-1" x="236.26" y="535" display="inline" fill="#FFFFFF" stroke="#050200" stroke-width="0.5" stroke-miterlimit="10" width="283.29" height="283.29"/>
+	<rect id="sqre-zm-2" x="622.33" y="535.22" display="inline" fill="#F4F7F7" width="283.29" height="283.29"/>
+	<rect id="sqre-zm-3" x="1008.64" y="535.22" display="inline" fill="#9BB7B5" width="283.29" height="283.29"/>
+	<rect id="sqre-zm-4" x="1394.95" y="535.22" display="inline" fill="#006C66" width="283.29" height="283.29"/>
+	
+		<rect id="text-never_00000119101130377655943860000016284561614946261438_" x="233.5" y="837.5" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-sometimes_00000036930814156305967250000005103301814805573544_" x="619" y="837.5" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-often_00000147921708041462380420000015935994029831196326_" x="1006.5" y="837.5" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-almostEveryDay_00000041259152058179202850000015756751996884161724_" x="1391.5" y="837.5" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<line id="sqre-zm-line" display="inline" fill="none" stroke="#050200" stroke-width="2" stroke-miterlimit="10" x1="510.5" y1="443" x2="1409.5" y2="447"/>
+	
+		<rect id="ph-sqre-zm-dog" x="-68" y="-68" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="136" height="136"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="99" height="78" id="link-sqre-zm-dog" xlink:href="dog.png"  transform="matrix(1.3737 0 0 1.3737 1067.1692 273.8596)">
+	</image>
+	
+		<rect id="ph-sqre-zm-chicken" x="-43" y="-43" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="86" height="86"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="62" height="73" id="link-sqre-zm-chicken" xlink:href="chicken.png"  transform="matrix(1.1781 0 0 1.1781 783.9794 295.6855)">
+	</image>
+	
+		<rect id="text-exposureAdult_00000152255185838729822640000000275373676865017984_" x="110" y="60" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="1700" height="160"/>
+	
+		<rect id="text-exposureChild_00000079460240127306463740000012482895684685412763_" x="110" y="60" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="1700" height="160"/>
+	<rect id="ph-sqre-zm-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-sqre-zm-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+</g>
 <g id="s-qu-ranking-exposure-nam" display="none">
 	<rect id="ph-sqre-nam-next" x="1790" y="968" display="inline" fill="#B8846E" width="90" height="90"/>
 	
@@ -1701,6 +1740,43 @@
 		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-sqrs-pe-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
+<g id="s-qu-ranking-similarity-zm" display="none">
+	<rect id="ph-sqrs-zm-next" x="1790" y="968" display="inline" fill="#B8846E" width="90" height="90"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="81" id="link-sqrs-zm-next" xlink:href="next.png"  transform="matrix(0.8375 0 0 0.8272 1800 977)">
+	</image>
+	
+		<rect id="sqrs-zm-1" x="236.26" y="535" display="inline" fill="#FFFFFF" stroke="#050200" stroke-width="0.5" stroke-miterlimit="10" width="283.29" height="283.29"/>
+	<rect id="sqrs-zm-2" x="622.33" y="535.22" display="inline" fill="#EEF7FC" width="283.29" height="283.29"/>
+	<rect id="sqrs-zm-3" x="1008.64" y="535.22" display="inline" fill="#ABD5E9" width="283.29" height="283.29"/>
+	<rect id="sqrs-zm-4" x="1394.95" y="535.22" display="inline" fill="#2DAED8" width="283.29" height="283.29"/>
+	
+		<rect id="text-notAtAll_00000160892300343010092910000011853041757061792151_" x="234.5" y="837" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-aLittle_00000036233850807364803240000006432672640741870995_" x="619.5" y="837" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-aMediumAmount_00000011739828846124783270000007336972123001209236_" x="1005.5" y="837" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-aLotSimilar_00000104697199891275069720000014343996951161462447_" x="1395" y="837" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<line id="sqrs-zm-line" display="inline" fill="none" stroke="#050200" stroke-width="0.5" stroke-miterlimit="10" x1="510.5" y1="443" x2="1409.5" y2="447"/>
+	
+		<rect id="ph-sqrs-zm-chicken" x="-43" y="-43" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="86" height="86"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="62" height="73" id="link-sqrs-zm-chicken" xlink:href="chicken.png"  transform="matrix(1.1781 0 0 1.1781 783.9794 295.6855)">
+	</image>
+	
+		<rect id="ph-sqrs-zm-dog" x="-68" y="-68" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="136" height="136"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="99" height="78" id="link-sqrs-zm-dog" xlink:href="dog.png"  transform="matrix(1.3737 0 0 1.3737 1067.1692 273.8596)">
+	</image>
+	
+		<rect id="text-similarity_00000107558476570903476300000014967195757934334862_" x="110" y="60" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="1700" height="120"/>
+	<rect id="ph-sqrs-zm-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-sqrs-zm-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+</g>
 <g id="s-qu-ranking-feelings" display="none">
 	<rect id="ph-sqrf-next" x="1790" y="968" display="inline" fill="#B8846E" width="90" height="90"/>
 	
@@ -1825,6 +1901,48 @@
 	<rect id="ph-sqrf-pe-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
 	
 		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-sqrf-pe-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+</g>
+<g id="s-qu-ranking-feelings-zm" display="none">
+	<rect id="ph-sqrf-zm-next" x="1790" y="968" display="inline" fill="#B8846E" width="90" height="90"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="81" id="link-sqrf-zm-next" xlink:href="next.png"  transform="matrix(0.8375 0 0 0.8272 1800 977)">
+	</image>
+	
+		<rect id="sqrf-zm-1" x="236.26" y="535" display="inline" fill="#FFFFFF" stroke="#050200" stroke-width="0.5" stroke-miterlimit="10" width="283.29" height="283.29"/>
+	<rect id="sqrf-zm-2" x="622.33" y="535.22" display="inline" fill="#EEF7FC" width="283.29" height="283.29"/>
+	<rect id="sqrf-zm-3" x="1008.64" y="535.22" display="inline" fill="#ABD5E9" width="283.29" height="283.29"/>
+	<rect id="sqrf-zm-4" x="1394.95" y="535.22" display="inline" fill="#2DAED8" width="283.29" height="283.29"/>
+	
+		<rect id="text-notAtAll_00000156577514419757371870000003865603520919691667_" x="234.5" y="837" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-aLittle_00000170245415764045906100000009816970214360135553_" x="619.5" y="837" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-aMediumAmount_00000155117259599717990180000008502937145486733477_" x="1005.5" y="837" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-aLot_00000119096715237218822850000008148540965835979394_" x="1392.5" y="837" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<line id="sqrf-zm-line" display="inline" fill="none" stroke="#050200" stroke-width="2" stroke-miterlimit="10" x1="510.5" y1="443" x2="1409.5" y2="447"/>
+	
+		<rect id="ph-sqrf-zm-chicken" x="-43" y="-43" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="86" height="86"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="62" height="73" id="link-sqrf-zm-chicken" xlink:href="chicken.png"  transform="matrix(1.1781 0 0 1.1781 671 275)">
+	</image>
+	
+		<rect id="ph-sqrf-zm-dog" x="-68" y="-68" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="136" height="136"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="99" height="78" id="link-sqrf-zm-dog" xlink:href="dog.png"  transform="matrix(1.3737 0 0 1.3737 910 260)">
+	</image>
+	
+		<rect id="ph-sqrf-zm-human" x="-95" y="-95" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="190" height="190"/>
+	
+		<image display="inline" overflow="visible" width="23" height="42" id="link-sqrf-zm-human" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 1015.4431 723.71)">
+	</image>
+	
+		<rect id="text-feelingsRating_00000111190897914399818370000002789164640283963289_" x="110" y="60" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="1700" height="150"/>
+	<rect id="ph-sqrf-zm-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-sqrf-zm-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
 <g id="s-qu-ranking-feelings-nam" display="none">
@@ -1995,6 +2113,48 @@
 		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-sqrp-pe-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
+<g id="s-qu-ranking-pain-zm" display="none">
+	<rect id="ph-sqrp-zm-next" x="1790" y="968" display="inline" fill="#B8846E" width="90" height="90"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="81" id="link-sqrp-zm-next" xlink:href="next.png"  transform="matrix(0.8375 0 0 0.8272 1800 977)">
+	</image>
+	
+		<rect id="sqrp-zm-1" x="236.26" y="535" display="inline" fill="#FFFFFF" stroke="#050200" stroke-width="0.5" stroke-miterlimit="10" width="283.29" height="283.29"/>
+	<rect id="sqrp-zm-2" x="622.33" y="535.22" display="inline" fill="#EEF7FC" width="283.29" height="283.29"/>
+	<rect id="sqrp-zm-3" x="1008.64" y="535.22" display="inline" fill="#ABD5E9" width="283.29" height="283.29"/>
+	<rect id="sqrp-zm-4" x="1394.95" y="535.22" display="inline" fill="#2DAED8" width="283.29" height="283.29"/>
+	
+		<rect id="text-notAtAll_00000132061279606219040850000001667393014444629891_" x="234.5" y="837" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-aLittle_00000012445360289673386200000007395705157425653153_" x="619.5" y="837" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-aMediumAmount_00000065043000936477341360000011032612095990960258_" x="1005.5" y="837" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-aLot_00000127035425099524347830000018281313706898639538_" x="1395" y="837.5" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<line id="sqrp-zm-line" display="inline" fill="none" stroke="#050200" stroke-width="2" stroke-miterlimit="10" x1="510.5" y1="443" x2="1409.5" y2="447"/>
+	
+		<rect id="ph-sqrp-zm-chicken" x="-43" y="-43" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="86" height="86"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="62" height="73" id="link-sqrp-zm-chicken" xlink:href="chicken.png"  transform="matrix(1.1781 0 0 1.1781 664 271)">
+	</image>
+	
+		<rect id="ph-sqrp-zm-dog" x="-68" y="-68" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="136" height="136"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="99" height="78" id="link-sqrp-zm-dog" xlink:href="dog.png"  transform="matrix(1.3737 0 0 1.3737 912 249)">
+	</image>
+	
+		<rect id="ph-sqrp-zm-human" x="-95" y="-95" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="190" height="190"/>
+	
+		<image display="inline" overflow="visible" width="23" height="42" id="link-sqrp-zm-human" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 1217.1616 569.2021)">
+	</image>
+	
+		<rect id="text-pain_00000145754785501223374280000012537495089215421323_" x="110" y="60" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="1700" height="120"/>
+	<rect id="ph-sqrp-zm-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-sqrp-zm-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+</g>
 <g id="s-qu-ranking-pain-nam" display="none">
 	<rect id="ph-sqrp-nam-next" x="1790" y="968" display="inline" fill="#B8846E" width="90" height="90"/>
 	
@@ -2161,6 +2321,48 @@
 	<rect id="ph-sqri-pe-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
 	
 		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-sqri-pe-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+</g>
+<g id="s-qu-ranking-intelligence-zm" display="none">
+	<rect id="ph-sqri-zm-next" x="1790" y="968" display="inline" fill="#B8846E" width="90" height="90"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="81" id="link-sqri-zm-next" xlink:href="next.png"  transform="matrix(0.8375 0 0 0.8272 1800 977)">
+	</image>
+	
+		<rect id="sqri-zm-1" x="236.26" y="535" display="inline" fill="#FFFFFF" stroke="#050200" stroke-width="0.5" stroke-miterlimit="10" width="283.29" height="283.29"/>
+	<rect id="sqri-zm-2" x="622.33" y="535.22" display="inline" fill="#EEF7FC" width="283.29" height="283.29"/>
+	<rect id="sqri-zm-3" x="1008.64" y="535.22" display="inline" fill="#ABD5E9" width="283.29" height="283.29"/>
+	<rect id="sqri-zm-4" x="1394.95" y="535.22" display="inline" fill="#2DAED8" width="283.29" height="283.29"/>
+	
+		<rect id="text-notAtAll_00000083802648619642356110000014981627106355440542_" x="236" y="837.5" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-aLittle_00000181056770669416396740000008184612069790956973_" x="619.5" y="837.5" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-aMediumAmount_00000118384238382511324960000007224931612091558332_" x="1005.5" y="837.5" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<rect id="text-verySmart_00000146497343680220959400000008900575683146896012_" x="1395" y="837.5" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="284" height="65"/>
+	
+		<line id="sqri-zm-line" display="inline" fill="none" stroke="#050200" stroke-width="2" stroke-miterlimit="10" x1="510.5" y1="443" x2="1409.5" y2="447"/>
+	
+		<rect id="ph-sqri-zm-chicken" x="-43" y="-43" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="86" height="86"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="62" height="73" id="link-sqri-zm-chicken" xlink:href="chicken.png"  transform="matrix(1.1781 0 0 1.1781 600 273)">
+	</image>
+	
+		<rect id="ph-sqri-zm-dog" x="-68" y="-68" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="136" height="136"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="99" height="78" id="link-sqri-zm-dog" xlink:href="dog.png"  transform="matrix(1.3737 0 0 1.3737 896 271)">
+	</image>
+	
+		<rect id="ph-sqri-zm-human" x="-95" y="-95" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="190" height="190"/>
+	
+		<image display="inline" overflow="visible" width="23" height="42" id="link-sqri-zm-human" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 1586.2635 732.2937)">
+	</image>
+	
+		<rect id="text-intelligence_00000006676568782632595340000007208078018197012644_" x="110" y="60" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="1700" height="120"/>
+	<rect id="ph-sqri-zm-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-sqri-zm-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
 <g id="s-qu-ranking-intelligence-nam" display="none">
@@ -4492,6 +4694,252 @@
 	</image>
 	
 		<rect id="text-saving_00000080166028245740844690000007730863587359306159_" x="810" y="21" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="300" height="80"/>
+</g>
+<g id="s-10-zm-1-do">
+	<g id="s10zm1dog-tenHumans">
+		
+			<rect id="s10zm1dog-r-tenHumans" x="70" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="ph-s10zm1dog-tenHumans-10" x="499.2" y="641" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="109.79" height="175"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s10zm1dog-tenHumans-10_00000156582236777123025310000012860809419655590069_" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 69.6323 535.3231)">
+		</image>
+		
+			<rect id="ph-s10zm1dog-tenHumans-9" x="365.46" y="641" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="174.67" height="175"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s10zm1dog-tenHumans-9_00000096030304771146413950000003034778026693332123_" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 208.1939 544.1675)">
+		</image>
+		
+			<rect id="ph-s10zm1dog-tenHumans-8" x="259.66" y="641" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="174.67" height="175"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s10zm1dog-tenHumans-8_00000153704251711845795800000010281282772515060638_" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 314.3262 544.1675)">
+		</image>
+		
+			<rect id="ph-s10zm1dog-tenHumans-7" x="149.87" y="641" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="174.67" height="175"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s10zm1dog-tenHumans-7_00000063623599621404825480000013361691756731278478_" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 444.0435 544.1675)">
+		</image>
+		
+			<rect id="ph-s10zm1dog-tenHumans-6" x="71.01" y="641" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="119.77" height="175"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s10zm1dog-tenHumans-6_00000129197230177751997460000009638295463621548468_" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 544.2796 550.0637)">
+		</image>
+		
+			<rect id="ph-s10zm1dog-tenHumans-5" x="499.2" y="468" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="109.79" height="175"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s10zm1dog-tenHumans-5_00000175294669207587507920000011750607004822893719_" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 96.1654 718.1065)">
+		</image>
+		
+			<rect id="ph-s10zm1dog-tenHumans-4" x="365.46" y="468" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="174.67" height="175"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s10zm1dog-tenHumans-4_00000076567280790025822550000006972995827789023907_" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 234.727 706.314)">
+		</image>
+		
+			<rect id="ph-s10zm1dog-tenHumans-3" x="260.66" y="468" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="174.67" height="175"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s10zm1dog-tenHumans-3_00000108281614518727022450000010590986450487390895_" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 332.015 700.4178)">
+		</image>
+		
+			<rect id="ph-s10zm1dog-tenHumans-2" x="149.87" y="468" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="174.67" height="175"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s10zm1dog-tenHumans-2_00000123432177785899333580000015534633894203764646_" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 455.836 709.2621)">
+		</image>
+		
+			<rect id="ph-s10zm1dog-tenHumans-1" x="71.01" y="468" opacity="0.49" fill="#4AE5D9" enable-background="new    " width="119.77" height="175"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s10zm1dog-tenHumans-1_00000119835771768692468720000017479406788032362154_" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 550.1758 709.2621)">
+		</image>
+		
+			<rect id="ph-s10zm1dog-boat-tenHumans" x="70" y="-27" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="540" height="540"/>
+		
+			<image overflow="visible" width="624" height="263" id="link-s10zm1dog-boat-tenHumans_00000160189496518032076670000010472682983010772144_" xlink:href="boatzm.png"  transform="matrix(1 0 0 1 69.8405 112.3224)">
+		</image>
+		
+			<rect id="text-tenHumans_00000134948223145857636600000011024238370060238764_" x="70" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="80"/>
+	</g>
+	<g id="s10zm1dog-cantDecide">
+		
+			<rect id="s10zm1dog-r-cantDecide" x="690" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="text-cantDecide_00000048496883471820535800000016670259623614327227_" x="690" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="80"/>
+		
+			<rect id="text-questionMark_00000055681949226650444210000013279856814389708183_" x="690" y="387" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="382"/>
+	</g>
+	<g id="s10zm1dog-oneDog">
+		
+			<rect id="s10zm1dog-r-oneDog" x="1310" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="ph-s10zm1dog-oneDog" x="1524.5" y="594" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="111" height="111"/>
+		
+			<image overflow="visible" enable-background="new    " width="99" height="78" id="link-s10zm1dog-oneDog" xlink:href="dog.png"  transform="matrix(1.1212 0 0 1.1212 1524 607)">
+		</image>
+		
+			<rect id="ph-s10zm1dog-boat-oneDog" x="1310" y="-27" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="540" height="540"/>
+		
+			<image overflow="visible" width="624" height="263" id="link-s10zm1dog-boat-oneDog_00000103986542701244595250000004219410869791893389_" xlink:href="boatzm.png"  transform="matrix(1 0 0 1 1272.6733 94.6337)">
+		</image>
+		
+			<rect id="text-oneDog_00000057869787512483322040000016223929456184386699_" x="1310" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="80"/>
+	</g>
+	<rect id="ph-s10zm1dog-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
+	
+		<image overflow="visible" enable-background="new    " width="80" height="80" id="link-s10zm1dog-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<rect id="text-saving_00000013871791965798533350000012700896159656554368_" x="810" y="21" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="300" height="80"/>
+</g>
+<g id="s-1-zm-2-do" display="none">
+	<g id="s1zm2dogs-twoDogs" display="inline">
+		
+			<rect id="s1zm2dogs-r-twoDogs" x="1310" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="ph-s1zm2dogs-twoDogs-2-reflect" x="1584.01" y="519.5" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="192.64" height="193"/>
+		
+			<image overflow="visible" enable-background="new    " width="99" height="78" id="link-s1zm2dogs-twoDogs-2-reflect" xlink:href="dog.png"  transform="matrix(1.2626 0 0 1.2626 1629 586)">
+		</image>
+		
+			<rect id="ph-s1zm2dogs-twoDogs-1" x="1380" y="520" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="193" height="193"/>
+		
+			<image overflow="visible" enable-background="new    " width="99" height="78" id="link-s1zm2dogs-twoDogs-1" xlink:href="dog.png"  transform="matrix(1.3726 0 0 1.3726 1406 569)">
+		</image>
+		
+			<rect id="ph-s1zm2dogs-boat-twoDogs" x="1310" y="-27" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="540" height="540"/>
+		
+			<image overflow="visible" width="624" height="263" id="link-s1zm2dogs-boat-twoDogs_00000087414298856411888730000005068066317289323686_" xlink:href="boatzm.png"  transform="matrix(1 0 0 1 1296.2583 109.3743)">
+		</image>
+		
+			<rect id="text-twoDogs_00000103244877412208130130000008145140524735508096_" x="1310" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="80"/>
+	</g>
+	<g id="s1zm2dogs-cantDecide" display="inline">
+		
+			<rect id="s1zm2dogs-r-cantDecide" x="690" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="text-cantDecide_00000126298275644766894310000004028539627218604682_" x="690" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="80"/>
+		
+			<rect id="text-questionMark_00000115498066573363115770000008970576805709133698_" x="690" y="387" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="382"/>
+	</g>
+	<g id="s1zm2dogs-oneHuman" display="inline">
+		
+			<rect id="s1zm2dogs-r-oneHuman" x="70" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="ph-s1zm2dogs-oneHuman" x="183.54" y="481" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="312.93" height="313"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s1zm2dogs-oneHuman_00000048472787691297813550000013331690747099516842_" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 317.2744 606.078)">
+		</image>
+		
+			<rect id="ph-s1zm2dogs-boat-oneHuman" x="70" y="-27" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="540" height="540"/>
+		
+			<image overflow="visible" width="624" height="263" id="link-s1zm2dogs-boat-oneHuman_00000044896621105250424150000010805029334198081432_" xlink:href="boatzm.png"  transform="matrix(1 0 0 1 60.9962 88.7374)">
+		</image>
+		
+			<rect id="text-oneHuman_00000014614845507488048210000004840750319335245497_" x="70" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="80"/>
+	</g>
+	<rect id="ph-s1zm2dogs-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-s1zm2dogs-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<rect id="text-saving_00000120521147042228522430000002381889883106576257_" x="810" y="21" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="300" height="80"/>
+</g>
+<g id="s-2-zm-1-do" display="none">
+	<g id="s2zm1dog-twoHumans" display="inline">
+		
+			<rect id="s2zm1dog-r-twoHumans" x="70" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="538.98" height="931"/>
+		
+			<rect id="ph-s2zm1dog-twoHumans-2" x="277.62" y="471" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="313.41" height="314"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s2zm1dog-twoHumans-2" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 459.1444 580.3867)">
+		</image>
+		
+			<rect id="ph-s2zm1dog-twoHumans-1" x="88.97" y="471" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="313.41" height="314"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s2zm1dog-twoHumans-1" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 173.1768 621.6603)">
+		</image>
+		<rect id="ph-s2zm1dog-boat-twoHumans" x="70" y="-27" opacity="0.6" fill="#4AE5D9" width="540" height="540"/>
+		
+			<image overflow="visible" width="624" height="263" id="link-s2zm1dog-boat-twoHumans" xlink:href="boatzm.png"  transform="matrix(1 0 0 1 58.048 124.1149)">
+		</image>
+		
+			<rect id="text-twoHumans_00000019643955923694639670000016308136602773597316_" x="70.47" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="539.07" height="80"/>
+	</g>
+	<g id="s2zm1dog-cantDecide" display="inline">
+		
+			<rect id="s2zm1dog-r-cantDecide" x="690" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="text-questionMark_00000133528173008929804650000003995482790261181855_" x="690" y="387" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="382"/>
+		
+			<rect id="text-cantDecide_00000144299516275648009930000001897185536149654437_" x="690" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="80"/>
+	</g>
+	<g id="s2zm1dog-oneDog" display="inline">
+		
+			<rect id="s2zm1dog-r-oneDog" x="1310" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="539.94" height="931"/>
+		
+			<rect id="ph-s2zm1dog-oneDog" x="1488.53" y="549" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="183" height="183"/>
+		
+			<image overflow="visible" enable-background="new    " width="99" height="78" id="link-s2zm1dog-oneDog" xlink:href="dog.png"  transform="matrix(1.8485 0 0 1.8485 1490 575)">
+		</image>
+		
+			<rect id="ph-s2zm1dog-boat-oneDog" x="1310.01" y="-27" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="540" height="540"/>
+		
+			<image overflow="visible" width="624" height="263" id="link-s2zm1dog-boat-oneDog" xlink:href="boatzm.png"  transform="matrix(1 0 0 1 1234.708 124.9566)">
+		</image>
+		
+			<rect id="text-oneDog_00000171701794728350525960000008609086474058398093_" x="1310.51" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="538.98" height="80"/>
+	</g>
+	<rect id="ph-s2zm1dog-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-s2zm1dog-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<rect id="text-saving_00000128479641852642660590000004359048298104948616_" x="810" y="21" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="300" height="80"/>
+</g>
+<g id="s-1-zm-1-do" display="none">
+	<g id="s1zm1dog-oneDog" display="inline">
+		
+			<rect id="s1zm1dog-r-oneDog" x="1310" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="ph-s1zm1dog-oneDog" x="1472.5" y="485" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="215" height="215"/>
+		
+			<image overflow="visible" enable-background="new    " width="99" height="78" id="link-s1zm1dog-oneDog" xlink:href="dog.png"  transform="matrix(1.8485 0 0 1.8485 1495 550)">
+		</image>
+		
+			<rect id="ph-s1zm1dog-boat-oneDog" x="1310" y="-27" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="540" height="540"/>
+		
+			<image overflow="visible" width="624" height="263" id="link-s1zm1dog-boat-oneDog" xlink:href="boatzm.png"  transform="matrix(1 0 0 1 1278.9298 169.1784)">
+		</image>
+		
+			<rect id="text-oneDog_00000080889445318547003440000006209594189877827488_" x="1310.51" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="538.98" height="80"/>
+	</g>
+	<g id="s1zm1dog-cantDecide" display="inline">
+		
+			<rect id="s1zm1dog-r-cantDecide" x="690" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="text-cantDecide_00000154385325916814520230000001606295431471652796_" x="690" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="80"/>
+		
+			<rect id="text-questionMark_00000052075504319795663160000003775410827671870905_" x="690" y="387" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="382"/>
+	</g>
+	<g id="s1zm1dog-oneHuman" display="inline">
+		
+			<rect id="s1zm1dog-r-oneHuman" x="70" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="ph-s1zm1dog-oneHuman" x="183.54" y="480" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="312.93" height="313"/>
+		
+			<image overflow="visible" width="23" height="42" id="link-s1zm1dog-oneHuman" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 373.6489 589.231)">
+		</image>
+		
+			<rect id="ph-s1zm1dog-boat-oneHuman" x="70" y="-27" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="540" height="540"/>
+		
+			<image overflow="visible" width="624" height="263" id="link-s1zm1dog-boat-oneHuman" xlink:href="boatzm.png"  transform="matrix(1 0 0 1 17.1346 83.683)">
+		</image>
+		
+			<rect id="text-oneHuman_00000165952155618859773770000006704440263416432811_" x="70.47" y="960" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="539.07" height="80"/>
+	</g>
+	<rect id="ph-s1zm1dog-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-s1zm1dog-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<rect id="text-saving_00000013897432150571007090000015807218312448264104_" x="810" y="21" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="300" height="80"/>
 </g>
 <g id="s-1-ij-10-sp" display="none">
 	<g id="s1ij10sponges-tenSponges" display="inline">
@@ -6882,6 +7330,90 @@
 		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-spdnam-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 </g>
+<g id="s-practice-dilemma-zm" display="none">
+	<g id="spdzm-onePot" display="inline">
+		
+			<rect id="spdzm-r-onePot" x="1310.52" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="538.97" height="931"/>
+		
+			<rect id="text-onePot_00000042015332966990488700000005401106424215378308_" x="1310" y="975" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="50"/>
+		
+			<rect id="ph-spdzm-onePot" x="1456.74" y="417" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="246.53" height="247"/>
+		
+			<image overflow="visible" enable-background="new    " width="244" height="147" id="link-spdzm-onePot" xlink:href="pot.png"  transform="matrix(0.5382 0 0 0.5382 1516.6373 462.8727)">
+		</image>
+		
+			<rect id="ph-spdzm-boat-onePot" x="1310.01" y="-27" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="540" height="540"/>
+		
+			<image overflow="visible" width="624" height="263" id="link-spdzm-boat-onePot" xlink:href="boatzm.png"  transform="matrix(1 0 0 1 1286.0795 103.6364)">
+		</image>
+		
+			<rect id="ph-b-spdzm-onePot-no" x="1652.87" y="866" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="59.89" height="60"/>
+		
+			<image overflow="visible" enable-background="new    " width="90" height="90" id="link-b-spdzm-onePot-no" xlink:href="no.png"  transform="matrix(0.5667 0 0 0.5678 1656 870)">
+		</image>
+		
+			<rect id="ph-b-spdzm-onePot-yes" x="1454.25" y="866" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="59.89" height="60"/>
+		
+			<image overflow="visible" enable-background="new    " width="90" height="90" id="link-b-spdzm-onePot-yes" xlink:href="yes.png"  transform="matrix(0.5806 0 0 0.5817 1458 869)">
+		</image>
+		
+			<rect id="text-confirm_00000145045341419562445250000006948009176123042441_" x="1310" y="784" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="50"/>
+	</g>
+	<g id="spdzm-cantDecide" display="inline">
+		
+			<rect id="spdzm-r-cantDecide" x="690" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="text-cantDecide_00000030482603120029967880000009373768330268536465_" x="690" y="975" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="50"/>
+		
+			<rect id="text-questionMark_00000005266711333439028310000007837424185256342181_" x="690" y="387" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="382"/>
+		
+			<rect id="ph-b-spdzm-cantDecide-no" x="1029.93" y="866" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="59.94" height="60"/>
+		
+			<image overflow="visible" enable-background="new    " width="90" height="90" id="link-b-spdzm-cantDecide-no" xlink:href="no.png"  transform="matrix(0.666 0 0 0.6667 1029.4265 866)">
+		</image>
+		
+			<rect id="ph-b-spdzm-cantDecide-yes" x="831.14" y="866" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="59.94" height="60"/>
+		
+			<image overflow="visible" enable-background="new    " width="90" height="90" id="link-b-spdzm-cantDecide-yes" xlink:href="yes.png"  transform="matrix(0.666 0 0 0.6667 830.637 866)">
+		</image>
+		
+			<rect id="text-confirm_00000123400920002008550350000010746608116806919089_" x="690" y="784" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="50"/>
+	</g>
+	<g id="spdzm-tenPencils" display="inline">
+		
+			<rect id="spdzm-r-tenPencils" x="70" y="112.5" fill="none" stroke="#000000" stroke-width="1.5" stroke-miterlimit="10" width="540" height="931"/>
+		
+			<rect id="text-tenPencils_00000041261112618563176640000000132598553708179611_" x="70" y="975" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="50"/>
+		
+			<rect id="ph-spdzm-tenPencils" x="203.73" y="424" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="272.55" height="273"/>
+		
+			<image overflow="visible" enable-background="new    " width="274" height="170" id="link-spdzm-tenPencils" xlink:href="pencils.png"  transform="matrix(0.5429 0 0 0.5438 247.9053 525)">
+		</image>
+		
+			<rect id="ph-spdzm-boat-tenPencils" x="70" y="-27" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="540" height="540"/>
+		
+			<image overflow="visible" width="624" height="263" id="link-spdzm-boat-tenPencils" xlink:href="boatzm.png"  transform="matrix(0.7714 0 0 0.7714 111.6717 150.7866)">
+		</image>
+		
+			<rect id="ph-b-spdzm-tenPencils-no" x="409.64" y="866" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="59.9" height="60"/>
+		
+			<image overflow="visible" enable-background="new    " width="90" height="90" id="link-b-spdzm-tenPencils-no" xlink:href="no.png"  transform="matrix(0.6656 0 0 0.6667 409.8837 866)">
+		</image>
+		
+			<rect id="ph-b-spdzm-tenPencils-yes" x="209.97" y="866" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="59.9" height="60"/>
+		
+			<image overflow="visible" enable-background="new    " width="90" height="90" id="link-b-spdzm-tenPencils-yes" xlink:href="yes.png"  transform="matrix(0.6656 0 0 0.6667 210.216 866)">
+		</image>
+		
+			<rect id="text-confirm_00000019652870556898836550000010752636904055995838_" x="70" y="784.5" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="540" height="50"/>
+	</g>
+	
+		<rect id="text-saving_00000075162838123739417810000011057757621973981090_" x="810" y="21" display="inline" opacity="0.5" fill="#FBB03B" stroke="#000000" stroke-width="2" stroke-miterlimit="10" enable-background="new    " width="300" height="80"/>
+	<rect id="ph-spdzm-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-spdzm-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+</g>
 <g id="s-intro-boats" display="none">
 	<g id="sib-animation-canvas" display="inline">
 		<rect fill="none" width="1920" height="1080"/>
@@ -7103,6 +7635,75 @@
 		<rect id="ph-stpe-next" x="1083" y="951" display="inline" opacity="0.5" fill="#B8846E" enable-background="new    " width="80" height="80"/>
 	
 		<image display="inline" overflow="visible" enable-background="new    " width="80" height="81" id="link-stpe-next" xlink:href="next.png"  transform="matrix(0.575 0 0 0.5679 1100 968)">
+	</image>
+</g>
+<g id="s-task-zm" display="none">
+	<g id="stzm-circle" display="inline">
+		
+			<path id="st-outer_00000118380426042676283530000003752574715951801493_" fill="#C6D325" stroke="#000000" stroke-width="1.1908" d="
+			M585.95,50c-270.62,0-490,219.38-490,490s219.38,490,490,490s490-219.38,490-490S856.57,50,585.95,50z M585.95,925.21
+			c-212.75,0-385.21-172.47-385.21-385.21s172.47-385.21,385.21-385.21S971.17,327.25,971.17,540S798.7,925.21,585.95,925.21z"/>
+		
+			<path id="st-middle_00000173871758896415333820000011256690720601550766_" fill="#00B1EA" stroke="#000000" stroke-width="1.1908" d="
+			M585.95,155c-212.63,0-385,172.37-385,385s172.37,385,385,385s385-172.37,385-385S798.58,155,585.95,155z M587.14,803.61
+			c-146.24,0-264.8-118.55-264.8-264.8s118.55-264.8,264.8-264.8s264.8,118.55,264.8,264.8S733.39,803.61,587.14,803.61z"/>
+		
+			<circle id="st-inner_00000132051808926935315550000005190983711798028972_" fill="#006C66" stroke="#000000" stroke-width="1.1908" cx="585.95" cy="540" r="265"/>
+	</g>
+	<rect x="1204" y="150" display="inline" fill="#EAEAEA" width="670" height="780"/>
+	<rect id="ph-stzm-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-stzm-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<rect id="ph-stzm-cat" x="-66.75" y="-50.25" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="133.5" height="100.5"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="89" height="67" id="link-stzm-cat" xlink:href="cat.png"  transform="matrix(1 0 0 1 1499 538)">
+	</image>
+	
+		<rect id="ph-stzm-chicken" x="-46.5" y="-55" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="93" height="110"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="62" height="73" id="link-stzm-chicken" xlink:href="chicken.png"  transform="matrix(1 0 0 1 1283 237)">
+	</image>
+	
+		<rect id="ph-stzm-cow" x="-87" y="-57" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="174" height="114"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="116" height="76" id="link-stzm-cow" xlink:href="cow.png"  transform="matrix(1 0 0 1 1523 753)">
+	</image>
+	
+		<rect id="ph-stzm-dog" x="-74.25" y="-58.5" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="148.5" height="117"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="99" height="78" id="link-stzm-dog" xlink:href="dog.png"  transform="matrix(1 0 0 1 1254 511)">
+	</image>
+	
+		<rect id="ph-stzm-goat" x="-70.5" y="-50.25" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="141" height="100.5"/>
+	
+		<image display="inline" overflow="visible" width="51" height="43" id="link-stzm-goat" xlink:href="goat.png"  transform="matrix(1 0 0 1 1693.9379 239.8752)">
+	</image>
+	
+		<rect id="ph-stzm-cat2" x="-66.75" y="-50.25" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="133.5" height="100.5"/>
+	
+		<image display="inline" overflow="visible" width="89" height="67" id="link-stzm-cat2" xlink:href="cat2.png"  transform="matrix(1 0 0 1 1752.8754 751.9377)">
+	</image>
+	
+		<rect id="ph-stzm-hare" x="-60" y="-42" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="120" height="84"/>
+	
+		<image display="inline" overflow="visible" width="556" height="614" id="link-stzm-hare" xlink:href="hare.png"  transform="matrix(0.1568 0 0 0.1568 1458.7502 196.2502)">
+	</image>
+	
+		<rect id="ph-stzm-dog2" x="-74.25" y="-58.5" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="148.5" height="117"/>
+	
+		<image display="inline" overflow="visible" width="99" height="78" id="link-stzm-dog2" xlink:href="dog2.png"  transform="matrix(1 0 0 1 1280.2502 733.0002)">
+	</image>
+	
+		<rect id="ph-stzm-humanzm" x="-62" y="-114" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="124" height="228"/>
+	
+		<image display="inline" overflow="visible" width="23" height="42" id="link-stzm-humanzm" xlink:href="humanzm.png"  transform="matrix(1 0 0 1 1783.1879 479.5627)">
+	</image>
+	
+		<rect id="ph-stzm-next" x="1083" y="951" display="inline" opacity="0.5" fill="#B8846E" enable-background="new    " width="80" height="80"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="81" id="link-stzm-next" xlink:href="next.png"  transform="matrix(0.575 0 0 0.5679 1100 968)">
 	</image>
 </g>
 <g id="s-task-nam" display="none">
@@ -7372,22 +7973,25 @@
 		<image display="inline" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-rabbit-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 	</image>
 </g>
-<g id="s-hare">
-	<rect id="ph-s-hare-headphones" x="19" y="21" fill="#B8846E" width="80" height="80"/>
-	<rect id="ph-s-hare-hare" x="868.5" y="344" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="183" height="183"/>
-	<rect id="ph-s-hare-yes" x="584" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
-	<rect id="ph-s-hare-no" x="1246" y="730" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+<g id="s-hare" display="none">
+	<rect id="ph-s-hare-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
 	
-		<image overflow="visible" enable-background="new    " width="80" height="80" id="link-s-hare-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+		<rect id="ph-s-hare-hare" x="868.5" y="344" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="183" height="183"/>
+	
+		<rect id="ph-s-hare-yes" x="584" y="730" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+	
+		<rect id="ph-s-hare-no" x="1246" y="730" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-s-hare-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
 	</image>
 	
-		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-hare-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+		<image display="inline" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-hare-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
 	</image>
 	
-		<image overflow="visible" enable-background="new    " width="90" height="90" id="link-s-hare-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+		<image display="inline" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-hare-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 	</image>
 	
-		<image overflow="visible" width="556" height="614" id="link-s-hare-hare" xlink:href="hare.png"  transform="matrix(0.2535 0 0 0.2535 858.2502 407.3606)">
+		<image display="inline" overflow="visible" width="556" height="614" id="link-s-hare-hare" xlink:href="hare.png"  transform="matrix(0.2535 0 0 0.2535 858.2502 407.3606)">
 	</image>
 </g>
 <g id="s-turkey" display="none">
@@ -7472,6 +8076,27 @@
 	</image>
 	
 		<image display="inline" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-dog-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+</g>
+<g id="s-dog2" display="none">
+	<rect id="ph-s-dog2-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<rect id="ph-s-dog2-dog2" x="810" y="232" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="300" height="300"/>
+	
+		<rect id="ph-s-dog2-yes" x="584" y="730" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+	
+		<rect id="ph-s-dog2-no" x="1246" y="730" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-s-dog2-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="99" height="78" id="link-s-dog2-dog2" xlink:href="dog.png"  transform="matrix(1 0 0 1 843 301)">
+	</image>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-dog2-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-dog2-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 	</image>
 </g>
 <g id="s-goat" display="none">
@@ -7577,6 +8202,27 @@
 	</image>
 	
 		<image display="inline" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-cat-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
+	</image>
+</g>
+<g id="s-cat2" display="none">
+	<rect id="ph-s-cat2-headphones" x="19" y="21" display="inline" fill="#B8846E" width="80" height="80"/>
+	
+		<rect id="ph-s-cat2-cat2" x="833.5" y="293" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="253" height="253"/>
+	
+		<rect id="ph-s-cat2-yes" x="584" y="730" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+	
+		<rect id="ph-s-cat2-no" x="1246" y="730" display="inline" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="90" height="90"/>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="80" height="80" id="link-s-cat2-headphones" xlink:href="headphones.png"  transform="matrix(0.7625 0 0 0.7625 28 30)">
+	</image>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="89" height="67" id="link-s-cat2-cat2" xlink:href="cat.png"  transform="matrix(1 0 0 1 925 314)">
+	</image>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-cat2-no" xlink:href="no.png"  transform="matrix(0.6778 0 0 0.6778 1261 745)">
+	</image>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="90" height="90" id="link-s-cat2-yes" xlink:href="yes.png"  transform="matrix(0.7111 0 0 0.7111 597 743)">
 	</image>
 </g>
 <g id="s-catfish" display="none">

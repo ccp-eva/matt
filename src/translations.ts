@@ -208,10 +208,6 @@ export const translations = {
 		'zm-rural': '<p class="dilemma"></p>',
 	},
 
-	tenSpoons: {
-		'zm-rural': '<p class="dilemma"></p>',
-	},
-
 	tenSandpiles: {
 		'nam-rural': '<p class="dilemma">10 !hu hopi ti</p>',
 	},
