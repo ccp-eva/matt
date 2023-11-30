@@ -4,6 +4,7 @@ export const translations = {
 		'idj-urban': '<h1 class="heading"></h1>',
 		'pe-rural': '<h1 class="heading"></h1>',
 		'nam-rural': '<h1 class="heading"></h1>',
+		'zm-rural': '<h1 class="heading"></h1>',
 	},
 
 	introChild: {
@@ -66,6 +67,7 @@ export const translations = {
 
 	onePot: {
 		'nam-rural': '<p class="dilemma">1 sus</p>',
+		'zm-rural': '<p class="dilemma"></p>',
 	},
 
 	confirm: {
@@ -203,6 +205,7 @@ export const translations = {
 
 	tenStones: {
 		'nam-rural': '<p class="dilemma">10 /gui-ti</p>',
+		'zm-rural': '<p class="dilemma"></p>',
 	},
 
 	tenSandpiles: {

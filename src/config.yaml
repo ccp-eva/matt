@@ -56,58 +56,58 @@ procedure:
   # You can nest only two levels deep
   de-urban:
     - s-introduction
-    # - s-intro-human-animals
-    # - animalOrder: [s-cow, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human]
-    # - s-mc-intro
-    # - s-ball-animation
-    # - s-ball-practice
-    # - s-task
-    # - s-meaning
-    # - s-intro-boats
-    # - s-practice-dilemma
-    # - s-dilemma-start
-    # - dilemmaOrder:
-    #     - companionOrder:
-    #         [
-    #           s-1-hu-1-ca,
-    #           s-2-hu-1-ca,
-    #           s-1-hu-2-ca,
-    #           s-10-hu-1-ca,
-    #           s-1-hu-10-ca,
-    #           s-100-hu-1-ca,
-    #           s-1-hu-100-ca,
-    #         ]
-    #     - foodOrder:
-    #         [
-    #           s-1-hu-1-co,
-    #           s-2-hu-1-co,
-    #           s-1-hu-2-co,
-    #           s-10-hu-1-co,
-    #           s-1-hu-10-co,
-    #           s-100-hu-1-co,
-    #           s-1-hu-100-co,
-    #         ]
-    #     - controlOrder: [s-1-hu-10-hu, s-1-hu-10-na, s-1-hu-10-sp, s-1-ca-1-co]
-    # - s-motivation-dilemma3
-    # - s-qu-thoughts
-    # - s-qu-feelings
-    # - s-qu-difference
-    # - s-intro-ranking
-    # - rankingOrder:
-    #     [
-    #       s-qu-ranking-intelligence,
-    #       s-qu-ranking-pain,
-    #       s-qu-ranking-feelings,
-    #       s-qu-ranking-similarity,
-    #     ]
-    # - s-motivation-questions
-    # - s-qu-ownership
-    # - s-qu-ranking-exposure
-    # - s-qu-meat-fish
-    # - s-qu-egg-cheese-milk
-    # - s-intro-reasoning
-    # - reasoningOrder: [s-reasoning-1-hu-1-co, s-reasoning-1-hu-1-ca, s-reasoning-1-ca-1-co]
-    # - s-resolve-dilemma
+    - s-intro-human-animals
+    - animalOrder: [s-cow, s-pig, s-sheep, s-chicken, s-cat, s-dog, s-rabbit, s-goldfish, s-human]
+    - s-mc-intro
+    - s-ball-animation
+    - s-ball-practice
+    - s-task
+    - s-meaning
+    - s-intro-boats
+    - s-practice-dilemma
+    - s-dilemma-start
+    - dilemmaOrder:
+        - companionOrder:
+            [
+              s-1-hu-1-ca,
+              s-2-hu-1-ca,
+              s-1-hu-2-ca,
+              s-10-hu-1-ca,
+              s-1-hu-10-ca,
+              s-100-hu-1-ca,
+              s-1-hu-100-ca,
+            ]
+        - foodOrder:
+            [
+              s-1-hu-1-co,
+              s-2-hu-1-co,
+              s-1-hu-2-co,
+              s-10-hu-1-co,
+              s-1-hu-10-co,
+              s-100-hu-1-co,
+              s-1-hu-100-co,
+            ]
+        - controlOrder: [s-1-hu-10-hu, s-1-hu-10-na, s-1-hu-10-sp, s-1-ca-1-co]
+    - s-motivation-dilemma3
+    - s-qu-thoughts
+    - s-qu-feelings
+    - s-qu-difference
+    - s-intro-ranking
+    - rankingOrder:
+        [
+          s-qu-ranking-intelligence,
+          s-qu-ranking-pain,
+          s-qu-ranking-feelings,
+          s-qu-ranking-similarity,
+        ]
+    - s-motivation-questions
+    - s-qu-ownership
+    - s-qu-ranking-exposure
+    - s-qu-meat-fish
+    - s-qu-egg-cheese-milk
+    - s-intro-reasoning
+    - reasoningOrder: [s-reasoning-1-hu-1-co, s-reasoning-1-hu-1-ca, s-reasoning-1-ca-1-co]
+    - s-resolve-dilemma
     - s-end
 
   pe-rural:
@@ -257,7 +257,7 @@ procedure:
               s-100-nm-1-du,
               s-1-nm-100-du,
             ]
-        - controlOrder: [s-1-nm-10-nm, s-1-nm-10-st, s-1-nm-10-sa, s-1-ca-1-ch]
+        - controlOrder: [s-1-nm-10-nm, s-1-nm-10-st, s-1-nm-10-sa, s-1-do-1-du]
     - s-motivation-dilemma3
     - s-qu-thoughts
     - s-qu-feelings
@@ -276,6 +276,62 @@ procedure:
     - s-qu-meat-fish
     - s-qu-egg-cheese-milk
     - s-intro-reasoning
-    - reasoningOrder: [s-reasoning-1-nm-1-ch, s-reasoning-1-nm-1-ca, s-reasoning-1-ca-1-ch]
+    - reasoningOrder: [s-reasoning-1-nm-1-du, s-reasoning-1-nm-1-do, s-reasoning-1-do-1-du]
+    - s-resolve-dilemma
+    - s-end
+
+  zm-rural:
+    - s-introduction
+    - s-intro-human-animals
+    - animalOrder: [s-cat, s-dog, s-cat2, s-dog2, s-chicken, s-cow, s-goat, s-hare, s-human-zm]
+    - s-mc-intro
+    - s-ball-animation
+    - s-ball-practice
+    - s-task-zm
+    - s-meaning
+    - s-intro-boats
+    - s-practice-dilemma-zm
+    - s-dilemma-start
+    - dilemmaOrder:
+        - companionOrder:
+            [
+              s-1-zm-1-do,
+              s-2-zm-1-do,
+              s-1-zm-2-do,
+              s-10-zm-1-do,
+              s-1-zm-10-do,
+              s-100-zm-1-do,
+              s-1-zm-100-do,
+            ]
+        - foodOrder:
+            [
+              s-1-zm-1-ch,
+              s-2-zm-1-ch,
+              s-1-zm-2-ch,
+              s-10-zm-1-ch,
+              s-1-zm-10-ch,
+              s-100-zm-1-ch,
+              s-1-zm-100-ch,
+            ]
+        - controlOrder: [s-1-zm-10-zm, s-1-zm-10-st, s-1-zm-10-sa, s-1-do-1-ch]
+    - s-motivation-dilemma3
+    - s-qu-thoughts
+    - s-qu-feelings
+    - s-qu-difference
+    - s-intro-ranking
+    - rankingOrder:
+        [
+          s-qu-ranking-intelligence-zm,
+          s-qu-ranking-pain-zm,
+          s-qu-ranking-feelings-zm,
+          s-qu-ranking-similarity-zm,
+        ]
+    - s-motivation-questions
+    - s-qu-ownership
+    - s-qu-ranking-exposure-zm
+    - s-qu-meat-fish
+    - s-qu-egg-cheese-milk
+    - s-intro-reasoning
+    - reasoningOrder: [s-reasoning-1-zm-1-ch, s-reasoning-1-zm-1-do, s-reasoning-1-do-1-ch]
     - s-resolve-dilemma
     - s-end

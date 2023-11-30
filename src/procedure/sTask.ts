@@ -39,9 +39,10 @@ export default async ({ currentSlide, previousSlide }) => {
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById('link-st-headphones') as SvgInHtml;
 	const circle = document.getElementById('st-circle')! as SvgInHtml;
-	const inner = document.getElementById('st-inner')! as SvgInHtml;
-	const middle = document.getElementById('st-middle')! as SvgInHtml;
-	const outer = document.getElementById('st-outer')! as SvgInHtml;
+	var circles_id = ['st-inner', 'st-middle', 'st-outer'];
+	const inner = document.getElementById(circles_id[0])! as SvgInHtml;
+	const middle = document.getElementById(circles_id[1])! as SvgInHtml;
+	const outer = document.getElementById(circles_id[2])! as SvgInHtml;
 
 	gsap.to([inner, middle, outer], { opacity: 0.5 });
 
@@ -360,7 +361,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		outer.addEventListener('mouseenter', handleMouseEnterOuter);
 		outer.addEventListener('mouseleave', handleMouseLeaveOuter);
 
-		const response = await getResponse(['st-inner', 'st-middle', 'st-outer']);
+		const response = await getResponse(circles_id);
 
 		circle.style.cursor = 'default';
 		inner.removeEventListener('mousemove', handleMouseEnterInner);
@@ -379,10 +380,11 @@ export default async ({ currentSlide, previousSlide }) => {
 
 		gsap.to([inner, middle, outer], { autoAlpha: 0.5 });
 
-		if (response.id.slice(3) === order) {
+		if (response.id.split('_')[0].split('-')[1] === order) {
 			data.procedure.sTask.comprehension[order] = true;
 		}
 	}
+	console.log(data.procedure.sTask.comprehension);
 
 	data.procedure.sTask.comprehension.completed = true;
 

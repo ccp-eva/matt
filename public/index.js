@@ -35,6 +35,31 @@ if (params.has('coupon')) {
 // remove all params from URL
 window.history.pushState({}, document.title, window.location.pathname);
 
+// show consent if adult
+const handleDate = (e) => {
+	let age = 0;
+	if (typeof e.target === 'undefined') {
+		age = calculateAge(Date.parse(e));
+	} else {
+		age = calculateAge(Date.parse(e.target.value));
+	}
+	consentText = document.getElementById('consent');
+	consentCheckbox = document.getElementById('input-consent');
+	if (age < 12) {
+		consentText.style.display = 'none';
+		consentCheckbox.required = false;
+	} else {
+		consentText.style.display = 'block';
+		consentCheckbox.required = true;
+	}
+};
+
+const calculateAge = (birthday) => {
+	const ageDiffMs = Date.now() - birthday;
+	const ageDate = new Date(ageDiffMs);
+	return ageDate.getUTCFullYear() - 1970;
+};
+
 // hide form fields for form data where URL params already existed
 if (id) {
 	const idElement = document.getElementById('input-id');
@@ -51,9 +76,10 @@ if (culture) {
 	}
 }
 if (birthday) {
-	const cultureElement = document.getElementById('input-birthday');
-	cultureElement.required = false;
-	cultureElement.parentNode.style.display = 'none';
+	const birthdayElement = document.getElementById('input-birthday');
+	birthdayElement.required = false;
+	birthdayElement.parentNode.style.display = 'none';
+	handleDate(birthday);
 }
 if (gender) {
 	const genderElement = document.getElementById('input-gender');
@@ -70,26 +96,6 @@ if (datatransfer) {
 	datatransferElement.required = false;
 	datatransferElement.parentElement.style.display = 'none';
 }
-
-const calculateAge = (birthday) => {
-	const ageDiffMs = Date.now() - birthday;
-	const ageDate = new Date(ageDiffMs);
-	return ageDate.getUTCFullYear() - 1970;
-};
-
-// show consent if adult
-const handleDate = (e) => {
-	const age = calculateAge(Date.parse(e.target.value));
-	consentText = document.getElementById('consent');
-	consentCheckbox = document.getElementById('input-consent');
-	if (age < 12) {
-		consentText.style.display = 'none';
-		consentCheckbox.required = false;
-	} else {
-		consentText.style.display = 'block';
-		consentCheckbox.required = true;
-	}
-};
 
 const handleCheckbox = (e) => {
 	if (e.target.checked) {
@@ -168,4 +174,5 @@ document.querySelector('form').addEventListener('submit', (e) => {
 	datatransfer = datatransfer ? datatransfer : datatransferMapping.get(datatransferIndex);
 
 	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&birthday=${birthday}&gender=${gender}&input=${input}&datatransfer=${datatransfer}&coupon=${coupon}`;
+	console.log(window.location.href);
 });

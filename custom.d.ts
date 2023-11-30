@@ -329,7 +329,7 @@ declare var data: {
 			duration: number;
 			knownAnimals: string[];
 			unknownAnimals: string[];
-			human: {
+			humannam: {
 				circle: 'inner' | 'middle' | 'outer' | undefined;
 				coords: { x: number; y: number };
 			};

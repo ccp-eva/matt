@@ -15,7 +15,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		duration: 0,
 		knownAnimals: [],
 		unknownAnimals: [],
-		human: { circle: undefined, coords: { x: 0, y: 0 } },
+		humannam: { circle: undefined, coords: { x: 0, y: 0 } },
 		chicken: { circle: undefined, coords: { x: 0, y: 0 } },
 		giraffe: { circle: undefined, coords: { x: 0, y: 0 } },
 		dog: { circle: undefined, coords: { x: 0, y: 0 } },
@@ -34,14 +34,19 @@ export default async ({ currentSlide, previousSlide }) => {
 		},
 	};
 
-	const nextButton = document.getElementById('link-st-next')! as SvgInHtml;
+	const nextButton = document.getElementById('link-stnam-next')! as SvgInHtml;
 	const pinda = document.getElementById('pinda') as HTMLVideoElement;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
-	const headphones = document.getElementById('link-st-headphones') as SvgInHtml;
-	const circle = document.getElementById('st-circle')! as SvgInHtml;
-	const inner = document.getElementById('st-inner')! as SvgInHtml;
-	const middle = document.getElementById('st-middle')! as SvgInHtml;
-	const outer = document.getElementById('st-outer')! as SvgInHtml;
+	const headphones = document.getElementById('link-stnam-headphones') as SvgInHtml;
+	const circle = document.getElementById('stnam-circle')! as SvgInHtml;
+	var circles_id = [
+		'st-inner_00000111193153495179483650000012882157666067060627_',
+		'st-middle_00000116943692329885647660000013516267308605867198_',
+		'st-outer_00000165230124352602184370000000652073352036233093_',
+	];
+	const inner = document.getElementById(circles_id[0])! as SvgInHtml;
+	const middle = document.getElementById(circles_id[1])! as SvgInHtml;
+	const outer = document.getElementById(circles_id[2])! as SvgInHtml;
 
 	gsap.to([inner, middle, outer], { opacity: 0.5 });
 
@@ -79,7 +84,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	});
 
 	// always show human
-	knownAnimals = [...knownAnimals, 'human-nam'];
+	knownAnimals = [...knownAnimals, 'humannam'];
 
 	let animalOrder = _.shuffle(knownAnimals); // fallback for developement
 	if (data.animalOrder) {
@@ -90,16 +95,16 @@ export default async ({ currentSlide, previousSlide }) => {
 	const knownAnimalOrder = _.intersection(animalOrder, knownAnimals);
 
 	// store data
-	data.procedure.sTask.knownAnimals = knownAnimals;
-	data.procedure.sTask.unknownAnimals = unknownAnimals;
-	data.procedure.sTask.knownAnimalOrder = knownAnimalOrder;
+	data.procedure.sTaskNam.knownAnimals = knownAnimals;
+	data.procedure.sTaskNam.unknownAnimals = unknownAnimals;
+	data.procedure.sTaskNam.knownAnimalOrder = knownAnimalOrder;
 
 	// use the ordered version
 	const knownAnimalElements = knownAnimalOrder.map(
-		(animal) => document.getElementById(`link-st-${animal}`)! as SvgInHtml
+		(animal) => document.getElementById(`link-stnam-${animal}`)! as SvgInHtml
 	);
 	const unknownAnimalElements = unknownAnimals.map(
-		(animal) => document.getElementById(`link-st-${animal}`)! as SvgInHtml
+		(animal) => document.getElementById(`link-stnam-${animal}`)! as SvgInHtml
 	);
 
 	// hide unknownAnimalElements, show knownAnimalElements
@@ -163,7 +168,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		onPress: function () {
 			// get current drag object
 			const currentId = this.target.id;
-			let currentObj = currentId.slice(8);
+			let currentObj = currentId.slice(11);
 			play(`./cultures/${data.culture}/audio/st-${currentObj}.mp3`);
 		},
 		onDrag: function () {
@@ -212,7 +217,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			const currentTarget = this.target;
 			const currentId = currentTarget.id;
 			console.log(currentId);
-			const currentIdTrimmed = currentId.slice(8);
+			const currentIdTrimmed = currentId.slice(11);
 			const targetBBox = currentTarget.getBBox();
 			const targetHeight = currentTarget.getBBox().height / 2;
 			const targetWidth = currentTarget.getBBox().width / 2;
@@ -230,9 +235,9 @@ export default async ({ currentSlide, previousSlide }) => {
 			// Check if the distance between the centers is less than or equal to the sum of the radii
 			if (circleDistance * 1.2 <= innerRadius + targetWidth) {
 				play(`./cultures/${data.culture}/audio/inner.mp3`);
-				data.procedure.sTask[currentIdTrimmed].circle = 'inner';
-				data.procedure.sTask[currentIdTrimmed].coords.x = droppedX;
-				data.procedure.sTask[currentIdTrimmed].coords.y = droppedY;
+				data.procedure.sTaskNam[currentIdTrimmed].circle = 'inner';
+				data.procedure.sTaskNam[currentIdTrimmed].coords.x = droppedX;
+				data.procedure.sTaskNam[currentIdTrimmed].coords.y = droppedY;
 				gsap.to(inner, { opacity: 0.5, duration: 0.25 });
 			}
 
@@ -242,9 +247,9 @@ export default async ({ currentSlide, previousSlide }) => {
 				circleDistance * 1.2 > innerRadius + targetWidth
 			) {
 				play(`./cultures/${data.culture}/audio/middle.mp3`);
-				data.procedure.sTask[currentIdTrimmed].circle = 'middle';
-				data.procedure.sTask[currentIdTrimmed].coords.x = droppedX;
-				data.procedure.sTask[currentIdTrimmed].coords.y = droppedY;
+				data.procedure.sTaskNam[currentIdTrimmed].circle = 'middle';
+				data.procedure.sTaskNam[currentIdTrimmed].coords.x = droppedX;
+				data.procedure.sTaskNam[currentIdTrimmed].coords.y = droppedY;
 				gsap.to(middle, { opacity: 0.5, duration: 0.25 });
 			}
 
@@ -254,23 +259,23 @@ export default async ({ currentSlide, previousSlide }) => {
 				circleDistance * 1.2 > middleRadius + targetWidth
 			) {
 				play(`./cultures/${data.culture}/audio/outer.mp3`);
-				data.procedure.sTask[currentIdTrimmed].circle = 'outer';
-				data.procedure.sTask[currentIdTrimmed].coords.x = droppedX;
-				data.procedure.sTask[currentIdTrimmed].coords.y = droppedY;
+				data.procedure.sTaskNam[currentIdTrimmed].circle = 'outer';
+				data.procedure.sTaskNam[currentIdTrimmed].coords.x = droppedX;
+				data.procedure.sTaskNam[currentIdTrimmed].coords.y = droppedY;
 				gsap.to(outer, { opacity: 0.5, duration: 0.25 });
 			}
 
 			// NONE
 			if (circleDistance * 1.2 > outerRadius + targetWidth) {
-				if (data.procedure.sTask[currentIdTrimmed].circle === undefined) {
+				if (data.procedure.sTaskNam[currentIdTrimmed].circle === undefined) {
 					gsap.to(currentTarget, {
 						x: slotPositions.get(originalPosition).x,
 						y: slotPositions.get(originalPosition).y,
 					});
 				} else {
 					gsap.to(currentTarget, {
-						x: data.procedure.sTask[currentIdTrimmed].coords.x,
-						y: data.procedure.sTask[currentIdTrimmed].coords.y,
+						x: data.procedure.sTaskNam[currentIdTrimmed].coords.x,
+						y: data.procedure.sTaskNam[currentIdTrimmed].coords.y,
 						scale: 0.5,
 					});
 				}
@@ -282,7 +287,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const checkAnimals = () => {
 		let allPlaced: boolean[] = [];
 		knownAnimals.forEach((animal) => {
-			if (!data.procedure.sTask[animal].circle) {
+			if (!data.procedure.sTaskNam[animal].circle) {
 				allPlaced.push(false);
 			}
 		});
@@ -292,7 +297,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const placedAnimalCount = () => {
 		let count = 0;
 		knownAnimals.forEach((animal) => {
-			if (data.procedure.sTask[animal].circle) {
+			if (data.procedure.sTaskNam[animal].circle) {
 				count++;
 			}
 		});
@@ -305,7 +310,6 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	// check circle comprehension
 	console.log('Comprehension check...');
-	const inCompCheck = true;
 
 	// hide all known animals
 	gsap.to([knownAnimalElements, inner, middle, outer], { opacity: 0.5 });
@@ -336,7 +340,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		gsap.timeline().to(outer, { autoAlpha: 0.5 });
 	}
 
-	for (const [index, order] of data.procedure.sTask.comprehension.order.entries()) {
+	for (const [index, order] of data.procedure.sTaskNam.comprehension.order.entries()) {
 		gsap.set(headphones, { opacity: 0.5, pointerEvents: 'none' });
 		play(`./cultures/${data.culture}/audio/s-comp-check-${order}.mp3`, headphones.id);
 		if (index === 0) {
@@ -361,7 +365,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		outer.addEventListener('mouseenter', handleMouseEnterOuter);
 		outer.addEventListener('mouseleave', handleMouseLeaveOuter);
 
-		const response = await getResponse(['st-inner', 'st-middle', 'st-outer']);
+		const response = await getResponse(circles_id);
 
 		circle.style.cursor = 'default';
 		inner.removeEventListener('mousemove', handleMouseEnterInner);
@@ -380,12 +384,13 @@ export default async ({ currentSlide, previousSlide }) => {
 
 		gsap.to([inner, middle, outer], { autoAlpha: 0.5 });
 
-		if (response.id.slice(3) === order) {
-			data.procedure.sTask.comprehension[order] = true;
+		if (response.id.split('_')[0].split('-')[1] === order) {
+			data.procedure.sTaskNam.comprehension[order] = true;
 		}
 	}
+	console.log(data.procedure.sTaskNam.comprehension);
 
-	data.procedure.sTask.comprehension.completed = true;
+	data.procedure.sTaskNam.comprehension.completed = true;
 
 	// show all known animals
 	gsap.to(knownAnimalElements, { opacity: 1 });
