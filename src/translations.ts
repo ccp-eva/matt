@@ -278,7 +278,7 @@ export const translations = {
 	intelligence: {
 		'de-urban': '<p class="question">Wie schlau sind sie?</p>',
 		'idj-urban': '<p class="question">Seberapa pintar mereka?</p>',
-		'pe-rural': '<p class="question">¿Que inteligentes son?</p>',
+		'pe-rural': '<p class="question">¿Cómo de listos son?</p>',
 		'nam-rural': '<p class="question">Matikosen a gᾱ˗ai?</p>',
 	},
 
@@ -302,7 +302,7 @@ export const translations = {
 	similarity: {
 		'de-urban': '<p class="question">Wie ähnlich sind sie Menschen?</p>',
 		'idj-urban': '<p class="question">Seberapa mirip mereka dengan manusia?</p>',
-		'pe-rural': '<p class="question">¿Qué tan similares son a las personas?</p>',
+		'pe-rural': '<p class="question">¿Qué parecidos son a las personas?</p>',
 		'nam-rural': '<p class="question">Matikosen khoen /kha a /gui?</p>',
 	},
 
