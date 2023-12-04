@@ -278,7 +278,7 @@ export const translations = {
 	intelligence: {
 		'de-urban': '<p class="question">Wie schlau sind sie?</p>',
 		'idj-urban': '<p class="question">Seberapa pintar mereka?</p>',
-		'pe-rural': '<p class="question">¿Que inteligentes son?</p>',
+		'pe-rural': '<p class="question">¿Cómo de listos son?</p>',
 		'nam-rural': '<p class="question">Matikosen a gᾱ˗ai?</p>',
 	},
 
@@ -302,14 +302,14 @@ export const translations = {
 	similarity: {
 		'de-urban': '<p class="question">Wie ähnlich sind sie Menschen?</p>',
 		'idj-urban': '<p class="question">Seberapa mirip mereka dengan manusia?</p>',
-		'pe-rural': '<p class="question">¿Qué tan similares son a las personas?</p>',
+		'pe-rural': '<p class="question">¿Qué parecidos son a las personas?</p>',
 		'nam-rural': '<p class="question">Matikosen khoen /kha a /gui?</p>',
 	},
 
 	notAtAll: {
 		'de-urban': '<p class="question__capion">Überhaupt nicht</p>',
 		'idj-urban': '<p class="question__capion">Tidak sama sekali</p>',
-		'pe-rural': '<p class="question__capion">En absoluto</p>',
+		'pe-rural': '<p class="question__capion">Para nada</p>',
 		'nam-rural': '<p class="question__capion">/Nȋtsē</p>',
 	},
 
@@ -323,7 +323,7 @@ export const translations = {
 	aMediumAmount: {
 		'de-urban': '<p class="question__capion">Mittel</p>',
 		'idj-urban': '<p class="question__capion">Sedang</p>',
-		'pe-rural': '<p class="question__capion">Medio</p>',
+		'pe-rural': '<p class="question__capion">Medianamente</p>',
 		'nam-rural': '<p class="question__capion">//Aegub !nậ /nob</p>',
 	},
 
@@ -337,14 +337,14 @@ export const translations = {
 	aLot: {
 		'de-urban': '<p class="question__capion">Sehr</p>',
 		'idj-urban': '<p class="question__capion">Banyak</p>',
-		'pe-rural': '<p class="question__capion">Muy</p>',
+		'pe-rural': '<p class="question__capion">Mucho</p>',
 		'nam-rural': '<p class="question__capion">Kaise</p>',
 	},
 
 	aLotSimilar: {
 		'de-urban': '<p class="question__capion">Sehr ähnlich</p>',
 		'idj-urban': '<p class="question__capion">Sangat mirip</p>',
-		'pe-rural': '<p class="question__capion">Muy similar</p>',
+		'pe-rural': '<p class="question__capion">Muy parecido</p>',
 		'nam-rural': '<p class="question__capion">Kaise /guiti i</p>',
 	},
 
