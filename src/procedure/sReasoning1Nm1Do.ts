@@ -11,7 +11,7 @@ import { swapSlides } from '../util/slideVisibility';
 export default async ({ currentSlide, previousSlide }) => {
 	data.reasoningSlideCounter++;
 	const slidePrefix = 'sr1nm1dog';
-	const leftEntity = 'human-nam';
+	const leftEntity = 'humannam';
 	const leftEntityOne = 'oneHuman';
 	const rightEntity = 'dog';
 	const rightEntityOne = 'oneDog';

@@ -14,9 +14,9 @@ export default async ({ currentSlide, previousSlide }) => {
 	data.rankingSlideCounter++;
 
 	const slidePrefix = 'sqri';
-	const entity1 = 'duiker';
-	const entity2 = 'dog';
-	const entity3 = 'human-nam';
+	const entity1 = 'nam-duiker';
+	const entity2 = 'nam-dog';
+	const entity3 = 'nam-human';
 	const box1TextId = 'notAtAll';
 	const box2TextId = 'aLittle';
 	const box3TextId = 'aMediumAmount';
