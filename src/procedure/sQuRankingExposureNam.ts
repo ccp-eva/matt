@@ -13,8 +13,8 @@ export default async ({ currentSlide, previousSlide }) => {
 	swapSlides(currentSlide, previousSlide);
 
 	const slidePrefix = 'sqre';
-	const entity1 = 'duiker';
-	const entity2 = 'dog';
+	const entity1 = 'nam-duiker';
+	const entity2 = 'nam-dog';
 	const box1TextId = 'never';
 	const box2TextId = 'sometimes';
 	const box3TextId = 'often';

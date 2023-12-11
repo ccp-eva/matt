@@ -113,7 +113,7 @@ procedure:
   pe-rural:
     - s-introduction
     - s-intro-human-animals
-    - animalOrder: [s-cow, s-pig, s-chicken, s-cat, s-dog, s-rabbit, s-turkey, s-parrot, s-human-pe]
+    - animalOrder: [s-cow, s-pig, s-chicken, s-cat, s-dog, s-rabbit, s-turkey, s-parrot, s-humanpe]
     - s-mc-intro
     - s-ball-animation
     - s-ball-practice
@@ -170,7 +170,7 @@ procedure:
     - s-introduction
     - s-intro-human-animals
     - animalOrder:
-        [s-cow, s-catfish, s-goat, s-chicken, s-cat, s-dog, s-parrot, s-goldfish, s-human-idj]
+        [s-cow, s-catfish, s-goat, s-chicken, s-cat, s-dog, s-parrot, s-goldfish, s-humanidj]
     - s-mc-intro
     - s-ball-animation
     - s-ball-practice
@@ -227,7 +227,7 @@ procedure:
     - s-introduction
     - s-intro-human-animals
     - animalOrder:
-        [s-duiker, s-kudu, s-giraffe, s-jackal, s-cat, s-dog, s-chicken, s-goat, s-human-nam]
+        [s-duiker, s-kudu, s-giraffe, s-jackal, s-cat, s-dog, s-chicken, s-goat, s-humannam]
     - s-mc-intro
     - s-ball-animation
     - s-ball-practice
@@ -283,7 +283,7 @@ procedure:
   zm-rural:
     - s-introduction
     - s-intro-human-animals
-    - animalOrder: [s-cat, s-dog, s-cat2, s-dog2, s-chicken, s-cow, s-goat, s-hare, s-human-zm]
+    - animalOrder: [s-cat, s-dog, s-cat2, s-dog2, s-chicken, s-cow, s-goat, s-hare, s-humanzm]
     - s-mc-intro
     - s-ball-animation
     - s-ball-practice
