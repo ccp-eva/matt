@@ -402,10 +402,10 @@ export default async ({ currentSlide, previousSlide }) => {
 		await sleep(1000);
 	}
 
-	gsap.to([knownAnimalElements, inner, middle, outer], { opacity: 0.5 });
-	dragObjects.forEach((dragObject) => {
-		dragObject.disable();
-	});
+	// gsap.to([knownAnimalElements, inner, middle, outer], { opacity: 0.5 });
+	// dragObjects.forEach((dragObject) => {
+	// 	dragObject.disable();
+	// });
 
 	isPlaying = true;
 	play(`./cultures/${data.culture}/audio/sqr-next-red.mp3`);

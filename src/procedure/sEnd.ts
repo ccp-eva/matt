@@ -10,15 +10,15 @@ export default async ({ currentSlide, previousSlide }) => {
 	pinda.src = `./cultures/${data.culture}/video/s-end.${data.meta.videoExtension}`;
 
 	pinda.addEventListener('ended', () => {
-		gsap.to(pinda, { autoAlpha: 0, duration: 3 });
-
 		// For prolific users
 		if (data.PROLIFIC_PID !== 'none') {
 			window.location.href = `https://app.prolific.com/submissions/complete?cc=C1JMG40C`;
 		}
 		// for german setting, forward to goodbye.html with coupon
 		else if (data.culture === 'de-urban') {
+			gsap.to(pinda, { autoAlpha: 0, duration: 2 });
 			window.location.href = `./goodbye.html?coupon=${data.coupon}`;
 		}
+		gsap.to(pinda, { autoAlpha: 0, duration: 3 });
 	});
 };
