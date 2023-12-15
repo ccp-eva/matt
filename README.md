@@ -318,7 +318,7 @@ Transforms the `data` object into a JSON format, and uploads the file the a give
    1. Following steps are **optionally**:
    2. Commit your changes into `develop` branch
    3. Merge your changes into main (this will rollout to GitHub Staging Site, [see here](#deploy-to-github-staging-site))
-      1. (`git switch main` → `git merge develop` → `git push`)
+      1. (`git switch main` → `git merge develop --commit -m""` → `git push`)
       2. Switch back to develop (`git switch develop`)
 3. Make sure you are connected to the MPI network (VPN)
 4. Deploy to MPI server: `npm run deploy`
