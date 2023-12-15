@@ -37,6 +37,7 @@ declare var data: {
 	id: string;
 	culture: string;
 	coupon: string;
+	PROLIFIC_PID: string;
 	agegroup: 'child' | 'adult';
 	input: 'audio' | 'text' | 'userchoice-audio' | 'userchoice-text';
 	datatransfer: 'server' | 'both';

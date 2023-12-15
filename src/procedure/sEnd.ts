@@ -12,8 +12,12 @@ export default async ({ currentSlide, previousSlide }) => {
 	pinda.addEventListener('ended', () => {
 		gsap.to(pinda, { autoAlpha: 0, duration: 3 });
 
+		// For prolific users
+		if (data.PROLIFIC_PID !== 'none') {
+			window.location.href = `https://app.prolific.com/submissions/complete?cc=C1JMG40C`;
+		}
 		// for german setting, forward to goodbye.html with coupon
-		if (data.culture === 'de-urban') {
+		else if (data.culture === 'de-urban') {
 			window.location.href = `./goodbye.html?coupon=${data.coupon}`;
 		}
 	});
