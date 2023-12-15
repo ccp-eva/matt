@@ -96,6 +96,7 @@ export const init = () => {
 		input: urlParameters.input,
 		datatransfer: urlParameters.datatransfer,
 		coupon: urlParameters.coupon,
+		PROLIFIC_PID: urlParameters.PROLIFIC_PID,
 		initialTimestamp: new Date(),
 		slideCounter: 0,
 		quitBeforeEnd: false,

@@ -9,6 +9,7 @@ let gender = '';
 let input = '';
 let datatransfer = '';
 let coupon = '';
+let PROLIFIC_PID = '';
 
 if (params.has('id')) {
 	id = params.get('id');
@@ -30,6 +31,9 @@ if (params.has('datatransfer')) {
 }
 if (params.has('coupon')) {
 	coupon = params.get('coupon');
+}
+if (params.has('PROLIFIC_PID')) {
+	PROLIFIC_PID = params.get('PROLIFIC_PID');
 }
 
 // remove all params from URL
@@ -71,7 +75,7 @@ if (culture) {
 	cultureElement.required = false;
 	cultureElement.parentNode.style.display = 'none';
 	// hide video if culture is not german
-	if (culture !== 'de-urban') {
+	if (culture !== 'de-urban' && culture !== 'prolific-de-u') {
 		document.querySelector('video').style.display = 'none';
 	}
 }
@@ -173,6 +177,6 @@ document.querySelector('form').addEventListener('submit', (e) => {
 	input = input ? input : inputMapping.get(inputIndex);
 	datatransfer = datatransfer ? datatransfer : datatransferMapping.get(datatransferIndex);
 
-	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&birthday=${birthday}&gender=${gender}&input=${input}&datatransfer=${datatransfer}&coupon=${coupon}`;
+	window.location.href = `${window.location.href}app.html?id=${id}&culture=${culture}&birthday=${birthday}&gender=${gender}&input=${input}&datatransfer=${datatransfer}&coupon=${coupon}&PROLIFIC_PID=${PROLIFIC_PID}`;
 	console.log(window.location.href);
 });

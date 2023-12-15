@@ -122,6 +122,10 @@ export const getUrlParameters = () => {
 		params.coupon = config.globals.defaultCoupon;
 	}
 
+	if (!params.PROLIFIC_PID) {
+		params.PROLIFIC_PID = config.globals.defaultPROLIFIC_PID;
+	}
+
 	// if not in devmode, remove all params from URL
 	if (!config.devmode.on) {
 		// remove all params from URL
