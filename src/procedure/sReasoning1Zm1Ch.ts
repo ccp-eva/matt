@@ -233,17 +233,17 @@ export default async ({ currentSlide, previousSlide }) => {
 	let wasHuman = false;
 	let wasCantDecide = false;
 	let wasChicken = false;
-	// check actual responses from s1Pe1Ch and overwrite default values
-	if (data.procedure.s1Pe1Ch) {
+	// check actual responses from s1Zm1Ch and overwrite default values
+	if (data.procedure.s1Zm1Ch) {
 		console.log({ leftEntity });
 		console.log({ leftEntityOne });
-		wasHuman = data.procedure.s1Pe1Ch.response
+		wasHuman = data.procedure.s1Zm1Ch.response
 			.toLowerCase()
 			.includes(`-one${leftEntity.slice(0, -3)}`);
-		wasCantDecide = data.procedure.s1Pe1Ch.response.toLowerCase().includes('-cantdecide');
-		wasChicken = data.procedure.s1Pe1Ch.response.toLowerCase().includes(`-one${rightEntity}`);
+		wasCantDecide = data.procedure.s1Zm1Ch.response.toLowerCase().includes('-cantdecide');
+		wasChicken = data.procedure.s1Zm1Ch.response.toLowerCase().includes(`-one${rightEntity}`);
 		// check if order was swapped, if so swap boxes
-		if (data.procedure.s1Pe1Ch.swapLeftRight) {
+		if (data.procedure.s1Zm1Ch.swapLeftRight) {
 			const left = document.getElementById(`${slidePrefix}-${leftEntityOne}`)! as SvgInHtml;
 			const right = document.getElementById(`${slidePrefix}-${rightEntityOne}`)! as SvgInHtml;
 			moveToCenterAnchor(left, 1450);
@@ -254,13 +254,6 @@ export default async ({ currentSlide, previousSlide }) => {
 		wasCantDecide = true;
 		wasChicken = false;
 	}
-
-	console.log({ left });
-	console.log({ center });
-	console.log({ right });
-	console.log({ wasHuman });
-	console.log({ wasCantDecide });
-	console.log({ wasChicken });
 
 	// add frame around prior selected card
 	if (wasHuman) {
@@ -275,10 +268,18 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	swapSlides(currentSlide, previousSlide);
 
-	if (wasChicken) {
-		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+	if (wasHuman) {
+		if (data?.procedure?.s1Zm1Ch?.swapLeftRight) {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+		} else {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+		}
 	} else {
-		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+		if (data?.procedure?.s1Zm1Ch?.swapLeftRight) {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+		} else {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+		}
 	}
 
 	if (wasHuman) {

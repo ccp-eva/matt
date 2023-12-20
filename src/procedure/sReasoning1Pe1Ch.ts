@@ -255,13 +255,6 @@ export default async ({ currentSlide, previousSlide }) => {
 		wasChicken = false;
 	}
 
-	console.log({ left });
-	console.log({ center });
-	console.log({ right });
-	console.log({ wasHuman });
-	console.log({ wasCantDecide });
-	console.log({ wasChicken });
-
 	// add frame around prior selected card
 	if (wasHuman) {
 		left.classList.add('dilemma-card-fix');
@@ -275,10 +268,18 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	swapSlides(currentSlide, previousSlide);
 
-	if (wasChicken) {
-		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+	if (wasHuman) {
+		if (data?.procedure?.s1Pe1Ch?.swapLeftRight) {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+		} else {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+		}
 	} else {
-		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+		if (data?.procedure?.s1Pe1Ch?.swapLeftRight) {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+		} else {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+		}
 	}
 
 	if (wasHuman) {

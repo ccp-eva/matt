@@ -266,10 +266,18 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	swapSlides(currentSlide, previousSlide);
 
-	if (wasDog) {
-		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+	if (wasHuman) {
+		if (data?.procedure?.s1Zm1Do?.swapLeftRight) {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+		} else {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+		}
 	} else {
-		await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+		if (data?.procedure?.s1Zm1Do?.swapLeftRight) {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-right.mp3`);
+		} else {
+			await playPromise(`./cultures/${data.culture}/audio/${slidePrefix}-left.mp3`);
+		}
 	}
 
 	if (wasHuman) {
