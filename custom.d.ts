@@ -399,6 +399,11 @@ declare var data: {
 			response: string;
 			swapLeftRight: boolean;
 		};
+		s1Zm1Ch: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
 		s1Nm1Du: {
 			duration: number;
 			response: string;
@@ -425,6 +430,11 @@ declare var data: {
 			swapLeftRight: boolean;
 		};
 		s1Pe1Do: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
+		s1Zm1Do: {
 			duration: number;
 			response: string;
 			swapLeftRight: boolean;
@@ -807,6 +817,15 @@ declare var data: {
 			voiceExplanation: boolean;
 			textExplanation: boolean;
 		};
+		sReasoning1Zm1Ch: {
+			duration: number;
+			input: 'text' | 'audio' | 'userchoice-audio' | 'userchoice-text';
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+			textExplanation: boolean;
+		};
 		sReasoning1Ij1Ch: {
 			duration: number;
 			input: 'text' | 'audio' | 'userchoice-audio' | 'userchoice-text';
@@ -833,6 +852,14 @@ declare var data: {
 			voiceExplanation: boolean;
 		};
 		sReasoning1Pe1Do: {
+			response: string;
+			duration: number;
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+		};
+		sReasoning1Zm1Do: {
 			response: string;
 			duration: number;
 			textInput: string;
