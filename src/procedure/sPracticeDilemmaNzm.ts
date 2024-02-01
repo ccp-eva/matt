@@ -9,48 +9,48 @@ export default async ({ currentSlide, previousSlide }) => {
 	// swap slides automatically (don’t touch this)
 	swapSlides(currentSlide, previousSlide);
 
-	data.procedure.sPracticeDilemma.completed = false;
+	data.procedure.sPracticeDilemmaNzm.completed = false;
 
-	const tenPencilsGroup = document.getElementById('spdnam-tenPencils')! as SvgInHtml;
-	const cantDecideGroup = document.getElementById('spdnam-cantDecide')! as SvgInHtml;
-	const onePotGroup = document.getElementById('spdnam-onePot')! as SvgInHtml;
+	const tenPencilsGroup = document.getElementById('spdnzm-tenPencils')! as SvgInHtml;
+	const cantDecideGroup = document.getElementById('spdnzm-cantDecide')! as SvgInHtml;
+	const onePotGroup = document.getElementById('spdnzm-onePot')! as SvgInHtml;
 
-	const tenPencilsRect = document.getElementById('spdnam-r-tenPencils')! as SvgInHtml;
-	const cantDecideRect = document.getElementById('spdnam-r-cantDecide')! as SvgInHtml;
-	const onePotRect = document.getElementById('spdnam-r-onePot')! as SvgInHtml;
+	const tenPencilsRect = document.getElementById('spdnzm-r-tenPencils')! as SvgInHtml;
+	const cantDecideRect = document.getElementById('spdnzm-r-cantDecide')! as SvgInHtml;
+	const onePotRect = document.getElementById('spdnzm-r-onePot')! as SvgInHtml;
 
-	const boatLeft = document.getElementById('link-spdnam-boat-tenPencils')! as SvgInHtml;
-	const tenPencils = document.getElementById('link-spdnam-tenPencils')! as SvgInHtml;
-	const buttonLeft = document.getElementById('spdnam-b-tenPencils')! as SvgInHtml;
+	const boatLeft = document.getElementById('link-spdnzm-boat-tenPencils')! as SvgInHtml;
+	const tenPencils = document.getElementById('link-spdnzm-tenPencils')! as SvgInHtml;
+	const buttonLeft = document.getElementById('spdnzm-b-tenPencils')! as SvgInHtml;
 	const textLeft = document.getElementById('text-tenPencils')! as SvgInHtml;
-	const boatRight = document.getElementById('link-spdnam-boat-onePot')! as SvgInHtml;
-	const onePot = document.getElementById('link-spdnam-onePot')! as SvgInHtml;
-	const buttonRight = document.getElementById('b-onePot')! as SvgInHtml;
+	const boatRight = document.getElementById('link-spdnzm-boat-onePot')! as SvgInHtml;
+	const onePot = document.getElementById('link-spdnzm-onePot')! as SvgInHtml;
+	const buttonRight = document.getElementById('spdnzm-b-onePot')! as SvgInHtml;
 	const textRight = document.getElementById('text-onePot')! as SvgInHtml;
 	const qm = document.getElementById(
-		'text-questionMark_00000155127853693399251650000009331183858803794561_'
+		'text-questionMark_00000005266711333439028310000007837424185256342181_'
 	)! as SvgInHtml;
-	const buttonCenter = document.getElementById('spdnam-b-cantDecide')! as SvgInHtml;
+	const buttonCenter = document.getElementById('spdnzm-b-cantDecide')! as SvgInHtml;
 	const textCenter = document.getElementById(
-		'text-cantDecide_00000034056727285669922990000017223503196478564235_'
+		'text-cantDecide_00000030482603120029967880000009373768330268536465_'
 	)! as SvgInHtml;
 
-	const pencilYesButton = document.getElementById('link-b-spdnam-tenPencils-yes')! as SvgInHtml;
-	const pencilNoButton = document.getElementById('link-b-spdnam-tenPencils-no')! as SvgInHtml;
-	const cantDecideYesButton = document.getElementById('link-b-spdnam-cantDecide-yes')! as SvgInHtml;
-	const cantDecideNoButton = document.getElementById('link-b-spdnam-cantDecide-no')! as SvgInHtml;
+	const pencilYesButton = document.getElementById('link-b-spdnzm-tenPencils-yes')! as SvgInHtml;
+	const pencilNoButton = document.getElementById('link-b-spdnzm-tenPencils-no')! as SvgInHtml;
+	const cantDecideYesButton = document.getElementById('link-b-spdnzm-cantDecide-yes')! as SvgInHtml;
+	const cantDecideNoButton = document.getElementById('link-b-spdnzm-cantDecide-no')! as SvgInHtml;
 	const onePotYesButton = document.getElementById('link-b-onePot-yes')! as SvgInHtml;
 	const onePotNoButton = document.getElementById('link-b-onePot-no')! as SvgInHtml;
 
 	const confirm1 = document.getElementById(
-		'text-confirm_00000023995390546384149650000012972362905572281273_'
+		'text-confirm_00000019652870556898836550000010752636904055995838_'
 	);
 	const confirm2 = document.getElementById(
-		'text-confirm_00000023989285641362536010000011733819505523217558_'
+		'text-confirm_00000145045341419562445250000006948009176123042441_'
 	);
 	const confirm3 = document.getElementById('text-confirm');
 
-	while (!data.procedure.sPracticeDilemma.completed) {
+	while (!data.procedure.sPracticeDilemmaNzm.completed) {
 		// hide card contents
 		gsap.set(
 			[
@@ -133,14 +133,14 @@ export default async ({ currentSlide, previousSlide }) => {
 				},
 			});
 
-		play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`, 'link-spdnam-headphones');
+		play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`, 'link-spdnzm-headphones');
 
 		[tenPencilsGroup, cantDecideGroup, onePotGroup].forEach((el) => {
 			el.classList.add('dilemma-card');
 		});
 
 		// save responses and store to response object
-		let response = await getResponse(['spdnam-tenPencils', 'spdnam-cantDecide', 'spdnam-onePot']);
+		let response = await getResponse(['spdnzm-tenPencils', 'spdnzm-cantDecide', 'spdnzm-onePot']);
 
 		[tenPencilsGroup, cantDecideGroup, onePotGroup].forEach((el) => {
 			el.classList.remove('dilemma-card');
@@ -170,10 +170,10 @@ export default async ({ currentSlide, previousSlide }) => {
 			gsap.set([pencilYesButton, pencilNoButton], { pointerEvents: 'visible' });
 			gsap.to([pencilYesButton, pencilNoButton], { autoAlpha: 1 });
 
-			response = await getResponse(['link-b-spdnam-tenPencils-yes', 'link-b-spdnam-tenPencils-no']);
+			response = await getResponse(['link-b-spdnzm-tenPencils-yes', 'link-b-spdnzm-tenPencils-no']);
 
 			if (response.id.includes('yes')) {
-				data.procedure.sPracticeDilemma.completed = true;
+				data.procedure.sPracticeDilemmaNzm.completed = true;
 			}
 		}
 
@@ -194,10 +194,10 @@ export default async ({ currentSlide, previousSlide }) => {
 			gsap.set([cantDecideYesButton, cantDecideNoButton], { pointerEvents: 'visible' });
 			gsap.to([cantDecideYesButton, cantDecideNoButton], { autoAlpha: 1 });
 
-			response = await getResponse(['link-b-spdnam-cantDecide-yes', 'link-b-sdnam-cantDecide-no']);
+			response = await getResponse(['link-b-spdnzm-cantDecide-yes', 'link-b-sdnzm-cantDecide-no']);
 
 			if (response.id.includes('yes')) {
-				data.procedure.sPracticeDilemma.completed = true;
+				data.procedure.sPracticeDilemmaNzm.completed = true;
 			}
 		}
 
@@ -221,7 +221,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			response = await getResponse(['link-b-onePot-yes', 'link-b-onePot-no']);
 
 			if (response.id.includes('yes')) {
-				data.procedure.sPracticeDilemma.completed = true;
+				data.procedure.sPracticeDilemmaNzm.completed = true;
 			}
 		}
 
