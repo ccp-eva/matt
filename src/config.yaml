@@ -37,7 +37,7 @@ css:
 
 globals:
   defaultSubjectId: demo
-  defaultCulture: de-urban # possible keys from
+  defaultCulture: nam-rural # possible keys from
   defaultBirthday: '2100-01-01'
   defaultCoupon: TESTCODE
   defaultPROLIFIC_PID: none
@@ -225,8 +225,8 @@ procedure:
     - s-end
 
   nam-rural:
-    - s-introduction
-    - s-intro-human-animals
+    # - s-introduction
+    # - s-intro-human-animals
     - animalOrder:
         [s-duiker, s-kudu, s-giraffe, s-jackal, s-cat, s-dog, s-chicken, s-goat, s-humannam]
     - s-mc-intro
