@@ -519,7 +519,7 @@
 			<image overflow="visible" enable-background="new    " width="99" height="78" id="link-sr1zdog1zchicken-oneDog-reflect" xlink:href="assets/dog.svg"  transform="matrix(2.7374 0 0 2.7374 341.0707 373.5243)">
 		</image>
 		
-			<rect id="ph-sr1zdog1zchicken-boat-oneDog" x="265.32" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1zdog1zchicken-boat-oneDog" x="265.32" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1zdog1zchicken-boat-oneDog" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 234.4196 62.6416)">
 		</image>
@@ -543,7 +543,7 @@
 			<image overflow="visible" enable-background="new    " width="62" height="73" id="link-sr1zdog1zchicken-oneChicken" xlink:href="assets/chicken.svg"  transform="matrix(1.8387 0 0 1.8493 1374.1719 430.859)">
 		</image>
 		
-			<rect id="ph-sr1zdog1zchicken-boat-oneChicken" x="1243.35" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1zdog1zchicken-boat-oneChicken" x="1243.35" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1zdog1zchicken-boat-oneChicken" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 1233.61 71.9282)">
 		</image>
@@ -570,7 +570,7 @@
 			<image overflow="visible" enable-background="new    " width="99" height="78" id="link-sr1zm1dog-oneDog-reflect" xlink:href="assets/dog.svg"  transform="matrix(1.3737 0 0 1.3737 1389.0349 405.7903)">
 		</image>
 		
-			<rect id="ph-sr1zm1dog-boat-oneDog" x="1243.35" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1zm1dog-boat-oneDog" x="1243.35" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1zm1dog-boat-oneDog" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 1233.61 71.9282)">
 		</image>
@@ -594,7 +594,7 @@
 			<image overflow="visible" enable-background="new    " width="23" height="42" id="link-sr1zm1dog-oneHuman" xlink:href="assets/humannam.svg"  transform="matrix(1 0 0 1 445.8808 417.6244)">
 		</image>
 		
-			<rect id="ph-sr1zm1dog-boat-oneHuman" x="265.32" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1zm1dog-boat-oneHuman" x="265.32" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1zm1dog-boat-oneHuman" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 234.4196 62.6416)">
 		</image>
@@ -621,7 +621,7 @@
 			<image overflow="visible" enable-background="new    " width="62" height="73" id="link-sr1zm1chicken-oneChicken-reflect" xlink:href="assets/chicken.svg"  transform="matrix(1.2329 0 0 1.2329 1411.2356 426.3253)">
 		</image>
 		
-			<rect id="ph-sr1zm1chicken-boat-oneChicken" x="1243.35" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1zm1chicken-boat-oneChicken" x="1243.35" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1zm1chicken-boat-oneChicken" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 1233.61 71.9282)">
 		</image>
@@ -645,7 +645,7 @@
 			<image overflow="visible" enable-background="new    " width="25" height="47" id="link-sr1zm1chicken-oneHuman" xlink:href="assets/humanpe.svg"  transform="matrix(1 0 0 1 483.1187 426.3708)">
 		</image>
 		
-			<rect id="ph-sr1zm1chicken-boat-oneHuman" x="265.32" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1zm1chicken-boat-oneHuman" x="265.32" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1zm1chicken-boat-oneHuman" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 234.4196 62.6416)">
 		</image>
@@ -672,7 +672,7 @@
 			<image overflow="visible" enable-background="new    " width="99" height="78" id="link-sr1dog1duiker-oneDog-reflect" xlink:href="assets/dog.svg"  transform="matrix(2.7374 0 0 2.7374 341.0707 373.5243)">
 		</image>
 		
-			<rect id="ph-sr1dog1duiker-boat-oneDog" x="265.32" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1dog1duiker-boat-oneDog" x="265.32" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1dog1duiker-boat-oneDog" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 234.4196 62.6416)">
 		</image>
@@ -696,7 +696,7 @@
 			<image overflow="visible" enable-background="new    " width="46" height="49" id="link-sr1dog1duiker-oneDuiker" xlink:href="assets/duiker.svg"  transform="matrix(1 0 0 1 1446.5579 481.6028)">
 		</image>
 		
-			<rect id="ph-sr1dog1duiker-boat-oneDuiker" x="1243.35" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1dog1duiker-boat-oneDuiker" x="1243.35" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1dog1duiker-boat-oneDuiker" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 1233.61 71.9282)">
 		</image>
@@ -723,7 +723,7 @@
 			<image overflow="visible" enable-background="new    " width="99" height="78" id="link-sr1nm1dog-oneDog-reflect" xlink:href="assets/dog.svg"  transform="matrix(1.3737 0 0 1.3737 1389.0349 405.7903)">
 		</image>
 		
-			<rect id="ph-sr1nm1dog-boat-oneDog" x="1243.35" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1nm1dog-boat-oneDog" x="1243.35" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1nm1dog-boat-oneDog" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 1233.61 71.9282)">
 		</image>
@@ -747,7 +747,7 @@
 			<image overflow="visible" enable-background="new    " width="23" height="42" id="link-sr1nm1dog-oneHuman" xlink:href="assets/humannam.svg"  transform="matrix(1 0 0 1 445.8808 417.6244)">
 		</image>
 		
-			<rect id="ph-sr1nm1dog-boat-oneHuman" x="265.32" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1nm1dog-boat-oneHuman" x="265.32" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1nm1dog-boat-oneHuman" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 234.4196 62.6416)">
 		</image>
@@ -774,7 +774,7 @@
 			<image overflow="visible" enable-background="new    " width="46" height="49" id="link-sr1nm1duiker-oneDuiker-reflect" xlink:href="assets/duiker.svg"  transform="matrix(1 0 0 1 1442.0592 445.6143)">
 		</image>
 		
-			<rect id="ph-sr1nm1duiker-boat-oneDuiker" x="1243.35" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1nm1duiker-boat-oneDuiker" x="1243.35" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1nm1duiker-boat-oneDuiker" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 1233.61 71.9282)">
 		</image>
@@ -798,7 +798,7 @@
 			<image overflow="visible" enable-background="new    " width="23" height="42" id="link-sr1nm1duiker-oneHuman" xlink:href="assets/humannam.svg"  transform="matrix(1 0 0 1 441.3823 417.6244)">
 		</image>
 		
-			<rect id="ph-sr1nm1duiker-boat-oneHuman" x="265.32" y="-40.08" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="413"/>
+			<rect id="ph-sr1nm1duiker-boat-oneHuman" x="265.32" y="66.42" opacity="0.6" fill="#4AE5D9" enable-background="new    " width="413" height="200"/>
 		
 			<image overflow="visible" width="622" height="263" id="link-sr1nm1duiker-boat-oneHuman" xlink:href="assets/boatzm.svg"  transform="matrix(0.7215 0 0 0.7215 234.4196 62.6416)">
 		</image>
@@ -1626,13 +1626,13 @@
 		</g>
 		<defs>
 			
-				<filter id="Adobe_OpacityMaskFilter_00000033334080696619228410000010292762366164785816_" filterUnits="userSpaceOnUse" x="987.02" y="532.19" width="116.36" height="51.49">
+				<filter id="Adobe_OpacityMaskFilter_00000157274242424566914970000001002065061175484086_" filterUnits="userSpaceOnUse" x="987.02" y="532.19" width="116.36" height="51.49">
 				<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
 			</filter>
 		</defs>
 		
 			<mask maskUnits="userSpaceOnUse" x="987.02" y="532.19" width="116.36" height="51.49" id="mask1_1634_516_00000147912840321977397860000002885573562794871471_">
-			<path fill="#FFFFFF" filter="url(#Adobe_OpacityMaskFilter_00000033334080696619228410000010292762366164785816_)" d="
+			<path fill="#FFFFFF" filter="url(#Adobe_OpacityMaskFilter_00000157274242424566914970000001002065061175484086_)" d="
 				M1080.27,570.38c0,5.28-19.98,9.8-44.87,9.8c-24.88,0-44.87-4.52-44.87-9.8v-119.9l89.73-0.75V570.38z"/>
 		</mask>
 		<g mask="url(#mask1_1634_516_00000147912840321977397860000002885573562794871471_)">
@@ -1649,13 +1649,13 @@
 		</g>
 		<defs>
 			
-				<filter id="Adobe_OpacityMaskFilter_00000048495778063391942860000004643523848193437372_" filterUnits="userSpaceOnUse" x="988.28" y="554.54" width="96.14" height="32.05">
+				<filter id="Adobe_OpacityMaskFilter_00000172439879238156681010000003712489812191174273_" filterUnits="userSpaceOnUse" x="988.28" y="554.54" width="96.14" height="32.05">
 				<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
 			</filter>
 		</defs>
 		
 			<mask maskUnits="userSpaceOnUse" x="988.28" y="554.54" width="96.14" height="32.05" id="mask2_1634_516_00000036215059858686389120000013467095341477237936_">
-			<path fill="#FFFFFF" filter="url(#Adobe_OpacityMaskFilter_00000048495778063391942860000004643523848193437372_)" d="
+			<path fill="#FFFFFF" filter="url(#Adobe_OpacityMaskFilter_00000172439879238156681010000003712489812191174273_)" d="
 				M1080.27,570.38c0,5.28-19.98,9.8-44.87,9.8c-24.88,0-44.87-4.52-44.87-9.8v-119.9l89.73-0.75V570.38z"/>
 		</mask>
 		<g mask="url(#mask2_1634_516_00000036215059858686389120000013467095341477237936_)">
@@ -2524,11 +2524,11 @@
 			C1021.83,511.18,1022.21,511.18,1022.21,511.56C1022.59,511.18,1022.59,511.18,1022.21,511.56
 			C1022.96,510.81,1022.21,511.18,1022.21,511.56z"/>
 		
-			<linearGradient id="SVGID_00000034767839549619422490000008906595229789380257_" gradientUnits="userSpaceOnUse" x1="1046.2184" y1="569.822" x2="1043.6293" y2="568.5408" gradientTransform="matrix(1 0 0 -1 0 1080)">
+			<linearGradient id="SVGID_00000103963744600826600360000006218964181262112180_" gradientUnits="userSpaceOnUse" x1="1046.2184" y1="569.822" x2="1043.6293" y2="568.5408" gradientTransform="matrix(1 0 0 -1 0 1080)">
 			<stop  offset="0" style="stop-color:#404C6E"/>
 			<stop  offset="1" style="stop-color:#281E1D"/>
 		</linearGradient>
-		<path fill="url(#SVGID_00000034767839549619422490000008906595229789380257_)" d="M1047.09,515.71c-1.51-1.13-3.02-1.89-4.52-3.02
+		<path fill="url(#SVGID_00000103963744600826600360000006218964181262112180_)" d="M1047.09,515.71c-1.51-1.13-3.02-1.89-4.52-3.02
 			c0.75,0,2.26,0,2.64-0.38c0.38,0,0.75,0,1.13,0c-0.38-0.38-1.51-0.38-0.38-0.75c-0.38,0-0.75-0.38-1.13-0.38
 			c0-0.38,0.38-0.38,0.38-0.38c-0.75,0-1.51,0-2.26,0c0.38,0,0.75-0.38,1.13-0.38c-0.38-0.38-2.26,0-2.26,0
 			c-0.75,0,1.51-0.38,1.13-1.13c0.75-0.38,0.38-0.38-0.38-0.75c0,0,0-0.38-0.38-0.38c0,0,0,0-0.38,0l-1.13-0.38
@@ -3834,7 +3834,7 @@
 		<path fill="#E52D2C" d="M1075.15,557.16c3.12-0.23,5.4-3.78,5.1-7.93c-0.3-4.15-3.07-7.34-6.19-7.11c-3.12,0.23-5.4,3.78-5.1,7.93
 			C1069.27,554.2,1072.04,557.38,1075.15,557.16z"/>
 		
-			<linearGradient id="SVGID_00000106843707153362454890000010493953763282691222_" gradientUnits="userSpaceOnUse" x1="988.689" y1="564.2912" x2="1082.3507" y2="564.2912" gradientTransform="matrix(1 0 0 -1 0 1080)">
+			<linearGradient id="SVGID_00000091712748307720731170000018149448234629235875_" gradientUnits="userSpaceOnUse" x1="988.689" y1="564.2912" x2="1082.3507" y2="564.2912" gradientTransform="matrix(1 0 0 -1 0 1080)">
 			<stop  offset="0" style="stop-color:#FFFFFF"/>
 			<stop  offset="0.0921" style="stop-color:#000000"/>
 			<stop  offset="0.1116" style="stop-color:#313131"/>
@@ -3867,7 +3867,7 @@
 			<stop  offset="0.9969" style="stop-color:#F5F5F5"/>
 			<stop  offset="1" style="stop-color:#FFFFFF"/>
 		</linearGradient>
-		<path opacity="0.34" fill="url(#SVGID_00000106843707153362454890000010493953763282691222_)" enable-background="new    " d="
+		<path opacity="0.34" fill="url(#SVGID_00000091712748307720731170000018149448234629235875_)" enable-background="new    " d="
 			M1082.53,446.33c0-1.51-21.11-3.02-46.75-3.02c-25.64,0-46.75,1.13-46.75,3.02l1.89,3.77V570v0.38l-0.38-0.75
 			c0,0.38,0,0.75,0.38,1.13c0,0,0,0,0,0.38l1.13,4.15v3.02c0,5.28,19.61,9.8,43.74,9.8c24.13,0,43.74-4.52,43.74-9.8v-3.02
 			l0.75-3.77c0-0.38,0.38-0.75,0.38-1.13V449.73L1082.53,446.33z"/>

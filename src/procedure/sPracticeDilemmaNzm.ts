@@ -43,10 +43,10 @@ export default async ({ currentSlide, previousSlide }) => {
 	const onePotNoButton = document.getElementById('link-b-onePot-no')! as SvgInHtml;
 
 	const confirm1 = document.getElementById(
-		'text-confirm_00000019652870556898836550000010752636904055995838_'
+		'text-confirm_00000145045341419562445250000006948009176123042441_'
 	);
 	const confirm2 = document.getElementById(
-		'text-confirm_00000145045341419562445250000006948009176123042441_'
+		'text-confirm_00000019652870556898836550000010752636904055995838_'
 	);
 	const confirm3 = document.getElementById('text-confirm');
 
@@ -95,39 +95,98 @@ export default async ({ currentSlide, previousSlide }) => {
 
 		await playPromise(`./cultures/${data.culture}/audio/s-practice-dilemma-intro.mp3`);
 
+		const cultureDelay = {
+			boatsDisplay: {
+				'nam-rural': 0,
+				'zm-rural': 0,
+			},
+			tenPencilsRect: {
+				'nam-rural': 4.5,
+				'zm-rural': 4.5,
+			},
+			oneBikeRect: {
+				'nam-rural': 0.5,
+				'zm-rural': 0.5,
+			},
+			cantDecideRect: {
+				'nam-rural': 2,
+				'zm-rural': 2,
+			},
+			textCenter: {
+				'nam-rural': 0,
+				'zm-rural': 0,
+			},
+			tenPencils: {
+				'nam-rural': 1.5,
+				'zm-rural': 1.5,
+			},
+			textLeft: {
+				'nam-rural': 0,
+				'zm-rural': 0,
+			},
+			oneBike: {
+				'nam-rural': 0.1,
+				'zm-rural': 0.1,
+			},
+			textRight: {
+				'nam-rural': 1.3,
+				'zm-rural': 1.0,
+			},
+		};
 		play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`);
 		await gsap
 			.timeline()
 			.to([boatLeft, boatRight], {
 				autoAlpha: 1,
-				delay: 3,
+				delay: cultureDelay.boatsDisplay[data.culture],
 			})
 			.to(tenPencilsRect, {
-				delay: 3,
+				delay: cultureDelay.tenPencilsRect[data.culture],
 				stroke: '#006c66',
 				strokeWidth: 10,
 				reversed: true,
 				repeat: 1,
 			})
 			.to(onePotRect, {
-				delay: 0.1,
+				delay: cultureDelay.oneBikeRect[data.culture],
 				stroke: '#006c66',
 				strokeWidth: 10,
 				reversed: true,
 				repeat: 1,
 			})
-			.to([cantDecideRect, textCenter], {
-				delay: 2,
+			.to([cantDecideRect], {
+				delay: cultureDelay.cantDecideRect[data.culture],
+				stroke: '#006c66',
+				strokeWidth: 10,
+				reversed: true,
+				repeat: 1,
+			})
+			.to([textCenter], {
+				delay: cultureDelay.textCenter[data.culture],
 				stroke: '#006c66',
 				strokeWidth: 10,
 				reversed: true,
 				repeat: 1,
 			})
 			.to(qm, { autoAlpha: 1 }, '<')
-			.to([tenPencils, textLeft], { autoAlpha: 1, delay: 2 })
-			.to([onePot, textRight], { autoAlpha: 1, delay: 2 })
+			.to([tenPencils], {
+				autoAlpha: 1,
+				delay: cultureDelay.tenPencils[data.culture],
+			})
+			.to([textLeft], {
+				autoAlpha: 1,
+				delay: cultureDelay.textLeft[data.culture],
+			})
+			.to([textRight], {
+				autoAlpha: 1,
+				delay: cultureDelay.textRight[data.culture],
+			})
+			.to([onePot], {
+				autoAlpha: 1,
+				delay: cultureDelay.oneBike[data.culture],
+			})
 			.to(onePot, {
-				delay: 0.5,
+				delay: 1,
 				onComplete: () => {
 					play(`./cultures/${data.culture}/audio/saving.mp3`);
 				},

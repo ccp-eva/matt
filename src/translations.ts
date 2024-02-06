@@ -360,7 +360,7 @@ export const translations = {
 		'pe-rural':
 			'<p class="question">¿Tu y tu familia tienen animales<br>o hay animales en tu casa?</p>',
 		'nam-rural':
-			'<p class="question">Sats tsȋ sa /aokhoen tsȋna xamanina<br>ū i hậ,tamas ka io xamanina hậ˗e oms ai?</p>',
+			'<p class="question">Sats tsȋ sa /aokhoen tsȋna xamanina<br>ū i hậ, tamas ka io xamanina hậ˗e oms ai?</p>',
 	},
 
 	ownershipAdult: {
