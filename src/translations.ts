@@ -35,7 +35,7 @@ export const translations = {
 		'de-urban': '<p class="dilemma__saving">Rettest Du ...</p>',
 		'idj-urban': '<p class="dilemma__saving">Apakah kamu akan menyelamatkan...</p>',
 		'pe-rural': '<p class="dilemma__saving">¿Salvas...</p>',
-		'nam-rural': '<p class="dilemma__saving">Hui its nȋ?</p>',
+		'nam-rural': '<p class="dilemma__saving">Mậsats ra hui?</p>',
 	},
 
 	tenPencils: {
@@ -141,19 +141,19 @@ export const translations = {
 	},
 
 	oneDuiker: {
-		'nam-rural': '<p class="dilemma">1/gâus</p>',
+		'nam-rural': '<p class="dilemma">1 !airib</p>',
 	},
 
 	twoDuikers: {
-		'nam-rural': '<p class="dilemma">2/gâura</p>',
+		'nam-rural': '<p class="dilemma">2 !airira</p>',
 	},
 
 	tenDuikers: {
-		'nam-rural': '<p class="dilemma">10/gâu-ti</p>',
+		'nam-rural': '<p class="dilemma">10 !airin</p>',
 	},
 
 	hundredDuikers: {
-		'nam-rural': '<p class="dilemma">100 /gâun</p>',
+		'nam-rural': '<p class="dilemma">100 !airin</p>',
 	},
 
 	oneDog: {
@@ -210,6 +210,10 @@ export const translations = {
 
 	tenSandpiles: {
 		'nam-rural': '<p class="dilemma">10 !hu hopi ti</p>',
+	},
+
+	tenSpoons: {
+		'zm-rural': '<p class="dilemma">NA</p>',
 	},
 
 	tenSponges: {
@@ -356,7 +360,7 @@ export const translations = {
 		'pe-rural':
 			'<p class="question">¿Tu y tu familia tienen animales<br>o hay animales en tu casa?</p>',
 		'nam-rural':
-			'<p class="question">Sats tsȋ sa /aokhoen tsȋna xamanina<br>ū i hậ,tamas ka io xamanina hậ˗e oms ai?</p>',
+			'<p class="question">Sats tsȋ sa /aokhoen tsȋna xamanina<br>ū i hậ, tamas ka io xamanina hậ˗e oms ai?</p>',
 	},
 
 	ownershipAdult: {
@@ -420,15 +424,23 @@ export const translations = {
 		'de-urban': '<p class="question">Isst Du Fleisch oder Fisch?</p>',
 		'idj-urban': '<p class="question">Apakah kamu makan daging atau ikan?</p>',
 		'pe-rural': '<p class="question">¿Comes carne o pescado?</p>',
-		'nam-rural': '<p class="question">//Au˗I tamas ga io //gan˗e ≠û its ra?</p>',
+	},
+
+	meatFishNzm: {
+		'nam-rural': '<p class="question">//Gan˗e ≠û itsa tamas kai o //au˗e?</p>',
+		'zm-rural': '<p class="question">NA</p>',
 	},
 
 	eggCheeseMilk: {
 		'de-urban': '<p class="question">Isst Du Eier, Käse oder trinkst Du Milch?</p>',
 		'idj-urban': '<p class="question">Apakah kamu makan telur atau keju, atau minum susu?</p>',
 		'pe-rural': '<p class="question">¿Comes huevos, queso o bebes leche?</p>',
-		'nam-rural':
-			'<p class="question">Kᾱs˗e tamas kai o !upuna ≠û its ra tamas ka io dai˗e ᾱ its ra?</p>',
+		'nam-rural': '<p class="question">!Upu˗i, kᾱs˗e ≠û itsa of dai˗e ᾱ itsa?</p>',
+	},
+
+	eggMilk: {
+		'nam-rural': '<p class="question">!Upu˗i, kᾱs˗e ≠û itsa of dai˗e ᾱ itsa?</p>',
+		'zm-rural': '<p class="question">NA</p>',
 	},
 
 	thankYou: {

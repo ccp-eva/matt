@@ -87,6 +87,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				'de-urban': 16,
 				'pe-rural': 16,
 				'idj-urban': 21,
+				'nam-rural': 21.5,
 			},
 		};
 		gsap

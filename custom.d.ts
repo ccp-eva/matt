@@ -123,7 +123,15 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
+		sCat2: {
+			duration: number;
+			response: string;
+		};
 		sDog: {
+			duration: number;
+			response: string;
+		};
+		sDog2: {
 			duration: number;
 			response: string;
 		};
@@ -140,6 +148,10 @@ declare var data: {
 			response: string;
 		};
 		sDuiker: {
+			duration: number;
+			response: string;
+		};
+		sHare: {
 			duration: number;
 			response: string;
 		};
@@ -375,6 +387,55 @@ declare var data: {
 				outer: boolean;
 			};
 		};
+		sTaskZm: {
+			duration: number;
+			knownAnimals: string[];
+			unknownAnimals: string[];
+			humanzm: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			chicken?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			cow?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			dog?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			goat?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			cat2?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			dog2?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			hare?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			cat?: {
+				circle: 'inner' | 'middle' | 'outer' | undefined;
+				coords: { x: number; y: number };
+			};
+			knownAnimalOrder: string[];
+			comprehension: {
+				completed: boolean;
+				order: string[];
+				inner: boolean;
+				middle: boolean;
+				outer: boolean;
+			};
+		};
 		sMeaning: {
 			duration: number;
 			input: 'text' | 'audio' | 'userchoice-audio' | 'userchoice-text';
@@ -385,6 +446,11 @@ declare var data: {
 			textExplanation: boolean;
 		};
 		sPracticeDilemma: {
+			duration: number;
+			response: string;
+			completed: boolean;
+		};
+		sPracticeDilemmaNzm: {
 			duration: number;
 			response: string;
 			completed: boolean;
@@ -450,6 +516,11 @@ declare var data: {
 			swapLeftRight: boolean;
 		};
 		s1Do1Ch: {
+			duration: number;
+			response: string;
+			swapLeftRight: boolean;
+		};
+		s1Zd1Zc: {
 			duration: number;
 			response: string;
 			swapLeftRight: boolean;
@@ -533,19 +604,19 @@ declare var data: {
 				coords: { x: number; y: number };
 			};
 		};
-		sQuRankingPain: {
+		sQuRankingIntelligenceZm: {
 			response: string;
 			duration: number;
 			order: string[];
-			cow: {
+			chicken: {
 				position: 0 | 1 | 2 | 3 | 4;
 				coords: { x: number; y: number };
 			};
-			cat: {
+			dog: {
 				position: 0 | 1 | 2 | 3 | 4;
 				coords: { x: number; y: number };
 			};
-			human: {
+			humanZm: {
 				position: 0 | 1 | 2 | 3 | 4;
 				coords: { x: number; y: number };
 			};
@@ -618,6 +689,23 @@ declare var data: {
 				coords: { x: number; y: number };
 			};
 		};
+		sQuRankingPainZm: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			humanZm: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
 		sQuRankingFeelings: {
 			response: string;
 			duration: number;
@@ -686,6 +774,23 @@ declare var data: {
 				coords: { x: number; y: number };
 			};
 		};
+		sQuRankingFeelingsZm: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			humanZm: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
 		sQuRankingSimilarity: {
 			response: string;
 			duration: number;
@@ -738,6 +843,19 @@ declare var data: {
 				coords: { x: number; y: number };
 			};
 		};
+		sQuRankingSimilarityZm: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
 		sQuRankingExposure: {
 			response: string;
 			duration: number;
@@ -782,6 +900,19 @@ declare var data: {
 			duration: number;
 			order: string[];
 			duiker: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+			dog: {
+				position: 0 | 1 | 2 | 3 | 4;
+				coords: { x: number; y: number };
+			};
+		};
+		sQuRankingExposureZm: {
+			response: string;
+			duration: number;
+			order: string[];
+			chicken: {
 				position: 0 | 1 | 2 | 3 | 4;
 				coords: { x: number; y: number };
 			};
@@ -892,6 +1023,14 @@ declare var data: {
 			voiceExplanation: boolean;
 		};
 		sReasoning1Do1Ch: {
+			response: string;
+			duration: number;
+			textInput: string;
+			isText: boolean;
+			isVoice: boolean;
+			voiceExplanation: boolean;
+		};
+		sReasoning1Zd1Zc: {
 			response: string;
 			duration: number;
 			textInput: string;

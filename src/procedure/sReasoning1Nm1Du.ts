@@ -235,7 +235,9 @@ export default async ({ currentSlide, previousSlide }) => {
 	let wasDuiker = false;
 	// check actual responses from s1Nm1Du and overwrite default values
 	if (data.procedure.s1Nm1Du) {
-		wasHuman = data.procedure.s1Nm1Du.response.toLowerCase().includes(`-one${leftEntity}`);
+		wasHuman = data.procedure.s1Nm1Du.response
+			.toLowerCase()
+			.includes(`-one${leftEntity.slice(0, -4)}`);
 		wasCantDecide = data.procedure.s1Nm1Du.response.toLowerCase().includes('-cantdecide');
 		wasDuiker = data.procedure.s1Nm1Du.response.toLowerCase().includes(`-one${rightEntity}`);
 		// check if order was swapped, if so swap boxes
@@ -336,7 +338,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				})
 				.to(voiceResponseStop, {
 					filter: 'drop-shadow(0px 0px 15px #000)',
-					delay: 1.5,
+					delay: 3,
 					repeat: 3,
 					yoyo: true,
 					reversed: true,

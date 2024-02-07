@@ -235,7 +235,7 @@ procedure:
     - s-task-nam
     - s-meaning
     - s-intro-boats
-    - s-practice-dilemma-nam
+    - s-practice-dilemma-nzm
     - s-dilemma-start
     - dilemmaOrder:
         - companionOrder:
@@ -274,7 +274,7 @@ procedure:
     - s-motivation-questions
     - s-qu-ownership
     - s-qu-ranking-exposure-nam
-    - s-qu-meat-fish
+    - s-qu-meat-fish-nzm
     - s-qu-egg-cheese-milk
     - s-intro-reasoning
     - reasoningOrder: [s-reasoning-1-nm-1-du, s-reasoning-1-nm-1-do, s-reasoning-1-do-1-du]
@@ -291,7 +291,7 @@ procedure:
     - s-task-zm
     - s-meaning
     - s-intro-boats
-    - s-practice-dilemma-zm
+    - s-practice-dilemma-nzm
     - s-dilemma-start
     - dilemmaOrder:
         - companionOrder:
@@ -314,7 +314,7 @@ procedure:
               s-100-zm-1-ch,
               s-1-zm-100-ch,
             ]
-        - controlOrder: [s-1-zm-10-zm, s-1-zm-10-st, s-1-zm-10-sa, s-1-do-1-ch]
+        - controlOrder: [s-1-zm-10-zm, s-1-zm-10-st, s-1-zm-10-so, s-1-zd-1-zc]
     - s-motivation-dilemma3
     - s-qu-thoughts
     - s-qu-feelings
@@ -330,9 +330,9 @@ procedure:
     - s-motivation-questions
     - s-qu-ownership
     - s-qu-ranking-exposure-zm
-    - s-qu-meat-fish
+    - s-qu-meat-fish-nzm
     - s-qu-egg-cheese-milk
     - s-intro-reasoning
-    - reasoningOrder: [s-reasoning-1-zm-1-ch, s-reasoning-1-zm-1-do, s-reasoning-1-do-1-ch]
+    - reasoningOrder: [s-reasoning-1-zm-1-ch, s-reasoning-1-zm-1-do, s-reasoning-1-zd-1-zc]
     - s-resolve-dilemma
     - s-end

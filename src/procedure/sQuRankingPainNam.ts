@@ -18,12 +18,12 @@ export default async ({ currentSlide, previousSlide }) => {
 	const entity1 = 'nam-duiker';
 	const entity2 = 'nam-dog';
 	const entity3 = 'nam-human';
-	const box1TextId = 'notAtAll_00000144333075724770840860000006036766900575541144_';
-	const box2TextId = 'aLittle_00000082329354004964724180000014787339172979543196_';
-	const box3TextId = 'aMediumAmount_00000001666297148117219360000002345841604038765216_';
-	const box4TextId = 'aLot';
+	const box1TextId = 'notAtAll_00000095322410681419688730000002549398543072628621_';
+	const box2TextId = 'aLittle_00000109028438597836800050000017641570790201225904_';
+	const box3TextId = 'aMediumAmount_00000093892938197897654520000005459003655921898943_';
+	const box4TextId = 'aLot_00000155106538374703257800000009646740344694807724_';
 	const audio = document.getElementById('audio') as HTMLMediaElement;
-	const headphones = document.getElementById(`link-${slidePrefix}-headphones`) as SvgInHtml;
+	const headphones = document.getElementById(`link-${slidePrefix}-nam-headphones`) as SvgInHtml;
 	const box1TextElement = document.getElementById(`text-${box1TextId}`)!
 		.children[0] as HTMLParagraphElement;
 	const box2TextElement = document.getElementById(`text-${box2TextId}`)!
@@ -32,18 +32,18 @@ export default async ({ currentSlide, previousSlide }) => {
 		.children[0] as HTMLParagraphElement;
 	const box4TextElement = document.getElementById(`text-${box4TextId}`)!
 		.children[0] as HTMLParagraphElement;
-	const box1Rect = document.getElementById(`${slidePrefix}-1`) as SvgInHtml;
+	const box1Rect = document.getElementById(`${slidePrefix}-nam-1`) as SvgInHtml;
 	const box1Fill = box1Rect.getAttribute('fill')!;
-	const box2Rect = document.getElementById(`${slidePrefix}-2`) as SvgInHtml;
+	const box2Rect = document.getElementById(`${slidePrefix}-nam-2`) as SvgInHtml;
 	const box2Fill = box2Rect.getAttribute('fill')!;
-	const box3Rect = document.getElementById(`${slidePrefix}-3`) as SvgInHtml;
+	const box3Rect = document.getElementById(`${slidePrefix}-nam-3`) as SvgInHtml;
 	const box3Fill = box3Rect.getAttribute('fill')!;
-	const box4Rect = document.getElementById(`${slidePrefix}-4`) as SvgInHtml;
+	const box4Rect = document.getElementById(`${slidePrefix}-nam-4`) as SvgInHtml;
 	const box4Fill = box4Rect.getAttribute('fill')!;
 	const entity1Element = document.getElementById(`link-${slidePrefix}-${entity1}`) as SvgInHtml;
 	const entity2Element = document.getElementById(`link-${slidePrefix}-${entity2}`) as SvgInHtml;
 	const entity3Element = document.getElementById(`link-${slidePrefix}-${entity3}`) as SvgInHtml;
-	const nextButton = document.getElementById(`link-${slidePrefix}-next`) as SvgInHtml;
+	const nextButton = document.getElementById(`link-${slidePrefix}-nam-next`) as SvgInHtml;
 
 	// centered slots (from Illustrator)
 	// POSITION 0 = LEFT
@@ -115,8 +115,8 @@ export default async ({ currentSlide, previousSlide }) => {
 		.timeline()
 		.to([box1Rect, box1TextElement], { autoAlpha: 1 })
 		.to([box2Rect, box2TextElement], { delay: 1.5, autoAlpha: 1 })
-		.to([box3Rect, box3TextElement], { delay: 1.5, autoAlpha: 1 })
-		.to([box4Rect, box4TextElement], { delay: 1, autoAlpha: 1 });
+		.to([box3Rect, box3TextElement], { delay: 2, autoAlpha: 1 })
+		.to([box4Rect, box4TextElement], { delay: 2, autoAlpha: 1 });
 	await playPromise(`./cultures/${data.culture}/audio/${audioPrefix}.mp3`);
 
 	play(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`, headphones.id);
