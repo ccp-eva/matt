@@ -237,7 +237,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	if (data.procedure.s1Nm1Du) {
 		wasHuman = data.procedure.s1Nm1Du.response
 			.toLowerCase()
-			.includes(`-one${leftEntity}slice(0, -4)`);
+			.includes(`-one${leftEntity.slice(0, -4)}`);
 		wasCantDecide = data.procedure.s1Nm1Du.response.toLowerCase().includes('-cantdecide');
 		wasDuiker = data.procedure.s1Nm1Du.response.toLowerCase().includes(`-one${rightEntity}`);
 		// check if order was swapped, if so swap boxes

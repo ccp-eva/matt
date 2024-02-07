@@ -21,16 +21,20 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	const boatLeft = document.getElementById('link-spdnzm-boat-tenPencils')! as SvgInHtml;
 	const tenPencils = document.getElementById('link-spdnzm-tenPencils')! as SvgInHtml;
-	const buttonLeft = document.getElementById('spdnzm-b-tenPencils')! as SvgInHtml;
-	const textLeft = document.getElementById('text-tenPencils')! as SvgInHtml;
+	const buttonLeft = document.getElementById('b-spdnzm-tenPencils')! as SvgInHtml;
+	const textLeft = document.getElementById(
+		'text-tenPencils_00000041261112618563176640000000132598553708179611_'
+	)! as SvgInHtml;
 	const boatRight = document.getElementById('link-spdnzm-boat-onePot')! as SvgInHtml;
 	const onePot = document.getElementById('link-spdnzm-onePot')! as SvgInHtml;
-	const buttonRight = document.getElementById('spdnzm-b-onePot')! as SvgInHtml;
-	const textRight = document.getElementById('text-onePot')! as SvgInHtml;
+	const buttonRight = document.getElementById('b-spdnzm-onePot')! as SvgInHtml;
+	const textRight = document.getElementById(
+		'text-onePot_00000042015332966990488700000005401106424215378308_'
+	)! as SvgInHtml;
 	const qm = document.getElementById(
 		'text-questionMark_00000005266711333439028310000007837424185256342181_'
 	)! as SvgInHtml;
-	const buttonCenter = document.getElementById('spdnzm-b-cantDecide')! as SvgInHtml;
+	const buttonCenter = document.getElementById('b-spdnzm-cantDecide')! as SvgInHtml;
 	const textCenter = document.getElementById(
 		'text-cantDecide_00000030482603120029967880000009373768330268536465_'
 	)! as SvgInHtml;
@@ -39,16 +43,18 @@ export default async ({ currentSlide, previousSlide }) => {
 	const pencilNoButton = document.getElementById('link-b-spdnzm-tenPencils-no')! as SvgInHtml;
 	const cantDecideYesButton = document.getElementById('link-b-spdnzm-cantDecide-yes')! as SvgInHtml;
 	const cantDecideNoButton = document.getElementById('link-b-spdnzm-cantDecide-no')! as SvgInHtml;
-	const onePotYesButton = document.getElementById('link-b-onePot-yes')! as SvgInHtml;
-	const onePotNoButton = document.getElementById('link-b-onePot-no')! as SvgInHtml;
+	const onePotYesButton = document.getElementById('link-b-spdnzm-onePot-yes')! as SvgInHtml;
+	const onePotNoButton = document.getElementById('link-b-spdnzm-onePot-no')! as SvgInHtml;
 
 	const confirm1 = document.getElementById(
-		'text-confirm_00000145045341419562445250000006948009176123042441_'
-	);
-	const confirm2 = document.getElementById(
 		'text-confirm_00000019652870556898836550000010752636904055995838_'
 	);
-	const confirm3 = document.getElementById('text-confirm');
+	const confirm2 = document.getElementById(
+		'text-confirm_00000123400920002008550350000010746608116806919089_'
+	);
+	const confirm3 = document.getElementById(
+		'text-confirm_00000145045341419562445250000006948009176123042441_'
+	);
 
 	while (!data.procedure.sPracticeDilemmaNzm.completed) {
 		// hide card contents
@@ -104,7 +110,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				'nam-rural': 4.5,
 				'zm-rural': 4.5,
 			},
-			oneBikeRect: {
+			onePotRect: {
 				'nam-rural': 0.5,
 				'zm-rural': 0.5,
 			},
@@ -117,14 +123,14 @@ export default async ({ currentSlide, previousSlide }) => {
 				'zm-rural': 0,
 			},
 			tenPencils: {
-				'nam-rural': 1.5,
+				'nam-rural': 2,
 				'zm-rural': 1.5,
 			},
 			textLeft: {
 				'nam-rural': 0,
 				'zm-rural': 0,
 			},
-			oneBike: {
+			onePot: {
 				'nam-rural': 0.1,
 				'zm-rural': 0.1,
 			},
@@ -148,7 +154,7 @@ export default async ({ currentSlide, previousSlide }) => {
 				repeat: 1,
 			})
 			.to(onePotRect, {
-				delay: cultureDelay.oneBikeRect[data.culture],
+				delay: cultureDelay.onePotRect[data.culture],
 				stroke: '#006c66',
 				strokeWidth: 10,
 				reversed: true,
@@ -183,7 +189,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			})
 			.to([onePot], {
 				autoAlpha: 1,
-				delay: cultureDelay.oneBike[data.culture],
+				delay: cultureDelay.onePot[data.culture],
 			})
 			.to(onePot, {
 				delay: 1,
@@ -253,7 +259,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			gsap.set([cantDecideYesButton, cantDecideNoButton], { pointerEvents: 'visible' });
 			gsap.to([cantDecideYesButton, cantDecideNoButton], { autoAlpha: 1 });
 
-			response = await getResponse(['link-b-spdnzm-cantDecide-yes', 'link-b-sdnzm-cantDecide-no']);
+			response = await getResponse(['link-b-spdnzm-cantDecide-yes', 'link-b-spdnzm-cantDecide-no']);
 
 			if (response.id.includes('yes')) {
 				data.procedure.sPracticeDilemmaNzm.completed = true;
@@ -277,7 +283,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			gsap.set([onePotYesButton, onePotNoButton], { pointerEvents: 'visible' });
 			gsap.to([onePotYesButton, onePotNoButton], { autoAlpha: 1 });
 
-			response = await getResponse(['link-b-onePot-yes', 'link-b-onePot-no']);
+			response = await getResponse(['link-b-spdnzm-onePot-yes', 'link-b-spdnzm-onePot-no']);
 
 			if (response.id.includes('yes')) {
 				data.procedure.sPracticeDilemmaNzm.completed = true;
