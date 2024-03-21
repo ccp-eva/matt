@@ -88,6 +88,14 @@ export default async ({ currentSlide, previousSlide }) => {
 				'pe-rural': 16,
 				'idj-urban': 21,
 				'nam-rural': 21.5,
+				'zm-rural': 22.5,
+			},
+			nextButton: {
+				'de-urban': 5,
+				'pe-rural': 4,
+				'idj-urban': 5,
+				'nam-rural': 5,
+				'zm-rural': 13,
 			},
 		};
 		gsap
@@ -108,7 +116,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			})
 			.to(nextButton, {
 				autoAlpha: 0.5,
-				delay: 5,
+				delay: cultureDelay.nextButton[data.culture],
 				opacity: 1,
 				visibility: 'visible',
 				onComplete: () => {

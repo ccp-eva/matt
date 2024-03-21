@@ -30,24 +30,28 @@ export default async ({ currentSlide, previousSlide }) => {
 			'pe-rural': 3.5,
 			'idj-urban': 3.5,
 			'nam-rural': 6,
+			'zm-rural': 9,
 		},
 		highlightInner: {
 			'de-urban': 11,
 			'pe-rural': 12,
 			'idj-urban': 20,
 			'nam-rural': 17,
+			'zm-rural': 22,
 		},
 		highlightMiddle: {
 			'de-urban': 3,
 			'pe-rural': 4,
 			'idj-urban': 4.5,
 			'nam-rural': 4.5,
+			'zm-rural': 6,
 		},
 		highlightOuter: {
 			'de-urban': 1.5,
 			'pe-rural': 3,
 			'idj-urban': 4,
 			'nam-rural': 4,
+			'zm-rural': 13,
 		},
 	};
 	await gsap

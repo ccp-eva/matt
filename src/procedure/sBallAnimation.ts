@@ -49,9 +49,15 @@ export default async ({ currentSlide, previousSlide }) => {
 			})
 			// full opacity to circle
 			.to(`#sba-${circle}`, { duration: 1, opacity: 1 }, '<.5')
-			.to(ball, { scale: 0.5 }, '<')
+			.to(ball, { scale: 0.5 }, '<');
+		while (isPlaying) {
+			await sleep(100);
+		}
+		await gsap
+			.timeline()
 			// hide ball
-			.to(ball, { delay: 2, autoAlpha: 0 })
+			//.to(ball, { delay: 2, autoAlpha: 0 })
+			.to(ball, { autoAlpha: 0 })
 			// lower opacity of circle
 			.to(
 				`#sba-${circle}`,
@@ -65,6 +71,9 @@ export default async ({ currentSlide, previousSlide }) => {
 				},
 				'<.3'
 			);
+		// while (isPlaying) {
+		// 	await sleep(100);
+		// }
 		if (i < 2) {
 			// repostion ball to start and show it
 			gsap

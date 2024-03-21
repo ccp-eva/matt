@@ -333,14 +333,14 @@ export default async ({ currentSlide, previousSlide }) => {
 				.timeline()
 				.to(voiceResponseStart, {
 					filter: 'drop-shadow(0px 0px 15px #000)',
-					delay: 9.5,
+					delay: 15,
 					repeat: 3,
 					yoyo: true,
 					reversed: true,
 				})
 				.to(voiceResponseStop, {
 					filter: 'drop-shadow(0px 0px 15px #000)',
-					delay: 1.5,
+					delay: 6,
 					repeat: 3,
 					yoyo: true,
 					reversed: true,
@@ -419,14 +419,14 @@ export default async ({ currentSlide, previousSlide }) => {
 						.timeline()
 						.to(voiceResponseStart, {
 							filter: 'drop-shadow(0px 0px 15px #000)',
-							delay: 9.5,
+							delay: 15,
 							repeat: 3,
 							yoyo: true,
 							reversed: true,
 						})
 						.to(voiceResponseStop, {
 							filter: 'drop-shadow(0px 0px 15px #000)',
-							delay: 1.5,
+							delay: 6,
 							repeat: 3,
 							yoyo: true,
 							reversed: true,

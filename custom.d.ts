@@ -123,7 +123,7 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
-		sCat2: {
+		sCats: {
 			duration: number;
 			response: string;
 		};
@@ -131,7 +131,7 @@ declare var data: {
 			duration: number;
 			response: string;
 		};
-		sDog2: {
+		sDogs: {
 			duration: number;
 			response: string;
 		};
@@ -411,11 +411,11 @@ declare var data: {
 				circle: 'inner' | 'middle' | 'outer' | undefined;
 				coords: { x: number; y: number };
 			};
-			cat2?: {
+			cats?: {
 				circle: 'inner' | 'middle' | 'outer' | undefined;
 				coords: { x: number; y: number };
 			};
-			dog2?: {
+			dogs?: {
 				circle: 'inner' | 'middle' | 'outer' | undefined;
 				coords: { x: number; y: number };
 			};
