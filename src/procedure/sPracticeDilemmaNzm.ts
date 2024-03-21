@@ -108,15 +108,15 @@ export default async ({ currentSlide, previousSlide }) => {
 			},
 			tenPencilsRect: {
 				'nam-rural': 4.5,
-				'zm-rural': 4.5,
+				'zm-rural': 6.5,
 			},
 			onePotRect: {
 				'nam-rural': 0.5,
-				'zm-rural': 0.5,
+				'zm-rural': 1.5,
 			},
 			cantDecideRect: {
 				'nam-rural': 2,
-				'zm-rural': 2,
+				'zm-rural': 3,
 			},
 			textCenter: {
 				'nam-rural': 0,
@@ -124,7 +124,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			},
 			tenPencils: {
 				'nam-rural': 2,
-				'zm-rural': 1.5,
+				'zm-rural': 2,
 			},
 			textLeft: {
 				'nam-rural': 0,
@@ -132,11 +132,11 @@ export default async ({ currentSlide, previousSlide }) => {
 			},
 			onePot: {
 				'nam-rural': 0.1,
-				'zm-rural': 0.1,
+				'zm-rural': 1.8,
 			},
 			textRight: {
 				'nam-rural': 1.3,
-				'zm-rural': 1.0,
+				'zm-rural': 1.5,
 			},
 		};
 		play(`./cultures/${data.culture}/audio/s-practice-dilemma.mp3`);

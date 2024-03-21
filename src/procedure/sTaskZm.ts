@@ -19,8 +19,8 @@ export default async ({ currentSlide, previousSlide }) => {
 		chicken: { circle: undefined, coords: { x: 0, y: 0 } },
 		goat: { circle: undefined, coords: { x: 0, y: 0 } },
 		dog: { circle: undefined, coords: { x: 0, y: 0 } },
-		dog2: { circle: undefined, coords: { x: 0, y: 0 } },
-		cat2: { circle: undefined, coords: { x: 0, y: 0 } },
+		dogs: { circle: undefined, coords: { x: 0, y: 0 } },
+		cats: { circle: undefined, coords: { x: 0, y: 0 } },
 		cow: { circle: undefined, coords: { x: 0, y: 0 } },
 		hare: { circle: undefined, coords: { x: 0, y: 0 } },
 		cat: { circle: undefined, coords: { x: 0, y: 0 } },
@@ -63,7 +63,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		.set(8, { x: 1748, y: 774 });
 
 	// fetch prior responses if subject knows an animal
-	const animals = ['chicken', 'goat', 'dog', 'hare', 'cat2', 'cow', 'dog2', 'cat'];
+	const animals = ['chicken', 'goat', 'dog', 'hare', 'cats', 'cow', 'dogs', 'cat'];
 
 	let knownAnimals: string[] = [];
 	let unknownAnimals: string[] = [];

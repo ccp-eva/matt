@@ -78,18 +78,21 @@ export default async ({ currentSlide, previousSlide }) => {
 					'pe-rural': 4,
 					'idj-urban': 4,
 					'nam-rural': 4.5,
+					'zm-rural': 6,
 				},
 				middle: {
 					'de-urban': 2.1,
 					'pe-rural': 3.5,
 					'idj-urban': 3.5,
 					'nam-rural': 5.5,
+					'zm-rural': 8.5,
 				},
 				outer: {
 					'de-urban': 2,
 					'pe-rural': 2.75,
 					'idj-urban': 3,
 					'nam-rural': 5.2,
+					'zm-rural': 11,
 				},
 			};
 			await gsap

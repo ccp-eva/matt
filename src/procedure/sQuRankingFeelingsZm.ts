@@ -114,9 +114,9 @@ export default async ({ currentSlide, previousSlide }) => {
 	gsap
 		.timeline()
 		.to([box1Rect, box1TextElement], { autoAlpha: 1 })
-		.to([box2Rect, box2TextElement], { delay: 1.5, autoAlpha: 1 })
-		.to([box3Rect, box3TextElement], { delay: 1.5, autoAlpha: 1 })
-		.to([box4Rect, box4TextElement], { delay: 1, autoAlpha: 1 });
+		.to([box2Rect, box2TextElement], { delay: 1.3, autoAlpha: 1 })
+		.to([box3Rect, box3TextElement], { delay: 1, autoAlpha: 1 })
+		.to([box4Rect, box4TextElement], { delay: 0.9, autoAlpha: 1 });
 	await playPromise(`./cultures/${data.culture}/audio/${audioPrefix}.mp3`);
 
 	play(`./cultures/${data.culture}/audio/${slidePrefix}.mp3`, headphones.id);

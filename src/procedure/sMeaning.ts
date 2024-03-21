@@ -183,12 +183,14 @@ export default async ({ currentSlide, previousSlide }) => {
 				'pe-rural': 9.5,
 				'idj-urban': 13.5,
 				'nam-rural': 8.5,
+				'zm-rural': 15,
 			},
 			voiceResponseStop: {
 				'de-urban': 1.5,
 				'pe-rural': 1.5,
 				'idj-urban': 2.5,
 				'nam-rural': 2,
+				'zm-rural': 6,
 			},
 		};
 		await gsap

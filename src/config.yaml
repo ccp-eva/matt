@@ -284,7 +284,7 @@ procedure:
   zm-rural:
     - s-introduction
     - s-intro-human-animals
-    - animalOrder: [s-cat, s-dog, s-cat2, s-dog2, s-chicken, s-cow, s-goat, s-hare, s-humanzm]
+    - animalOrder: [s-cat, s-dog, s-cats, s-dogs, s-chicken, s-cow, s-goat, s-hare, s-humanzm]
     - s-mc-intro
     - s-ball-animation
     - s-ball-practice

@@ -233,15 +233,15 @@ export default async ({ currentSlide, previousSlide }) => {
 	let wasHuman = false;
 	let wasCantDecide = false;
 	let wasDog = false;
-	// check actual responses from s1Pe1Do and overwrite default values
-	if (data.procedure.s1Pe1Do) {
-		wasHuman = data.procedure.s1Pe1Do.response
+	// check actual responses from s1Zm1Do and overwrite default values
+	if (data.procedure.s1Zm1Do) {
+		wasHuman = data.procedure.s1Zm1Do.response
 			.toLowerCase()
 			.includes(`-one${leftEntity.slice(0, -3)}`);
-		wasCantDecide = data.procedure.s1Pe1Do.response.toLowerCase().includes('-cantdecide');
-		wasDog = data.procedure.s1Pe1Do.response.toLowerCase().includes(`-one${rightEntity}`);
+		wasCantDecide = data.procedure.s1Zm1Do.response.toLowerCase().includes('-cantdecide');
+		wasDog = data.procedure.s1Zm1Do.response.toLowerCase().includes(`-one${rightEntity}`);
 		// check if order was swapped, if so swap boxes
-		if (data.procedure.s1Pe1Do.swapLeftRight) {
+		if (data.procedure.s1Zm1Do.swapLeftRight) {
 			const left = document.getElementById(`${slidePrefix}-${leftEntityOne}`)! as SvgInHtml;
 			const right = document.getElementById(`${slidePrefix}-${rightEntityOne}`)! as SvgInHtml;
 			moveToCenterAnchor(left, 1450);
@@ -331,14 +331,14 @@ export default async ({ currentSlide, previousSlide }) => {
 				.timeline()
 				.to(voiceResponseStart, {
 					filter: 'drop-shadow(0px 0px 15px #000)',
-					delay: 9.5,
+					delay: 15,
 					repeat: 3,
 					yoyo: true,
 					reversed: true,
 				})
 				.to(voiceResponseStop, {
 					filter: 'drop-shadow(0px 0px 15px #000)',
-					delay: 1.5,
+					delay: 6,
 					repeat: 3,
 					yoyo: true,
 					reversed: true,
@@ -417,14 +417,14 @@ export default async ({ currentSlide, previousSlide }) => {
 						.timeline()
 						.to(voiceResponseStart, {
 							filter: 'drop-shadow(0px 0px 15px #000)',
-							delay: 9.5,
+							delay: 15,
 							repeat: 3,
 							yoyo: true,
 							reversed: true,
 						})
 						.to(voiceResponseStop, {
 							filter: 'drop-shadow(0px 0px 15px #000)',
-							delay: 1.5,
+							delay: 6,
 							repeat: 3,
 							yoyo: true,
 							reversed: true,

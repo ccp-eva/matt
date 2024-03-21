@@ -13,6 +13,7 @@ export const translations = {
 		'idj-urban': '<h1 class="heading">Selamat datang dan senang bertemu kamu disini!</h1>',
 		'pe-rural': '<h1 class="heading">¡Bienvenido y encantado de tenerte con nosotros!</h1>',
 		'nam-rural': '<h1 class="heading">Kaise a !gậi !khais ge satsa nēpa ūhậ sa!</h1>',
+		'zm-rural': '<h1 class="heading">Mwaiseni elyo cabuseko ukumikwata kuno ilelo!</h1>',
 	},
 
 	introAdult: {
@@ -21,6 +22,7 @@ export const translations = {
 		'idj-urban': '<h1 class="heading">Selamat datang dan senang bertemu kamu disini!</h1>',
 		'pe-rural': '<h1 class="heading">¡Bienvenido y encantado de tenerte con nosotros!</h1>',
 		'nam-rural': '<h1 class="heading">Kaise a !gậi !khais ge satsa nēpa ūhậ sa!</h1>',
+		'zm-rural': '<h1 class="heading">Mwaiseni elyo cabuseko ukumikwata kuno ilelo!</h1>',
 	},
 
 	meaning: {
@@ -29,6 +31,8 @@ export const translations = {
 			'<h1 class="heading">Apa artinya bagimu ketika kamu sangat peduli tentang sesuatu?</p>',
 		'pe-rural': '<h1 class="heading">¿Qué significa para ti cuando algo sea muy importante?</p>',
 		'nam-rural': '<h1 class="heading">Tae˗e i satsa ra ≠ậibasenba kaisets ga xu˗i xa //ae o?</p>',
+		'zm-rural':
+			'<h1 class="heading">Cilepilibula inshi kuli imwe ngatwatila, ukusakamana pa cintu?</p>',
 	},
 
 	saving: {
@@ -36,6 +40,7 @@ export const translations = {
 		'idj-urban': '<p class="dilemma__saving">Apakah kamu akan menyelamatkan...</p>',
 		'pe-rural': '<p class="dilemma__saving">¿Salvas...</p>',
 		'nam-rural': '<p class="dilemma__saving">Mậsats ra hui?</p>',
+		'zm-rural': '<p class="dilemma__saving">Nilisa mwala pususha?</p>',
 	},
 
 	tenPencils: {
@@ -43,13 +48,15 @@ export const translations = {
 		'idj-urban': '<p class="dilemma">10 pensil</p>',
 		'pe-rural': '<p class="dilemma">10 bolígrafos</p>',
 		'nam-rural': '<p class="dilemma">10 xoaxurugu</p>',
+		'zm-rural': '<p class="dilemma">10 ama pensulo</p>',
 	},
 
 	cantDecide: {
 		'de-urban': '<p class="dilemma">Ich kann mich nicht entscheiden</p>',
 		'idj-urban': '<p class="dilemma">Tidak bisa memutuskan</p>',
 		'pe-rural': '<p class="dilemma">No me puedo decidir</p>',
-		'nam-rural': '<p class="dilemma">//Hui //oa ta ge a.</p>',
+		'nam-rural': '<p class="dilemma">//Hui //oa ta ge a</p>',
+		'zm-rural': '<p class="dilemma">Tekuti insale</p>',
 	},
 
 	questionMark: {
@@ -57,6 +64,7 @@ export const translations = {
 		'idj-urban': '<p class="dilemma__qm">?</p>',
 		'pe-rural': '<p class="dilemma__qm">?</p>',
 		'nam-rural': '<p class="dilemma__qm">?</p>',
+		'zm-rural': '<p class="dilemma__qm">?</p>',
 	},
 
 	oneBike: {
@@ -67,7 +75,7 @@ export const translations = {
 
 	onePot: {
 		'nam-rural': '<p class="dilemma">1 sus</p>',
-		'zm-rural': '<p class="dilemma"></p>',
+		'zm-rural': '<p class="dilemma">1 impoto</p>',
 	},
 
 	confirm: {
@@ -75,6 +83,7 @@ export const translations = {
 		'idj-urban': '<p class="dilemma__confirm">Apakah kamu ingin memilih itu?</p>',
 		'pe-rural': '<p class="dilemma__confirm">¿Es eso lo que querías elegir?</p>',
 		'nam-rural': '<p class="dilemma__confirm">//Nᾱ˗ets koro kis ≠gao?</p>',
+		'zm-rural': '<p class="dilemma__confirm">Eco mwalafwaya ukusala eichocine?</p>',
 	},
 
 	oneHuman: {
@@ -82,6 +91,7 @@ export const translations = {
 		'idj-urban': '<p class="dilemma">1 manusia</p>',
 		'pe-rural': '<p class="dilemma">1 persona</p>',
 		'nam-rural': '<p class="dilemma">1 khoeb</p>',
+		'zm-rural': '<p class="dilemma">1 umuntu</p>',
 	},
 
 	twoHumans: {
@@ -89,6 +99,7 @@ export const translations = {
 		'idj-urban': '<p class="dilemma">2 manusia</p>',
 		'pe-rural': '<p class="dilemma">2 personas</p>',
 		'nam-rural': '<p class="dilemma">2 khoen</p>',
+		'zm-rural': '<p class="dilemma">2 abantu</p>',
 	},
 
 	tenHumans: {
@@ -96,12 +107,14 @@ export const translations = {
 		'idj-urban': '<p class="dilemma">10 manusia</p>',
 		'pe-rural': '<p class="dilemma">10 personas</p>',
 		'nam-rural': '<p class="dilemma">10 khoen</p>',
+		'zm-rural': '<p class="dilemma">10 abantu</p>',
 	},
 	hundredHumans: {
 		'de-urban': '<p class="dilemma">100 Menschen</p>',
 		'idj-urban': '<p class="dilemma">100 manusia</p>',
 		'pe-rural': '<p class="dilemma">100 personas</p>',
 		'nam-rural': '<p class="dilemma">100 khoen</p>',
+		'zm-rural': '<p class="dilemma">100 abantu</p>',
 	},
 
 	oneCat: {
@@ -159,41 +172,49 @@ export const translations = {
 	oneDog: {
 		'pe-rural': '<p class="dilemma">1 perro</p>',
 		'nam-rural': '<p class="dilemma">1 arib</p>',
+		'zm-rural': '<p class="dilemma">1 imbwa</p>',
 	},
 
 	twoDogs: {
 		'pe-rural': '<p class="dilemma">2 perros</p>',
 		'nam-rural': '<p class="dilemma">2 ariga</p>',
+		'zm-rural': '<p class="dilemma">2 imbwa</p>',
 	},
 
 	tenDogs: {
 		'pe-rural': '<p class="dilemma">10 perros</p>',
 		'nam-rural': '<p class="dilemma">10 arigu</p>',
+		'zm-rural': '<p class="dilemma">10 imbwa</p>',
 	},
 
 	hundredDogs: {
 		'pe-rural': '<p class="dilemma">100 perros</p>',
 		'nam-rural': '<p class="dilemma">100 arin</p>',
+		'zm-rural': '<p class="dilemma">100 imbwa</p>',
 	},
 
 	oneChicken: {
 		'idj-urban': '<p class="dilemma">1 ayam</p>',
 		'pe-rural': '<p class="dilemma">1 gallina</p>',
+		'zm-rural': '<p class="dilemma">1 inkoko</p>',
 	},
 
 	twoChicken: {
 		'idj-urban': '<p class="dilemma">2 ayam</p>',
 		'pe-rural': '<p class="dilemma">2 gallinas</p>',
+		'zm-rural': '<p class="dilemma">2 inkoko</p>',
 	},
 
 	tenChicken: {
 		'idj-urban': '<p class="dilemma">10 ayam</p>',
 		'pe-rural': '<p class="dilemma">10 gallinas</p>',
+		'zm-rural': '<p class="dilemma">10 inkoko</p>',
 	},
 
 	hundredChicken: {
 		'idj-urban': '<p class="dilemma">100 ayam</p>',
 		'pe-rural': '<p class="dilemma">100 gallinas</p>',
+		'zm-rural': '<p class="dilemma">100 inkoko</p>',
 	},
 
 	tenNails: {
@@ -205,7 +226,7 @@ export const translations = {
 
 	tenStones: {
 		'nam-rural': '<p class="dilemma">10 /gui-ti</p>',
-		'zm-rural': '<p class="dilemma"></p>',
+		'zm-rural': '<p class="dilemma">10 amabwe</p>',
 	},
 
 	tenSandpiles: {
@@ -213,14 +234,13 @@ export const translations = {
 	},
 
 	tenSpoons: {
-		'zm-rural': '<p class="dilemma">NA</p>',
+		'zm-rural': '<p class="dilemma">10 ba sipuni </p>',
 	},
 
 	tenSponges: {
 		'de-urban': '<p class="dilemma">10 Schwämme</p>',
 		'idj-urban': '<p class="dilemma">10 spon</p>',
 		'pe-rural': '<p class="dilemma">10 esponjas</p>',
-		'nam-rural': '<p class="dilemma">10 Schwämme</p>',
 	},
 
 	thoughtsAdult: {
@@ -228,6 +248,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Apakah hewan memiliki pikiran?</p>',
 		'pe-rural': '<p class="question">¿Tienen pensamientos los animales?</p>',
 		'nam-rural': '<p class="question">Xamanina ≠ậi/gauga ū i hậ</p>',
+		'zm-rural': '<p class="question">Bushe ifinama fyalikwata amatontonkanyo?</p>',
 	},
 
 	thoughtsChild: {
@@ -235,6 +256,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Apakah hewan dapat berpikir?</p>',
 		'pe-rural': '<p class="question">¿Pueden pensar los animales?</p>',
 		'nam-rural': '<p class="question">Xamanina ≠ậi //kha e?</p>',
+		'zm-rural': '<p class="question">Bushe ifinama filatontonkanya?</p>',
 	},
 
 	thoughtsComp: {
@@ -242,6 +264,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Apakah hewan berpikir seperti manusia?</p>',
 		'pe-rural': '<p class="question">¿Piensan los animales como las personas?</p>',
 		'nam-rural': '<p class="question">Xamanina khoen khami ≠ậi i ra?</p>',
+		'zm-rural': '<p class="question">Bushe ifinama filatontonkanya nga abantu?</p>',
 	},
 
 	feelingsAdult: {
@@ -249,6 +272,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Apakah hewan memiliki perasaan?</p>',
 		'pe-rural': '<p class="question">¿Tienen sentimientos los animales?</p>',
 		'nam-rural': '<p class="question">Xamanina tsậsiga ū i hậ?/</p>',
+		'zm-rural': '<p class="question">Bushe ifinama fyalikwata ukumfwa ubulanda?</p>',
 	},
 
 	feelingsChild: {
@@ -256,6 +280,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Bisakah hewan merasakan?</p>',
 		'pe-rural': '<p class="question">¿Pueden sentir los animales?</p>',
 		'nam-rural': '<p class="question">Xamanina hō!ậ //kha˗e?</p>',
+		'zm-rural': '<p class="question">Bushe ifinama filomfya ubukali?</p>',
 	},
 
 	feelingsComp: {
@@ -263,6 +288,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Apakah hewan merasakan seperti manusia?</p>',
 		'pe-rural': '<p class="question">¿Sienten los animales lo mismo que las personas?</p>',
 		'nam-rural': '<p class="question">Xamanina khoen khami tsậ i ra?</p>',
+		'zm-rural': '<p class="question">Bushe ifinama fyumfwa ifyumfwa abantu?</p>',
 	},
 
 	differenceAdult: {
@@ -270,6 +296,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Apakah manusia berbeda dengan hewan?</p>',
 		'pe-rural': '<p class="question">¿Son diferentes las personas y los animales?</p>',
 		'nam-rural': '<p class="question">Khoena !kharagagu i ra xamanina xu?</p>',
+		'zm-rural': '<p class="question">Bushe abantu bala pusana nefinama?</p>',
 	},
 
 	differenceChild: {
@@ -277,6 +304,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Apakah manusia berbeda dengan hewan?</p>',
 		'pe-rural': '<p class="question">¿Son las personas diferentes de los animales?</p>',
 		'nam-rural': '<p class="question">Khoena !kharagagu i ra xamanina xu?</p>',
+		'zm-rural': '<p class="question">Bushe abantu balipusana kufinama?</p>',
 	},
 
 	intelligence: {
@@ -284,6 +312,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Seberapa pintar mereka?</p>',
 		'pe-rural': '<p class="question">¿Cómo de listos son?</p>',
 		'nam-rural': '<p class="question">Matikosen a gᾱ˗ai?</p>',
+		'zm-rural': '<p class="question">Fyasalapuka shani?</p>',
 	},
 
 	pain: {
@@ -291,6 +320,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Seberapa banyak mereka dapat merasakan sakit?</p>',
 		'pe-rural': '<p class="question">¿Cuánto dolor pueden sentir?</p>',
 		'nam-rural': '<p class="question">Matikosen tsûba hō!ậ //kha?</p>',
+		'zm-rural': '<p class="question">Nimubulingonshi fyumfwilamo ubukali?</p>',
 	},
 
 	feelingsRating: {
@@ -301,6 +331,8 @@ export const translations = {
 		'pe-rural':
 			'<p class="question">¿Hasta qué punto pueden sentirse felices, tristes o asustados?</p>',
 		'nam-rural': '<p class="question">Matikosen ≠khȋb, tamas ka  io !ao tsậsiba a tsậ //kha?</p>',
+		'zm-rural':
+			'<p class="question">Nimubulingonshi fyumfwilamo insansa, ubulanda elyo nomwenso?</p>',
 	},
 
 	similarity: {
@@ -308,6 +340,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Seberapa mirip mereka dengan manusia?</p>',
 		'pe-rural': '<p class="question">¿Qué parecidos son a las personas?</p>',
 		'nam-rural': '<p class="question">Matikosen khoen /kha a /gui?</p>',
+		'zm-rural': '<p class="question">Fyapalana shani nabantu?</p>',
 	},
 
 	notAtAll: {
@@ -315,6 +348,7 @@ export const translations = {
 		'idj-urban': '<p class="question__capion">Tidak sama sekali</p>',
 		'pe-rural': '<p class="question__capion">Para nada</p>',
 		'nam-rural': '<p class="question__capion">/Nȋtsē</p>',
+		'zm-rural': '<p class="question__capion">Nakalya</p>',
 	},
 
 	aLittle: {
@@ -322,6 +356,7 @@ export const translations = {
 		'idj-urban': '<p class="question__capion">Sedikit</p>',
 		'pe-rural': '<p class="question__capion">Un poco</p>',
 		'nam-rural': '<p class="question__capion">≠Kharirose</p>',
+		'zm-rural': '<p class="question__capion">Panono</p>',
 	},
 
 	aMediumAmount: {
@@ -329,6 +364,7 @@ export const translations = {
 		'idj-urban': '<p class="question__capion">Sedang</p>',
 		'pe-rural': '<p class="question__capion">Medianamente</p>',
 		'nam-rural': '<p class="question__capion">//Aegub !nậ /nob</p>',
+		'zm-rural': '<p class="question__capion">Pakatiko</p>',
 	},
 
 	verySmart: {
@@ -336,6 +372,7 @@ export const translations = {
 		'idj-urban': '<p class="question__capion">Sangat pintar</p>',
 		'pe-rural': '<p class="question__capion">Muy inteligente</p>',
 		'nam-rural': '<p class="question__capion">Kaise gᾱ˗ai</p>',
+		'zm-rural': '<p class="question__capion">Fyalicenjelesha</p>',
 	},
 
 	aLot: {
@@ -343,6 +380,7 @@ export const translations = {
 		'idj-urban': '<p class="question__capion">Banyak</p>',
 		'pe-rural': '<p class="question__capion">Mucho</p>',
 		'nam-rural': '<p class="question__capion">Kaise</p>',
+		'zm-rural': '<p class="question__capion">Saana</p>',
 	},
 
 	aLotSimilar: {
@@ -350,6 +388,7 @@ export const translations = {
 		'idj-urban': '<p class="question__capion">Sangat mirip</p>',
 		'pe-rural': '<p class="question__capion">Muy parecido</p>',
 		'nam-rural': '<p class="question__capion">Kaise /guiti i</p>',
+		'zm-rural': '<p class="question__capion">Nafipalana saana</p>',
 	},
 
 	ownershipChild: {
@@ -361,6 +400,8 @@ export const translations = {
 			'<p class="question">¿Tu y tu familia tienen animales<br>o hay animales en tu casa?</p>',
 		'nam-rural':
 			'<p class="question">Sats tsȋ sa /aokhoen tsȋna xamanina<br>ū i hậ, tamas ka io xamanina hậ˗e oms ai?</p>',
+		'zm-rural':
+			'<p class="question">Bushe imwe nolupwa lwenu mwalikwata ifinama<br>nangula paliba ifinama pang’anda mwikala?</p>',
 	},
 
 	ownershipAdult: {
@@ -372,6 +413,8 @@ export const translations = {
 			'<p class="question">¿Tu y tu familia tienen o han tenido animales,<br>o hay o ha habido animales en su casa?</p>',
 		'nam-rural':
 			'<p class="question">Niao xamanin /khats //an hậ,<br>xamaninaū i du ge hậ i tamas ka io //nᾱ //aeb !nậ xamanina ū i du ge hậ i?</p>',
+		'zm-rural':
+			'<p class="question">Napali ino inshita mwikala nefinama,<br>imwe nolupwa mwalikwetepo ifinama nangula mwalitekelepo ifinama pang’anda?</p>',
 	},
 
 	exposureChild: {
@@ -379,6 +422,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Seberapa sering kamu bertemu hewan-hewan ini?</p>',
 		'pe-rural': '<p class="question">¿Con qué frecuencia te encuentra con estos animales?</p>',
 		'nam-rural': '<p class="question">Matiko !nasase du ra /hao u ne xamanina?</p>',
+		'zm-rural': '<p class="question">Bushe mula kumanya-kumanya ifi ifinama?</p>',
 	},
 
 	exposureAdult: {
@@ -390,6 +434,8 @@ export const translations = {
 			'<p class="question">¿Con qué frecuencia te encuentras<br>o te has encontrado con estos animales?</p>',
 		'nam-rural':
 			'<p class="question">Matiko !nasase du ra /hao tamas ka<br>io ra /hao u ne xamanina sa tses hoas di ûib !nậ?</p>',
+		'zm-rural':
+			'<p class="question">Bushe mula kumanya-kumanya nangula mwali kumanyapo<br>ifi ifinama elyo mwikala cilabushiku?</p>',
 	},
 
 	never: {
@@ -397,6 +443,7 @@ export const translations = {
 		'idj-urban': '<p class="question__capion">Tidak pernah</p>',
 		'pe-rural': '<p class="question__capion">Nunca</p>',
 		'nam-rural': '<p class="question__capion">/Nȋtsē</p>',
+		'zm-rural': '<p class="question__capion">Nakalya</p>',
 	},
 
 	sometimes: {
@@ -404,6 +451,7 @@ export const translations = {
 		'idj-urban': '<p class="question__capion">Kadang-Kadang</p>',
 		'pe-rural': '<p class="question__capion">A veces</p>',
 		'nam-rural': '<p class="question__capion">//ae˗i !nậ</p>',
+		'zm-rural': '<p class="question__capion">Limo-limo</p>',
 	},
 
 	often: {
@@ -411,6 +459,7 @@ export const translations = {
 		'idj-urban': '<p class="question__capion">Sering</p>',
 		'pe-rural': '<p class="question__capion">A menudo</p>',
 		'nam-rural': '<p class="question__capion">!Nasase</p>',
+		'zm-rural': '<p class="question__capion">Mubwingi bwanshita</p>',
 	},
 
 	almostEveryDay: {
@@ -418,6 +467,7 @@ export const translations = {
 		'idj-urban': '<p class="question__capion">Hampir setiap hari</p>',
 		'pe-rural': '<p class="question__capion">Casi todos los días</p>',
 		'nam-rural': '<p class="question__capion">Ambar tsēs hoasa</p>',
+		'zm-rural': '<p class="question__capion">Kutitwalanda ukuti lyonse-lyonse</p>',
 	},
 
 	meatFish: {
@@ -428,7 +478,7 @@ export const translations = {
 
 	meatFishNzm: {
 		'nam-rural': '<p class="question">//Gan˗e ≠û itsa tamas kai o //au˗e?</p>',
-		'zm-rural': '<p class="question">NA</p>',
+		'zm-rural': '<p class="question">Mulalya isabi nangula inama?</p>',
 	},
 
 	eggCheeseMilk: {
@@ -436,6 +486,7 @@ export const translations = {
 		'idj-urban': '<p class="question">Apakah kamu makan telur atau keju, atau minum susu?</p>',
 		'pe-rural': '<p class="question">¿Comes huevos, queso o bebes leche?</p>',
 		'nam-rural': '<p class="question">!Upu˗i, kᾱs˗e ≠û itsa of dai˗e ᾱ itsa?</p>',
+		'zm-rural': '<p class="question">Bushe mulalya amani, cheese, nangula ukunwa meleki?</p>',
 	},
 
 	eggMilk: {
@@ -448,5 +499,6 @@ export const translations = {
 		'idj-urban': '<h1 class="heading">Terima kasih banyak!</h1>',
 		'pe-rural': '<h1 class="heading">¡Muchas gracias!</h1>',
 		'nam-rural': '<h1 class="heading">Kai gangans!</h1>',
+		'zm-rural': '<h1 class="heading">Natotela saana!</h1>',
 	},
 };
