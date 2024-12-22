@@ -19,7 +19,8 @@ export const removeDisplayNone = () => {
  */
 export const getChildrenFromParent = (parentId = 'svg') => {
 	const parent = document.getElementById(parentId) as SvgInHtml;
-	const childrenArray = [...parent.children];
+	// remove the defs element from the array, since this is not defined within Illustrator
+	const childrenArray = [...parent.children].filter((element) => !(element.tagName === 'defs'));
 	let childIds = childrenArray.map((e) => e.id);
 	if (childIds.filter((e) => e === '').length > 0) {
 		console.warn(
