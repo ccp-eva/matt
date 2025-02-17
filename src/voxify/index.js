@@ -1,7 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { JSDOM } from 'jsdom';
 import { promises as fs } from 'fs';
+import { parse, stringify } from 'svgson';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,39 +10,44 @@ const __dirname = path.dirname(__filename);
 const svgPath = path.resolve(__dirname, '../assets/experiment.svg');
 
 // load svg file
-const svg = await fs.readFile(svgPath, 'utf8');
+const svgPlainText = await fs.readFile(svgPath, 'utf8');
 
-let voxSvg = svg
+let voxSvg = svgPlainText
 	.replace(/png/g, 'svg') // replace png with svg
-	.replace(/xlink:href="/g, 'xlink:href="assets/') // prepend path
+	.replace(/xlink:href="(?=.*\.svg")/g, 'xlink:href="assets/') // prepend path to svg files
+	.replace(/<use/g, '<image') // replace <use with <image
 	.replace('<svg', '<svg voxified="true"'); // add postprocess flag
 
-// const dom = new JSDOM(voxSvg, { contentType: 'text/xml' }).window.document.getElementById(
-// 	'svg'
-// ).outerHTML;
+const svgDom = await parse(voxSvg);
 
-// let doc = new JSDOM(voxSvg, { contentType: 'text/xml' }).window.document;
+// delete first child
+// svgDom.children.shift();
 
-// // get all rect nodes that start with id "text-"
-// const rectNodes = Array.from(doc.querySelectorAll('[id^="text-"]'));
-// rectNodes.forEach((rect) => {
-// 	const fo = doc.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
-// 	// copy all attributes from rect to new foreignObject
-// 	[...rect.attributes].map(({ name, value }) => fo.setAttribute(name, value));
+// get child element with tag def
+const defs = svgDom.children.find((child) => child.name === 'defs');
 
-// 	// remove attributes that are not needed for foreignObject
-// 	fo.removeAttribute('fill');
-// 	fo.removeAttribute('opacity');
-// 	fo.removeAttribute('stroke');
-// 	fo.removeAttribute('stroke-width');
-// 	fo.removeAttribute('stroke-miterlimit');
+// get all image elements
+const images = defs.children.filter((child) => child.name === 'image');
 
-// 	// replace rect with foreignObject
-// 	rect.replaceWith(fo);
-// });
+// Create a lookup mapping of image id to url
+// { image: 'assets/sheep.svg', image1: 'assets/human.svg', ... }
+const imageIdUrlMapping = images.reduce((acc, curr) => {
+	const id = curr.attributes.id;
+	const url = curr.attributes['xlink:href'];
+	acc[id] = url;
+	return acc;
+}, {});
 
-// doc = doc.getElementById('svg').outerHTML;
+// console.log(imageIdUrlMapping);
 
+// replace all instances of the voxSVG #image number with the actual url
+voxSvg = voxSvg.replace(/#image\d*/g, (match) => {
+	const id = match.slice(1);
+	console.log(id, '=>', imageIdUrlMapping[id]);
+	return imageIdUrlMapping[id];
+});
+
+// fs.writeFile(path.resolve(__dirname, '../assets/experiment-voxified.svg'), stringify(svgDom));
 fs.writeFile(path.resolve(__dirname, '../assets/experiment-voxified.svg'), voxSvg);
 
 console.log('------------------------------------------------------------');

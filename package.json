@@ -10,8 +10,7 @@
 		"start": "webpack serve",
 		"clean": "rimraf dist",
 		"build": "npm run clean && NODE_ENV=production webpack",
-		"deploy": "npm run build && rsync -avu --chmod=a+rwx,o-w,ug+s,+t,u-s,-t dist/ ccp-odcJ:/srv/ccp-odc/matt/",
-		"depoly": "npm run deploy"
+		"deploy": "npm run build && rsync -avu --chmod=a+rwx,o-w,ug+s,+t,u-s,-t dist/ ccp-odcJ:/srv/ccp-odc/matt/"
 	},
 	"repository": {
 		"type": "git",
@@ -63,6 +62,7 @@
 		"gsap": "^3.11.5",
 		"lodash": "^4.17.21",
 		"recordrtc": "^5.6.2",
+		"svgson": "^5.3.1",
 		"toastify-js": "^1.12.0"
 	}
 }
