@@ -8,22 +8,24 @@ export const widowedKeyChecker = () => {
 		'foreignObject[id^="text-"]'
 	) as NodeListOf<SVGForeignObjectElement>;
 
-	// remove prefix
-	let foreignObjectKeys = [...foreignObjectNodeList].map((e) => e.id.replace('text-', ''));
-
-	// remove Illustrator hash
-	foreignObjectKeys = foreignObjectKeys.map((key) => {
-		// illustrator generates a hash for duplicated ids surrounded with an underscore (my-id_0001_)
-		const hashStartIndex = key.indexOf('_');
-		const stringLength = key.length - 1;
-		const isHash = key[stringLength] === '_';
-		if (isHash) {
-			return key.slice(0, hashStartIndex);
-		}
-		return key;
+	// remove text- prefix and Illustrator hash
+	// In newer versions, Illustrotor adds an incremental counter for duplicated ids (myId, myId1, myId2, ...)
+	// this we will replace everything after the variable name
+	let foreignObjectKeys = [...foreignObjectNodeList].map((e) => {
+		return (
+			e.id
+				// replace 'text-' with ''
+				.replace('text-', '')
+				// remove all digits
+				.replace(/\d/g, '')
+		);
 	});
 
+	// make them unique
+	foreignObjectKeys = _.uniq(foreignObjectKeys);
+
 	const translationKeys = Object.keys(translations);
+	console.log({ translationKeys, foreignObjectKeys });
 
 	const widowedTranslationKeys = _.difference(translationKeys, foreignObjectKeys);
 	const widowedForeignObjectKeys = _.difference(foreignObjectKeys, translationKeys);
