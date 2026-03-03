@@ -22,22 +22,14 @@ export default async ({ currentSlide, previousSlide }) => {
 	const boatLeft = document.getElementById('link-spdnzm-boat-tenPencils')! as SvgInHtml;
 	const tenPencils = document.getElementById('link-spdnzm-tenPencils')! as SvgInHtml;
 	const buttonLeft = document.getElementById('b-spdnzm-tenPencils')! as SvgInHtml;
-	const textLeft = document.getElementById(
-		'text-tenPencils_00000041261112618563176640000000132598553708179611_'
-	)! as SvgInHtml;
+	const textLeft = document.getElementById('text-tenPencils1')! as SvgInHtml;
 	const boatRight = document.getElementById('link-spdnzm-boat-onePot')! as SvgInHtml;
 	const onePot = document.getElementById('link-spdnzm-onePot')! as SvgInHtml;
 	const buttonRight = document.getElementById('b-spdnzm-onePot')! as SvgInHtml;
-	const textRight = document.getElementById(
-		'text-onePot_00000042015332966990488700000005401106424215378308_'
-	)! as SvgInHtml;
-	const qm = document.getElementById(
-		'text-questionMark_00000005266711333439028310000007837424185256342181_'
-	)! as SvgInHtml;
+	const textRight = document.getElementById('text-onePot')! as SvgInHtml;
+	const qm = document.getElementById('text-questionMark106')! as SvgInHtml;
 	const buttonCenter = document.getElementById('b-spdnzm-cantDecide')! as SvgInHtml;
-	const textCenter = document.getElementById(
-		'text-cantDecide_00000030482603120029967880000009373768330268536465_'
-	)! as SvgInHtml;
+	const textCenter = document.getElementById('text-cantDecide106')! as SvgInHtml;
 
 	const pencilYesButton = document.getElementById('link-b-spdnzm-tenPencils-yes')! as SvgInHtml;
 	const pencilNoButton = document.getElementById('link-b-spdnzm-tenPencils-no')! as SvgInHtml;
@@ -46,15 +38,9 @@ export default async ({ currentSlide, previousSlide }) => {
 	const onePotYesButton = document.getElementById('link-b-spdnzm-onePot-yes')! as SvgInHtml;
 	const onePotNoButton = document.getElementById('link-b-spdnzm-onePot-no')! as SvgInHtml;
 
-	const confirm1 = document.getElementById(
-		'text-confirm_00000019652870556898836550000010752636904055995838_'
-	);
-	const confirm2 = document.getElementById(
-		'text-confirm_00000123400920002008550350000010746608116806919089_'
-	);
-	const confirm3 = document.getElementById(
-		'text-confirm_00000145045341419562445250000006948009176123042441_'
-	);
+	const confirm1 = document.getElementById('text-confirm3');
+	const confirm2 = document.getElementById('text-confirm4');
+	const confirm3 = document.getElementById('text-confirm5');
 
 	while (!data.procedure.sPracticeDilemmaNzm.completed) {
 		// hide card contents
@@ -83,7 +69,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			],
 			{
 				autoAlpha: 0,
-			}
+			},
 		);
 
 		[
