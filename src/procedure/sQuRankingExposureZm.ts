@@ -15,16 +15,12 @@ export default async ({ currentSlide, previousSlide }) => {
 	const slidePrefix = 'sqre';
 	const entity1 = 'zm-chicken';
 	const entity2 = 'zm-dog';
-	const box1TextId = 'never_00000119101130377655943860000016284561614946261438_';
-	const box2TextId = 'sometimes_00000036930814156305967250000005103301814805573544_';
-	const box3TextId = 'often_00000147921708041462380420000015935994029831196326_';
-	const box4TextId = 'almostEveryDay_00000041259152058179202850000015756751996884161724_';
-	const childQuestion = document.getElementById(
-		'text-exposureChild_00000079460240127306463740000012482895684685412763_'
-	) as SvgInHtml;
-	const adultQuestion = document.getElementById(
-		'text-exposureAdult_00000152255185838729822640000000275373676865017984_'
-	) as SvgInHtml;
+	const box1TextId = 'never3';
+	const box2TextId = 'sometimes3';
+	const box3TextId = 'often3';
+	const box4TextId = 'almostEveryDay3';
+	const childQuestion = document.getElementById('text-exposureChild3') as SvgInHtml;
+	const adultQuestion = document.getElementById('text-exposureAdult3') as SvgInHtml;
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById(`link-${slidePrefix}-zm-headphones`) as SvgInHtml;
 	const box1TextElement = document.getElementById(`text-${box1TextId}`)!
@@ -56,7 +52,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const order = _.shuffle([entity1, entity2]);
 
 	const orderElements = order.map(
-		(animal) => document.getElementById(`link-${slidePrefix}-${animal}`) as SvgInHtml
+		(animal) => document.getElementById(`link-${slidePrefix}-${animal}`) as SvgInHtml,
 	);
 
 	data.procedure[data.currentSlide] = {
@@ -96,7 +92,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		],
 		{
 			autoAlpha: 0,
-		}
+		},
 	);
 	gsap.set(orderElements, { transformOrigin: '50% 50%' });
 	gsap.set([orderElements, headphones], { autoAlpha: 0.5 });

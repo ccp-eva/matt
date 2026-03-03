@@ -16,10 +16,10 @@ export default async ({ currentSlide, previousSlide }) => {
 	const slidePrefix = 'sqrs';
 	const entity1 = 'idj-chicken';
 	const entity2 = 'idj-cat';
-	const box1TextId = 'notAtAll_00000181077235414643669070000007534180645725931444_';
-	const box2TextId = 'aLittle_00000140703112196460740660000017012435304514240394_';
-	const box3TextId = 'aMediumAmount_00000062173616712733668220000006037470562555163269_';
-	const box4TextId = 'aLotSimilar_00000037679055330304298250000013189285339730141346_';
+	const box1TextId = 'notAtAll1';
+	const box2TextId = 'aLittle1';
+	const box3TextId = 'aMediumAmount1';
+	const box4TextId = 'aLotSimilar1';
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById(`link-${slidePrefix}-idj-headphones`) as SvgInHtml;
 	const box1TextElement = document.getElementById(`text-${box1TextId}`)!
@@ -51,7 +51,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const order = _.shuffle([entity1, entity2]);
 
 	const orderElements = order.map(
-		(animal) => document.getElementById(`link-${slidePrefix}-${animal}`) as SvgInHtml
+		(animal) => document.getElementById(`link-${slidePrefix}-${animal}`) as SvgInHtml,
 	);
 
 	data.procedure[data.currentSlide] = {
@@ -91,7 +91,7 @@ export default async ({ currentSlide, previousSlide }) => {
 		],
 		{
 			autoAlpha: 0,
-		}
+		},
 	);
 	gsap.set(orderElements, { transformOrigin: '50% 50%' });
 	gsap.set([orderElements, headphones], { autoAlpha: 0.5 });

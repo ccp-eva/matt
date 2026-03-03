@@ -39,11 +39,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const audio = document.getElementById('audio') as HTMLMediaElement;
 	const headphones = document.getElementById('link-stnam-headphones') as SvgInHtml;
 	const circle = document.getElementById('stnam-circle')! as SvgInHtml;
-	var circles_id = [
-		'st-inner_00000111193153495179483650000012882157666067060627_',
-		'st-middle_00000116943692329885647660000013516267308605867198_',
-		'st-outer_00000165230124352602184370000000652073352036233093_',
-	];
+	var circles_id = ['st-inner4', 'st-middle4', 'st-outer4'];
 	const inner = document.getElementById(circles_id[0])! as SvgInHtml;
 	const middle = document.getElementById(circles_id[1])! as SvgInHtml;
 	const outer = document.getElementById(circles_id[2])! as SvgInHtml;
@@ -101,10 +97,10 @@ export default async ({ currentSlide, previousSlide }) => {
 
 	// use the ordered version
 	const knownAnimalElements = knownAnimalOrder.map(
-		(animal) => document.getElementById(`link-stnam-${animal}`)! as SvgInHtml
+		(animal) => document.getElementById(`link-stnam-${animal}`)! as SvgInHtml,
 	);
 	const unknownAnimalElements = unknownAnimals.map(
-		(animal) => document.getElementById(`link-stnam-${animal}`)! as SvgInHtml
+		(animal) => document.getElementById(`link-stnam-${animal}`)! as SvgInHtml,
 	);
 
 	// hide unknownAnimalElements, show knownAnimalElements
@@ -117,10 +113,13 @@ export default async ({ currentSlide, previousSlide }) => {
 		moveToCenterAnchor(animal, slotPositions.get(i).x, slotPositions.get(i).y);
 	});
 
-	const animalOrderIndexLookup = knownAnimalOrder.reduce((acc, cv, i) => {
-		acc[cv] = i;
-		return acc;
-	}, {} as { [key: string]: number });
+	const animalOrderIndexLookup = knownAnimalOrder.reduce(
+		(acc, cv, i) => {
+			acc[cv] = i;
+			return acc;
+		},
+		{} as { [key: string]: number },
+	);
 
 	let isPlaying = true;
 	pinda.addEventListener('play', () => {
@@ -140,7 +139,7 @@ export default async ({ currentSlide, previousSlide }) => {
 	const parentBlock = document.getElementById('s-blocking-state') as SvgInHtml;
 	parentBlock.removeAttribute('visibility');
 	const preloadVideo = await fetch(
-		`./cultures/${data.culture}/video/s-task.${data.meta.videoExtension}`
+		`./cultures/${data.culture}/video/s-task.${data.meta.videoExtension}`,
 	);
 	const blob = await preloadVideo.blob();
 	const url = URL.createObjectURL(blob);
@@ -181,7 +180,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			let updatedObjY = targetBBox.y + targetHeight + this.y;
 
 			const circleDistance = Math.sqrt(
-				Math.pow(updatedObjX - innerCx, 2) + Math.pow(updatedObjY - innerCy, 2)
+				Math.pow(updatedObjX - innerCx, 2) + Math.pow(updatedObjY - innerCy, 2),
 			);
 
 			// Check if the distance between the centers is less than or equal to the sum of the radii
@@ -229,7 +228,7 @@ export default async ({ currentSlide, previousSlide }) => {
 			let updatedObjY = targetBBox.y + targetHeight + this.y;
 
 			const circleDistance = Math.sqrt(
-				Math.pow(updatedObjX - innerCx, 2) + Math.pow(updatedObjY - innerCy, 2)
+				Math.pow(updatedObjX - innerCx, 2) + Math.pow(updatedObjY - innerCy, 2),
 			);
 
 			// Check if the distance between the centers is less than or equal to the sum of the radii
